@@ -10,8 +10,8 @@
 <body>
 
     <div id="app">
-        <example></example>
-        <home></home>
+        <example-component></example-component>
+        <!-- <home></home> -->
         <!-- <div id="nav">
           <router-link to="/">Home</router-link>
         </div>

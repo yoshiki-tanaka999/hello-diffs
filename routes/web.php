@@ -31,3 +31,6 @@ Route::post('/claim', 'ClaimController@store');
 
 //投稿確認ページ
 // Route::get('/discuss/{post}', 'ClaimController@detail')->name('claims.detail');
+
+// API連携テスト
+Route::get('/testapi', 'TestApiController@index');
