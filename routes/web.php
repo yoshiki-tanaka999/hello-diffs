@@ -5,12 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 
 // テスト
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // ★トップページ★
-// Route::resource('/', 'LayoutController');
+Route::resource('/', 'LayoutController');
 
 // トップページ＠Post投稿 
 Route::post('/post', 'PostController@store');
