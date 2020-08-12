@@ -34,3 +34,6 @@ Route::post('/claim', 'ClaimController@store');
 
 // API連携テスト
 Route::get('/testapi', 'TestApiController@index');
+
+// 画像アップロードテスト
+Route::get('/image', 'ImageController@index');
