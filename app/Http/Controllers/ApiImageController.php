@@ -12,7 +12,11 @@ class ApiImageController extends Controller
 
     public function index()
     {
-        return Post::all();
+        // 変更前
+        // return Post::all();
+        
+        // 変更後
+        return Post::orderBy('created_at', 'desc')->get();
     }
 
     public function store(Request $request)

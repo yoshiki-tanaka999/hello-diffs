@@ -21,165 +21,71 @@
             </p>
 
             <!-- カードユニット開始 -->
-        <v-container v-for="post in posts" :key="post.id">
-        <v-row>
-            <v-col cols="4">
-                <!-- カード単体 -->
-                <v-card
-                    class="mx-auto"
-                    max-width="344"
+        <v-container>
+            <v-row >
+                <v-col 
+                    cols="4" 
+                    class="d-flex align-center"
+                    v-for="post in posts" :key="post.id"
                 >
-                    <v-img
-                    :src="`${post.img_url}`"
-                    height="200px"
-                    ></v-img>
-
-                    <v-card-title>
-                        {{ post.title }}
-                    </v-card-title>
-
-                    <v-card-subtitle>
-                    1,000 miles of wonder
-                    </v-card-subtitle>
-
-                    <v-card-actions>
-                    <v-btn text>Share</v-btn>
-
-                    <v-btn
-                        color="purple"
-                        text
+                    <!-- カード単体 -->
+                    <v-card
+                        class="mx-auto"
+                        width="344"
                     >
-                        Explore
-                    </v-btn>
+                        <v-img
+                        :src="`${post.img_url}`"
+                        height="200px"
+                        ></v-img>
 
-                    <v-spacer></v-spacer>
+                        <v-card-title>
+                            {{ post.title }}
+                        </v-card-title>
 
-                    <v-btn
-                        icon
-                        @click="show = !show"
-                    >
-                        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                    </v-btn>
-                    </v-card-actions>
+                        <v-card-subtitle>
+                        1,000 miles of wonder
+                        </v-card-subtitle>
 
-                    <v-expand-transition>
-                    <div v-show="show">
-                        <v-divider></v-divider>
+                        <v-card-actions>
+                        <v-btn text>Share</v-btn>
 
-                        <v-card-text>
-                            {{ post.description }}
-                        </v-card-text>
-                    </div>
-                    </v-expand-transition>
-                </v-card>
-                <!-- カード単体終了 -->
+                        <v-btn
+                            color="purple"
+                            text
+                        >
+                            Explore
+                        </v-btn>
 
-            </v-col>
-            <v-col cols="4">
-<!-- カード単体 -->
-                <v-card
-                    class="mx-auto"
-                    max-width="344"
-                >
-                    <v-img
-                    :src="`${post.img_url}`"
-                    height="200px"
-                    ></v-img>
+                        <v-spacer></v-spacer>
 
-                    <v-card-title>
-                        {{ post.title }}
-                    </v-card-title>
+                        <v-btn
+                            icon
+                            @click="show = !show"
+                        >
+                            <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                        </v-btn>
+                        </v-card-actions>
 
-                    <v-card-subtitle>
-                    1,000 miles of wonder
-                    </v-card-subtitle>
+                        <v-expand-transition>
+                        <div v-show="show">
+                            <v-divider></v-divider>
 
-                    <v-card-actions>
-                    <v-btn text>Share</v-btn>
+                            <v-card-text>
+                                {{ post.description }}
+                            </v-card-text>
+                        </div>
+                        </v-expand-transition>
+                    </v-card>
+                    <!-- カード単体終了 -->
+                </v-col>
 
-                    <v-btn
-                        color="purple"
-                        text
-                    >
-                        Explore
-                    </v-btn>
+                <v-col cols="4">
+                </v-col>
+                
+                <v-col cols="4">
+                </v-col>
 
-                    <v-spacer></v-spacer>
-
-                    <v-btn
-                        icon
-                        @click="show = !show"
-                    >
-                        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                    </v-btn>
-                    </v-card-actions>
-
-                    <v-expand-transition>
-                    <div v-show="show">
-                        <v-divider></v-divider>
-
-                        <v-card-text>
-                            {{ post.description }}
-                        </v-card-text>
-                    </div>
-                    </v-expand-transition>
-                </v-card>
-                <!-- カード単体終了 -->
-
-            </v-col>
-            <v-col cols="4">
-<!-- カード単体 -->
-                <v-card
-                    class="mx-auto"
-                    max-width="344"
-                >
-                    <v-img
-                    :src="`${post.img_url}`"
-                    height="200px"
-                    ></v-img>
-
-                    <v-card-title>
-                        {{ post.title }}
-                    </v-card-title>
-
-                    <v-card-subtitle>
-                    1,000 miles of wonder
-                    </v-card-subtitle>
-
-                    <v-card-actions>
-                    <v-btn text>Share</v-btn>
-
-                    <v-btn
-                        color="purple"
-                        text
-                    >
-                        Explore
-                    </v-btn>
-
-                    <v-spacer></v-spacer>
-
-                    <v-btn
-                        icon
-                        @click="show = !show"
-                    >
-                        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-                    </v-btn>
-                    </v-card-actions>
-
-                    <v-expand-transition>
-                    <div v-show="show">
-                        <v-divider></v-divider>
-
-                        <v-card-text>
-                            {{ post.description }}
-                        </v-card-text>
-                    </div>
-                    </v-expand-transition>
-                </v-card>
-                <!-- カード単体終了 -->
-
-            </v-col>
-        </v-row>
+            </v-row>
         </v-container>
 
 
@@ -216,12 +122,12 @@ export default {
     created: function() {
         this.getImage();
     },
-    // computed: {
-    // //投稿されたPostを降順にする 
-    // reversePosts() {
-    // return this.posts.slice().reverse();
-    // }
-    // },
+    computed: {
+        //投稿されたPostを降順にする 
+        reversePosts() {
+        return this.posts.slice().reverse();
+        }
+    },
     methods: {
         getImage() {
             axios

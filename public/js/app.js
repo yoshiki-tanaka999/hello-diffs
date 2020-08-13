@@ -2071,100 +2071,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2188,12 +2094,12 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getImage();
   },
-  // computed: {
-  // //投稿されたPostを降順にする 
-  // reversePosts() {
-  // return this.posts.slice().reverse();
-  // }
-  // },
+  computed: {
+    //投稿されたPostを降順にする 
+    reversePosts: function reversePosts() {
+      return this.posts.slice().reverse();
+    }
+  },
   methods: {
     getImage: function getImage() {
       var _this = this;
@@ -38821,242 +38727,24 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._l(_vm.posts, function(post) {
-            return _c(
-              "v-container",
-              { key: post.id },
-              [
-                _c(
-                  "v-row",
-                  [
-                    _c(
+          _c(
+            "v-container",
+            [
+              _c(
+                "v-row",
+                [
+                  _vm._l(_vm.posts, function(post) {
+                    return _c(
                       "v-col",
-                      { attrs: { cols: "4" } },
+                      {
+                        key: post.id,
+                        staticClass: "d-flex align-center",
+                        attrs: { cols: "4" }
+                      },
                       [
                         _c(
                           "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "344" }
-                          },
-                          [
-                            _c("v-img", {
-                              attrs: { src: "" + post.img_url, height: "200px" }
-                            }),
-                            _vm._v(" "),
-                            _c("v-card-title", [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(post.title) +
-                                  "\n                    "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("v-card-subtitle", [
-                              _vm._v(
-                                "\n                    1,000 miles of wonder\n                    "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-btn", { attrs: { text: "" } }, [
-                                  _vm._v("Share")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  { attrs: { color: "purple", text: "" } },
-                                  [
-                                    _vm._v(
-                                      "\n                        Explore\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { icon: "" },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.show = !_vm.show
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("v-icon", [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.show
-                                            ? "mdi-chevron-up"
-                                            : "mdi-chevron-down"
-                                        )
-                                      )
-                                    ])
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("v-expand-transition", [
-                              _c(
-                                "div",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.show,
-                                      expression: "show"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _c("v-divider"),
-                                  _vm._v(" "),
-                                  _c("v-card-text", [
-                                    _vm._v(
-                                      "\n                            " +
-                                        _vm._s(post.description) +
-                                        "\n                        "
-                                    )
-                                  ])
-                                ],
-                                1
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "4" } },
-                      [
-                        _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "344" }
-                          },
-                          [
-                            _c("v-img", {
-                              attrs: { src: "" + post.img_url, height: "200px" }
-                            }),
-                            _vm._v(" "),
-                            _c("v-card-title", [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(post.title) +
-                                  "\n                    "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("v-card-subtitle", [
-                              _vm._v(
-                                "\n                    1,000 miles of wonder\n                    "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-btn", { attrs: { text: "" } }, [
-                                  _vm._v("Share")
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  { attrs: { color: "purple", text: "" } },
-                                  [
-                                    _vm._v(
-                                      "\n                        Explore\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { icon: "" },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.show = !_vm.show
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _c("v-icon", [
-                                      _vm._v(
-                                        _vm._s(
-                                          _vm.show
-                                            ? "mdi-chevron-up"
-                                            : "mdi-chevron-down"
-                                        )
-                                      )
-                                    ])
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c("v-expand-transition", [
-                              _c(
-                                "div",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.show,
-                                      expression: "show"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _c("v-divider"),
-                                  _vm._v(" "),
-                                  _c("v-card-text", [
-                                    _vm._v(
-                                      "\n                            " +
-                                        _vm._s(post.description) +
-                                        "\n                        "
-                                    )
-                                  ])
-                                ],
-                                1
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-col",
-                      { attrs: { cols: "4" } },
-                      [
-                        _c(
-                          "v-card",
-                          {
-                            staticClass: "mx-auto",
-                            attrs: { "max-width": "344" }
-                          },
+                          { staticClass: "mx-auto", attrs: { width: "344" } },
                           [
                             _c("v-img", {
                               attrs: { src: "" + post.img_url, height: "200px" }
@@ -39155,15 +38843,19 @@ var render = function() {
                       ],
                       1
                     )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          })
+                  }),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "4" } }),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { cols: "4" } })
+                ],
+                2
+              )
+            ],
+            1
+          )
         ],
-        2
+        1
       )
     ],
     1
