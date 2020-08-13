@@ -24,8 +24,11 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue-Router
 import router from './router'
 
+// トップページのお花畑
+Vue.component('main-component', require('./components/MainComponent.vue').default);
 
-
+// トップページのお花畑
+Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 

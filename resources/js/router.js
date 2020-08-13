@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-import Example from './components/Example'
 // Views/Homeのテスト
 import Home from './views/Home'
 

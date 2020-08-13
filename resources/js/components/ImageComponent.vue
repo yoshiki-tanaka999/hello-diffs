@@ -1,24 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar>
-            <v-toolbar-title>Vuetify</v-toolbar-title>
-        </v-app-bar>
-
         <v-main>
-            <p>タイトル：<input type="text" v-model="title" /></p>
-            <p>説明：<input type="text" v-model="description" /></p>
-            <p><input type="file" @change="confirmImage" v-if="view" /></p>
-    
-            <!-- 確認用画像 -->
-            <p v-if="confirmedImage">
-                <img class="img" :src="confirmedImage" />
-            </p>
-    
-            <p>{{ message }}</p>
-    
-            <p>
-                <button @click="uploadImage">アップロード</button>
-            </p>
 
             <!-- カードユニット開始 -->
         <v-container>
@@ -48,15 +30,18 @@
 
                         <v-card-actions>
                         
+                        <!-- Likeボタン -->
+                        <v-btn>
+                            <v-icon medium>{{ svgPath_2 }}</v-icon>
+                        </v-btn>
+
                         <!-- シェアボタン -->
                         <v-btn>                        
                             <v-icon>{{ svgPath }}</v-icon>
                         </v-btn>
                         
-                        <v-btn>
-                        <!-- シェアボタン -->
-                            <v-icon medium>{{ svgPath_2 }}</v-icon>
-                        </v-btn>
+
+
 
                         <v-spacer></v-spacer>
 
@@ -181,8 +166,3 @@ export default {
 };
 </script>
  
-<style>
-.img {
-    width: 100px;
-}
-</style>

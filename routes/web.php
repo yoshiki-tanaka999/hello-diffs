@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Route;
 // ★トップページ★
 Route::resource('/', 'LayoutController');
 
+// ★トップページテスト★
+Route::get('/index', 'ExploreController@index');
+
+
+
 // トップページ＠Post投稿 
 Route::post('/post', 'PostController@store');
 

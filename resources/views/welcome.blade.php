@@ -10,14 +10,8 @@
 <body>
 
     <div id="app">
-        <!-- <example-component></example-component> -->
+        <example-component></example-component>
         <image-component></image-component>
-        <!-- <home></home> -->
-        <!-- <div id="nav">
-          <router-link to="/">Home</router-link>
-        </div>
-        <router-view/>
-        </div> -->
     </div>
 
 <script src="{{ mix('js/app.js') }}"></script> 
