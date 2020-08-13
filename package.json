@@ -10,11 +10,13 @@
     "watch-poll": "npm run watch -- --watch-poll"
   },
   "dependencies": {
+    "@mdi/js": "^5.5.55",
     "vue": "^2.6.11",
     "vue-router": "^3.4.2",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
+    "@mdi/font": "^5.5.55",
     "axios": "^0.19",
     "bootstrap": "^4.0.0",
     "cross-env": "^7.0",

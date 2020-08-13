@@ -1,5 +1,8 @@
 require('./bootstrap');
 
+// アイコン
+import '@mdi/font/css/materialdesignicons.css'
+
 // Vue
 import Vue from 'vue'
 // window.Vue = require('vue');
@@ -22,6 +25,8 @@ import 'vuetify/dist/vuetify.min.css'
 import router from './router'
 
 
+
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 // API連携用
@@ -33,5 +38,9 @@ Vue.component('image-component', require('./components/ImageComponent.vue').defa
 const app = new Vue({
     el: '#app',
     router,
-    vuetify : new Vuetify(),
+    vuetify : new Vuetify({
+        icons: {
+          iconfont: 'mdiSvg',
+        }
+    }),
 });

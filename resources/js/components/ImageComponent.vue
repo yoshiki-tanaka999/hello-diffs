@@ -47,13 +47,15 @@
                         </v-card-subtitle>
 
                         <v-card-actions>
-                        <v-btn text>Share</v-btn>
-
-                        <v-btn
-                            color="purple"
-                            text
-                        >
-                            Explore
+                        
+                        <!-- シェアボタン -->
+                        <v-btn>                        
+                            <v-icon>{{ svgPath }}</v-icon>
+                        </v-btn>
+                        
+                        <v-btn>
+                        <!-- シェアボタン -->
+                            <v-icon medium>{{ svgPath_2 }}</v-icon>
                         </v-btn>
 
                         <v-spacer></v-spacer>
@@ -79,12 +81,6 @@
                     <!-- カード単体終了 -->
                 </v-col>
 
-                <v-col cols="4">
-                </v-col>
-                
-                <v-col cols="4">
-                </v-col>
-
             </v-row>
         </v-container>
 
@@ -96,6 +92,9 @@
 </template>
 
 <script>
+// アイコン
+import { mdiShare } from '@mdi/js';
+import { mdiHeartPlus } from '@mdi/js';
 
 export default {
     data() {
@@ -117,16 +116,12 @@ export default {
             // 'space-between',
             'space-around',
             ],
+            svgPath: mdiShare,
+            svgPath_2: mdiHeartPlus,
         };
     },
     created: function() {
         this.getImage();
-    },
-    computed: {
-        //投稿されたPostを降順にする 
-        reversePosts() {
-        return this.posts.slice().reverse();
-        }
     },
     methods: {
         getImage() {
