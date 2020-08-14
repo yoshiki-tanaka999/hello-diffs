@@ -11,12 +11,7 @@
 
     <div id="app">
         <example-component></example-component>
-        <!-- <home></home> -->
-        <!-- <div id="nav">
-          <router-link to="/">Home</router-link>
-        </div>
-        <router-view/>
-        </div> -->
+        <image-component></image-component>
     </div>
 
 <script src="{{ mix('js/app.js') }}"></script> 

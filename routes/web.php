@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Route;
 
 // ★トップページ★
 Route::resource('/', 'LayoutController');
+<<<<<<< HEAD
+
+// ★トップページテスト★
+Route::get('/index', 'ExploreController@index');
+
+
+=======
+>>>>>>> develop
 
 // トップページ＠Post投稿 
 Route::post('/post', 'PostController@store');
@@ -34,3 +42,6 @@ Route::post('/claim', 'ClaimController@store');
 
 // API連携テスト
 Route::get('/testapi', 'TestApiController@index');
+
+// 画像アップロードテスト
+Route::get('/image', 'ImageController@index');

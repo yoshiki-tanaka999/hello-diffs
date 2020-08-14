@@ -7,7 +7,7 @@
             <p>画像URL：<input type="text" v-model="img_url" /></p>
             <button @click="addPost">追加</button>
         </div>
- 
+
         <!-- post一覧 -->
         <div>
             <ul>
