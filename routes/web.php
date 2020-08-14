@@ -11,11 +11,14 @@ use Illuminate\Support\Facades\Route;
 
 // ★トップページ★
 Route::resource('/', 'LayoutController');
+<<<<<<< HEAD
 
 // ★トップページテスト★
 Route::get('/index', 'ExploreController@index');
 
 
+=======
+>>>>>>> develop
 
 // トップページ＠Post投稿 
 Route::post('/post', 'PostController@store');
