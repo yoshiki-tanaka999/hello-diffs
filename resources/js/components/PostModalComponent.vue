@@ -4,14 +4,14 @@
         <div
             class="modal-background"
             style="background-color:rgba(0,0,0,0.5)"
-            @click="closeThemeModal">
+            >
         <!-- モーダルウィンドウの中身 -->
             <div class="modal-content" v-on:click.stop>
                 <div class="modal-content-whole">
                     <div class="modal-content-title">
                         <h2 class="modal-content-title-name">スレッドを作成する</h2>
                         <span 
-                        @click="closeThemeModal" 
+
                         style="font-size: 2.25rem;"
                         onclick="document.getElementById('modal').style.display = 'none';"
                         >×</span>

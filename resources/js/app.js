@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-<<<<<<< HEAD
 // アイコン
 import '@mdi/font/css/materialdesignicons.css'
 
@@ -27,24 +26,9 @@ import router from './router'
 
 // トップページのお花畑
 Vue.component('main-component', require('./components/MainComponent.vue').default);
-=======
-window.Vue = require('vue');
-import Vue from 'vue'
 import Router from 'vue-router'
-import router from './router';
 import MyPage from './components/MyPage';
 
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-Vue.use(Vuetify);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
->>>>>>> develop
 
 // トップページのお花畑
 Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
@@ -62,23 +46,14 @@ Vue.component('image-component', require('./components/ImageComponent.vue').defa
 const app = new Vue({
     el: '#app',
     router,
-<<<<<<< HEAD
     vuetify : new Vuetify({
         icons: {
           iconfont: 'mdiSvg',
         }
     }),
-=======
     components: {
         "mypage-component": MyPage
     },
-    vuetify: new Vuetify()
->>>>>>> develop
 });
 
 
-
-// const app = new Vue({
-//     el: '#app',
-    
-// });
