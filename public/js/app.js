@@ -99127,6 +99127,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MyPageSelecter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/MyPageSelecter */ "./resources/js/components/MyPageSelecter.vue");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.vue");
 /* harmony import */ var _views_Home__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Home */ "./resources/js/views/Home.vue");
+// test
 
 
 
