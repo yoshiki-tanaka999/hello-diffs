@@ -40,7 +40,7 @@ Vue.component('testapi-component', require('./components/TestApiComponent.vue').
 
 
 const app = new Vue({
-    el: '#app1',
+    el: '#app',
     router,
     components: {
         "mypage-component": MyPage

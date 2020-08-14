@@ -17,5 +17,5 @@
                 <button type="button" class="btn btn-primary">Follow</button>
                 <button type="button" class="btn btn-primary">Share</button>
             </div>
-        </header>
+    </header>
 </template>

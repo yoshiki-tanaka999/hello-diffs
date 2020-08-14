@@ -1,7 +1,5 @@
-// routingを伴いわない、単純にコンポーネントの出し分けの方法
-// （可能であれば修正）冗長な記述
-
 <template>
+
   <v-tabs>
     <v-tab>respond</v-tab>
     <v-tab>following</v-tab>
@@ -11,44 +9,49 @@
     <v-tab>teams</v-tab>
     
     <v-tab-item>
-        <respond/>
+        <respond class="secArea"/>
     </v-tab-item>
     <v-tab-item>
-        <following/>
+        <following class="secArea"/>
     </v-tab-item>
     <v-tab-item>
-        <own/>
+        <own class="secArea"/>
     </v-tab-item>
     <v-tab-item>
-        <recent/>
+        <recent class="secArea"/>
     </v-tab-item>
     <v-tab-item>
-        <recommended/>
+        <recommended class="secArea"/>
     </v-tab-item>
     <v-tab-item>
-        <teams/>
+        <teams class="secArea"/>
     </v-tab-item>
-
   </v-tabs>
 
 </template>
 
 <script>
-        import Respond from './RespondMypage';
-        import Following from './FollowingMypage';
-        import Own from './OwnMypage';
-        import Recent from './RecentMypage';
-        import Recommended from './RecommendedMypage';
-        import Teams from './TeamsMypage';
-        export default {
-           components: {
-            Respond,
-            Following,
-            Own,
-            Recent,
-            Recommended,
-            Teams
-          },
-        }
+import Respond from './RespondMypage';
+import Following from './FollowingMypage';
+import Own from './OwnMypage';
+import Recent from './RecentMypage';
+import Recommended from './RecommendedMypage';
+import Teams from './TeamsMypage';
 
+export default {
+  components: {
+    Respond,
+    Following,
+    Own,
+    Recent,
+    Recommended,
+    Teams          
+  },
+}
 </script>
+
+<style scoped>
+.secArea{
+  height: 300px;
+}
+</style>
