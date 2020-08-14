@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Post\post;
+
+// 画像アップロードできないver
 use App\Http\Requests\StorePost;
 
 use Validator;
@@ -27,8 +29,37 @@ class ApiPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePost $request)
+    // public function store(Request $request)
     {
+        // 画像アップロードできないver
         Post::create($request->all());
+
+        // 画像アップロードver
+        // $this->validate($request, [
+        //     'title' => 'required|max:120',
+        //     'description' => 'required|max:255',
+        //     'img_url' => 'required|image'
+        // ], [
+        //     'title.required' => 'タイトルを入力して下さい',
+        //     'title.max' => '120文字以内で入力して下さい',
+        //     'title.required' => 'タイトルを入力して下さい',
+        //     'title.max' => '255文字以内で入力して下さい',
+        //     'img_url.required' => '画像が選択されていません',
+        //     'img_url.image' => '画像ファイルではありません',
+        // ]);
+
+        // if (request()->file) {
+        //     $file_name = time() . '.' . request()->file->getClientOriginalName();
+        //     request()->file->storeAs('public', $file_name);
+
+        //     $image = new Image();
+        //     $image->path = 'storage/' . $file_name;
+        //     $image->title = $request->title;
+        //     $image->description = $request->description;
+        //     $image->save();
+
+        //     return ['success' => '登録しました!'];
+        // }
     }
 
     /**

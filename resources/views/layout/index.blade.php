@@ -31,7 +31,7 @@
             <div class="card-deck card_box">
                 <div class="card">
                     <a href="{{ url('/discuss/{ $post->id }') }}">  
-                        <img width="100%" height="200" src="./upload/{{$post->img_url}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+                        <img width="100%" height="200" src="./{{$post->img_url}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
                         <title>Placeholder</title>
                         <rect fill="#868e96" width="100%" height="100%"/>
                         </img>
