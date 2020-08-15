@@ -1,5 +1,5 @@
 // test
-
+// this is test 2
 
 import Vue from 'vue'
 import Router from 'vue-router'
