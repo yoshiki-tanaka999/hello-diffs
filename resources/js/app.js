@@ -28,6 +28,7 @@ import router from './router'
 Vue.component('main-component', require('./components/MainComponent.vue').default);
 import Router from 'vue-router'
 import MyPage from './components/MyPage';
+import Tags  from './components/Tags';
 
 
 // トップページのお花畑
@@ -52,7 +53,8 @@ const app = new Vue({
         }
     }),
     components: {
-        "mypage-component": MyPage
+      "mypage-component": MyPage,
+      "tags-component": Tags
     },
 });
 
