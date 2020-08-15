@@ -44,7 +44,7 @@ class ApiImageController extends Controller
             $image->title = $request->title;
             $image->description = $request->description;
             $image->save();
-
+            
             return ['success' => '登録しました!'];
         }
     }
