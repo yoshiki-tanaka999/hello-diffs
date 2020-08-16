@@ -26,7 +26,9 @@ Route::get('/mypage', 'UserController@index');
 Route::get('/tags', 'TagsController@index');
 
 // ★ディスカッションページ★
-Route::get('/discuss/{post}', 'ClaimController@index');
+
+// $post = App\Model\Post\Post::find(1);
+// Route::get('/discuss/{$post->id}', 'ClaimController@index');
 
 // ディスカッションページ＠意見投稿 
 Route::post('/claim', 'ClaimController@store');
@@ -37,7 +39,13 @@ Route::post('/claim', 'ClaimController@store');
 // Route::get('/discuss/{post}', 'ClaimController@detail')->name('claims.detail');
 
 // API連携テスト
-Route::get('/testapi', 'TestApiController@index');
+// Route::get('testapi', 'TestApiController@index');
 
 // 画像アップロードテスト
 Route::get('/image', 'ImageController@index');
+
+// URL生成テスト(Post投稿ごとのidでページを作成できるようにしたい)
+Route::get('/discuss/{any}', function () {
+    return view('testapi');
+})->where('any', '.*');
+

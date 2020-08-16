@@ -10,33 +10,6 @@ use Validator;
 
 class ClaimController extends Controller
 {
-    // public function showCreateForm()
-    // {
-    //     return view('claims_create');
-    // }
-    // public function create(Request $request)
-    // {
-    //     // Claimモデルのインスタンスを作成する
-    //     $claim = new Claim();
-    //     //コンテンツ
-    //     $claim->content = $request->content;
-    //     //登録ユーザーからidを取得
-    //     // $claim->user_id = Auth::user()->id;
-    //     // インスタンスの状態をデータベースに書き込む
-    //     $claim->save();
-    //     //「投稿する」をクリックしたら投稿情報表示ページへリダイレクト       
-    //     return redirect()->route('/discuss/{post}', [
-    //         'id' => $claim->id,
-    //     ]);
-    // }
-
-    // public function detail(Claim $claim)
-    // {
-    //     return view('/discuss/{post}', [
-    //         'content' => $claim->content,
-    //     ]);        
-    // }
-
         //投稿 profileページに、投稿とツイートの変数を渡す
         public function index() 
         {

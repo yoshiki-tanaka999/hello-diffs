@@ -21,3 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('/tests', 'ApiPostController');
 
 Route::apiResource('/images', 'ApiImageController');
+
+// // URL生成テスト(Post投稿ごとのidでページを作成できるようにしたい)
+Route::group(['middleware' => 'api'], function() {
+    Route::get('posts', 'ApiPostSelectController@index');
+});

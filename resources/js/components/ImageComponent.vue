@@ -15,10 +15,13 @@
                         class="mx-auto"
                         width="344"
                     >
-                        <v-img
-                        :src="`${post.img_url}`"
-                        height="200px"
-                        ></v-img>
+                        <router-link :to="'/discuss/' + post.id">
+                            <v-img
+                            :src="`${post.img_url}`"
+                            height="200px"
+                            >
+                            </v-img>
+                        </router-link>
 
                         <v-card-title>
                             {{ post.title }}
@@ -82,6 +85,10 @@ import { mdiShare } from '@mdi/js';
 import { mdiHeartPlus } from '@mdi/js';
 
 export default {
+    // Postのページ出し分け
+    created() {
+        this.fetchPosts()
+    },
     data() {
         return {
             message: "",
@@ -93,14 +100,7 @@ export default {
             confirmedImage: "",
             //カードの開封 
             show: false,
-            // カードユニット
-                justify: [
-            // 'start',
-            // 'end',
-            // 'center',
-            // 'space-between',
-            'space-around',
-            ],
+            // アイコン
             svgPath: mdiShare,
             svgPath_2: mdiHeartPlus,
         };
@@ -117,6 +117,16 @@ export default {
                 })
                 .catch(err => {
                     this.message = err;
+                });
+        },
+        fetchPosts() {
+            this.$http
+                .get('/api/posts')
+                .then(response =>  {
+                    this.posts = response.data;
+                })
+                .finally(function(){
+                location.reload(true);
                 });
         },
         confirmImage(e) {
@@ -161,8 +171,6 @@ export default {
                 .catch(err => {
                     this.message = err.response.data.errors;
                 });
-        }
-    }
-};
+        },
+}}
 </script>
- 
