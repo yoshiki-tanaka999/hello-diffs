@@ -24,12 +24,12 @@ const router = new Router({
     //   name: 'example',
     //   component: Example
     // },
-    {
+      {
         path: '/home',
         name: 'home',
         component: Home
       },
-    {
+      {
       path: '/mypage',
       name: 'mypage',
       components: {
@@ -49,7 +49,7 @@ const router = new Router({
           default: DiscussComponent
         },
         props: route => ({ id: Number(route.params.id) })
-      },
+      }
   ]
 })
 

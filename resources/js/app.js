@@ -54,7 +54,7 @@ const app = new Vue({
     }),
     components: {
         "mypage-component": MyPage,
-        "discuss-component": Discuss, 
+        "discuss-component": Discuss
     },
 });
 
