@@ -21,13 +21,7 @@ try {
 
 window.axios = require('axios');
 
-// 変更・追記
-window.axios.defaults.headers.common = {
-    // 'X-CSRF-TOKEN': window.Laravel.csrfToken,
-    'X-Requested-With': 'XMLHttpRequest'
-}
-// 変更・追記
-// Vue.prototype.$http = window.axios
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
