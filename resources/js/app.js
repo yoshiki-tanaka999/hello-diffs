@@ -29,6 +29,7 @@ Vue.component('main-component', require('./components/MainComponent.vue').defaul
 import Router from 'vue-router'
 import MyPage from './components/MyPage'
 import Discuss from './components/DiscussComponent'
+import Tags  from './components/Tags'
 
 
 // トップページのお花畑
@@ -54,7 +55,8 @@ const app = new Vue({
     }),
     components: {
         "mypage-component": MyPage,
-        "discuss-component": Discuss
+        "discuss-component": Discuss,
+        "tags-component": Tags
     },
 });
 
