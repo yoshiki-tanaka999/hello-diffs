@@ -26,9 +26,9 @@ import router from './router'
 
 // トップページのお花畑
 Vue.component('main-component', require('./components/MainComponent.vue').default);
-// import Router from 'vue-router'
-import MyPage from './components/MyPage'
-import Discuss from './components/DiscussComponent'
+import Router from 'vue-router'
+import MyPage from './components/MyPage';
+import Discuss from './components/DiscussComponent';
 
 
 // トップページのお花畑
