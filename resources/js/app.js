@@ -33,10 +33,12 @@ import Discuss from './views/Discuss'
 // import Image from './components/ImageComponent'
 
 // ★トップページ
+// ヘッダー
+Vue.component('headerindex-component', require('./components/HeaderIndexComponent.vue').default);
 // トップページのお花畑
 Vue.component('main-component', require('./components/MainComponent.vue').default);
 // トップページの投稿
-// Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
+Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
 // 画像アップロード用
 Vue.component('image-component', require('./components/ImageComponent.vue').default);
 Vue.component('discuss-component', require('./views/Discuss.vue').default);
@@ -46,8 +48,6 @@ Vue.component('discuss-component', require('./views/Discuss.vue').default);
 
 // API連携用
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);
-
-
 
 
 const app = new Vue({
