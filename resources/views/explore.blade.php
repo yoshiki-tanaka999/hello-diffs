@@ -10,13 +10,14 @@
     <title>Example</title>
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 </head>
 <body>
 
     <div id="app">
-        <main-component></main-component>
-        <image-component></image-component>
-        <postmodal-component></postmodal-component>
+        <!-- <main-component></main-component> -->
+        <!-- <image-component></image-component> -->
+        <router-view/>
     </div>
     
 

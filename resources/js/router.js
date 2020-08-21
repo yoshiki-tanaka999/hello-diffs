@@ -11,7 +11,10 @@ import HeaderComponent from './components/HeaderComponent'
 import UserImageName from './components/UserImageName'
 import MyPageSelecter from './components/MyPageSelecter'
 import Footer from './components/Footer'
-import DiscussComponent from './components/DiscussComponent'
+
+// ImageComponentのコンポーネント
+// import Discuss from './views/Discuss'
+import Image from './components/ImageComponent'
 
 // Tags.vueのコンポーネント 
 import Tags from './components/Tags';
@@ -25,17 +28,17 @@ import Home from './views/Home'
 const router = new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'example',
-    //   component: Example
-    // },
+    {
+      path: '/index',
+      name: 'image',
+      component: Image
+    },
       {
         path: '/home',
         name: 'home',
         component: Home
       },
-    {
+      {
       path: '/mypage',
       name: 'mypage',
       components: {
@@ -50,11 +53,12 @@ const router = new Router({
         //
         //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
         path: '/discuss/:id(\\d+)', 
-        name: 'discuss',
-        component: { 
-          default: DiscussComponent
-        },
-        props: route => ({ id: Number(route.params.id) })
+        name: 'Discss',
+        // component: { 
+        //   default: Discuss
+        // },
+        component: require("./views/Discuss.vue").default,
+        // props: route => ({ id: Number(route.params.id) })
       },
       {
         path: '/tags',
@@ -69,5 +73,7 @@ const router = new Router({
       }
   ]
 })
+
+
 
 export default router;

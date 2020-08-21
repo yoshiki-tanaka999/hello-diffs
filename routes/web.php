@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // ★トップページ★
-Route::resource('/', 'LayoutController');
+// Route::resource('/', 'LayoutController');
+
+// 以下を記述すると、「/」以降のルーティングには、全てVue-routerが適用される
+// Route::get('/{any}', function () {
+//     return view('index');
+// })->where('any', '.*');
 
 // ★トップページテスト★
 Route::get('/index', 'ExploreController@index');
@@ -26,7 +31,6 @@ Route::get('/mypage', 'UserController@index');
 Route::get('/tags', 'TagsController@index');
 
 // ★ディスカッションページ★
-
 // $post = App\Model\Post\Post::find(1);
 // Route::get('/discuss/{$post->id}', 'ClaimController@index');
 

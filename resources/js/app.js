@@ -24,16 +24,22 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue-Router
 import router from './router'
 
-// トップページのお花畑
-Vue.component('main-component', require('./components/MainComponent.vue').default);
+
 import Router from 'vue-router'
 import MyPage from './components/MyPage'
-import Discuss from './components/DiscussComponent'
 import Tags  from './components/Tags'
 
+import Discuss from './views/Discuss'
+// import Image from './components/ImageComponent'
 
+// ★トップページ
 // トップページのお花畑
-Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
+Vue.component('main-component', require('./components/MainComponent.vue').default);
+// トップページの投稿
+// Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
+// 画像アップロード用
+Vue.component('image-component', require('./components/ImageComponent.vue').default);
+Vue.component('discuss-component', require('./views/Discuss.vue').default);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // Vue.component('header-component', require('./components/HeaderComponent.vue').default);
@@ -41,8 +47,7 @@ Vue.component('postmodal-component', require('./components/PostModalComponent.vu
 // API連携用
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);
 
-// 画像アップロード用
-Vue.component('image-component', require('./components/ImageComponent.vue').default);
+
 
 
 const app = new Vue({
@@ -56,8 +61,24 @@ const app = new Vue({
     components: {
         "mypage-component": MyPage,
         "discuss-component": Discuss,
-        "tags-component": Tags
+        "tags-component": Tags,
     },
 });
+
+// トップページ
+// const top = new Vue({
+//   el: '#top',
+//   router,
+//   vuetify : new Vuetify({
+//       icons: {
+//         iconfont: 'mdiSvg',
+//       }
+//   }),
+//   components: {
+//       "discuss-component": Discuss,
+//       "image-component": Image,
+//   },
+// });
+
 
 
