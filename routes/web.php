@@ -4,21 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// テスト
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// ★トップページ★
-// Route::resource('/', 'LayoutController');
-
 // 以下を記述すると、「/」以降のルーティングには、全てVue-routerが適用される
 // Route::get('/{any}', function () {
 //     return view('index');
 // })->where('any', '.*');
 
 // ★トップページテスト★
-Route::get('/index', 'ExploreController@index');
+// Route::get('/', 'ExploreController@index');
+
+// ★トップページバージョンアップ★
+// 以下の処理で、bladeではなく、Vue−routerのルーティングになる
+// (つまり実質必要なくなる)
+Route::get('/{any}', 'ExploreController@index')->where('any', '.*');;
 
 
 // トップページ＠Post投稿 

@@ -14,7 +14,7 @@ import Footer from './components/Footer'
 
 // ImageComponentのコンポーネント
 // import Discuss from './views/Discuss'
-import Image from './components/ImageComponent'
+// import Image from './components/ImageComponent'
 
 // Tags.vueのコンポーネント 
 import Tags from './components/Tags';
@@ -24,53 +24,74 @@ import TagsArea from './components/TagsTagArea';
 // Views/Homeのテスト
 import Home from './views/Home'
 
+// Index.vue
+import Index from './views/Index'
+// Index.vueのコンポーネント
+import Image from './components/ImageComponent'
+import ImagePopular from './components/ImagePopularComponent'
+import ImageFeatured from './components/ImageFeaturedComponent'
 
 const router = new Router({
   mode: 'history',
   routes: [
     {
+      // ★★トップページ★★
       path: '/index',
-      name: 'image',
-      component: Image
+      name: 'index',
+      component: Index,
+        children: [
+          {
+            path: '',
+            component: Image ,
+          },
+          {
+            path: 'popular',
+            component: ImagePopular ,
+          },          
+          {
+            path: 'featured',
+            component: ImageFeatured ,
+          },
+        ]
     },
-      {
-        path: '/home',
-        name: 'home',
-        component: Home
+    {
+      // ★★ディスカッションページ★★
+      //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
+      path: '/discuss/:id(\\d+)', 
+      name: 'Discss',
+      // component: { 
+      //   default: Discuss
+      // },
+      component: require("./views/Discuss.vue").default,
+      // props: route => ({ id: Number(route.params.id) })
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+    {
+    path: '/mypage',
+    name: 'mypage',
+    components: {
+      default: MyPage,
+        headerComponent: HeaderComponent,
+        userImageName: UserImageName,
+        mypageSelecter: MyPageSelecter,
+        footer: Footer,
       },
-      {
-      path: '/mypage',
-      name: 'mypage',
+    },
+    {
+      path: '/tags',
+      name: 'tags',
       components: {
-        default: MyPage,
-          headerComponent: HeaderComponent,
-          userImageName: UserImageName,
-          mypageSelecter: MyPageSelecter,
-          footer: Footer,
-        },
-      },
-      {
-        //
-        //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
-        path: '/discuss/:id(\\d+)', 
-        name: 'Discss',
-        // component: { 
-        //   default: Discuss
-        // },
-        component: require("./views/Discuss.vue").default,
-        // props: route => ({ id: Number(route.params.id) })
-      },
-      {
-        path: '/tags',
-        name: 'tags',
-        components: {
-          default: Tags,
-          headerComponent: HeaderComponent,
-          tagTitle: TagsTitle,
-          tagArea: TagsArea,
-          footer: Footer,
-        }
+        default: Tags,
+        headerComponent: HeaderComponent,
+        tagTitle: TagsTitle,
+        tagArea: TagsArea,
+        footer: Footer,
       }
+    }
   ]
 })
 
