@@ -9,7 +9,7 @@
 
 <body>
     <div id="app">
-        <testapi-component></testapi-component>
+        <discuss-component/>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>

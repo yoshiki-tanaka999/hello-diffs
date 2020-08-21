@@ -1,4 +1,5 @@
 <template>
+    <!-- 【現在使っていない】ImageComponent.vueに統合済み -->
     <!-- モーダルウィンドウ -->
     <div id="modal">
         <div
