@@ -32,7 +32,7 @@ import Tags  from './components/Tags'
 import Discuss from './views/Discuss'
 // import Image from './components/ImageComponent'
 
-// ★トップページ
+// ★★トップページ★★
 // ヘッダー
 Vue.component('headerindex-component', require('./components/HeaderIndexComponent.vue').default);
 // トップページのお花畑
@@ -43,8 +43,22 @@ Vue.component('postmodal-component', require('./components/PostModalComponent.vu
 Vue.component('image-component', require('./components/ImageComponent.vue').default);
 Vue.component('discuss-component', require('./views/Discuss.vue').default);
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+// ★★マイページ★★
+// ヘッダー
+Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+// ユーザー名と画像？
+Vue.component('UserImageName-component', require('./components/UserImageName.vue').default);
+// セレクター
+Vue.component('MyPageSelecter-component', require('./components/MyPageSelecter.vue').default);
+// フッター
+Vue.component('footer-component', require('./components/Footer.vue').default);
+
+// ★★タグページ★★
+// ヘッダー・フッターは割愛
+// タグタイトル
+Vue.component('TagTitle-component', require('./components/TagsTitle.vue').default);
+// タグエリア
+Vue.component('TagArea-component', require('./components/TagsTagArea.vue').default);
 
 // API連携用
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);

@@ -3,7 +3,7 @@
             <div class="d-flex">
                 <ul class="nav text-left">
                     <li class="nav-item">
-                        <router-link to="/" class="nav-link">Hello Diff.s</router-link>
+                        <router-link to="/index" class="nav-link">Hello Diff.s</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/mypage" class="nav-link">My page</router-link>
