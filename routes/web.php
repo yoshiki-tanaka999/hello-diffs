@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 // ★トップページバージョンアップ★
 // 以下の処理で、bladeではなく、Vue−routerのルーティングになる
 // (つまり実質必要なくなる)
-Route::get('/{any}', 'ExploreController@index')->where('any', '.*');;
+Route::get('/{any}', 'ExploreController@index')->where('any', '.*');
 
 
 // トップページ＠Post投稿 
-Route::post('/post', 'PostController@store');
+// Route::post('/post', 'PostController@store');
 
 // ★マイページ★
-Route::get('/mypage', 'UserController@index');
+// Route::get('/mypage', 'UserController@index');
 
 // ★タグページ★
 Route::get('/tags', 'TagsController@index');

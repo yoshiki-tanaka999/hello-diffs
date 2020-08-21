@@ -13,6 +13,8 @@
                     </li>
                 </ul>
             </div>
+            
+
             <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
             <div class= "open-modal"
                 onclick="document.getElementById('modal').style.display = 'block';">

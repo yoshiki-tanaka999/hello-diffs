@@ -37,7 +37,6 @@ const router = new Router({
     {
       // ★★トップページ★★
       path: '/index',
-      name: 'index',
       component: Index,
         children: [
           {
@@ -72,7 +71,8 @@ const router = new Router({
     },
     {
     path: '/mypage',
-    name: 'mypage',
+    name: 'Mypage',
+    // component: require("./components/MyPage").default,
     components: {
       default: MyPage,
         headerComponent: HeaderComponent,
@@ -83,7 +83,7 @@ const router = new Router({
     },
     {
       path: '/tags',
-      name: 'tags',
+      name: 'Tags',
       components: {
         default: Tags,
         headerComponent: HeaderComponent,
