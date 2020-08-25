@@ -1,5 +1,11 @@
 <template>
-	<h1>Home Page</h1>
+    <div>
+	    <h1>Home Page</h1>
+        <p>thanks to:
+            
+        </p>
+    </div>
+
 </template>
 
 <script>
