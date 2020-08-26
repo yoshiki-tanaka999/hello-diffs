@@ -21,7 +21,8 @@
 
 <style scoped>
 #siteTitle{
-    color: rgb(255, 223, 41);
+    /* color: rgb(255, 223, 41); */
+    color: rgb(252, 178, 61);
     /* font-family: 'Merriweather Sans', sans-serif; */
 font-family: 'Oswald', sans-serif;
 
@@ -34,11 +35,14 @@ font-family: 'Oswald', sans-serif;
 
 .container-fluid{
     height: 300px;
+    /* width: 1200px; */
     /* background-color: rgb(255, 234, 141); */
     /* background-color: green; */
     background-image:url(../testPhoto/titleImage_2.jpg);
     background-size:contain;
     text-align: center;
+    margin: 30px auto 20px;
+    /* margin-bottom: 20px; */
 }
 #titleImage{
     margin-left:370px;

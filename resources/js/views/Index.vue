@@ -1,7 +1,7 @@
 <template>
-    <v-app>
+    <v-app id="body">
         <!-- HeaderComponent.vue -->
-        <headerindex-component></headerindex-component>
+        <headerindex-component id="t"></headerindex-component>
         <!-- PostModalComponent.vue(お花畑) -->
         <postmodal-component></postmodal-component>
         <!-- MainComponent.vue(お花畑) -->
@@ -17,5 +17,17 @@
         </v-container>
 
         <router-view/>
+        <footer-component></footer-component>
     </v-app>
 </template>
+
+<style scoped>
+#body{
+    background-color: #f3f3f334;
+    padding-top: 50px;
+}
+#t{
+    position: fixed;
+    top: 0;
+}
+</style>
