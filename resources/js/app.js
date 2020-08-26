@@ -46,7 +46,7 @@ Vue.component('discuss-component', require('./views/Discuss.vue').default);
 
 // ★★マイページ★★
 // ヘッダー
-Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+// Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 // ユーザー名と画像？
 Vue.component('UserImageName-component', require('./components/UserImageName.vue').default);
 // セレクター
