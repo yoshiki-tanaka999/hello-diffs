@@ -1,3 +1,5 @@
+// これは使わないヘッダー
+
 <template>
     <header class="header d-flex text-grey border-bottom justify-content-between">
             <div class="d-flex">
