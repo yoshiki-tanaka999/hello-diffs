@@ -51,7 +51,8 @@ const router = new Router({
             path: 'featured',
             component: ImageFeatured ,
           },
-        ]
+        ],
+      
     },
     {
       // ★★ディスカッションページ★★

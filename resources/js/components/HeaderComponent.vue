@@ -21,7 +21,7 @@
 </template>
 
 <style scoped>
-#tags{
+.header{
     background-color : rgb(255, 234, 141);
 }
 </style>
