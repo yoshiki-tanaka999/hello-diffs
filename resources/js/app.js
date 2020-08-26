@@ -41,6 +41,7 @@ Vue.component('main-component', require('./components/MainComponent.vue').defaul
 Vue.component('postmodal-component', require('./components/PostModalComponent.vue').default);
 // 画像アップロード用
 Vue.component('image-component', require('./components/ImageComponent.vue').default);
+Vue.component('postcard-component', require('./components/postCard.vue').default);
 Vue.component('discuss-component', require('./views/Discuss.vue').default);
 
 // ★★マイページ★★

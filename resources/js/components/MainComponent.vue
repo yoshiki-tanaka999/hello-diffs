@@ -27,7 +27,7 @@
     font-family: 'Oswald', sans-serif;
 
     font-size: 3rem;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.5rem;
     font-weight: bold;
     text-shadow: 2px -2px 1px #24642f;
     padding-top: 100px;
