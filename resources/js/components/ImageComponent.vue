@@ -8,7 +8,7 @@
             <v-container>
             <v-spacer></v-spacer>
                 <!-- 投稿一覧 -->
-                <v-row >
+                <v-row>
                     <v-col 
                         cols="4" 
                         class="d-flex align-center"
@@ -80,6 +80,7 @@
             </v-container>
         <!-- ★★投稿データの表示終わり★★ -->
         </v-main>
+        <postcard-component />
     </v-app>
     
 </template>
@@ -141,3 +142,5 @@ export default {
 
 }
 </script>
+
+

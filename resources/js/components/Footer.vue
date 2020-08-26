@@ -6,7 +6,7 @@
                     <ul>
                         <li><router-link to="/home" class="nav-link">About Us</router-link></li>
                         <!--  -->
-                        <li><a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x text-primary ml-4"></i></a></li>
+                        <li><a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x text-secondary ml-4"></i></a></li>
                     </ul>
                 </v-col>
                 <v-col>
@@ -48,6 +48,10 @@
 </template>
 
 <style scoped>
+#footer{
+    margin-top: 60px;
+}
+
 .card-footer{
     background-color:#f3f3f334;
     padding: 10px 60px;
