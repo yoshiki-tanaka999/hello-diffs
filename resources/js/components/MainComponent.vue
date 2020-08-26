@@ -24,7 +24,7 @@
     /* color: rgb(255, 223, 41); */
     color: rgb(252, 178, 61);
     /* font-family: 'Merriweather Sans', sans-serif; */
-font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
 
     font-size: 3rem;
     letter-spacing: 0.3rem;
