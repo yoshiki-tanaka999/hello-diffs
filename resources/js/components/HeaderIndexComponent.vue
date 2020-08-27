@@ -52,6 +52,7 @@
     width: 99vw;
     font-family: 'Noto Sans JP', sans-serif;
     background-color: rgba(1, 1, 102, 0.863);
+    font-family: 'Noto Sans JP', sans-serif;
     z-index: 100;
 }
 .nav-link{
