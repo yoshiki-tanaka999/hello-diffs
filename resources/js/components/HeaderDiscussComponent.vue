@@ -21,6 +21,21 @@
             
 
             <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
+            <v-tooltip left>            
+                <template v-slot:activator="{ on, attrs }">
+                    <div class= "open-modal p-5"
+                        v-bind="attrs"
+                        v-on="on"
+                        >
+                        <!-- お気に入り＝ハート -->
+                        <!-- <i class="fas fa-heart mr-2 ml-3"></i> -->
+                        <!-- ★★お気に入り＝クリップにしたい★★ -->
+                        <v-icon color="white">{{ svgPath }}</v-icon>
+                    </div>
+                </template>
+                <span>この議題をクリップする</span>
+            </v-tooltip>
+
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <div class= "open-modal p-2"
@@ -28,43 +43,25 @@
                         v-on="on"
                         >
                         <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
-                        <i class="fas fa-heart mr-2 ml-3"></i>
-                        <!-- <svg 
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24" width="24" height="24"
-                                class="plus-btn"
-                            >
-                            <path 
-                                class="heroicon-ui" 
-                                d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-9h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2V9a1 1 0 0 1 2 0v2z"
-                            />
-                            </svg> -->
-                    </div>
-                </template>
-
-                <template v-slot:activator="{ on, attrs }">
-                    <div class= "open-modal p-2"
-                        v-bind="attrs"
-                        v-on="on"
-                        >
-                        <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
                         <a href="https://twitter.com/"><i id="iconTW" class="fab fa-twitter-square fa-2x ml-4"></i></a>
-                        <!-- <svg 
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24" width="24" height="24"
-                                class="plus-btn"
-                            >
-                            <path 
-                                class="heroicon-ui" 
-                                d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-9h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2V9a1 1 0 0 1 2 0v2z"
-                            />
-                            </svg> -->
                     </div>
                 </template>
                 <span>Twitterでシェアする</span>
             </v-tooltip>
     </header>
 </template>
+
+<script>
+import { mdiPaperclip } from '@mdi/js'
+
+export default {
+    data: () => ({
+        svgPath: mdiPaperclip
+    }),
+}
+
+</script>
+
 
 <style scoped>
 .header{

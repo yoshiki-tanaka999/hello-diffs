@@ -23,8 +23,8 @@
                         <li>
                         <span class="tf-nc">論点階層：反対</span>
                         <ul>
-                            <li><span class="tf-nc">7</span></li>
-                            <li><span class="tf-nc">8</span></li>
+                            <li><span class="tf-nc">←のように展開</span></li>
+                            <li><span class="tf-nc"></span></li>
                         </ul>
                         </li>
                     </ul>

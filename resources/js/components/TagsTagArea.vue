@@ -1,16 +1,16 @@
 <template id="tags">
     <div class="container bg-dark mt-4 mb-4">
-            <!-- <button class="tagBtn col-3" v-bind:style="{'background-image': 'url('+ tagSeries[0].tagImage +')'}">{{tagSeries[0].tagName}}</button> -->
-            <button 
-                class="tagBtn col-3" 
-                v-for="tag in tagSeries" 
-                v-bind:key="tag.tagName" 
-                v-bind:style="{'background-image': 'url('+ tag.tagImage +')'}"
-            >
-            {{ tag.tagName }}</button>
-            <br>
-            <button id="showMoreBtn" class="btn bg-primary">show more</button>
-        </div>
+        <!-- <button class="tagBtn col-3" v-bind:style="{'background-image': 'url('+ tagSeries[0].tagImage +')'}">{{tagSeries[0].tagName}}</button> -->
+        <button 
+            class="tagBtn col-3" 
+            v-for="tag in tagSeries" 
+            v-bind:key="tag.tagName" 
+            v-bind:style="{'background-image': 'url('+ tag.tagImage +')'}"
+        >
+        {{ tag.tagName }}</button>
+        <br>
+        <button id="showMoreBtn" class="btn bg-primary">show more</button>
+    </div>
 </template>
 
 <script>
