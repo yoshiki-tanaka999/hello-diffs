@@ -130,9 +130,7 @@ export default {
 
 
 <style scoped>
-.postcard{
-    /* box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.4); */
-}
+
 .postcard:hover{
     cursor: pointer;
     box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
