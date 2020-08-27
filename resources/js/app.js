@@ -24,7 +24,7 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue-Router
 import router from './router'
 
-import store from './store' // ★　追加
+import store from './store' // ★追加
 
 
 import Router from 'vue-router'
@@ -71,6 +71,8 @@ Vue.component('BTNshowmore-component', require('./components/BtnShowMore.vue').d
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);
 
 // ★★ディスカッションページ★★
+// チャート部分
+Vue.component('header-component', require('./components/HeaderIndexComponent.vue').default);
 // チャート部分
 Vue.component('DiscussChart-component', require('./components/DiscussChartComponent.vue').default);
 // Post情報を記載
