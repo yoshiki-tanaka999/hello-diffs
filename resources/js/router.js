@@ -1,5 +1,4 @@
-// test
-// this is test 2
+
 
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -7,10 +6,13 @@ Vue.use(Router)
 
 // MyPage.vueのコンポーネント 
 import MyPage from './components/MyPage'
-import HeaderComponent from './components/HeaderComponent'
+// import HeaderComponent from './components/HeaderComponent'
 import UserImageName from './components/UserImageName'
 import MyPageSelecter from './components/MyPageSelecter'
-import Footer from './components/Footer'
+import Respond from './components/RespondMyPage'
+import Following from './components/FollowingMyPage'
+import Own from './components/OwnMyPage'
+// import Footer from './components/Footer'
 
 // ImageComponentのコンポーネント
 // import Discuss from './views/Discuss'
@@ -57,7 +59,8 @@ const router = new Router({
             path: 'featured',
             component: ImageFeatured ,
           },
-        ]
+        ],
+      
     },
     {
       // ★★ディスカッションページ★★
@@ -81,23 +84,38 @@ const router = new Router({
     path: '/mypage',
     name: 'Mypage',
     // component: require("./components/MyPage").default,
-    components: {
-      default: MyPage,
-        headerComponent: HeaderComponent,
-        userImageName: UserImageName,
-        mypageSelecter: MyPageSelecter,
-        footer: Footer,
-      },
+    // components: {
+    //   default: MyPage,
+    //     // headerComponent: HeaderComponent,
+    //     userImageName: UserImageName,
+    //     mypageSelecter: MyPageSelecter,
+    //     // footer: Footer,
+    //   },
+    component: MyPage,
+      children: [
+        {
+          path: '',
+          component: Respond,
+        },
+        {
+          path: 'following',
+          component: Following,
+        },
+        {
+          path: 'own',
+          component: Own,
+        },
+      ],
     },
     {
       path: '/tags',
       name: 'Tags',
       components: {
         default: Tags,
-        headerComponent: HeaderComponent,
+        // headerComponent: HeaderComponent,
         tagTitle: TagsTitle,
         tagArea: TagsArea,
-        footer: Footer,
+        // footer: Footer,
       }
     }
   ]

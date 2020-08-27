@@ -21,7 +21,8 @@
     max-height: 344px;
 }
 .wrapper .container{
-    max-width:1000px;
+    /* width:1000px以上にするためにコメントアウト */
+    /* max-width:1000px; */
     margin:0px auto;
     padding:80px 0px;
 }

@@ -8,7 +8,7 @@
             <v-container>
             <v-spacer></v-spacer>
                 <!-- 投稿一覧 -->
-                <v-row >
+                <v-row>
                     <v-col 
                         cols="4" 
                         class="d-flex align-center"
@@ -80,6 +80,7 @@
             </v-container>
         <!-- ★★投稿データの表示終わり★★ -->
         </v-main>
+        <postcard-component />
     </v-app>
     
 </template>
@@ -89,7 +90,6 @@
 import { mdiShare } from '@mdi/js';
 import { mdiHeartPlus } from '@mdi/js';
 
-// Vuex
 import { mapActions } from 'vuex'
 
 // ディスカッションページ
@@ -156,4 +156,3 @@ export default {
 
 }
 </script>
-
