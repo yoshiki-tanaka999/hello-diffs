@@ -32,6 +32,7 @@
 
 <style scoped>
 #body{
+    font-family: 'Noto Sans JP', sans-serif;
     background-image: url(../testPhoto/whitecray.jpeg);
     background-size: cover;
     padding-top: 50px;
