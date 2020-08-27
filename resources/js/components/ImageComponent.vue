@@ -80,7 +80,9 @@
             </v-container>
         <!-- ★★投稿データの表示終わり★★ -->
         </v-main>
+
         <postcard-component />
+
     </v-app>
     
 </template>

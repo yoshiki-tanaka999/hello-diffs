@@ -1,23 +1,46 @@
 <template>
-    <div id="tags">
+    <v-app id="tags">
         <!-- header -->
-        <!-- <router-view name="headerComponent"></router-view> -->
         <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
-        <header-component></header-component>
+        <headerindex-component id="header"></headerindex-component>
 
-        <!-- page_title -->
-        <!-- <router-view name="tagTitle"></router-view> -->
-        <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
-        <TagTitle-component></TagTitle-component>
+        <!-- PostModalComponent.vue(お花畑) -->
+        <postmodal-component></postmodal-component>
+        
+        <div class="container" id="main">
+            <!-- page_title -->
+            <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
+            <TagTitle-component></TagTitle-component>
 
-        <!-- tags_area -->
-        <!-- <router-view name="tagArea"></router-view> -->
-        <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
-        <TagArea-component></TagArea-component>
+            <!-- tags_area -->
+            <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
+            <TagArea-component></TagArea-component>
 
-        <!-- footer -->
-        <!-- <router-view name="footer"></router-view> -->
-        <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
-        <footer-component></footer-component>
-    </div>
+            <!-- show more ボタン -->
+            <BTNshowmore-component />
+        </div>
+
+            <!-- footer -->
+            <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
+            <footer-component></footer-component>
+
+    </v-app>
 </template>
+
+<style scoped>
+#tags{
+    font-family: 'Noto Sans JP', sans-serif;
+    background-image: url(../testPhoto/whitecray.jpeg);
+    background-size: cover;
+    padding-top: 50px;
+}
+#header{
+    position: fixed;
+    top: 0;
+}
+#main{
+    margin-top: 60px;
+    /* border: 1px solid #000000; */
+}
+
+</style>
