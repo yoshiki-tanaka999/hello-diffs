@@ -72,7 +72,7 @@ Vue.component('testapi-component', require('./components/TestApiComponent.vue').
 
 // ★★ディスカッションページ★★
 // チャート部分
-Vue.component('header-component', require('./components/HeaderIndexComponent.vue').default);
+Vue.component('HeaderDiscuss-component', require('./components/HeaderDiscussComponent.vue').default);
 // チャート部分
 Vue.component('DiscussChart-component', require('./components/DiscussChartComponent.vue').default);
 // Post情報を記載

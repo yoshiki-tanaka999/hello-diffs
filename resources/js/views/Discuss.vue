@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <header-component></header-component>
+        <HeaderDiscuss-component></HeaderDiscuss-component>
         <v-container>
             <DiscussChart-component></DiscussChart-component>
             <DiscussPost-component></DiscussPost-component>  

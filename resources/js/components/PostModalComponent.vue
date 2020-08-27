@@ -10,19 +10,18 @@
             <div class="modal-content" v-on:click.stop>
                 <div class="modal-content-whole">
                     <div class="modal-content-title">
-                        <h2 class="modal-content-title-name">スレッドを作成する</h2>
+                        <h2 class="modal-content-title-name">議題を作成する</h2>
                         <span 
-
-                        style="font-size: 2.25rem;"
-                        onclick="document.getElementById('modal').style.display = 'none';"
+                            style="font-size: 2.25rem;"
+                            onclick="document.getElementById('modal').style.display = 'none';"
                         >×</span>
                     </div>
 
-                    <p>チャンネルはチームがコニュニケーションを取る場所です。<br>
-                    特定のトピックに基づいてチャンネルを作ると良いでしょう。(例: #マーケティング)</p>
+                    <p>身近で気になる疑問や問題提起を投稿してみましょう。<br>
+                    議論を深める中で、思わぬ発見につながるかもしれません。</p>
                     <!-- <form method="post"> -->
                         <!-- テーマタイトル -->
-                        <div class="modal-content-subheading">question</div>
+                        <div class="modal-content-subheading">議題(40文字以内)</div>
                         <div class="modal-content-margin">
                             <input
                                 type="text"
@@ -40,7 +39,7 @@
                             />
                         </div> -->
                         <!-- テーマ概要 -->
-                        <div class="modal-content-subheading">description</div>
+                        <div class="modal-content-subheading">議題の背景・説明</div>
                         <div class="modal-content-margin">
                             <textarea
                                 v-model="description" 
@@ -67,7 +66,7 @@
                             <button
                                 class="modal-form-btn"
                                 @click="uploadImage"
-                            >問いを投げかける
+                            >議題を投げかける
                             </button>
                         </div>
                     <!-- </form> -->

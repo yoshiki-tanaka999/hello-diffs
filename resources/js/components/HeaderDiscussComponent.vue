@@ -24,11 +24,11 @@
             <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                     <div class= "open-modal p-2"
-                        onclick="document.getElementById('modal').style.display = 'block';"
                         v-bind="attrs"
                         v-on="on"
                         >
-                        <i class="fas fa-edit fa-2x ml-2"></i>
+                        <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
+                        <i class="fas fa-heart mr-2 ml-3"></i>
                         <!-- <svg 
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24" width="24" height="24"
@@ -41,7 +41,27 @@
                             </svg> -->
                     </div>
                 </template>
-                <span>新しい議題を投稿する</span>
+
+                <template v-slot:activator="{ on, attrs }">
+                    <div class= "open-modal p-2"
+                        v-bind="attrs"
+                        v-on="on"
+                        >
+                        <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
+                        <a href="https://twitter.com/"><i id="iconTW" class="fab fa-twitter-square fa-2x ml-4"></i></a>
+                        <!-- <svg 
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" width="24" height="24"
+                                class="plus-btn"
+                            >
+                            <path 
+                                class="heroicon-ui" 
+                                d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-9h2a1 1 0 0 1 0 2h-2v2a1 1 0 0 1-2 0v-2H9a1 1 0 0 1 0-2h2V9a1 1 0 0 1 2 0v2z"
+                            />
+                            </svg> -->
+                    </div>
+                </template>
+                <span>Twitterでシェアする</span>
             </v-tooltip>
     </header>
 </template>
@@ -49,7 +69,8 @@
 <style scoped>
 .header{
     height: 50px;
-    width: 99vw;
+    /* width: 99vw; */
+    width: 100%;
     font-family: 'Noto Sans JP', sans-serif;
     background-color: rgba(1, 1, 102, 0.863);
     z-index: 100;
