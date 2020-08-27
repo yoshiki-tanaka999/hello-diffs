@@ -10,16 +10,22 @@
                     max-width="400"
                     width="350"
                 >
-                    <!-- 「画像」 -->
-                    <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    :src="`${post.img_url}`"
+                
+                <!-- ディスカッションページへの遷移 -->
+                    <router-link 
+                    :to="'/discuss/' + post.id"
                     >
-                    <!-- 「議題」 -->
-                    <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
-                    <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
-                    </v-img>
+                        <!-- 「画像」 -->
+                        <v-img
+                        class="white--text align-end"
+                        height="200px"
+                        :src="`${post.img_url}`"
+                        >
+                        <!-- 「議題」 -->
+                        <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
+                        <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
+                        </v-img>
+                    </router-link>
 
                     <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
 
