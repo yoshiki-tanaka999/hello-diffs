@@ -30,7 +30,7 @@ export default {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
 }
 #mypageTitle{
     height: 40px;
