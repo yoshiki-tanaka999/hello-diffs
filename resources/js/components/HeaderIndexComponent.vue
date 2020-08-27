@@ -49,7 +49,8 @@
 <style scoped>
 .header{
     height: 50px;
-    width: 99vw;
+    /* width: 99vw; */
+    width: 100%;
     font-family: 'Noto Sans JP', sans-serif;
     background-color: rgba(1, 1, 102, 0.863);
     font-family: 'Noto Sans JP', sans-serif;

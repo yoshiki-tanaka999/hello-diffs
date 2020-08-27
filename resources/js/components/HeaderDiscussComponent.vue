@@ -28,7 +28,8 @@
                         v-bind="attrs"
                         v-on="on"
                         >
-                        <i class="fas fa-edit fa-2x ml-2"></i>
+                        <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
+                        <a href="https://twitter.com/"><i id="iconTW" class="fab fa-twitter-square fa-2x ml-4"></i></a>
                         <!-- <svg 
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24" width="24" height="24"
@@ -41,7 +42,7 @@
                             </svg> -->
                     </div>
                 </template>
-                <span>新しい議題を投稿する</span>
+                <span>Tweetで共有する</span>
             </v-tooltip>
     </header>
 </template>
@@ -49,7 +50,8 @@
 <style scoped>
 .header{
     height: 50px;
-    width: 99vw;
+    /* width: 99vw; */
+    width: 100%;
     font-family: 'Noto Sans JP', sans-serif;
     background-color: rgba(1, 1, 102, 0.863);
     z-index: 100;
