@@ -6,6 +6,9 @@
                 <postcard-component />
             </v-container>
         </v-main>
+
+        <postcard-component />
+
     </v-app>
     
 </template>
