@@ -10,8 +10,11 @@
         <!-- タブ切り替え用 -->
         <v-container>
             <v-tabs
-                color="dark"
-                slider-color="rgba(245, 160, 3, 1)"
+                id="tabs"
+                color="black"
+                background-color="transparent"
+                slider-color="rgba(1, 1, 102, 0.863)"
+                centered
             >
                 <v-tab to="/index" class="tab">New</v-tab>
                 <v-tab to="/index/popular" class="tab">Popular</v-tab>
@@ -29,25 +32,30 @@
 
 <style scoped>
 #body{
-    background-color: #f3f3f334;
+    background-image: url(../testPhoto/whitecray.jpeg);
+    background-size: cover;
     padding-top: 50px;
 }
 #header{
     position: fixed;
     top: 0;
 }
-
+.tab{
+    font-weight: bold;
+}
 .tab:hover{
     text-decoration: none;
 }
-
 #tabsContentArea{
     width: 1160px;
     margin-right: auto;
     margin-left: auto;
 }
-
 #tabsContent{
+    /* 表示エリアに影をつけるならこっち */
+    /* background-color: rgba(84, 84, 97, 0.329); */
+    /* 影を付けないならこっち */
+    background-color: rgba(84, 84, 97, 0.01);
     padding: 30px;
 }
 </style>

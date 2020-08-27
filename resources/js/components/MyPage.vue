@@ -4,6 +4,8 @@
         <!-- header -->
         <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
         <headerindex-component id="header"></headerindex-component>
+                <!-- PostModalComponent.vue(お花畑) -->
+        <postmodal-component></postmodal-component>
 
         <div class="container" id="main">
 

@@ -2,10 +2,9 @@
     <header class="header d-flex justify-content-between align-items-center">
             <div class="d-flex">
                 <ul class="nav text-left">
-                    <li>
-                        <!-- ！要変更 -->
+                    <!-- <li>
                         <router-link to="/index" class="nav-link border" id="siteLogo"><img src="../testPhoto/title_icon.png" alt="site logo" width="20px"></router-link>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <router-link to="/index" class="nav-link">Hello Diff.s</router-link>
                     </li>
@@ -43,11 +42,12 @@
 .header{
     height: 50px;
     width: 99vw;
-    background-color: #f3f3f334;
+    background-color: rgba(1, 1, 102, 0.863);
     z-index: 100;
 }
 .nav-link{
-    color: rgb(245, 160, 3);
+    /* color: rgb(245, 160, 3); */
+    color: white;
     font-weight: bold;
     font-size: 1rem;
 }
