@@ -7,8 +7,8 @@
             >
                 <v-card
                     class="postcard mx-auto"
-                    max-width="400"
                     width="350"
+                    max-width="400"
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
@@ -135,8 +135,11 @@ export default {
     box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
 }
 .v-card-title{
+    color: white;
     background-color: rgb(0,0,0,0.5);
     font-size: 1rem;
+    position: absolute;
+    bottom: 0;
     padding: 5px;
     margin-right: 10px;
     margin-left: 10px;

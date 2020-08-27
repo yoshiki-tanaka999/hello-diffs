@@ -1,3 +1,5 @@
 <template>
-    <div>Recommended to you</div>
+    <v-app>
+        <postcard-component />
+    </v-app>
 </template>
