@@ -1,7 +1,10 @@
 <template>
         <v-row>
-
-            <v-col>
+            <v-col
+                cols="4" 
+                class="d-flex align-center"
+                v-for="post in posts" :key="post.id"
+            >
                 <v-card
                     class="postcard mx-auto"
                     max-width="400"
@@ -11,10 +14,11 @@
                     <v-img
                     class="white--text align-end"
                     height="200px"
-                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                    :src="`${post.img_url}`"
                     >
                     <!-- 「議題」 -->
-                    <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title>
+                    <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
+                    <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
                     </v-img>
 
                     <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
@@ -49,94 +53,75 @@
                     </v-card-text>             
                 </v-card>
             </v-col>
-
-            <v-col>
-                <v-card
-                    class="postcard mx-auto"
-                    max-width="400"
-                    width="350"
-                >
-                    <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                    >
-                    <v-card-title class="v-card-title">アイウエオアイウエオアイウエオアイウエオアイウエオアイウエオアイウエオアイウエオ</v-card-title>
-                    </v-img>
-
-                    <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
-
-                    <v-card-text class="text--primary">
-                    <div></div>
-
-                    <v-card-actions class="v-card-actions">
-                    <v-btn
-                        color="grey"
-                        text
-                    >
-                        <!-- likeにしていない -->
-                        <i class="btnUnBookmark far fa-heart fa-2x mb-5"></i>
-                        <!-- likeにしている -->
-                        <!-- <i class="btnBookmarked fas fa-heart fa-2x"></i> -->
-                    </v-btn>
-                    </v-card-actions>
-
-                    <div>
-                        <ul class="postStatusList d-flex">
-                            <li><i class="far fa-comments mr-2 ml-3"></i>3</li>
-                            <li><i class="fas fa-users mr-2 ml-3"></i>2</li>
-                            <li><i class="fas fa-heart mr-2 ml-3"></i>1</li>
-                        </ul>
-                    </div>
-                    </v-card-text>
-                </v-card>
-            </v-col>
-
-                        <v-col>
-                <v-card
-                    class="postcard mx-auto"
-                    max-width="400"
-                    width="350"
-                >
-                    <v-img
-                    class="white--text align-end"
-                    height="200px"
-                    src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                    >
-                    <v-card-title class="v-card-title">アイウエオアイウエオアイウエオアイウエオアイウエオアイウエオアイウエオアイウエオ</v-card-title>
-                    </v-img>
-
-                    <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
-
-                    <v-card-text class="text--primary">
-                    <div></div>
-
-                    <v-card-actions class="v-card-actions">
-                    <v-btn
-                        color="grey"
-                        text
-                    >
-                        <!-- likeにしていない -->
-                        <i class="btnUnBookmark far fa-heart fa-2x mb-5"></i>
-                        <!-- likeにしている -->
-                        <!-- <i class="btnBookmarked fas fa-heart fa-2x"></i> -->
-                    </v-btn>
-                    </v-card-actions>
-
-                    <div>
-                        <ul class="postStatusList d-flex">
-                            <li><i class="far fa-comments mr-2 ml-3"></i>3</li>
-                            <li><i class="fas fa-users mr-2 ml-3"></i>2</li>
-                            <li><i class="fas fa-heart mr-2 ml-3"></i>1</li>
-                        </ul>
-                    </div>
-                    </v-card-text>
-                </v-card>
-            </v-col>
-
         </v-row>
 
 </template>
+
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+    // Postのページ出し分け
+    name: "post",
+    created() {
+        this.fetchPosts()
+    },
+    data() {
+        return {
+            message: "",
+            view: true,
+            title: "",
+            description: "",
+            file: "",            
+            posts: [],
+            confirmedImage: "",
+            //カードの開封 
+            show: false,
+            // アイコン
+        };
+    },
+    computed: {
+        post() { return this.$store.getters.posts },
+    },
+    created: function() {
+        this.getImage();
+    },
+    // 追加
+    mounted() {
+        this.fetch();
+    },
+    methods: {
+        // 追加
+        ...mapActions('post', [
+            'fetch', 
+        ]),
+        getImage() {
+            axios
+                .get("/api/images/")
+                .then(response => {
+                    this.posts = response.data;
+                })
+                .catch(err => {
+                    this.message = err;
+                });
+        },
+        fetchPosts() {
+            this.$http
+                .get('/api/posts')
+                .then(response =>  {
+                    this.posts = response.data;
+                })
+                .finally(function(){
+                location.reload(true);
+                });
+        },       
+    },
+
+}
+
+</script>
+
+
 
 <style scoped>
 .postcard:hover{
