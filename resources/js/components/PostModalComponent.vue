@@ -80,24 +80,40 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
+    name: "post",
     data() {
         return {
             message: "",
-            file: "",
+            // newTask: {},
+            view: true,
             title: "",
             description: "",
-            view: true,
+            // DBへの登録は、img_url。storeの呼び出しはfile。
+            file: "",
             posts: {},
             confirmedImage: "",
             //カードの開封 
             show: false,
         };
     },
+    computed: {
+        post() { return this.$store.getters.posts },
+    },
     created: function() {
         this.getImage();
     },
+    // 追加
+    mounted() {
+        this.fetch();
+    },
     methods: {
+        // 追加
+        ...mapActions('post', [
+            'fetch', 'store'
+        ]),
         getImage() {
             axios
                 .get("/api/images/")
