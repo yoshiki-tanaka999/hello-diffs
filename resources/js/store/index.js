@@ -1,17 +1,14 @@
-// ディスカッションページ用のstoreの作成
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-const state = {}
+import post from './post'
 
-const getters = {}
+Vue.use(Vuex)
 
-const mutations = {}
+const store = new Vuex.Store({
+    modules: {
+        post,
+    }
+})
 
-const actions = {}
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  mutations,
-  actions
-}
+export default store

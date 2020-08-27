@@ -8,6 +8,10 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link href="/css/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- チャート例2 -->
+        <link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet">
+        <!-- チャート：これ上手く行かなかった -->
+        <!-- <script src="https://code.jscharting.com/latest/jscharting.js"></script> -->
     </head>
 
     <body>

@@ -24,6 +24,8 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue-Router
 import router from './router'
 
+import store from './store' // ★　追加
+
 
 import Router from 'vue-router'
 import MyPage from './components/MyPage'
@@ -63,10 +65,17 @@ Vue.component('TagArea-component', require('./components/TagsTagArea.vue').defau
 // API連携用
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);
 
+// ★★ディスカッションページ★★
+// チャート部分
+Vue.component('DiscussChart-component', require('./components/DiscussChartComponent.vue').default);
+// Post情報を記載
+Vue.component('DiscussPost-component', require('./components/DiscussPostComponent.vue').default);
+
 
 const app = new Vue({
     el: '#app',
     router,
+    store, // ★追加
     vuetify : new Vuetify({
         icons: {
           iconfont: 'mdiSvg',

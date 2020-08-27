@@ -31,6 +31,12 @@ import Image from './components/ImageComponent'
 import ImagePopular from './components/ImagePopularComponent'
 import ImageFeatured from './components/ImageFeaturedComponent'
 
+// Discss.vue
+import Discuss from './views/Discuss'
+// Discss.vueのコンポーネント
+import DiscussChart from './components/DiscussChartComponent'
+import DiscussPost from './components/DiscussPostComponent'
+
 const router = new Router({
   mode: 'history',
   routes: [
@@ -57,10 +63,12 @@ const router = new Router({
       // ★★ディスカッションページ★★
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
       path: '/discuss/:id(\\d+)', 
-      name: 'Discss',
-      // component: { 
-      //   default: Discuss
-      // },
+      name: 'Discuss',
+      // components: {
+      //   default: Discuss,
+      //     DiscussChart: DiscussChart,
+      //     DiscussPost: DiscussPost,
+      //   },
       component: require("./views/Discuss.vue").default,
       // props: route => ({ id: Number(route.params.id) })
     },

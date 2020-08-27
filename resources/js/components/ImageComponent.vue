@@ -89,22 +89,26 @@
 import { mdiShare } from '@mdi/js';
 import { mdiHeartPlus } from '@mdi/js';
 
+// Vuex
+import { mapActions } from 'vuex'
+
 // ディスカッションページ
 // import Discuss from '../views/Discuss'
 
 export default {
     // Postのページ出し分け
+    name: "post",
     created() {
         this.fetchPosts()
     },
     data() {
         return {
             message: "",
-            file: "",
+            view: true,
             title: "",
             description: "",
-            view: true,
-            posts: {},
+            file: "",            
+            posts: [],
             confirmedImage: "",
             //カードの開封 
             show: false,
@@ -113,10 +117,21 @@ export default {
             svgPath_2: mdiHeartPlus,
         };
     },
+    computed: {
+        post() { return this.$store.getters.posts },
+    },
     created: function() {
         this.getImage();
     },
+    // 追加
+    mounted() {
+        this.fetch();
+    },
     methods: {
+        // 追加
+        ...mapActions('post', [
+            'fetch', 
+        ]),
         getImage() {
             axios
                 .get("/api/images/")
@@ -141,3 +156,4 @@ export default {
 
 }
 </script>
+
