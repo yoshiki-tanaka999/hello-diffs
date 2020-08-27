@@ -7,7 +7,8 @@
             </v-container>
         </v-main>
 
-        <postcard-component />
+        <!-- <postcard-component /> -->
+        <BTNshowmore-component />
 
     </v-app>
     
