@@ -2,7 +2,7 @@
     <v-app id="body">
         <!-- HeaderComponent.vue -->
         <headerindex-component id="header"></headerindex-component>
-        <!-- PostModalComponent.vue(お花畑) -->
+        <!-- PostModalComponent.vue -->
         <postmodal-component></postmodal-component>
         <!-- MainComponent.vue(お花畑) -->
         <main-component></main-component>
