@@ -1,14 +1,13 @@
 <template>
-    
-    <div id="body">
+    <v-app id="body">
+        
         <!-- header -->
         <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
         <headerindex-component id="header"></headerindex-component>
-                <!-- PostModalComponent.vue(お花畑) -->
+        <!-- PostModalComponent.vue(お花畑) -->
         <postmodal-component></postmodal-component>
 
         <div class="container" id="main">
-
             <!-- web.phpの問題に伴い、↑を修正しました(田中) -->
             <!-- ユーザの写真と名前 -->
             <UserImageName-component></UserImageName-component>
@@ -20,16 +19,16 @@
         <!-- footer -->        
         <footer-component></footer-component>
 
-    </div>
-
+    </v-app>
 </template>
 
 <style scoped>
 #body{
-    background-color: #f3f3f334;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-image: url(../testPhoto/whitecray.jpeg);
+    background-size: cover;
     padding-top: 50px;
 }
-
 #main{
     margin-top: 30px;
     /* border: 1px solid #000000; */
