@@ -9,7 +9,7 @@
                 :disabled="loading2"
                 outlined color="black"
                 @click="loader = 'loading2'"
-            >
+            >   <!-- 問題あるが、無視する -->
             Show more
             <template v-slot:loader>
                 <span>Loading...</span>

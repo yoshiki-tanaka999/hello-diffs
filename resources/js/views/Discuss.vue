@@ -1,9 +1,10 @@
 <template>
     <v-app>
         <HeaderDiscuss-component></HeaderDiscuss-component>
-        <v-container>
+        <DiscussSidebar-component></DiscussSidebar-component>
+        <v-main>
             <DiscussChart-component></DiscussChart-component>
             <DiscussPost-component></DiscussPost-component>  
-        </v-container>      
+        </v-main>
     </v-app>
 </template>
