@@ -31,6 +31,7 @@
 }
 #main{
     margin-top: 30px;
+    margin-top: 60px;
     /* border: 1px solid #000000; */
 }
 #header{

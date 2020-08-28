@@ -24,6 +24,7 @@
 
         <div id="tabsContentArea">
             <router-view id="tabsContent" />
+            <BTNshowmore-component />
         </div>
 
         <footer-component></footer-component>

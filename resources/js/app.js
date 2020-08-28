@@ -62,6 +62,8 @@ Vue.component('footer-component', require('./components/Footer.vue').default);
 Vue.component('TagTitle-component', require('./components/TagsTitle.vue').default);
 // タグエリア
 Vue.component('TagArea-component', require('./components/TagsTagArea.vue').default);
+// **ボタン
+Vue.component('BTNshowmore-component', require('./components/BtnShowMore.vue').default);
 
 // API連携用
 Vue.component('testapi-component', require('./components/TestApiComponent.vue').default);
