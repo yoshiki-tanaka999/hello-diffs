@@ -1,5 +1,6 @@
 <template>
-    <header class="header d-flex justify-content-center align-items-center">
+    <header class="header d-flex align-items-center">
+    <!-- <header class="header d-flex justify-content-center align-items-center"> -->
             <div class="d-flex">
                 <ul class="nav text-left p-0 m-0">
                     <!-- <li>
