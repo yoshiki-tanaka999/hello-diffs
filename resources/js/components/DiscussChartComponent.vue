@@ -38,6 +38,7 @@
 #chart {
     /* width: 1161px; */
     width: 80%;
+    height: 350px;
     background-color: rgba(255, 255, 255, 0.3);
     /* background-color: rgba(235, 235, 235, 0.7); */
     border-radius: 3px;
