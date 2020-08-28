@@ -1,6 +1,6 @@
 <template>
-    <v-main class="tf-tree example">
-        <v-container>
+    <v-main class="pa-0">
+        <v-container class="tf-tree example">
             <ul>
                 <li>
                     <span class="tf-nc">投稿テーマイメージ</span>
@@ -33,3 +33,9 @@
         </v-container>
     </v-main>
 </template>
+
+<style scoped>
+.tf-tree example {
+    justify-content: center;
+}
+</style>

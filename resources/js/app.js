@@ -79,7 +79,8 @@ Vue.component('HeaderDiscuss-component', require('./components/HeaderDiscussComp
 Vue.component('DiscussChart-component', require('./components/DiscussChartComponent.vue').default);
 // Post情報を記載
 Vue.component('DiscussPost-component', require('./components/DiscussPostComponent.vue').default);
-
+// サイドバー
+Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
