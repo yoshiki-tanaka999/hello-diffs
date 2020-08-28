@@ -7,7 +7,7 @@
                 <!-- 実際のディスカッション -->
                 <div class="question_parts">
                         <v-card-title>
-                            {{ posts.title }}
+                            <!-- {{ posts.title }} -->
                             質問の表示
                         </v-card-title>
                         <!-- <h5 class="card-title">{{ $route.params.id }}</h5> -->
