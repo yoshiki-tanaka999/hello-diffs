@@ -24,7 +24,9 @@
 
         <div id="tabsContentArea">
             <router-view id="tabsContent" />
-            <BTNshowmore-component />
+
+            <!-- ダブっている？ -->
+            <!-- <BTNshowmore-component /> -->
         </div>
 
         <footer-component></footer-component>
