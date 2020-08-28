@@ -6,6 +6,10 @@
                 <postcard-component />
             </v-container>
         </v-main>
+
+        <!-- <postcard-component /> -->
+        <BTNshowmore-component />
+
     </v-app>
     
 </template>
