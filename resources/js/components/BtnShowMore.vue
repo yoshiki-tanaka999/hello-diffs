@@ -11,9 +11,9 @@
                 @click="loader = 'loading2'"
             >   <!-- 問題あるが、無視する -->
             Show more
-            <template v-slot:loader>
-                <span>Loading...</span>
-            </template>
+                <template v-slot:loader>
+                    <span>Loading...</span>
+                </template>
             </v-btn>
         </div>
     </div>    
