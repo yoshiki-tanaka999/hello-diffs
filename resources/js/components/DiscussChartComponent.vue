@@ -1,6 +1,6 @@
 <template>
-    <v-main class="pa-0">
-        <v-container class="tf-tree example">
+    <v-main class="pa-0" >
+        <v-container class="tf-tree example" id="chart">
             <ul>
                 <li>
                     <span class="tf-nc">投稿テーマイメージ</span>
@@ -35,7 +35,16 @@
 </template>
 
 <style scoped>
-.tf-tree example {
+#chart {
+    /* width: 1161px; */
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(235, 235, 235, 0.7); */
+    border-radius: 3px;
+    display: flex;
     justify-content: center;
+    /* padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px; */
 }
 </style>
