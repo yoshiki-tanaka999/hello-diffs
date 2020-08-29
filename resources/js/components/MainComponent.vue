@@ -2,7 +2,7 @@
     <section class="wrapper">
         <div class="container p-0">
             <div class="content" id="bg">
-                <h1 id="siteTitle">Hello Diff<span id="dot">.</span>s</h1>
+                <h1 id="siteTitle"><span id="space"></span>Hello Diff<span id="dot">.</span>s</h1>
                 <!-- <img src="../testPhoto/title_icon.png" alt="" height="100px" width="300px" id="titleImage"> -->
                 <div class="list">
                 </div>
@@ -47,6 +47,7 @@
     font-size: 8rem;
     letter-spacing: 0.5rem;
     padding-top: 45px;
+    /* padding-left: 50x; */
     /* シンプル＆太字 */
     /* font-family: 'Oswald', sans-serif; */
     /* 素朴 */
@@ -67,6 +68,10 @@
     /* text-shadow: 2px -2px 1px rgb(253, 199, 97); */
 }
 
+/* Hello Diff.sの位置を調整するための内容のないタグ */
+#space{
+    margin: 20px;
+}
 
 #titleImage{
     margin-left:370px;
