@@ -14,7 +14,7 @@
             </div>
 
             <v-card-title class="card_title">
-                <!-- {{ posts.title }} -->
+                <!-- {{ posts[0] }} -->
                 質問の表示
             </v-card-title>
                 <!-- <h5 class="card-title">{{ $route.params.id }}</h5> -->
@@ -134,45 +134,7 @@
     </v-container>
 </template>
 
-<script>
-// Vuex
-import { mapGetters, mapActions } from 'vuex'
-import { mdiRectangle } from '@mdi/js';
-import { mdiRectangleOutline } from '@mdi/js';
 
-export default {
-    name:"post",
-    data() {
-        return {
-            // $route: { params: { id: '' } } ,
-            posts: {
-                id: '',
-                title: '',
-                description: '',
-            },
-            mdiRectangle,
-            mdiRectangleOutline
-        }
-    },
-    computed: {
-        getPostById() { return this.$store.getters.post },
-    },
-    // // 追加
-    // mounted() {
-    //     this.fetch();
-    // },
-    method: {
-        // 追加
-        ...mapActions('post', [ 'fetch' ]),
-        
-        async fetch ({ commit }) {
-            await axios.get('/api/images').then(res => {
-                commit('setData', res.data);
-            });
-        },
-    }
-}
-</script>
 
 <style scoped>
 .question_parts {

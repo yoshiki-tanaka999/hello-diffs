@@ -63,6 +63,7 @@
 
 </template>
 
+
 <script>
 import { mapActions } from 'vuex'
 
@@ -110,6 +111,7 @@ export default {
                 .catch(err => {
                     this.message = err;
                 });
+                console.log(this.posts);
         },
         fetchPosts() {
             this.$http
@@ -122,7 +124,6 @@ export default {
                 });
         },       
     },
-
 }
 
 </script>

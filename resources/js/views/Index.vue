@@ -16,7 +16,7 @@
                 slider-color="rgba(1, 1, 102, 0.863)"
                 centered
             >
-                <v-tab to="/index" class="tab">New</v-tab>
+                <v-tab to="/index/new" class="tab">New</v-tab>
                 <v-tab to="/index/popular" class="tab">Popular</v-tab>
                 <v-tab to="/index/featured" class="tab">Featured</v-tab>
             </v-tabs>            
@@ -24,12 +24,15 @@
 
         <div id="tabsContentArea">
             <router-view id="tabsContent" />
+            <!-- ダブってる？ -->
             <BTNshowmore-component />
         </div>
 
         <footer-component></footer-component>
     </v-app>
 </template>
+
+
 
 <style scoped>
 #body{

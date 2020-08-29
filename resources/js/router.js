@@ -1,10 +1,8 @@
-
-
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-// MyPage.vueのコンポーネント 
+// MyPage.vueのコンポーネント
 import MyPage from './components/MyPage'
 // import HeaderComponent from './components/HeaderComponent'
 import UserImageName from './components/UserImageName'
@@ -51,7 +49,7 @@ const router = new Router({
       component: Index,
         children: [
           {
-            path: '',
+            path: 'new',
             component: Image ,
           },
           {
