@@ -48,7 +48,7 @@
     font-weight: bold;
 }
 .tab:hover{
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 #tabsContentArea{
     width: 1160px;
