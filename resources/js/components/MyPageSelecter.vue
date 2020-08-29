@@ -7,7 +7,7 @@
         slider-color="rgba(1, 1, 102, 0.863)"
         centered
       >
-        <v-tab to="/mypage" class="tab">respond</v-tab>
+        <v-tab to="/mypage/respond" class="tab">respond</v-tab>
         <v-tab to="/mypage/following" class="tab">following</v-tab>
         <v-tab to="/mypage/own" class="tab">own</v-tab>
         <v-tab to="/mypage/recent" class="tab">recent</v-tab>
