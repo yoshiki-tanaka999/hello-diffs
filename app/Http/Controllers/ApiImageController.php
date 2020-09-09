@@ -40,7 +40,7 @@ class ApiImageController extends Controller
             request()->file->storeAs('public', $file_name);
 
             $image = new Post();
-            $image->img_url = 'storage/' . $file_name;
+            $image->img_url = 'http://127.0.0.1:8000/storage/' . $file_name;
             $image->title = $request->title;
             $image->description = $request->description;
             $image->save();

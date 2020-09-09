@@ -32,7 +32,9 @@ import MyPage from './components/MyPage'
 import Tags  from './components/Tags'
 
 import Discuss from './views/Discuss'
-// import Image from './components/ImageComponent'
+
+// vuex-router-syncのインポート
+import { sync } from 'vuex-router-sync'
 
 // ★★トップページ★★
 // ヘッダー
@@ -79,6 +81,9 @@ Vue.component('DiscussChart-component', require('./components/DiscussChartCompon
 Vue.component('DiscussPost-component', require('./components/DiscussPostComponent.vue').default);
 // サイドバー
 Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
+
+// router(ルーティング)とstore(状態)を結びつける
+sync(store, router);
 
 const app = new Vue({
     el: '#app',

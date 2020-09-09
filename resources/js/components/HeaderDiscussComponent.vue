@@ -7,7 +7,7 @@
                         <router-link to="/index" class="nav-link border" id="siteLogo"><img src="../testPhoto/title_icon.png" alt="site logo" width="20px"></router-link>
                     </li> -->
                     <li class="nav-item">
-                        <router-link to="/index" class="nav-link">Hello Diff.s</router-link>
+                        <router-link to="/index/new" class="nav-link">Hello Diff.s</router-link>
                     </li>
                     <li class="nav-item">
                         <!-- <router-link to="/mypage" class="nav-link">My page</router-link> -->

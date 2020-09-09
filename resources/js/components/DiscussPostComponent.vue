@@ -14,10 +14,11 @@
             </div>
 
             <v-card-title class="card_title">
-                <!-- {{ posts[0] }} -->
-                質問の表示
+                {{ getPostById()  }}
+                <!-- 質問の表示 -->
+                <!-- {{ ParamsId }} -->
             </v-card-title>
-                <!-- <h5 class="card-title">{{ $route.params.id }}</h5> -->
+                
         </v-card>
 
         <div class="discuss_content">
@@ -134,7 +135,70 @@
     </v-container>
 </template>
 
+<script>
+/* eslint-disable no-console */
 
+// Vuex
+import { mapGetters, mapActions } from 'vuex'
+
+import { mdiRectangle } from '@mdi/js';
+import { mdiRectangleOutline } from '@mdi/js';
+
+export default {
+    name:"post",
+    data() {
+        return {
+            $route: { params: { id: '' } } ,
+            posts: {
+                id: '',                
+                title: '',
+                description: '',
+            },
+            mdiRectangle,
+            mdiRectangleOutline
+        }
+    },
+    // mountedでフィルター掛けたやつを入れる。直接、
+    // mounted: {
+        // title, description = getPostById(id),
+        // this.posts.title = title,
+        // this.posts.description = description
+    // },
+    computed: {
+        ParamsId() {
+            return Number(this.$route.params.id);
+        },
+        // getPostById() {
+        //     return posts.find(post => post.id === this.ParamsId);
+        // },
+        // getPostById(){
+        //     return this.$store.getters.getPostById
+        // },
+        // hoge() {
+        //     return this.posts.filter(post => post.id(post.id === this.params.id))
+        // },
+        getPostById() {
+            // console.log($store.getters.post)
+            return this.$store.getters.getPostById
+        },
+        title() {
+            return this.post.title;
+        },
+        description() {
+            return this.post.description;
+        },        
+    },
+    method: {
+        // 追加
+        ...mapActions('post', [ 'fetch' ]),      
+        async fetch ({ commit }) {
+            await axios.get('/api/images').then(res => {
+                commit('setData', res.data);
+            });
+        },
+    }
+}
+</script>
 
 <style scoped>
 .question_parts {
