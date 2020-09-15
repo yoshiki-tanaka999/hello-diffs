@@ -1,50 +1,25 @@
 
-// const store = new Vuex.Store({
-//     state: {
-//         posts: [
-//             {
-//                 id: {},
-//                 title: {},
-//                 description: {},
-//                 img_url: {},
-//             }
-//         ]
-//     },
-//     getters: {
-//         getPosts: state => {
-//             return state.posts;
-//         },
-//       // idで検索
-//         getPostById: state => id => {
-//             const post = state.posts.find((post) => {
-//                 return post.id === id
-//             });
-            
-//             if (post) {
-//                 return post.title, post.description;
-//             } else {
-//                 return "";
-//             }
-//         },
-//     }
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-// })
+Vue.use(Vuex)
 
 // ディスカッションページ用のmodule
 const state = {
-    // posts: {
-    //     id: "",
-    //     title: "",
-    //     description: "",
-    //     img_url: "",
-    // }
     posts: []
 };
 
 const getters = {
-    getPosts (state) {
-        return state.posts;
-    },
+    posts: state => state.posts,
+    detail: state => {
+        // state.routeでアクセス可能
+        return state.posts.find(post => post.id.toString() === state.route.params.id.toString()) || {}
+    }    
+
+    // getPosts (state) {
+    //     return state.posts;
+    // },
+
   // idで検索
     // getPostById: (state) => (id) => {
     //     const ParamsId = Number(this.$route.params.id)
@@ -61,18 +36,19 @@ const getters = {
     // getPostById() {
     //     return state.posts.find(post => post.id === this.ParamsId);
     // },
-    //       // idで検索
-        getPostById: state => id => {
-            const post = state.posts.find((post) => {
-                return post.id === id
-            });
+
+        // idで検索
+        // getPostById: state => id => {
+        //     const post = state.posts.find((post) => {
+        //         return post.id === id
+        //     });
             
-            if (post) {
-                return post.title, post.description;
-            } else {
-                return "";
-            }
-        },
+        //     if (post) {
+        //         return post.title, post.description;
+        //     } else {
+        //         return "";
+        //     }
+        // },
 };
 
 const mutations = {

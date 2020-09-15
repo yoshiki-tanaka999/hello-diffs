@@ -65,6 +65,7 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 
 export default {
@@ -89,6 +90,7 @@ export default {
     },
     computed: {
         post() { return this.$store.getters.posts },
+        ...mapGetters(['posts'])
     },
     created: function() {
         this.getImage();

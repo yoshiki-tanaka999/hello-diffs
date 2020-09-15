@@ -49,11 +49,11 @@ export default {
     mounted() {
         this.fetch();
     },
-    methods: {
         // 追加
-        ...mapActions('post', [
-            'fetch', 
-        ]),
+    ...mapActions('post', [
+        'fetch', 
+    ]),
+    methods: {
         getImage() {
             axios
                 .get("/api/images/")
@@ -73,7 +73,7 @@ export default {
                 .finally(function(){
                 location.reload(true);
                 });
-        },       
+        },    
     },
 
 }

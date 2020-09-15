@@ -6,7 +6,7 @@
 
         <v-main id="main">
             <DiscussChart-component></DiscussChart-component>
-            <DiscussPost-component></DiscussPost-component>  
+            <DiscussPost-component></DiscussPost-component> 
         </v-main>
     </v-app>
 </template>

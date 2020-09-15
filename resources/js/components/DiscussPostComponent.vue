@@ -14,7 +14,7 @@
             </div>
 
             <v-card-title class="card_title">
-                {{ getPostById()  }}
+                {{ detail.title }}
                 <!-- 質問の表示 -->
                 <!-- {{ ParamsId }} -->
             </v-card-title>
@@ -148,15 +148,13 @@ export default {
     name:"post",
     data() {
         return {
-            $route: { params: { id: '' } } ,
-            posts: {
-                id: '',                
-                title: '',
-                description: '',
-            },
+            dataDetail: [],
             mdiRectangle,
             mdiRectangleOutline
         }
+    },
+    created () {
+        this.dataDetail = this.$store.state.posts.find(post => post.id.toString() === this.$route.params.id.toString())
     },
     // mountedでフィルター掛けたやつを入れる。直接、
     // mounted: {
@@ -165,9 +163,10 @@ export default {
         // this.posts.description = description
     // },
     computed: {
-        ParamsId() {
-            return Number(this.$route.params.id);
-        },
+        ...mapGetters(['detail']),
+        // ParamsId() {
+        //     return Number(this.$route.params.id);
+        // },
         // getPostById() {
         //     return posts.find(post => post.id === this.ParamsId);
         // },
@@ -177,16 +176,17 @@ export default {
         // hoge() {
         //     return this.posts.filter(post => post.id(post.id === this.params.id))
         // },
-        getPostById() {
-            // console.log($store.getters.post)
-            return this.$store.getters.getPostById
-        },
-        title() {
-            return this.post.title;
-        },
-        description() {
-            return this.post.description;
-        },        
+
+        // getPostById() {
+        //     // console.log($store.getters.post)
+        //     return this.$store.getters.getPostById
+        // },
+        // title() {
+        //     return this.post.title;
+        // },
+        // description() {
+        //     return this.post.description;
+        // },        
     },
     method: {
         // 追加

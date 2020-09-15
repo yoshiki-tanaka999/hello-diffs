@@ -23,18 +23,15 @@ import 'vuetify/dist/vuetify.min.css'
 
 // Vue-Router
 import router from './router'
-
 import store from './store' // ★追加
-
+// vuex-router-syncのインポート
+import { sync } from 'vuex-router-sync'
 
 import Router from 'vue-router'
 import MyPage from './components/MyPage'
 import Tags  from './components/Tags'
 
 import Discuss from './views/Discuss'
-
-// vuex-router-syncのインポート
-import { sync } from 'vuex-router-sync'
 
 // ★★トップページ★★
 // ヘッダー
