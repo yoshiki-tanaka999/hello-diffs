@@ -14,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// 追加したコード
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+});
+
+Route::group([
+    'prefix' => 'auth',
+    'middleware' => 'auth:api'
+], function () {
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+});
+
+
+
+// 元々のコード
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
