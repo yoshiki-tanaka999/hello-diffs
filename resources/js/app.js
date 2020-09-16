@@ -27,6 +27,8 @@ import store from './store' // ★追加
 // vuex-router-syncのインポート
 import { sync } from 'vuex-router-sync'
 
+window.state = store.state;
+
 import Router from 'vue-router'
 import MyPage from './components/MyPage'
 import Tags  from './components/Tags'

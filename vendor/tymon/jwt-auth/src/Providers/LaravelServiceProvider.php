@@ -9,7 +9,6 @@
  * file that was distributed with this source code.
  */
 
- 
 namespace Tymon\JWTAuth\Providers;
 
 class LaravelServiceProvider extends AbstractServiceProvider

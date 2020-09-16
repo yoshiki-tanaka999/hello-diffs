@@ -16,6 +16,14 @@
                         <!-- <router-link to="/tags" class="nav-link">Tags</router-link> -->
                         <router-link to="/tags" class="nav-link">#タグ一覧</router-link>
                     </li>
+
+                    <li class="nav-item">
+                        <router-link to="/login" class="nav-link">ログイン</router-link>
+                    </li>
+
+                    <li class="nav-item">
+                        <router-link to="/logout" class="nav-link">ログアウト</router-link>
+                    </li>
                 </ul>
             </div>
             
@@ -45,6 +53,20 @@
             </v-tooltip>
     </header>
 </template>
+
+<script>
+    export default {
+        methods: {
+            logout() {
+                axios.post('/api/logout').then(res => {
+                    axios.defaults.headers.common['Authorization'] = '';
+                    state.isLogin = false;
+                    this.$router.push({path: '/index/new'});
+                });
+            }
+        }
+    }
+</script>
 
 <style scoped>
 .header{

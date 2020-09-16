@@ -40,6 +40,9 @@ import Discuss from './views/Discuss'
 import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
 
+// Login
+import Login from './views/Login'
+
 const router = new Router({
   mode: 'history',
   routes: [
@@ -126,9 +129,28 @@ const router = new Router({
         tagArea: TagsArea,
         // footer: Footer,
       }
-    }
+    },
+    // ログイン認証
+    { path: '/login', component: Login },
   ]
 })
+
+// 認証( ログインしていないとリダイレクトされる) 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (state.isLogin === false) {
+          next({
+              path: '/login',
+              query: { redirect: to.fullPath }
+          })
+      } else {
+          next()
+      }
+  } else {
+      next();
+  }
+});
+
 
 
 
