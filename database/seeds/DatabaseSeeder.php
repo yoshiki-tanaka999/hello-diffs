@@ -2,19 +2,15 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'test',
-            'email' => 'test@test.com',
-            'password' => bcrypt('testtest'),
-        ]);
+         $this->call(UsersTableSeeder::class);
     }
 }

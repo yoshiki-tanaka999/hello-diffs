@@ -15,6 +15,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'test',
             'email' => 'test@test.com',
             'password' => bcrypt('testtest'),
+            'profile' => 'test',
+            'img_url' => 'test',
         ]);
     }
 }
