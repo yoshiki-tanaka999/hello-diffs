@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 // 追加
 use JWTAuth;
 use Validator;
-use App\User;
+use App\Model\User\User;
 
 class AuthController extends Controller
 {

@@ -142,7 +142,7 @@ const router = new Router({
     // レジスター
     {path: '/register', name: 'register', component: Register }, 
     // ログイン認証
-    { path: '/login', component: Login },
+    { path: '/login', name: 'login', component: Login },
     // ログインテスト
     { path: '/user', component: User },
     // account
