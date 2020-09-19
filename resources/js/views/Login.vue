@@ -28,7 +28,7 @@ export default {
                 const token = res.data.access_token;
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
                 state.isLogin = true;
-                this.$router.push({path: '/'});
+                this.$router.push({path: '/user'});
             }).catch(error => {
                 this.isError = true;
             });

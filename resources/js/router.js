@@ -42,6 +42,8 @@ import DiscussPost from './components/DiscussPostComponent'
 
 // Login
 import Login from './views/Login'
+// User(ログインテスト)
+import User from './views/User'
 
 const router = new Router({
   mode: 'history',
@@ -132,6 +134,8 @@ const router = new Router({
     },
     // ログイン認証
     { path: '/login', component: Login },
+    // ログインテスト
+    { path: '/user', component: User },
   ]
 })
 

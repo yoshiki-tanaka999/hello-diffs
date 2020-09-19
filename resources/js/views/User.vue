@@ -32,7 +32,7 @@
             }
         },
         created() {
-            axios.get('/api/me').then(res => {
+            axios.get('/api/auth/me').then(res => {
                 this.user = res.data;
             }).catch(error => {
                 this.isError = true;

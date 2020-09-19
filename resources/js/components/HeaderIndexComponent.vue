@@ -21,9 +21,7 @@
                         <router-link to="/login" class="nav-link">ログイン</router-link>
                     </li>
 
-                    <li class="nav-item">
-                        <router-link to="/logout" class="nav-link">ログアウト</router-link>
-                    </li>
+                    <li class="nav-link" @click="logout">ログアウト</li>
                 </ul>
             </div>
             
@@ -58,7 +56,7 @@
     export default {
         methods: {
             logout() {
-                axios.post('/api/logout').then(res => {
+                axios.post('/api/auth/logout').then(res => {
                     axios.defaults.headers.common['Authorization'] = '';
                     state.isLogin = false;
                     this.$router.push({path: '/index/new'});
