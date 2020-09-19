@@ -40,10 +40,17 @@ import Discuss from './views/Discuss'
 import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
 
+// Register
+import Register from './views/Register'
 // Login
 import Login from './views/Login'
 // User(ログインテスト)
 import User from './views/User'
+// account
+import Account from './views/Account'
+// not found
+import Not_found from './views/Not_found'
+
 
 const router = new Router({
   mode: 'history',
@@ -132,10 +139,17 @@ const router = new Router({
         // footer: Footer,
       }
     },
+    // レジスター
+    {path: '/register', name: 'register', component: Register }, 
     // ログイン認証
     { path: '/login', component: Login },
     // ログインテスト
     { path: '/user', component: User },
+    // account
+    { path: '/account', name: 'Account', component: Account },
+    // not found
+    { path: '/404', name: 'Not_found', component: Not_found },
+    { path: '*', redirect: '/404' },
   ]
 })
 
