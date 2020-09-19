@@ -103,7 +103,7 @@ const router = new Router({
     component: MyPage,
       children: [
         {
-          path: '',
+          path: 'respond',
           component: Respond,
         },
         {
