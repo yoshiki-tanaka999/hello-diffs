@@ -24,6 +24,8 @@ import 'vuetify/dist/vuetify.min.css'
 // Vue-Router
 import router from './router'
 import store from './store' // ★追加
+// Set Vue router
+Vue.router = router
 // vuex-router-syncのインポート
 import { sync } from 'vuex-router-sync'
 
@@ -83,6 +85,16 @@ Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarCo
 
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);
+
+// ログイン認証
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import 'es6-promise/auto'
+import VueAuth from '@websanova/vue-auth'
+import auth from './auth'
+Vue.use(VueAxios, axios)
+Vue.use(VueAuth, auth)
+
 
 const app = new Vue({
     el: '#app',
