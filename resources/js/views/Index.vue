@@ -32,7 +32,18 @@
     </v-app>
 </template>
 
-
+// 追加
+<script>
+export default {
+    data: () => ({
+    }),
+    created() {
+      this.$store.dispatch('auth/setUserInfo')
+    },
+    methods: {
+    },
+}
+</script>
 
 <style scoped>
 #body{
