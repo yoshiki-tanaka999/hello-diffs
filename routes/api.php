@@ -27,7 +27,15 @@ Route::apiResource('/tests', 'ApiPostController');
 
 Route::apiResource('/images', 'ApiImageController');
 
+// Route::apiResource('/posts', 'ApiPostSelectController');
+
+// これか
+Route::get('/posts', 'ApiPostSelectController@index');
+Route::get('/posts/{post}', 'ApiPostSelectController@show');
+
+// こっち
 // // URL生成テスト(Post投稿ごとのidでページを作成できるようにしたい)
-Route::group(['middleware' => 'api'], function() {
-    Route::get('posts', 'ApiPostSelectController@index');
-});
+// Route::group(['middleware' => 'api'], function() {
+//     Route::get('posts', 'ApiPostSelectController@index');
+//     Route::get('/posts/{post}', 'ApiPostSelectController@show');
+// });

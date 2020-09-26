@@ -5,6 +5,11 @@
                 class="d-flex align-center"
                 v-for="post in posts" :key="post.id"
             >
+            <!-- <v-col
+                cols="4" 
+                class="d-flex align-center"
+                v-for="{ id, title, img_url } in posts" :key="id"
+            > -->
                 <v-card
                     class="postcard mx-auto"
                     width="350"
@@ -12,9 +17,10 @@
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
-                    <router-link 
-                    :to="'/discuss/' + post.id"
+                    <router-link :to="{ name: 'Discuss', params: { id: post.id }}"
                     >
+                    <!-- <router-link :to="`/discuss/${ post.id }`"
+                    > -->
                         <!-- 「画像」 -->
                         <v-img
                         class="white--text align-end"
@@ -65,6 +71,7 @@
 
 
 <script>
+
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 
@@ -76,6 +83,7 @@ export default {
     },
     data() {
         return {
+            postId: this.$route.params.id,
             message: "",
             view: true,
             title: "",
@@ -88,10 +96,11 @@ export default {
             // アイコン
         };
     },
-    computed: {
-        post() { return this.$store.getters.posts },
-        ...mapGetters(['posts'])
-    },
+    // computed: {
+    //     posts: () => post.fetch(),
+    //     post() { return this.$store.getters.posts },
+    //     ...mapGetters(['posts'])
+    // },
     created: function() {
         this.getImage();
     },

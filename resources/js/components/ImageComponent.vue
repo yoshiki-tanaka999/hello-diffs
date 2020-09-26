@@ -3,7 +3,7 @@
     <v-app>
         <v-main>
             <v-container>
-                <postcard-component />
+                <postcard-component/>
             </v-container>
         </v-main>
 
@@ -26,6 +26,12 @@ export default {
     created() {
         this.fetchPosts()
     },
+    // data: function(){
+    // return{
+    //         id: this.$route.params.id,
+    //     }
+    // console.log(id);
+    // },
     data() {
         return {
             message: "",
@@ -39,6 +45,13 @@ export default {
             show: false,
         };
     },
+    // テスト（）
+    data: function(){
+    return{
+            id: this.$route.params.id,
+        }
+    console.log(id);
+    },
     computed: {
         post() { return this.$store.getters.posts },
     },
@@ -46,9 +59,9 @@ export default {
         this.getImage();
     },
     // 追加
-    mounted() {
-        this.fetch();
-    },
+    // mounted() {
+    //     this.fetch();
+    // },
         // 追加
     ...mapActions('post', [
         'fetch', 

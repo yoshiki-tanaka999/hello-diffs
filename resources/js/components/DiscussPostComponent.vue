@@ -14,7 +14,7 @@
             </div>
 
             <v-card-title class="card_title">
-                {{ detail.title }}
+                {{ post.title }}
                 <!-- 質問の表示 -->
                 <!-- {{ ParamsId }} -->
             </v-card-title>
@@ -145,17 +145,29 @@ import { mdiRectangle } from '@mdi/js';
 import { mdiRectangleOutline } from '@mdi/js';
 
 export default {
-    name:"post",
+    // created() {
+    //     this.fetchPosts()
+    // },
+    props: {
+        id: Number
+    },
     data() {
         return {
+            post: [],
             dataDetail: [],
             mdiRectangle,
             mdiRectangleOutline
         }
     },
-    created () {
-        this.dataDetail = this.$store.state.posts.find(post => post.id.toString() === this.$route.params.id.toString())
-    },
+    // created () {
+    //     this.$http.get('http://127.0.0.1:8000/discuss/' + this.id).then(function(data){
+    //         console.log(data);
+    //         this.posts = data.body
+    //     })
+    // },
+    // created () {
+    //     this.dataDetail = this.$store.state.posts.find(post => post.id.toString() === this.$route.params.id.toString())
+    // },
     // mountedでフィルター掛けたやつを入れる。直接、
     // mounted: {
         // title, description = getPostById(id),
@@ -163,7 +175,11 @@ export default {
         // this.posts.description = description
     // },
     computed: {
-        ...mapGetters(['detail']),
+        // posts: () => post.fetch(),
+        // post() { return this.$store.getters.posts },
+        // ...mapGetters('post', ['posts']),
+        // ...mapGetters('test', ['asyncFind']),
+        
         // ParamsId() {
         //     return Number(this.$route.params.id);
         // },
@@ -188,7 +204,7 @@ export default {
         //     return this.post.description;
         // },        
     },
-    method: {
+    methods: {
         // 追加
         ...mapActions('post', [ 'fetch' ]),      
         async fetch ({ commit }) {
@@ -196,6 +212,26 @@ export default {
                 commit('setData', res.data);
             });
         },
+        fetchPosts() {
+            this.$http
+                .get('/api/posts')
+                .then(response =>  {
+                    this.posts = response.data;
+                })
+                .finally(function(){
+                location.reload(true);
+                });
+        },
+        getPost() {
+            axios.get('/api/posts/' + this.id)
+                .then((res) => {
+                    this.post = res.data;
+                    console.log(this.post);                    
+                })
+        }
+    },
+    mounted() {
+        this.getPost();
     }
 }
 </script>

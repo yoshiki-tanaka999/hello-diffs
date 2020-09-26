@@ -82,7 +82,9 @@ const router = new Router({
       name: 'Discuss',
       component: require("./views/Discuss.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
-      props: true
+      props: (route) => ({
+        id: Number(route.params.id)
+      }),
     },
     {
       path: '/home',
@@ -168,8 +170,5 @@ router.beforeEach((to, from, next) => {
       next();
   }
 });
-
-
-
 
 export default router;

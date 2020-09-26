@@ -6,10 +6,21 @@
 
         <v-main id="main">
             <DiscussChart-component></DiscussChart-component>
-            <DiscussPost-component></DiscussPost-component> 
+            <DiscussPost-component v-bind:id="id"></DiscussPost-component> 
         </v-main>
     </v-app>
 </template>
+
+<script>
+export default {
+    data: function(){
+    return{
+            id: this.$route.params.id,
+        }
+    // console.log(id);
+},
+}
+</script>
 
 
 <style scoped>

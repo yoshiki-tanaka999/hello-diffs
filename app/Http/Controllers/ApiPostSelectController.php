@@ -10,8 +10,7 @@ class ApiPostSelectController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return $posts;
+        return Post::all();
     }
     public function store(StorePost $request)
     // public function store(Request $request)
@@ -20,7 +19,8 @@ class ApiPostSelectController extends Controller
     }
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return $post;
     }
 
     public function update(Request $request, $id)
