@@ -16,6 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 // 追加
 mix.browserSync('vuesplash.test')
-.js('resources/js/app.js', 'public/js')
+// .js('resources/js/app.js', 'public/js')
 // .sass('resources/sass/app.scss', 'public/css')
 .version()

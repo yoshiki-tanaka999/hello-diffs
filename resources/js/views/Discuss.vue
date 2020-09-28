@@ -3,6 +3,8 @@
         <!-- <headerindex-component id="header"></headerindex-component> -->
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
         <DiscussSidebar-component></DiscussSidebar-component>
+        <!-- PostModalComponent.vue -->
+        <DiscussModal-component></DiscussModal-component>
 
         <v-main id="main">
             <DiscussChart-component></DiscussChart-component>

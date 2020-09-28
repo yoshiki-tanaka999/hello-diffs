@@ -80,6 +80,8 @@ Vue.component('HeaderDiscuss-component', require('./components/HeaderDiscussComp
 Vue.component('DiscussChart-component', require('./components/DiscussChartComponent.vue').default);
 // Post情報を記載
 Vue.component('DiscussPost-component', require('./components/DiscussPostComponent.vue').default);
+// Modal情報を記載
+Vue.component('DiscussModal-component', require('./components/DiscussModalComponent.vue').default);
 // サイドバー
 Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
 

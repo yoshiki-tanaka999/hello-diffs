@@ -39,6 +39,7 @@ import Discuss from './views/Discuss'
 // Discss.vueのコンポーネント
 import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
+import DiscussModal from './components/DiscussModalComponent' 
 
 // Register
 import Register from './views/Register'
