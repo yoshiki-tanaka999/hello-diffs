@@ -30,7 +30,7 @@
                 <textarea id="text"></textarea>
                 </div>
                 <div class="message-area-button">
-                <button id="send" class="disabled-button">送信</button>
+                <button id="send" class="disabled-button"  type="button" @click="send()">送信</button>
                 </div>
             </div>
         </div>
@@ -43,14 +43,27 @@
 <script>
     export default {
         props: {
-        source: String,
+          source: String,
         },
         data: () => ({
-        drawer: null,
-        drawerRight: null,
-        right: false,
-        left: false,
+          chat: '',
+          drawer: null,
+          drawerRight: null,
+          right: false,
+          left: false,
         }),
+        methods: {
+          send() {
+              const url = '/api/chat';
+              const params = { chat: this.chat };
+              axios.post(url, params)
+                  .then((response) => {
+                      // 成功したらメッセージをクリア
+                      this.chat = '';
+                  });
+          }
+    }
+        
     }
 </script>
 
