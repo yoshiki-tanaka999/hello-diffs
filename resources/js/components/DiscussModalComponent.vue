@@ -1,174 +1,161 @@
 <template>
     <!-- 【現在使っていない】ImageComponent.vueに統合済み -->
     <!-- モーダルウィンドウ -->
-    <div id="modal_discuss">
+    <div id="modal-discuss">
         <div
-            class="modal-background"
+            class="modal-background-discuss"
             style="background-color:rgba(0,0,0,0.5)"
             >
         <!-- モーダルウィンドウの中身 -->
-            <div class="modal-content" v-on:click.stop>
-                <div class="modal-content-whole">
-                    <div class="modal-content-title">
-                        <h2 class="modal-content-title-name">議題を作成する</h2>
-                        <span 
-                            style="font-size: 2.25rem;"
-                            onclick="document.getElementById('modal_discss').style.display = 'none';"
-                        >×</span>
+            <div class="modal-content-discuss" v-on:click.stop>
+                <div class="modal-content-whole-discuss">
+                    <!-- アイキャッチ -->
+                    <div  class="modal-discuss-img-content">
+                        <v-img
+                            class="white--text align-end"
+                            height="300px" width="700px"
+                            :src="`${post.img_url}`"
+                        >
+                            <div class="modal-discuss-header">
+                                <span 
+                                    style="font-size: 2.25rem;"
+                                    onclick="document.getElementById('modal-discuss').style.display = 'none';"
+                                    class="discuss-button-close"
+                                >×</span>
+                                <h1 class="modal-content-discuss-title">
+                                    <div class="modal-content-discuss-title-name">{{ post.title }}</div>
+                                </h1>
+                            </div>
+                        </v-img>
                     </div>
 
-                    <p>身近で気になる疑問や問題提起を投稿してみましょう。<br>
-                    議論を深める中で、思わぬ発見につながるかもしれません。</p>
-                    <!-- <form method="post"> -->
-                        <!-- テーマタイトル -->
-                        <div class="modal-content-subheading">議題(40文字以内)</div>
-                        <div class="modal-content-margin">
-                            <input
-                                type="text"
-                                v-model="title"
-                                class="modal-content-input"
-                            />
+
+                    <div class="modal-discuss-content">
+                    <!-- ポスト情報のアイコン -->                        
+                        <div>
+                            <ul class="postStatusList d-flex">
+                                <!-- 「コメント数」 -->
+                                <li><i class="far fa-comments mr-2 ml-3"></i>3</li>
+                                <!-- 「参加者数」 -->
+                                <li><i class="fas fa-users mr-2 ml-3"></i>2</li>
+                                <!-- 「ブックマークされた数」 -->
+                                <li><i class="fas fa-heart mr-2 ml-3"></i>1</li>
+                            </ul>
                         </div>
-                        <!-- テーマチャンネル(タグ) -->
-                        <!-- <div class="modal-content-subheading">tag</div>
-                        <div class="modal-content-margin">
-                            <input
-                                type="text" 
-                                name="tag"
-                                class="modal-content-input"
-                            />
-                        </div> -->
                         <!-- テーマ概要 -->
                         <div class="modal-content-subheading">議題の背景・説明</div>
-                        <div class="modal-content-margin">
-                            <textarea
-                                v-model="description" 
-                                cols="20" rows="5"
-                                type="text"
-                                class="modal-content-input"
-                                ></textarea>
-                        </div>
-                        
-                        <!-- file upload -->
-                        <div class="modal-content-subheading">サムネイル画像</div>
-                        <div class="modal-content-margin">
-                            <input 
-                                type="file" 
-                                @change="confirmImage"
-                                v-if="view"
-                            />
-                        </div>
+                        <div class="modal-content-margin">{{ post.description }}</div>
+                    </div>
 
-                        <!-- バリデーション用 -->
-                        <p>{{ message }}</p>
 
-                        <div class="modal-form">
-                            <button
-                                class="modal-form-btn"
-                                @click="uploadImage"
-                            >議題を投げかける
-                            </button>
-                        </div>
-                    <!-- </form> -->
+                    <button class="modal-discuss-button">議論に参加する</button>
+                    
                 </div>
             </div>
         </div>
     </div>
+
     <!-- モーダルウィンドウ ここまで-->
 
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+/* eslint-disable no-console */
+
+// Vuex
+import { mapGetters, mapActions } from 'vuex'
+
+import { mdiRectangle } from '@mdi/js';
+import { mdiRectangleOutline } from '@mdi/js';
 
 export default {
-    name: "post",
+    // created() {
+    //     this.fetchPosts()
+    // },
+    props: {
+        id: Number
+    },
     data() {
         return {
-            message: "",
-            // newTask: {},
-            view: true,
-            title: "",
-            description: "",
-            // DBへの登録は、img_url。storeの呼び出しはfile。
-            file: "",
-            posts: {},
-            confirmedImage: "",
-            //カードの開封 
-            show: false,
-        };
+            post: [],
+            dataDetail: [],
+            mdiRectangle,
+            mdiRectangleOutline
+        }
     },
+    // created () {
+    //     this.$http.get('http://127.0.0.1:8000/discuss/' + this.id).then(function(data){
+    //         console.log(data);
+    //         this.posts = data.body
+    //     })
+    // },
+    // created () {
+    //     this.dataDetail = this.$store.state.posts.find(post => post.id.toString() === this.$route.params.id.toString())
+    // },
+    // mountedでフィルター掛けたやつを入れる。直接、
+    // mounted: {
+        // title, description = getPostById(id),
+        // this.posts.title = title,
+        // this.posts.description = description
+    // },
     computed: {
-        post() { return this.$store.getters.posts },
-    },
-    created: function() {
-        this.getImage();
-    },
-    // 追加
-    mounted() {
-        this.fetch();
+        // posts: () => post.fetch(),
+        // post() { return this.$store.getters.posts },
+        // ...mapGetters('post', ['posts']),
+        // ...mapGetters('test', ['asyncFind']),
+        
+        // ParamsId() {
+        //     return Number(this.$route.params.id);
+        // },
+        // getPostById() {
+        //     return posts.find(post => post.id === this.ParamsId);
+        // },
+        // getPostById(){
+        //     return this.$store.getters.getPostById
+        // },
+        // hoge() {
+        //     return this.posts.filter(post => post.id(post.id === this.params.id))
+        // },
+
+        // getPostById() {
+        //     // console.log($store.getters.post)
+        //     return this.$store.getters.getPostById
+        // },
+        // title() {
+        //     return this.post.title;
+        // },
+        // description() {
+        //     return this.post.description;
+        // },        
     },
     methods: {
         // 追加
-        ...mapActions('post', [
-            'fetch', 'store'
-        ]),
-        getImage() {
-            axios
-                .get("/api/images/")
-                .then(response => {
+        ...mapActions('post', [ 'fetch' ]),      
+        async fetch ({ commit }) {
+            await axios.get('/api/images').then(res => {
+                commit('setData', res.data);
+            });
+        },
+        fetchPosts() {
+            this.$http
+                .get('/api/posts')
+                .then(response =>  {
                     this.posts = response.data;
                 })
-                .catch(err => {
-                    this.message = err;
-                });
-        },
-        confirmImage(e) {
-            this.message = "";
-            this.file = e.target.files[0];
-            if (!this.file.type.match("image.*")) {
-                this.message = "画像ファイルを選択して下さい";
-                this.confirmedImage = "";
-                return;
-            }
-            this.createImage(this.file);
-        },
-        createImage(file) {
-            let reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = e => {
-                this.confirmedImage = e.target.result;
-            };
-        },
-        uploadImage() {
-            let data = new FormData();
-            data.append("file", this.file);
-            data.append("title", this.title);
-            data.append("description", this.description);
- 
-            axios
-                .post("/api/images/", data)
-                .then(response => {
-                    this.getImage();
-                    this.message = response.data.success;
-                    this.confirmedImage = "";
-                    this.title = "";
-                    this.description = "";
-                    this.file = "";
- 
-                    //ファイルを選択のクリア
-                    this.view = false;
-                    this.$nextTick(function() {
-                        this.view = true;
-                    });
-                })
-                .catch(err => {
-                    this.message = err.response.data.errors;
-                })
                 .finally(function(){
-                    location.reload(true);
+                location.reload(true);
                 });
+        },
+        getPost() {
+            axios.get('/api/posts/' + this.id)
+                .then((res) => {
+                    this.post = res.data;
+                    console.log(this.post);                    
+                })
         }
+    },
+    mounted() {
+        this.getPost();
     }
-};
+}
 </script>

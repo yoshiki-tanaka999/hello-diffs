@@ -7,7 +7,7 @@
             style="background-color:rgba(0,0,0,0.5)"
             >
         <!-- モーダルウィンドウの中身 -->
-            <div class="modal-content" v-on:click.stop>
+            <div class="modal-content">
                 <div class="modal-content-whole">
                     <div class="modal-content-title">
                         <h2 class="modal-content-title-name">議題を作成する</h2>

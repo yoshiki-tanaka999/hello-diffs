@@ -4,7 +4,7 @@
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
         <DiscussSidebar-component></DiscussSidebar-component>
         <!-- PostModalComponent.vue -->
-        <DiscussModal-component></DiscussModal-component>
+        <DiscussModal-component v-bind:id="id"></DiscussModal-component>
 
         <v-main id="main">
             <DiscussChart-component></DiscussChart-component>
