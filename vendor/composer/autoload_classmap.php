@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Chat' => $baseDir . '/app/Model/Post/System/Chat.php',
     'App\\Chat_like' => $baseDir . '/app/Model/Post/Evaluation/Chat_like.php',
     'App\\Chat_love' => $baseDir . '/app/Model/Post/Evaluation/Chat_love.php',
     'App\\Claim_like' => $baseDir . '/app/Model/Post/Evaluation/Claim_like.php',
@@ -14,6 +13,7 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Follow' => $baseDir . '/app/Model/User/Follow.php',
+    'App\\Http\\Controllers\\ApiChatController' => $baseDir . '/app/Http/Controllers/ApiChatController.php',
     'App\\Http\\Controllers\\ApiClaimController' => $baseDir . '/app/Http/Controllers/ApiClaimController.php',
     'App\\Http\\Controllers\\ApiImageController' => $baseDir . '/app/Http/Controllers/ApiImageController.php',
     'App\\Http\\Controllers\\ApiPostController' => $baseDir . '/app/Http/Controllers/ApiPostController.php',
@@ -40,6 +40,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\StorePost' => $baseDir . '/app/Http/Requests/StorePost.php',
     'App\\Model\\Post\\Post' => $baseDir . '/app/Model/Post/Post.php',
+    'App\\Model\\Post\\System\\Chat' => $baseDir . '/app/Model/Post/System/Chat.php',
     'App\\Model\\Post\\system\\Claim' => $baseDir . '/app/Model/Post/System/Claim.php',
     'App\\Model\\User\\User' => $baseDir . '/app/Model/User/User.php',
     'App\\Participant' => $baseDir . '/app/Model/Post/System/Participant.php',
@@ -3461,6 +3462,11 @@ return array(
     'Psy\\VersionUpdater\\GitHubChecker' => $vendorDir . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
     'Psy\\VersionUpdater\\IntervalChecker' => $vendorDir . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
     'Psy\\VersionUpdater\\NoopChecker' => $vendorDir . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+    'Pusher\\Pusher' => $vendorDir . '/pusher/pusher-php-server/src/Pusher.php',
+    'Pusher\\PusherCrypto' => $vendorDir . '/pusher/pusher-php-server/src/PusherCrypto.php',
+    'Pusher\\PusherException' => $vendorDir . '/pusher/pusher-php-server/src/PusherException.php',
+    'Pusher\\PusherInstance' => $vendorDir . '/pusher/pusher-php-server/src/PusherInstance.php',
+    'Pusher\\Webhook' => $vendorDir . '/pusher/pusher-php-server/src/Webhook.php',
     'Ramsey\\Collection\\AbstractArray' => $vendorDir . '/ramsey/collection/src/AbstractArray.php',
     'Ramsey\\Collection\\AbstractCollection' => $vendorDir . '/ramsey/collection/src/AbstractCollection.php',
     'Ramsey\\Collection\\AbstractSet' => $vendorDir . '/ramsey/collection/src/AbstractSet.php',
