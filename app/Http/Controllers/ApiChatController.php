@@ -13,23 +13,30 @@ class ApiChatController extends Controller
     public function index() 
     {   
         // 新着順にメッセージ一覧を取得
-        return \App\Chat::orderBy('id', 'desc')->get();
+        return \App\Model\Post\System\Chat::orderBy('id', 'desc')->get();
     }
 
-    public function create(Request $request) 
-    { 
-        // メッセージを登録
-        \App\Chat::create([
-            'content' => $request->chat
-        ]);
+    // public function create(Request $request) 
+    // { 
+    //     // メッセージを登録
+    //     \App\Chat::create([
+    //         'content' => $request->chat
+    //     ]);
     
-    }
-
-    // public function store(Request $request)
-    // {
-    //     // 画像アップロードできないver
-    //     Chat::create($request->all());
     // }
+
+    public function store(Request $request)
+    {
+        // 画像アップロードできないver
+        // Chat::create($request->all());
+
+        // メッセージを登録
+        // \App\Model\Post\System\Chat::create([
+        //     'content' => $request->chat
+        // ]);
+
+        Chat::create($request->all());
+    }
 
 
     public function show($id)

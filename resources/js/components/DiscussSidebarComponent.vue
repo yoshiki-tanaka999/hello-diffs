@@ -22,12 +22,19 @@
                 <!-- <div class="imgArea"><img src="https://125naroom.com/wp/wp-content/themes/design125naroom/img/kinoko_megane.png" alt="きのこさん"></div> -->
                 <div class="fukiArea"><div class="fukidasi">管理者や編集者という風に、貢献度に応じて管理者(議題投稿者)から権限が付与される。</div></div>
                 </div>
+
+                <div v-for="chat in chats" :key="chat.id" >
+                    <!-- 登録された日時 -->
+                    <span>{{ chat.created_at }}</span>：&nbsp;
+                    <!-- メッセージ内容 -->
+                    <span>{{ chat.content }}</span>
+                </div>
             </div>
 
             <!-- チャット入力欄 -->
             <div class="message-area">
                 <div class="message-area-text">
-                <textarea id="text"></textarea>
+                <textarea id="text" v-model="content"></textarea>
                 </div>
                 <div class="message-area-button">
                 <button id="send" class="disabled-button"  type="button" @click="send()">送信</button>
@@ -45,25 +52,37 @@
         props: {
           source: String,
         },
-        data: () => ({
-          chat: '',
-          drawer: null,
-          drawerRight: null,
-          right: false,
-          left: false,
-        }),
-        methods: {
-          send() {
-              const url = '/api/chat';
-              const params = { chat: this.chat };
-              axios.post(url, params)
-                  .then((response) => {
-                      // 成功したらメッセージをクリア
-                      this.chat = '';
-                  });
+        data() {
+          return {
+            content: '',
+            chats: [],
+            drawer: null,
+            drawerRight: null,
+            right: false,
+            left: false,
           }
-    }
-        
+        },
+        mounted() {
+          this.getMessages();
+        },
+        methods: {
+          getMessages() {
+            axios
+                .get("/api/chat/")
+                .then((response) => {
+                    this.chats = response.data;
+                });
+          },
+          send() {
+            let data = new FormData();
+            data.append("content", this.content);
+              axios
+                .post("/api/chat/", data)
+                .then(response => {
+                    this.content = "";
+                })
+          }
+        },
     }
 </script>
 
