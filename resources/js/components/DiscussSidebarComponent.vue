@@ -23,7 +23,7 @@
                 <div class="fukiArea"><div class="fukidasi">管理者や編集者という風に、貢献度に応じて管理者(議題投稿者)から権限が付与される。</div></div>
                 </div>
 
-                <div v-for="chat in chats" :key="chat.id" >
+                <div v-for="chat in chatFiltered" :key="chat.id" >
                     <!-- 登録された日時 -->
                     <span>{{ chat.created_at }}</span>：&nbsp;
                     <!-- メッセージ内容 -->
@@ -51,6 +51,7 @@
     export default {
         props: {
           source: String,
+          id: Number
         },
         data() {
           return {
@@ -65,12 +66,20 @@
         mounted() {
           this.getMessages();
         },
+        computed: {
+          chatFiltered() {
+            const chatData = this.chats
+            const result = chatData.filter(chat => chat.post_id === this.id)
+            return result;
+          }
+        },            
         methods: {
           getMessages() {
             axios
                 .get("/api/chat/")
                 .then((response) => {
                     this.chats = response.data;
+                    console.log(this.chats);
                 });
           },
           send() {
@@ -81,8 +90,15 @@
                 .then(response => {
                     this.content = "";
                 })
+          },
+          findBy: function (list, id, post_id) {
+              return list.filter(function (chat) {
+                  // 入力がない場合は全件表示
+                  return (chat[post_id] === this.id),
+                  console.log(this.chats);
+              })
           }
-        },
+        },    
     }
 </script>
 
