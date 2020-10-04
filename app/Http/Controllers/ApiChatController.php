@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Post\System\chat;
+use App\Model\Post\post;
+use App\Model\User\User;
+use Auth;
 
 use Validator;
 
@@ -25,17 +28,31 @@ class ApiChatController extends Controller
     
     // }
 
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        // 画像アップロードできないver
+        // ユーザーID
+        $user = Auth::user();
+
+        $chat=new Chat();
+        // $chat->content=$request->input('content');
+        // $chat->post_id=$request->input('post_id');
+        $chat->content=$request->content;
+        $chat->post_id=$request->post_id;
+        $chat->user_id = $user->id;
+        $chat->save();
+
+        // Postモデルと紐付けができていないので、以下、createで試す
         // Chat::create($request->all());
+    }
 
-        // メッセージを登録
-        // \App\Model\Post\System\Chat::create([
-        //     'content' => $request->chat
-        // ]);
-
-        Chat::create($request->all());
+    public function create(Request $request, Post $post)
+    {
+        $chat=new Chat();
+        // $chat->content=$request->input('content');
+        // $chat->post_id=$request->input('post_id');
+        $chat->content=$request->content;
+        $chat->post_id=$post->id;
+        $chat->save();
     }
 
 

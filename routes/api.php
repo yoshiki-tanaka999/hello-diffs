@@ -26,9 +26,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/tests', 'ApiPostController');
 
+// 投稿データ
 Route::apiResource('/images', 'ApiImageController');
-
+// チャットデータ
 Route::apiResource('/chat', 'ApiChatController');
+
+// Route::post('/posts/{post}/chat', 'ApiChatController@create');
+
 // Route::apiResource('/posts', 'ApiPostSelectController');
 
 // これか

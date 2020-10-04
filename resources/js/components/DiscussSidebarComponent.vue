@@ -56,6 +56,7 @@
         data() {
           return {
             content: '',
+            post_id:'',
             chats: [],
             drawer: null,
             drawerRight: null,
@@ -83,21 +84,18 @@
                 });
           },
           send() {
+            let post_id = this.id;
             let data = new FormData();
+            console.log(post_id); // post_id = this.idで値は取れている
             data.append("content", this.content);
+            data.append("post_id", Number(post_id));
               axios
                 .post("/api/chat/", data)
                 .then(response => {
                     this.content = "";
+                    let post_id = "";
                 })
           },
-          findBy: function (list, id, post_id) {
-              return list.filter(function (chat) {
-                  // 入力がない場合は全件表示
-                  return (chat[post_id] === this.id),
-                  console.log(this.chats);
-              })
-          }
         },    
     }
 </script>

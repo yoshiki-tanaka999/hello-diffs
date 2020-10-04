@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chat extends Model
 {
-    protected $guarded = ['id'];
+    protected $guarded = ['id','content','post_id'];
 }

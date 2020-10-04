@@ -145,7 +145,6 @@ export default {
             data.append("file", this.file);
             data.append("title", this.title);
             data.append("description", this.description);
- 
             axios
                 .post("/api/images/", data)
                 .then(response => {
@@ -155,7 +154,7 @@ export default {
                     this.title = "";
                     this.description = "";
                     this.file = "";
- 
+
                     //ファイルを選択のクリア
                     this.view = false;
                     this.$nextTick(function() {
