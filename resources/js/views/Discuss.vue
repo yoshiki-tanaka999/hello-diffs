@@ -2,7 +2,7 @@
     <v-app id="body">
         <!-- <headerindex-component id="header"></headerindex-component> -->
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
-        <DiscussSidebar-component></DiscussSidebar-component>
+        <DiscussSidebar-component v-bind:id="id"></DiscussSidebar-component>
         <!-- PostModalComponent.vue -->
         <DiscussModal-component v-bind:id="id"></DiscussModal-component>
 
