@@ -83,7 +83,7 @@ export default {
     },
     data() {
         return {
-            postId: this.$route.params.id,
+            paramsId:"",
             message: "",
             view: true,
             title: "",

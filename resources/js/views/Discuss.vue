@@ -17,7 +17,7 @@
 export default {
     data: function(){
     return{
-            id: this.$route.params.id,
+            id: Number(this.$route.params.id),
         }
     // console.log(id);
 },
