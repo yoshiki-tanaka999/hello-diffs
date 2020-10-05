@@ -48,6 +48,9 @@
 </template>
 
 <script>
+// Pusher導入
+    import Pusher from 'pusher-js';
+    
     export default {
         props: {
           source: String,
@@ -63,9 +66,6 @@
             right: false,
             left: false,
           }
-        },
-        mounted() {
-          this.getMessages();
         },
         computed: {
           chatFiltered() {
@@ -96,6 +96,15 @@
                     let post_id = "";
                 })
           },
+        },
+        mounted() {
+          this.getMessages();
+          // Pusherからの通知待機
+          Echo.channel('chat')
+              .listen('MessageCreated', (e) => {
+                this.getMessages(); // 全メッセージを再読込
+          });
+          console.log(Echo.channel('chat'));
         },    
     }
 </script>

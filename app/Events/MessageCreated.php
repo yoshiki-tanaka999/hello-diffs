@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageCreated
+class MessageCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -34,6 +34,6 @@ class MessageCreated
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat');
+        return new Channel('chat');
     }
 }
