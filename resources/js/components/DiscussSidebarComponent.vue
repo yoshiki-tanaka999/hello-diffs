@@ -9,26 +9,21 @@
 
         <!-- チャット欄 -->
         <div class="section">
-            <div class="oneArea">
-                <div class="onebox">
-                <!-- <div class="imgArea"><img src="https://125naroom.com/wp/wp-content/themes/design125naroom/img/kinoko_pan.png" alt="きのこさん"></div> -->
-                <div class="fukiArea"><div class="fukidasi">チャット欄</div></div>
-                </div>
-                <div class="onebox">
-                <!-- <div class="imgArea"><img src="https://125naroom.com/wp/wp-content/themes/design125naroom/img/kinoko_megane.png" alt="きのこさん"></div> -->
-                <div class="fukiArea"><div class="fukidasi">チャットベースで議論を展開する(発散)。意見として左側にまとめる(収束)。</div></div>
-                </div>
-                <div class="onebox">
-                <!-- <div class="imgArea"><img src="https://125naroom.com/wp/wp-content/themes/design125naroom/img/kinoko_megane.png" alt="きのこさん"></div> -->
-                <div class="fukiArea"><div class="fukidasi">管理者や編集者という風に、貢献度に応じて管理者(議題投稿者)から権限が付与される。</div></div>
-                </div>
-
-                <div v-for="chat in chatFiltered" :key="chat.id" >
-                    <!-- 登録された日時 -->
-                    <span>{{ chat.created_at }}</span>：&nbsp;
-                    <!-- メッセージ内容 -->
-                    <span>{{ chat.content }}</span>
-                </div>
+            <div id="chat-frame" v-for="chat in chatFiltered" :key="chat.id">
+              <!-- 誰かのトーク -->
+              <p class="chat-talk">
+                  <span class="talk-icon">
+                      <img src="/images/tanu.png?2251be57d715825a2661ec6174760145" alt="tartgeticon" width="50" height="50"/>
+                  </span>
+                  <span class="talk-content">{{ chat.content }}</span>
+              </p>
+              <!-- 自分のトーク -->
+              <!-- <p class="chat-talk mytalk">
+                  <span class="talk-icon">
+                      <img src="/images/tanu.png?2251be57d715825a2661ec6174760145" alt="myicon" width="50" height="50"/>
+                  </span>
+                  <span class="talk-content">[トーク内容を記載]</span>
+              </p> -->
             </div>
 
             <!-- チャット入力欄 -->
@@ -217,15 +212,16 @@
     position: relative;
     height: 100%;
     width: 100%;
+
 }
 
 /* メッセージの入力部分は高さを10vhにして、テキストエリアとボタンをflexで横並びにする*/
 .message-area {
-    height: 10vh;
+    /* height: 10vh; */
     width: 100%;
     display: flex;
-	position: absolute;
-	bottom: 47px;
+    position: absolute;
+    bottom: 0;
 }
 
 /* テキストエリアは80%で表示 */
@@ -254,5 +250,70 @@
  font-size: 0.7rem;
  font-weight: bold;
  border: 0;
+}
+
+/* シンプルな吹き出しデザイン */
+#chat-frame {
+  min-width: 320px;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em 2em;
+  background-color: #D8F3F0;
+}
+.chat-talk {
+  overflow: hidden;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+.chat-talk span {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.chat-talk .talk-icon {
+  float: left;
+  width: auto;
+}
+.chat-talk .talk-content {
+  position: relative;
+  box-sizing: border-box;
+  width: auto;
+  min-height: 50px;
+  border-radius: 10px;
+  background-color: rgb(112, 208, 224);
+  margin: 0 auto 0 70px;
+  padding: 1em;
+}
+.chat-talk .talk-icon img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.chat-talk .talk-content:before {
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  display: block;
+  width: 0;
+  height: 0;
+  content: '';
+  border: 10px solid transparent;
+  border-right-color: rgb(112, 208, 224);
+}
+.chat-talk.mytalk .talk-icon {
+  float: right;
+}
+.chat-talk.mytalk .talk-content {
+  margin: 0 70px 0 auto;
+  color: #000;
+  background: #78FF6C;
+}
+.chat-talk.mytalk .talk-content:before {
+  right: -20px;
+  left: auto;
+  border-color: transparent;
+  border-left-color: #78FF6C;
 }
 </style>

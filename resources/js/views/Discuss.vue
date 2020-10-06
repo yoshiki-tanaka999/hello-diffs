@@ -36,6 +36,8 @@ export default {
     margin-top: 10px;
     margin-top: 10px;
     /* border: 1px solid #000000; */
+    resize: horizontal;
+    overflow: hidden;
 }
 #header{
     position: fixed;

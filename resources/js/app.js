@@ -85,6 +85,8 @@ Vue.component('DiscussModal-component', require('./components/DiscussModalCompon
 // サイドバー
 Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
 
+Vue.component('TweetTest-component', require('./components/TweetTestComponent.vue').default);
+
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);
 

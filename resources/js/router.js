@@ -52,6 +52,7 @@ import Account from './views/Account'
 // not found
 import Not_found from './views/Not_found'
 
+import Tweet from './components/TweetTestComponent' 
 
 const router = new Router({
   mode: 'history',
@@ -153,6 +154,7 @@ const router = new Router({
     // not found
     { path: '/404', name: 'Not_found', component: Not_found },
     { path: '*', redirect: '/404' },
+    { path: '/tweet', name: 'Tweet', component: Tweet },    
   ]
 })
 
