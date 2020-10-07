@@ -71,4 +71,11 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany('App\Model\Post\System\Chat');
     }
+
+    // Postモデルの下の階層？
+    public function claims()
+    {
+        return $this->hasMany('App\Model\Post\System\Claim');
+    }
+    
 }

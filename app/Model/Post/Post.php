@@ -25,5 +25,10 @@ class Post extends Model
     {
         return $this->hasMany('App\Model\Post\System\Chat');
     }
+
+    public function claims()
+    {
+        return $this->hasMany('App\Model\Post\System\Claim');
+    }
 }
 

@@ -4,9 +4,9 @@ namespace App\Model\Post\system;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Claim extends Model
+class Claim_Output extends Model
 {
-    protected $fillable = ['post_id', 'content', 'participant_id'];
+    protected $fillable = ['id','user_id', 'claim_id', 'content', ];
 
     public function user()
     {
@@ -14,11 +14,11 @@ class Claim extends Model
         return $this->belongsTo('App\Model\User\User');
     }
 
-    public function post()
+    // チャットリレーション
+    // Postはチャットモデルの親？に当たるので、関係ない
+    public function claim()
     {
-        // リレーション
         return $this->belongsTo('App\Model\Post\System\Claim');
-    }    
-
+    }
 
 }
