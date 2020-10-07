@@ -533,6 +533,7 @@ class ComposerStaticInit661d49920cf040240517d2aa10c652d5
         'App\\Claim_like' => __DIR__ . '/../..' . '/app/Model/Post/Evaluation/Claim_like.php',
         'App\\Claim_love' => __DIR__ . '/../..' . '/app/Model/Post/Evaluation/Claim_love.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\MessageCreated' => __DIR__ . '/../..' . '/app/Events/MessageCreated.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Follow' => __DIR__ . '/../..' . '/app/Model/User/Follow.php',
         'App\\Http\\Controllers\\ApiChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiChatController.php',

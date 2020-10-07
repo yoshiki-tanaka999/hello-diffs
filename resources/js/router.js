@@ -53,6 +53,7 @@ import Account from './views/Account'
 import Not_found from './views/Not_found'
 
 import Tweet from './components/TweetTestComponent' 
+import ClaimTab from './components/ClaimTabComponent' 
 
 const router = new Router({
   mode: 'history',
@@ -155,6 +156,7 @@ const router = new Router({
     { path: '/404', name: 'Not_found', component: Not_found },
     { path: '*', redirect: '/404' },
     { path: '/tweet', name: 'Tweet', component: Tweet },    
+    { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
   ]
 })
 

@@ -11,6 +11,7 @@ return array(
     'App\\Claim_like' => $baseDir . '/app/Model/Post/Evaluation/Claim_like.php',
     'App\\Claim_love' => $baseDir . '/app/Model/Post/Evaluation/Claim_love.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\MessageCreated' => $baseDir . '/app/Events/MessageCreated.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Follow' => $baseDir . '/app/Model/User/Follow.php',
     'App\\Http\\Controllers\\ApiChatController' => $baseDir . '/app/Http/Controllers/ApiChatController.php',

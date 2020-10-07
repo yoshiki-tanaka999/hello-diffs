@@ -7,8 +7,10 @@
         <DiscussModal-component v-bind:id="id"></DiscussModal-component>
 
         <v-main id="main">
-            <DiscussChart-component></DiscussChart-component>
-            <DiscussPost-component v-bind:id="id"></DiscussPost-component> 
+            <!-- <DiscussChart-component></DiscussChart-component>
+            <DiscussPost-component v-bind:id="id"></DiscussPost-component>  -->
+            <ClaimTab-component v-bind:id="id"></ClaimTab-component> 
+            
         </v-main>
     </v-app>
 </template>

@@ -60,4 +60,15 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    // 投稿管理者リレーション(Participantナシver)
+    public function posts()
+    {
+        return $this->hasMany('App\Model\Post');
+    }
+
+    public function chats()
+    {
+        return $this->hasMany('App\Model\Post\System\Chat');
+    }
 }
