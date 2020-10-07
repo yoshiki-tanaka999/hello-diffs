@@ -13,9 +13,9 @@ class AddOrderNumberToClaimsTable extends Migration
      */
     public function up()
     {
-        Schema::table('claims', function (Blueprint $table) {
-            //
-        });
+        // Schema::table('chats', function (Blueprint $table) {
+        //     $table->foreignId('user_id')->constrained();
+        // });
     }
 
     /**
