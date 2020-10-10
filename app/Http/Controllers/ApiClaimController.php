@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Post\claim;
-
+use App\Model\Post\System\Claim;
+// use App\Model\Post\Post;
+use App\Model\User\User;
+use Auth;
 
 use Validator;
 
@@ -17,10 +19,17 @@ class ApiClaimController extends Controller
         return Claim::all();
     }
 
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        // 画像アップロードできないver
-        Claim::create($request->all());
+        // ユーザーID
+        $user = Auth::user();
+
+        $claim=new Claim();
+        $claim->user_id = $user->id;
+        $claim->post_id= $request->post_id;
+        $claim->issue= $request->issue;
+        $claim->content= $request->content;
+        $claim->save();
     }
 
 
@@ -31,12 +40,12 @@ class ApiClaimController extends Controller
 
     public function update(Request $request, $id)
     {
-        $update = [
-            'title' => $request->title,
-            'description' => $request->description,
-            'img_url' => $request->img_url,
-        ];
-        Claim::where('id', $id)->update($update);
+        // $update = [
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'img_url' => $request->img_url,
+        // ];
+        // Claim::where('id', $id)->update($update);
     }
 
     /**

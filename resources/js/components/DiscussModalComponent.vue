@@ -1,5 +1,4 @@
 <template>
-    <!-- 【現在使っていない】ImageComponent.vueに統合済み -->
     <!-- モーダルウィンドウ -->
     <div id="modal-discuss">
         <div
@@ -83,50 +82,8 @@ export default {
             mdiRectangleOutline
         }
     },
-    // created () {
-    //     this.$http.get('http://127.0.0.1:8000/discuss/' + this.id).then(function(data){
-    //         console.log(data);
-    //         this.posts = data.body
-    //     })
-    // },
-    // created () {
-    //     this.dataDetail = this.$store.state.posts.find(post => post.id.toString() === this.$route.params.id.toString())
-    // },
-    // mountedでフィルター掛けたやつを入れる。直接、
-    // mounted: {
-        // title, description = getPostById(id),
-        // this.posts.title = title,
-        // this.posts.description = description
-    // },
     computed: {
-        // posts: () => post.fetch(),
-        // post() { return this.$store.getters.posts },
-        // ...mapGetters('post', ['posts']),
-        // ...mapGetters('test', ['asyncFind']),
         
-        // ParamsId() {
-        //     return Number(this.$route.params.id);
-        // },
-        // getPostById() {
-        //     return posts.find(post => post.id === this.ParamsId);
-        // },
-        // getPostById(){
-        //     return this.$store.getters.getPostById
-        // },
-        // hoge() {
-        //     return this.posts.filter(post => post.id(post.id === this.params.id))
-        // },
-
-        // getPostById() {
-        //     // console.log($store.getters.post)
-        //     return this.$store.getters.getPostById
-        // },
-        // title() {
-        //     return this.post.title;
-        // },
-        // description() {
-        //     return this.post.description;
-        // },        
     },
     methods: {
         // 追加
@@ -159,3 +116,137 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+#modal-discuss {
+display: none;
+}
+
+.modal-background-discuss {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25rem;
+    /* padding-left:  20rem; */
+}
+
+.modal-content-discuss {
+    z-index: 20;
+    background-color: white;
+    color: #1a202c;
+    /* width: 40%; */
+    border-radius: 0.375rem;
+}
+
+.modal-content-whole-discuss {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .modal-discuss-img-content {
+    flex: 1 1 auto;
+    position: relative;
+    min-height: 240px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(28,34,41,.15);
+    padding: 46px 32px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+} */
+
+.modal-discuss-header {
+    flex: 1 1 auto;
+    position: relative;
+    min-height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(28,34,41,.15);
+    padding: 46px 32px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.discuss-button-close {
+    position: absolute!important;
+    top: 32px;
+    right: 32px;
+    cursor: pointer;
+    margin: -8px;
+    padding: 8px;
+}
+
+.modal-discuss-header-content {
+    flex: 1 1 auto;
+    position: relative;
+    min-height: 240px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(28,34,41,.15);
+    padding: 46px 32px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.modal-content-discuss-title {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 1.2;
+    flex: 1 1 auto;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(0,0,0,.16);
+    margin: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-content-discuss-title-name h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.modal-discuss-content {
+    padding: 32px;
+}
+
+.modal-discuss-button {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 210px;
+    height: 48px;
+    position: fixed!important;
+    left: calc(50% - 105px);
+    bottom: 32px;
+    z-index: 2;
+
+    /* ボタンのスタイル */
+    color: #fff;
+    background: #52a3ff;
+    border-color: #52a3ff;
+}
+
+</style>

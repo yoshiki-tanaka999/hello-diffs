@@ -36,7 +36,7 @@ class ApiChatController extends Controller
 
         $chat=new Chat();
         // $chat->content=$request->input('content');
-        // $chat->post_id=$request->input('post_id');
+        // $chat->post_id=$request->input('post_id');       
         $chat->content=$request->content;
         $chat->post_id=$request->post_id;
         $chat->user_id = $user->id;

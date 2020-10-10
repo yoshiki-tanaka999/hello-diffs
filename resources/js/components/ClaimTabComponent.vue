@@ -15,7 +15,7 @@
         <v-container class="text-center justify-center py-6" justify="center">
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet elevation="3">
-                <v-card >
+                <v-card  class="d-flex">
                     <v-tabs
                         v-model="tab"
                         background-color="indigo darken-4"
@@ -32,6 +32,19 @@
                             <v-icon>mdi-folder-plus</v-icon>
                         </v-tab> -->
                     </v-tabs>
+                    <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                            <div class= "open-modal"
+                                onclick="document.getElementById('modal-claim').style.display = 'block';"
+                                v-bind="attrs"
+                                v-on="on"
+                                >
+                                <i class="fas fa-edit fa-2x ml-2"></i>
+                            </div>
+                        </template>
+                        <span>新しい論点を追加する</span>
+                    </v-tooltip>                    
                 </v-card>                
             </v-sheet>
 
@@ -156,12 +169,12 @@ export default {
     },
     methods: {
             getPost() {
-            axios.get('/api/posts/' + this.id)
-            .then((res) => {
-                this.post = res.data;
-                console.log(this.post);                    
-            })
-        }
+                axios.get('/api/posts/' + this.id)
+                .then((res) => {
+                    this.post = res.data;
+                    console.log(this.post);                    
+                })
+            }
     },
     mounted() {
         this.getPost();
@@ -176,5 +189,16 @@ export default {
 }
 .basil--text {
     color: #356859 !important;
+}
+
+.open-modal{
+    color: white;
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+.open-modal:hover{
+    cursor: pointer;
+    font-weight: bold;
 }
 </style>
