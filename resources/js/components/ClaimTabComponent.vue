@@ -42,7 +42,7 @@
                     <!-- モーダルウィンドウ -->
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
-                            <div class= "open-modal"
+                            <div class= "open-modal-claim"
                                 onclick="document.getElementById('modal-claim').style.display = 'block';"
                                 v-bind="attrs"
                                 v-on="on"
@@ -90,20 +90,36 @@
             </v-sheet>                
 
         <!-- 論点に対する主張 -->
-            <v-tabs
-            v-model="tab1"
-            background-color="transparent"
-            color="basil"
-            grow
-            class="py-3"
-            >
-                <v-tab
-                    v-for="item in items"
-                    :key="item"
+            <v-card class="d-flex">
+                <v-tabs
+                v-model="tab1"
+                background-color="transparent"
+                color="basil"
+                grow
+                class="py-3"
                 >
-                    {{ item }}
-                </v-tab>
-            </v-tabs>
+                    <v-tab
+                        v-for="item in items"
+                        :key="item"
+                    >
+                        <!-- モーダルウィンドウ(claim_output) -->
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on2, attrs2 }">
+                                <div class= "open-modal-claim-outoput"
+                                    @submit.prevent="openModal"
+                                    v-bind="attrs2"
+                                    v-on="on2"
+                                    >
+                                    <i class="fas fa-edit fa-2x ml-2"></i>
+                                </div>
+                            </template>
+                            <span>新しい論点を追加する</span>
+                        </v-tooltip>  
+                        {{ item }}
+                    </v-tab>
+                </v-tabs>
+            </v-card>
+
 
             <v-tabs-items v-model="tab1">
                 <v-tab-item
@@ -182,10 +198,13 @@ export default {
                 .then((res) => {
                     this.post = res.data;
                     this.claims = this.post.claims
-                    console.log(this.post);  
-                    console.log(this.claims);  
+                    // console.log(this.post);  
+                    // console.log(this.claims);  
                 })
             },
+            openModal: function(e) {
+                document.getElementById('modal-claim-output').style.display = 'block';
+            }
             // getClaim() {
             //     axios.get('/api/claim/')
             //     .then((res) => {
@@ -225,13 +244,24 @@ export default {
     color: #356859 !important;
 }
 
-.open-modal{
+.open-modal-claim{
     color: white;
     position: absolute;
     right: 0;
     margin: 10px;
 }
-.open-modal:hover{
+.open-modal-claim:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.open-modal-claim-outoput{
+    /* color: white; */
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+.open-modal-claim-outoput:hover{
     cursor: pointer;
     font-weight: bold;
 }

@@ -107,7 +107,7 @@ export default {
             axios.get('/api/posts/' + this.id)
                 .then((res) => {
                     this.post = res.data;
-                    console.log(this.post);                    
+                    // console.log(this.post);                    
                 })
         }
     },
@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 #modal-discuss {
-display: none;
+    display: none;
 }
 
 .modal-background-discuss {

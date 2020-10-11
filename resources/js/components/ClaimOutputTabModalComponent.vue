@@ -1,24 +1,24 @@
 <template>
     <!-- モーダルウィンドウ -->
-    <div id="modal-claim">
+    <div id="modal-claim-outoput">
         <div
-            class="modal-background-claim"
+            class="modal-background-claim-output"
             style="background-color:rgba(0,0,0,0.5)"
             >
         <!-- モーダルウィンドウの中身 -->
-            <div class="modal-content-claim" v-on:click.stop>
-                <div class="modal-content-whole-claim">
+            <div class="modal-content-claim-output" v-on:click.stop>
+                <div class="modal-content-whole-claim-output">
                     <!-- アイキャッチ -->
-                    <div  class="modal-claim-img-content">
+                    <div  class="modal-claim-output-img-content">
                         <v-img
                             class="white--text align-end"
                             height="300px" width="700px"
                             :src="`${post.img_url}`"
                         >
-                            <div class="modal-claim-header">
+                            <div class="modal-claim-output-header">
                                 <span 
                                     style="font-size: 2.25rem;"
-                                    onclick="document.getElementById('modal-claim').style.display = 'none';"
+                                    onclick="document.getElementById('modal-claim-output').style.display = 'none';"
                                     class="claim-button-close"
                                 >×</span>
                                 <h1 class="modal-content-claim-title">
@@ -29,7 +29,7 @@
                     </div>
 
 
-                    <div class="modal-claim-content">
+                    <div class="modal-claim-output-content">
                         <!-- 論点の可視化 -->
                         <div class="modal-content-subheading">論点(6文字以内)</div>
                         <div class="modal-content-margin">
@@ -53,7 +53,7 @@
 
 
                     <button 
-                        class="modal-claim-button"
+                        class="modal-claim-output-button"
                         @click="uploadClaim"
                     >
                     議論に参加する</button>
@@ -94,33 +94,11 @@ export default {
             mdiRectangleOutline
         }
     },
+    computed: {
+    
+    },
     methods: {
-        // 追加
-        ...mapActions('post', [ 'fetch' ]),      
-        async fetch ({ commit }) {
-            await axios.get('/api/images').then(res => {
-                commit('setData', res.data);
-            });
-        },
-        fetchPosts() {
-            this.$http
-                .get('/api/posts')
-                .then(response =>  {
-                    this.posts = response.data;
-                })
-                .finally(function(){
-                location.reload(true);
-                });
-        },        
-        getPost() {
-            axios.get('/api/posts/' + this.id)
-            .then((res) => {
-                this.post = res.data;
-                this.claims = this.post.claims
-                console.log(this.post);  
-                console.log(this.claims);  
-            })
-        },        
+
         uploadClaim() {
             let post_id = this.id;
             let data = new FormData();
@@ -136,6 +114,7 @@ export default {
                     // this.confirmedImage = "";
                     this.issue = "";
                     this.content = "";
+
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
@@ -143,23 +122,17 @@ export default {
                 .finally(function(){
                     location.reload(true);
                 });
-        },
-        mounted() {
-            this.getPost();
-            // this.getClaim();
-            // this.getIssue();
-        }                
+        }        
     },
-
 }
 </script>
 
 <style scoped>
-#modal-claim {
+#modal-claim-outoput {
     display: none;
 }
 
-.modal-background-claim {
+.modal-background-claim-outoput {
     z-index: 10;
     position: fixed;
     top: 0;
@@ -173,7 +146,7 @@ export default {
     /* padding-left:  20rem; */
 }
 
-.modal-content-claim {
+.modal-content-claim-output {
     z-index: 20;
     background-color: white;
     color: #1a202c;
@@ -181,7 +154,7 @@ export default {
     border-radius: 0.375rem;
 }
 
-.modal-content-whole-claim {
+.modal-content-whole-claim-output {
     display: flex;
     flex-direction: column;
 }
@@ -200,7 +173,7 @@ export default {
     align-items: flex-start;
 } */
 
-.modal-claim-header {
+.modal-claim-output-header {
     flex: 1 1 auto;
     position: relative;
     min-height: 300px;
@@ -214,7 +187,7 @@ export default {
     align-items: flex-start;
 }
 
-.claim-button-close {
+.claim-output-button-close {
     position: absolute!important;
     top: 32px;
     right: 32px;
@@ -223,7 +196,7 @@ export default {
     padding: 8px;
 }
 
-.modal-claim-header-content {
+.modal-claim-output-header-content {
     flex: 1 1 auto;
     position: relative;
     min-height: 240px;
@@ -237,7 +210,7 @@ export default {
     align-items: flex-start;
 }
 
-.modal-content-claim-title {
+.modal-content-claim-output-title {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-weight: 700;
     font-size: 33px;
@@ -250,7 +223,7 @@ export default {
     text-overflow: ellipsis;
 }
 
-.modal-content-claim-title-name h1 {
+.modal-content-claim-output-title-name h1 {
     display: block;
     font-size: 2em;
     margin-block-start: 0.67em;
@@ -260,11 +233,11 @@ export default {
     font-weight: bold;
 }
 
-.modal-claim-content {
+.modal-claim-output-output-content {
     padding: 32px;
 }
 
-.modal-claim-button {
+.modal-claim-output-output-button {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-weight: 700;
     font-size: 14px;

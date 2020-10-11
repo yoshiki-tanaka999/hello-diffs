@@ -4,14 +4,15 @@
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
         <DiscussSidebar-component v-bind:id="id"></DiscussSidebar-component>
         <!-- PostModalComponent.vue -->
-        <DiscussModal-component v-bind:id="id"></DiscussModal-component>
+        <!-- <DiscussModal-component v-bind:id="id"></DiscussModal-component> -->
 
         <v-main id="main">
             <!-- <DiscussChart-component></DiscussChart-component>
             <DiscussPost-component v-bind:id="id"></DiscussPost-component>  -->
             <ClaimTab-component v-bind:id="id"></ClaimTab-component> 
             <!-- id要らないかも -->
-            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>             
+            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>   
+            <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>   
         </v-main>
     </v-app>
 </template>
