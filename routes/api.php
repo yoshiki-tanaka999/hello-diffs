@@ -32,6 +32,8 @@ Route::apiResource('/images', 'ApiImageController');
 Route::apiResource('/chat', 'ApiChatController');
 // 主張データ
 Route::apiResource('/claim', 'ApiClaimController');
+// 主張データ(賛成反対) 
+Route::apiResource('/claim', 'ApiClaimController');
 
 // Route::post('/posts/{post}/chat', 'ApiChatController@create');
 

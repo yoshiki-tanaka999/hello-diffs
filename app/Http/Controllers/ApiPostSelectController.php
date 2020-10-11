@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Post\post;
+use App\Model\Post\System\Claim;
 
 
 class ApiPostSelectController extends Controller
@@ -19,7 +20,10 @@ class ApiPostSelectController extends Controller
     }
     public function show($id)
     {
-        $post = Post::find($id);
+        // $post = Post::find($id);
+        // return $post;
+
+        $post = Post::with('claims')->find($id);
         return $post;
     }
 

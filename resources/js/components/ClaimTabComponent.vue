@@ -16,6 +16,7 @@
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet elevation="3">
                 <v-card  class="d-flex">
+                    <!-- v-forを入れる -->
                     <v-tabs
                         v-model="tab"
                         background-color="indigo darken-4"
@@ -24,15 +25,21 @@
                         color="white"
                         dark
                     >
-                        <v-tab>論点①</v-tab>
-                        <v-tab>論点②</v-tab>
-                        <v-tab>論点③</v-tab>
-                        <v-tab>論点④</v-tab>
+                    <!-- コンポーネント化 -->
+                    <!-- 問題は、post_idごとでfor文を回す -->
+                        <v-tab
+                            v-for="claim in claims"
+                            :key="claim.id"
+                            >
+                            {{ claim.issue }}
+
+                        </v-tab>
                         <!-- <v-tab>
                             <v-icon>mdi-folder-plus</v-icon>
                         </v-tab> -->
                     </v-tabs>
-                    <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
+
+                    <!-- モーダルウィンドウ -->
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
                             <div class= "open-modal"
@@ -50,14 +57,14 @@
 
                 <v-tabs-items v-model="tab" class="py-3">
                     <v-tab-item
-                        v-for="item in items"
-                        :key="item"
+                        v-for="claim in claims"
+                        :key="claim.id"
                     >
                         <v-card
                         color="basil"
                         flat
                         >
-                        <v-card-text>{{ text }}</v-card-text>
+                        <v-card-text>{{ claim.content }}</v-card-text>
                         </v-card>
                     </v-tab-item>
                 </v-tabs-items>  
@@ -159,6 +166,8 @@ export default {
     data () {
         return {
             post: [],
+            claims: [],
+            issues:[],
             tab: null,
             tab1: null,
             items: [
@@ -172,13 +181,38 @@ export default {
                 axios.get('/api/posts/' + this.id)
                 .then((res) => {
                     this.post = res.data;
-                    console.log(this.post);                    
+                    this.claims = this.post.claims
+                    console.log(this.post);  
+                    console.log(this.claims);  
                 })
-            }
+            },
+            // getClaim() {
+            //     axios.get('/api/claim/')
+            //     .then((res) => {
+            //         this.claims = res.data;
+            //         // console.log(this.claims);  
+            //     })
+            // }, 
+            // getIssue() {
+            //     return this.claims.filter(claim => {
+            //         console.log(this.claim);
+            //         console.log(this.claim.post.id);
+            //         console.log(this.post.id);                    
+            //         if ( claim.post_id === this.post.id) {
+            //             return this.issues = this.claim;
+            //             console.log(this.issues);
+            //         }
+            //     })
+            // }  
     },
     mounted() {
         this.getPost();
-    }    
+        // this.getClaim();
+        // this.getIssue();
+    }
+    // computed() {
+
+    // }    
 }
 </script>
 
