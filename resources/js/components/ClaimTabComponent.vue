@@ -106,7 +106,7 @@
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
-                                    @submit.prevent="openModal"
+                                    v-on:click="show = !show"
                                     v-bind="attrs2"
                                     v-on="on2"
                                     >
@@ -126,6 +126,9 @@
                     v-for="item in items"
                     :key="item"
                 >
+                <!-- v-ifでカードを描画。そこで、dataをinsertする -->
+                    <ClaimOutputCard-component v-if="show"></ClaimOutputCard-component>  
+                    
                     <!-- 主張カード -->
                     <v-row dense>
                         <!-- カード① -->
@@ -184,6 +187,8 @@ export default {
             post: [],
             claims: [],
             issues:[],
+            // ClaimOutputCardのv-if部分
+            show: false,
             tab: null,
             tab1: null,
             items: [

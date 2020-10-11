@@ -11,11 +11,13 @@
                     <!-- アイキャッチ -->
                     <div  class="modal-claim-img-content">
                         <v-img
-                            class="white--text align-end"
+                            class="img-background white--text align-end"
                             height="300px" width="700px"
                             :src="`${post.img_url}`"
+                            dark
                         >
                             <div class="modal-claim-header">
+                                <p>Question.</p>
                                 <span 
                                     style="font-size: 2.25rem;"
                                     onclick="document.getElementById('modal-claim').style.display = 'none';"
@@ -56,7 +58,7 @@
                         class="modal-claim-button"
                         @click="uploadClaim"
                     >
-                    議論に参加する</button>
+                    論点を追加する</button>
                     
                 </div>
             </div>
@@ -87,6 +89,7 @@ export default {
         return {
             post: [],
             claim: [],
+            title:"",
             post_id: "",
             issue: "",
             content: "",
@@ -96,22 +99,22 @@ export default {
     },
     methods: {
         // 追加
-        ...mapActions('post', [ 'fetch' ]),      
-        async fetch ({ commit }) {
-            await axios.get('/api/images').then(res => {
-                commit('setData', res.data);
-            });
-        },
-        fetchPosts() {
-            this.$http
-                .get('/api/posts')
-                .then(response =>  {
-                    this.posts = response.data;
-                })
-                .finally(function(){
-                location.reload(true);
-                });
-        },        
+        // ...mapActions('post', [ 'fetch' ]),      
+        // async fetch ({ commit }) {
+        //     await axios.get('/api/images').then(res => {
+        //         commit('setData', res.data);
+        //     });
+        // },
+        // fetchPosts() {
+        //     this.$http
+        //         .get('/api/posts')
+        //         .then(response =>  {
+        //             this.posts = response.data;
+        //         })
+        //         .finally(function(){
+        //         location.reload(true);
+        //         });
+        // },        
         getPost() {
             axios.get('/api/posts/' + this.id)
             .then((res) => {
@@ -143,14 +146,13 @@ export default {
                 .finally(function(){
                     location.reload(true);
                 });
-        },
-        mounted() {
-            this.getPost();
-            // this.getClaim();
-            // this.getIssue();
-        }                
+        },           
     },
-
+    mounted() {
+        this.getPost();
+        // this.getClaim();
+        // this.getIssue();
+    },   
 }
 </script>
 
@@ -186,6 +188,10 @@ export default {
     flex-direction: column;
 }
 
+.img-background {
+    /* background-image: url(../testPhoto/whitecray.jpeg); */
+}
+
 /* .modal-claim-img-content {
     flex: 1 1 auto;
     position: relative;
@@ -213,6 +219,11 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
 }
+.modal-claim-header p {
+    font-size: 1.4rem;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
 
 .claim-button-close {
     position: absolute!important;
@@ -237,10 +248,12 @@ export default {
     align-items: flex-start;
 }
 
+
+
 .modal-content-claim-title {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-weight: 700;
-    font-size: 33px;
+    font-size: 28px;
     line-height: 1.2;
     flex: 1 1 auto;
     color: #fff;
@@ -250,9 +263,9 @@ export default {
     text-overflow: ellipsis;
 }
 
-.modal-content-claim-title-name h1 {
+.modal-content-claim-title-name {
     display: block;
-    font-size: 2em;
+    /* font-size: 2em; */
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;

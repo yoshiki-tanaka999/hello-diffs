@@ -89,6 +89,7 @@ Vue.component('TweetTest-component', require('./components/TweetTestComponent.vu
 Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
 Vue.component('ClaimTabModal-component', require('./components/ClaimTabModalComponent.vue').default);
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
+Vue.component('ClaimOutputCard-component', require('./components/ClaimOutputCardComponent.vue').default);
 
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);

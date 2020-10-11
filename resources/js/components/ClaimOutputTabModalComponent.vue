@@ -1,3 +1,4 @@
+// 結果使わない
 <template>
     <!-- モーダルウィンドウ -->
     <div id="modal-claim-outoput">
