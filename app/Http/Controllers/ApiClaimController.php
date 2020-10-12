@@ -31,12 +31,10 @@ class ApiClaimController extends Controller
     }
 
 
-    public function show($id, Post $post, Claim $claims)
+    public function show($id)
     {
-        $claims = Claim::all();
-        $post = Post::all();
-        $id = $claim->post_id === $post->id;
-        return Claim::find($id);
+        $claim = Claim::with('claim_outputs')->find($id);
+        return $claim;
     }
 
     public function update(Request $request, $id)

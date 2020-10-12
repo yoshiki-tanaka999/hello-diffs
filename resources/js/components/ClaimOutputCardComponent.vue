@@ -14,13 +14,18 @@
                     <!--【セレクトボックス】賛成 or 反対 or その他の意見 -->
                     <select v-model="claim_flag">
                         <option disabled value="" class="select-validatot">賛否を選択してください。</option>
-                        <option>賛成</option>
-                        <option>反対</option>
-                        <option>その他・補足</option>
+                        <option
+                            v-for="option in options" 
+                            :key="option.value"  
+                            class="select-validator"
+                            @click="getClaimFlag"
+                            >
+                            {{ option.text }}
+                        </option>
                     </select>
 
                     <!-- 投稿される意見のテキストボックス -->
-                    <textarea v-model="message" placeholder="論点に対する自分の意見を記入してください。"></textarea>
+                    <textarea v-model="content" placeholder="論点に対する自分の意見を記入してください。"></textarea>
 
                     <v-card-actions>
                         <v-btn
@@ -42,13 +47,21 @@
 
 export default {
     props: {
-        id: Number
+        id: Number,
+        claimId: Number
     },
     data() {
         return {
             post: [],
             claims: [],
-            claim_flag: '',
+            claim:[],
+            claim_flag: Number,
+            options: [
+                { text: '賛成', value: '０' },
+                { text: '反対', value: '1' },
+                { text: 'その他・補足', value: '2' }
+            ],
+            content: '',           
             message: '',
             // ボタンを押したかどうか
             isPush : false,
@@ -60,25 +73,37 @@ export default {
             .then((res) => {
                 this.post = res.data;
                 this.claims = this.post.claims
+                // dataが取得できていることを確認済み
+                console.log(this.id);                  
                 console.log(this.post);  
                 console.log(this.claims);  
             })
         },
+        getClaimFlag() {
+            let claim_flag = this.claim_flag;
+            console.log(claim_flag);
+            // let claim_flag =  Number(this.options[index].value)
+            // console.log(Number(this.options[index].value));
+            // console.log(claim_flag);
+        },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
         uploadClaimOutput() {
+                        let claim_flag = this.claim_flag;
             let post_id = this.id;
+            let claim_id = this.claimId;
             let data = new FormData();
             // postデータ(id)を取得する
             data.append("post_id", Number(post_id));
-            data.append("issue", this.issue);
+            data.append("claim_id", Number(claim_id));
+            data.append("claim_flag", Number(claim_flag));
             data.append("content", this.content);
             axios
-                .post("/api/claim/", data)
+                .post("/api/claim_output/", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;
                     // this.confirmedImage = "";
-                    this.issue = "";
+                    this.claim_flag = "";
                     this.content = "";
                 })
                 .catch(err => {
@@ -90,7 +115,7 @@ export default {
         }
     },
     mounted() {
-        this.getPost();
+        // this.getPost();
     }, 
 }
 </script>  
@@ -128,7 +153,7 @@ export default {
 
 #OutputCard textarea {
     display: block;
-    width: 600px;
+    width: 688px;
     height: 90px;
     margin: 30px 50px 0 50px;
     color: #555;
@@ -142,6 +167,7 @@ export default {
     display: block;
     width: 100px;
     height: 35px;
+    /* margin: 30px 50px 20px auto; */
     margin: 30px auto 20px 50px;
     color: #ffffff;
     border: 1px solid #ffffff;
@@ -151,7 +177,7 @@ export default {
     cursor: pointer;
     }
 
-.select-validatot {
+.select-validator {
     color: #ffffff
 }
 

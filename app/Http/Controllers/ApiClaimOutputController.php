@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Post\System\Claim_Output;
 use App\Model\Post\System\Claim;
 use App\Model\Post\Post;
 use App\Model\User\User;
@@ -10,7 +11,7 @@ use Auth;
 
 use Validator;
 
-class ApiClaimController extends Controller
+class ApiClaimOutputController extends Controller
 {
     public function index()
     {
@@ -22,12 +23,14 @@ class ApiClaimController extends Controller
         // ユーザーID
         $user = Auth::user();
 
-        $claim=new Claim();
-        $claim->user_id = $user->id;
-        $claim->post_id= $request->post_id;
-        $claim->issue= $request->issue;
-        $claim->content= $request->content;
-        $claim->save();
+        $claim_output=new Claim_Output();
+        $claim_output->user_id = $user->id;
+
+        $claim_output->post_id= $request->post_id;
+        $claim_output->claim_id= $request->claim_id;
+        $claim_output->claim_flag= $request->claim_flag;
+        $claim_output->content= $request->claim_message;
+        $claim_output->save();
     }
 
 

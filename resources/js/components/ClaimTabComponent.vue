@@ -8,9 +8,6 @@
                 </h1>
             </v-card-title>
         </v-card>
-        
-        <!-- <v-spacer></v-spacer> -->
-
 
         <v-container class="text-center justify-center py-6" justify="center">
         <!-- 投稿の疑問に対する論点 -->
@@ -28,10 +25,14 @@
                     <!-- コンポーネント化 -->
                     <!-- 問題は、post_idごとでfor文を回す -->
                         <v-tab
-                            v-for="claim in claims"
+                            v-for="(claim, index) in claims"
                             :key="claim.id"
+                            v-bind:claimId="claim.id"
+                            @click="getClaim(index)"
                             >
-                            {{ claim.issue }}
+                            <div >
+                                {{ claim.issue }}
+                            </div>
 
                         </v-tab>
                         <!-- <v-tab>
@@ -81,10 +82,16 @@
                     dark
                     class="d-none"                  
                     >
-                        <v-tab v-model="tab1">主張①</v-tab>
+                        <v-tab
+                            v-for="claim in claims"
+                            :key="claim.id"
+                            v-model="tab1"
+                            >
+                        </v-tab>
+                        <!-- <v-tab v-model="tab1">主張①</v-tab>
                         <v-tab v-model="tab1">主張②</v-tab>
                         <v-tab v-model="tab1">主張③</v-tab>
-                        <v-tab v-model="tab1">←これは隠したほうが良さげ</v-tab>
+                        <v-tab v-model="tab1">←これは隠したほうが良さげ</v-tab> -->
                     </v-tabs>
                 </v-card>                
             </v-sheet>                
@@ -127,7 +134,7 @@
                     :key="item"
                 >
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-                    <ClaimOutputCard-component v-if="show"></ClaimOutputCard-component>  
+                    <ClaimOutputCard-component :claimId="Number(claimId)" v-if="show"></ClaimOutputCard-component>  
                     
                     <!-- 主張カード -->
                     <v-row dense>
@@ -180,12 +187,13 @@
 <script>
 export default {
     props: {
-        id: Number
+        id: Number,
     },
     data () {
         return {
             post: [],
             claims: [],
+            claimId: Number,
             issues:[],
             // ClaimOutputCardのv-if部分
             show: false,
@@ -203,9 +211,14 @@ export default {
                 .then((res) => {
                     this.post = res.data;
                     this.claims = this.post.claims
-                    // console.log(this.post);  
-                    // console.log(this.claims);  
+                    console.log(this.post);  
+                    console.log(this.claims);  
                 })
+            },
+            getClaim(index) {
+                let claimId =  Number(this.post.claims[index].id)
+                console.log(Number(this.post.claims[index].id));
+                console.log(claimId);
             },
             openModal: function(e) {
                 document.getElementById('modal-claim-output').style.display = 'block';

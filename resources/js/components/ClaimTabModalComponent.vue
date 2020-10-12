@@ -84,7 +84,7 @@ export default {
     //     this.fetchPosts()
     // },
     props: {
-        id: Number
+        id: Number,
     },
     data() {
         return {
@@ -122,8 +122,8 @@ export default {
             .then((res) => {
                 this.post = res.data;
                 this.claims = this.post.claims
-                console.log(this.post);  
-                console.log(this.claims);  
+                // console.log(this.post);  
+                // console.log(this.claims);  
             })
         },        
         uploadClaim() {

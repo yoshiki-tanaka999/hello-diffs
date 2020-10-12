@@ -23,6 +23,7 @@ class ApiPostSelectController extends Controller
         // $post = Post::find($id);
         // return $post;
 
+        // claimsにpost_idを紐付ける
         $post = Post::with('claims')->find($id);
         return $post;
     }

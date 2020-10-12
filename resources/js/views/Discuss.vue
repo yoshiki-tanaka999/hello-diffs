@@ -12,7 +12,7 @@
             <ClaimTab-component v-bind:id="id"></ClaimTab-component> 
             <!-- id要らないかも -->
             <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>   
-            <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>   
+            <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
         </v-main>
     </v-app>
 </template>
