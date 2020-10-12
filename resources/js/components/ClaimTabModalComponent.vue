@@ -33,33 +33,34 @@
 
                     <div class="modal-claim-content">
                         <!-- 論点の可視化 -->
-                        <div class="modal-content-subheading">論点(6文字以内)</div>
+                        <div class="modal-claim-content-subheading">論点(８文字以内)</div>
                         <div class="modal-content-margin">
                             <input
                                 type="text"
                                 v-model="issue"
-                                class="modal-content-input"
+                                class="modal-claim-content-input"
+                                placeholder="例）経済的な観点/当事者の観点/〇〇の意見etc.."
                             />
                         </div>
 
-                        <div class="modal-content-subheading">論点の説明</div>
+                        <div class="modal-content-subheading">論点の説明・仮説</div>
                         <div class="modal-content-margin">
                             <textarea
                                 v-model="content" 
                                 cols="20" rows="5"
                                 type="text"
-                                class="modal-content-input"
+                                class="modal-claim-content-input"
+                                placeholder="論点に対する説明、または、あなたの仮説を記入してください。"
                                 ></textarea>
                         </div>
                     </div>
-
 
                     <button 
                         class="modal-claim-button"
                         @click="uploadClaim"
                     >
-                    論点を追加する</button>
-                    
+                    論点を追加！
+                    </button>
                 </div>
             </div>
         </div>
@@ -88,11 +89,12 @@ export default {
     data() {
         return {
             post: [],
-            claim: [],
+            claims: [],
             title:"",
             post_id: "",
             issue: "",
             content: "",
+            message: "",
             mdiRectangle,
             mdiRectangleOutline
         }
@@ -159,6 +161,7 @@ export default {
 <style scoped>
 #modal-claim {
     display: none;
+    border-radius: 0.5rem;
 }
 
 .modal-background-claim {
@@ -249,7 +252,6 @@ export default {
 }
 
 
-
 .modal-content-claim-title {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-weight: 700;
@@ -273,8 +275,20 @@ export default {
     font-weight: bold;
 }
 
+.modal-claim-content-subheading {
+    font-weight: 600;
+}
+
 .modal-claim-content {
     padding: 32px;
+}
+
+.modal-claim-content-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    /* border-color: #1a202c; */
+    border-style: solid;
+    padding: 0.75rem;
 }
 
 .modal-claim-button {
@@ -291,12 +305,13 @@ export default {
     position: fixed!important;
     left: calc(50% - 105px);
     bottom: 32px;
-    z-index: 2;
+    z-index: 20;
+    border-radius: 5px;  
 
     /* ボタンのスタイル */
     color: #fff;
-    background: #52a3ff;
-    border-color: #52a3ff;
+    background: rgba(1, 1, 102);
+    border-color: rgba(1, 1, 102, 0.863);
 }
 
 </style>
