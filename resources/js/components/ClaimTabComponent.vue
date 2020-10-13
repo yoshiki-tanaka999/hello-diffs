@@ -28,7 +28,7 @@
                             v-for="(claim, index) in claims"
                             :key="claim.id"
                             v-bind:claimId="claim.id"
-                            @click="getClaim(index)"
+                            @click="setActiveTab(claim[index].id)"
                             >
                             <div >
                                 {{ claim.issue }}
@@ -134,7 +134,7 @@
                     :key="item"
                 >
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-                    <ClaimOutputCard-component :claimId="Number(claimId)" v-if="show"></ClaimOutputCard-component>  
+                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>  
                     
                     <!-- 主張カード -->
                     <v-row dense>
@@ -192,8 +192,10 @@ export default {
     data () {
         return {
             post: [],
+            // 論点の整理関連
+            activeTab: "",
+            claimId: "",
             claims: [],
-            claimId: Number,
             issues:[],
             // ClaimOutputCardのv-if部分
             show: false,
@@ -203,6 +205,8 @@ export default {
                 '賛成', '反対', '補足・その他',
             ],
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            // どのTabが選択されているか
+            // activeTab: 'tab1'
             }
     },
     methods: {
@@ -211,14 +215,19 @@ export default {
                 .then((res) => {
                     this.post = res.data;
                     this.claims = this.post.claims
+                    // this.claimId = this.claims[index].id
                     console.log(this.post);  
                     console.log(this.claims);  
                 })
             },
+            // これ使わないかも
             getClaim(index) {
                 let claimId =  Number(this.post.claims[index].id)
                 console.log(Number(this.post.claims[index].id));
                 console.log(claimId);
+            },
+            setActiveTab(selectedId) {
+                this.claimId = selectedTabName;
             },
             openModal: function(e) {
                 document.getElementById('modal-claim-output').style.display = 'block';
@@ -244,7 +253,7 @@ export default {
     },
     mounted() {
         this.getPost();
-        // this.getClaim();
+        // this.getClaim(index);
         // this.getIssue();
     }
     // computed() {

@@ -88,14 +88,14 @@ export default {
         },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
         uploadClaimOutput() {
-                        let claim_flag = this.claim_flag;
+            let claim_flag = this.claim_flag;
             let post_id = this.id;
             let claim_id = this.claimId;
             let data = new FormData();
             // postデータ(id)を取得する
-            data.append("post_id", Number(post_id));
-            data.append("claim_id", Number(claim_id));
-            data.append("claim_flag", Number(claim_flag));
+            data.append("post_id", post_id);
+            data.append("claim_id", claim_id);
+            data.append("claim_flag", claim_flag);
             data.append("content", this.content);
             axios
                 .post("/api/claim_output/", data)

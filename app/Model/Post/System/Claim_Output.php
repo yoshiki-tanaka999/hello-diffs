@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Claim_Output extends Model
 {
+    protected $table = 'claim_outputs';
     protected $fillable = ['id','user_id', 'claim_id', 'content', ];
 
     public function user()
