@@ -29,7 +29,7 @@ class ApiClaimOutputController extends Controller
         $claim_output->post_id= $request->post_id;
         $claim_output->claim_id= $request->claim_id;
         $claim_output->claim_flag= $request->claim_flag;
-        $claim_output->content= $request->claim_message;
+        $claim_output->content= $request->content;
         $claim_output->save();
     }
 

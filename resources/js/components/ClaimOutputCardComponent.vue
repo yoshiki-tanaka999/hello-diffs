@@ -15,10 +15,10 @@
                     <select v-model="claim_flag">
                         <option disabled value="" class="select-validatot">賛否を選択してください。</option>
                         <option
-                            v-for="option in options" 
-                            :key="option.value"  
+                            v-for="(option, index) in options" 
+                            :key="index"  
                             class="select-validator"
-                            @click="getClaimFlag"
+                            @click="getClaimFlag(index)"
                             >
                             {{ option.text }}
                         </option>
@@ -32,7 +32,7 @@
                             text
                             class="claim-output-btn"
                             v-bind:disabled="isPush"
-                            @click="uploadClaimOutput"
+                            @click="uploadClaimOutput(index)"
                         >
                             意見を投稿！
                         </v-btn>
@@ -55,7 +55,7 @@ export default {
             post: [],
             claims: [],
             claim:[],
-            claim_flag: Number,
+            claim_flag: "",
             options: [
                 { text: '賛成', value: '０' },
                 { text: '反対', value: '1' },
@@ -80,22 +80,22 @@ export default {
             })
         },
         getClaimFlag() {
-            let claim_flag = this.claim_flag;
+            let claim_flag = this.options[index].value;
             console.log(claim_flag);
             // let claim_flag =  Number(this.options[index].value)
             // console.log(Number(this.options[index].value));
             // console.log(claim_flag);
         },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
-        uploadClaimOutput() {
-            let claim_flag = this.claim_flag;
+        uploadClaimOutput(index) {
+            // let claim_flag = this.options[index].value;
             let post_id = this.id;
             let claim_id = this.claimId;
             let data = new FormData();
             // postデータ(id)を取得する
             data.append("post_id", post_id);
             data.append("claim_id", claim_id);
-            data.append("claim_flag", claim_flag);
+            data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
             axios
                 .post("/api/claim_output/", data)

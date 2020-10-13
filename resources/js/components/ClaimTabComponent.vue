@@ -26,9 +26,8 @@
                     <!-- 問題は、post_idごとでfor文を回す -->
                         <v-tab
                             v-for="(claim, index) in claims"
-                            :key="claim.id"
-                            v-bind:claimId="claim.id"
-                            @click="setActiveTab(claim[index].id)"
+                            :key="index"
+                            :class="current === index ? 'current' : ''" @click="tabSelect(index)"
                             >
                             <div >
                                 {{ claim.issue }}
@@ -193,9 +192,12 @@ export default {
         return {
             post: [],
             // 論点の整理関連
+            default: 0,
+            current: 0,
             activeTab: "",
             claimId: "",
             claims: [],
+            claim: [],
             issues:[],
             // ClaimOutputCardのv-if部分
             show: false,
@@ -226,8 +228,19 @@ export default {
                 console.log(Number(this.post.claims[index].id));
                 console.log(claimId);
             },
-            setActiveTab(selectedId) {
-                this.claimId = selectedTabName;
+            tabSelect(index) {
+                this.current = index;
+                this.claimId = this.claims[index].id
+                console.log(this.current);
+                // claim_idの取得完了
+                console.log(this.claimId);
+            },
+            tabSelectDefault() {
+                this.current = this.default;
+                this.claimId = this.claims[this.default].id
+                console.log(this.current);
+                // claim_idの取得完了
+                console.log(this.claimId);
             },
             openModal: function(e) {
                 document.getElementById('modal-claim-output').style.display = 'block';
@@ -251,9 +264,20 @@ export default {
             //     })
             // }  
     },
+    // created: function(index) {
+    //     this.claim = this.claims[index]
+    //     console.log(this.claims[index]);
+    //     // tabSelect(index) {
+    //     // this.current = index;
+    //     // this.claimId = this.claims[index].id
+    //     //         console.log(this.current);
+    //     //         // claim_idの取得完了
+    //     //         console.log(this.claimId);
+    //     // }
+    // },
     mounted() {
         this.getPost();
-        // this.getClaim(index);
+        // this.tabSelectDefault();
         // this.getIssue();
     }
     // computed() {
