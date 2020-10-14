@@ -23,31 +23,35 @@
 
             <!-- チャットカード -->
             <v-card
-              class="mx-auto"
-              color="#26c6da"
+              class="ma-3"
+              color="#385F73"
               dark
               max-width="400"
+              
               v-for="chat in chatFiltered" :key="chat.id"
             >
 
-              <v-card-text class="headline font-weight-bold">
-                {{ chat.content }}
-              </v-card-text>
+              <div>
+                <v-card-text class="font-weight-bold ">
+                  {{ chat.content }}
+                </v-card-text>
+              </div>
 
               <v-card-actions>
                 <v-list-item class="grow">
-                  <v-list-item-avatar color="grey darken-3">
-                    <v-img
-                      class="elevation-6"
-                      alt=""
-                      src="/images/tanu.png?2251be57d715825a2661ec6174760145"
-                    ></v-img>
+                  <!-- アイコン画像(デフォルト) -->
+                  <v-list-item-avatar color="grey darken-1">
+                    <v-icon class="mr-1 ml-1">
+                      mdi-account-circle
+                    </v-icon>
                   </v-list-item-avatar>
 
+                  <!-- 表示名(Userテーブルとのリレーション) -->
                   <v-list-item-content>
                     <v-list-item-title v-if="chat.user">{{ chat.user.name }}</v-list-item-title>
                   </v-list-item-content>
 
+                  <!-- Like数と閲覧数 -->
                   <v-row
                     align="center"
                     justify="end"
@@ -56,7 +60,7 @@
                       mdi-heart
                     </v-icon>
                     <span class="subheading mr-2">256</span>
-                    <span class="mr-1">·</span>
+                    <span class="mr-1"></span>
                     <v-icon class="mr-1">
                       mdi-share-variant
                     </v-icon>
@@ -149,6 +153,11 @@
 <style scoped>
 .ChatForm {
   width: 100%;
+}
+
+.basil {
+    background-color: #FFFBE6 !important;
+        color: #356859 !important;
 }
 
 .oneArea {
