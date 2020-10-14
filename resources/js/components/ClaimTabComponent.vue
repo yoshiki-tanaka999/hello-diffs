@@ -1,7 +1,7 @@
 <template>
-    <v-app color="basil">
+    <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
-        <v-card class="pt-3">
+        <v-card class="title-card pt-3">
             <v-card-title class="text-center justify-center py-6">
                 <h1 class="font-weight-bold display-5">
                     {{ post.title }}
@@ -39,7 +39,7 @@
                         </v-tab> -->
                     </v-tabs>
 
-                    <!-- モーダルウィンドウ -->
+                    <!-- モーダルウィンドウのボタン -->
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
                             <div class= "open-modal-claim"
@@ -61,10 +61,10 @@
                         :key="claim.id"
                     >
                         <v-card
-                        color="basil"
-                        flat
-                        >
-                        <v-card-text>{{ claim.content }}</v-card-text>
+                            color="basil"
+                            flat
+                            >
+                            <v-card-text>{{ claim.content }}</v-card-text>
                         </v-card>
                     </v-tab-item>
                 </v-tabs-items>  
@@ -87,10 +87,6 @@
                             v-model="tab1"
                             >
                         </v-tab>
-                        <!-- <v-tab v-model="tab1">主張①</v-tab>
-                        <v-tab v-model="tab1">主張②</v-tab>
-                        <v-tab v-model="tab1">主張③</v-tab>
-                        <v-tab v-model="tab1">←これは隠したほうが良さげ</v-tab> -->
                     </v-tabs>
                 </v-card>                
             </v-sheet>                
@@ -128,57 +124,53 @@
 
 
             <v-tabs-items v-model="tab1">
+                <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
                 <v-tab-item
                     v-for="item in items"
                     :key="item"
                 >
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>  
-                    
-                    <!-- 主張カード -->
-                    <v-row dense>
-                        <!-- カード① -->
-                        <v-col cols="12">
-                            <v-card
-                                color="#385F73"
-                                dark
-                            >
-                                <v-card-title class="headline">
-                                Unlimited music now
-                                </v-card-title>
+                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
-                                <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
-
-                                <v-card-actions>
-                                    <v-btn text>
-                                        Listen Now
-                                    </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-col>       
-
-                        <!-- カード② -->
-                        <v-col cols="12">
-                            <v-card
-                                color="#385F73"
-                                dark
-                            >
-                                <v-card-title class="headline">
-                                Unlimited music now
-                                </v-card-title>
-
-                                <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
-
-                                <v-card-actions>
-                                    <v-btn text>
-                                        Listen Now
-                                    </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-col>  
-                    </v-row>                            
                 </v-tab-item>
-            </v-tabs-items>            
+            </v-tabs-items> 
+            
+            <v-tabs-items v-model="tab1">
+                <v-tab-item
+                    v-for="claim_output in claim_outputs"
+                    :key="claim_output.id"
+                >
+                <!-- カード①賛成用 -->
+                    <div 
+                        >
+                        <v-card
+                            color="#385F73"
+                            dark
+                        >
+                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                        <!-- アイコンを追加 -->
+                        <div>
+                            <div class="postStatusList d-flex">
+                                <!-- 「コメント数」 -->
+                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                <!-- 「参加者数」 -->
+                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                <!-- 「ブックマークされた数」 -->
+                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                            </div>
+                        </div>
+
+                        <!-- データベースからテキストを描画 -->
+                            <v-card-text>{{claim_output.content}}</v-card-text>
+                        </v-card>
+                    </div>
+                </v-tab-item>
+            </v-tabs-items> 
+                <!-- カード②反対用 -->
+                        
+                <!-- カード②その他・補足 -->
+
+          
         </v-container>
     </v-app>
 </template>
@@ -209,6 +201,8 @@ export default {
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             // どのTabが選択されているか
             // activeTab: 'tab1'
+            claim_outputs: [],
+            activeCard: "",
             }
     },
     methods: {
@@ -222,12 +216,6 @@ export default {
                     console.log(this.claims);  
                 })
             },
-            // これ使わないかも
-            getClaim(index) {
-                let claimId =  Number(this.post.claims[index].id)
-                console.log(Number(this.post.claims[index].id));
-                console.log(claimId);
-            },
             tabSelect(index) {
                 this.current = index;
                 this.claimId = this.claims[index].id
@@ -235,58 +223,53 @@ export default {
                 // claim_idの取得完了
                 console.log(this.claimId);
             },
-            tabSelectDefault() {
-                this.current = this.default;
-                this.claimId = this.claims[this.default].id
-                console.log(this.current);
-                // claim_idの取得完了
-                console.log(this.claimId);
+            getClaimOutput() {
+                axios.get('/api/claim_output/')
+                .then((res) => {
+                    this.claim_outputs = res.data;
+                    // this.claimId = this.claims[index].id
+                    console.log(this.claim_outputs);  
+                })
             },
-            openModal: function(e) {
-                document.getElementById('modal-claim-output').style.display = 'block';
-            }
-            // getClaim() {
-            //     axios.get('/api/claim/')
-            //     .then((res) => {
-            //         this.claims = res.data;
-            //         // console.log(this.claims);  
-            //     })
-            // }, 
-            // getIssue() {
-            //     return this.claims.filter(claim => {
-            //         console.log(this.claim);
-            //         console.log(this.claim.post.id);
-            //         console.log(this.post.id);                    
-            //         if ( claim.post_id === this.post.id) {
-            //             return this.issues = this.claim;
-            //             console.log(this.issues);
-            //         }
-            //     })
-            // }  
     },
-    // created: function(index) {
-    //     this.claim = this.claims[index]
-    //     console.log(this.claims[index]);
-    //     // tabSelect(index) {
-    //     // this.current = index;
-    //     // this.claimId = this.claims[index].id
-    //     //         console.log(this.current);
-    //     //         // claim_idの取得完了
-    //     //         console.log(this.claimId);
-    //     // }
-    // },
     mounted() {
         this.getPost();
-        // this.tabSelectDefault();
+        this.getClaimOutput();
         // this.getIssue();
+    },
+    computed: {
+        // 賛成意見の紐付け
+        getAgreeClaim() {
+        return this.claim_outputs.filter(claim_output => {
+                return claim_output.claim_flag === "賛成"
+            })
+        },
+        // 反対意見の紐付け
+        getDisAgreeClaim() {
+        return this.claim_outputs.filter(claim_output => {
+                return claim_output.claim_flag === "反対"
+            })
+        },
+        // その他・補足意見の紐付け
+        getAnotherClaim() {
+        return this.claim_outputs.filter(claim_output => {
+                return claim_output.claim_flag === "その他・反対意見"
+            })
+        },    
     }
-    // computed() {
-
-    // }    
 }
+
 </script>
 
 <style>
+.whole {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.title-card {
+    margin-top: 30px;
+}
 /* Helper classes */
 .basil {
     background-color: #FFFBE6 !important;

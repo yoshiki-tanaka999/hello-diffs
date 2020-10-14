@@ -15,7 +15,7 @@ class ApiClaimOutputController extends Controller
 {
     public function index()
     {
-
+        return Claim_Output::orderBy('created_at', 'desc')->get();
     }
 
     public function store(Request $request, User $user)
