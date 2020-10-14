@@ -137,12 +137,14 @@
             
             <v-tabs-items v-model="tab1">
                 <v-tab-item
-                    v-for="claim_output in claim_outputs"
+                    v-for="(claim_output, index) in claim_outputs"
                     :key="claim_output.id"
+                    :class="{ active: currentTab === index }"
+                    @click="currentTab = index"
                 >
+
                 <!-- カード①賛成用 -->
-                    <div 
-                        >
+                    <div v-show="currentTab === 0">
                         <v-card
                             color="#385F73"
                             dark
@@ -162,6 +164,57 @@
 
                         <!-- データベースからテキストを描画 -->
                             <v-card-text>{{claim_output.content}}</v-card-text>
+                            <v-card-text>賛成です。</v-card-text>
+                        </v-card>
+                    </div>
+
+                <!-- カード②反対用 -->
+                    <div v-show="currentTab === 1 ">
+                        <v-card
+                            color="#385F73"
+                            dark
+                        >
+                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                        <!-- アイコンを追加 -->
+                        <div>
+                            <div class="postStatusList d-flex">
+                                <!-- 「コメント数」 -->
+                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                <!-- 「参加者数」 -->
+                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                <!-- 「ブックマークされた数」 -->
+                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                            </div>
+                        </div>
+
+                        <!-- データベースからテキストを描画 -->
+                            <v-card-text>{{claim_output.content}}</v-card-text>
+                            <v-card-text>反対です。</v-card-text>
+                        </v-card>
+                    </div>
+
+                <!-- カード③その他用 -->
+                    <div v-show="currentTab === 2">
+                        <v-card
+                            color="#385F73"
+                            dark
+                        >
+                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                        <!-- アイコンを追加 -->
+                        <div>
+                            <div class="postStatusList d-flex">
+                                <!-- 「コメント数」 -->
+                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                <!-- 「参加者数」 -->
+                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                <!-- 「ブックマークされた数」 -->
+                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                            </div>
+                        </div>
+
+                        <!-- データベースからテキストを描画 -->
+                            <v-card-text>{{claim_output.content}}</v-card-text>
+                            <v-card-text>その他です。</v-card-text>
                         </v-card>
                     </div>
                 </v-tab-item>
@@ -202,6 +255,7 @@ export default {
             // どのTabが選択されているか
             // activeTab: 'tab1'
             claim_outputs: [],
+            currentTab: 0,
             activeCard: "",
             }
     },
