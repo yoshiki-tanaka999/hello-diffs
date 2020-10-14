@@ -54,6 +54,7 @@ import Not_found from './views/Not_found'
 
 import Tweet from './components/TweetTestComponent' 
 import ClaimTab from './components/ClaimTabComponent' 
+import Chat from './components/DiscussChatComponent'
 
 const router = new Router({
   mode: 'history',
@@ -157,6 +158,7 @@ const router = new Router({
     { path: '*', redirect: '/404' },
     { path: '/tweet', name: 'Tweet', component: Tweet },    
     { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
+    { path: '/chattest', name: 'Chat', component: Chat },  
   ]
 })
 

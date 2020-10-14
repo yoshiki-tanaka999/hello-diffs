@@ -35,143 +35,143 @@
                 </v-form>
             </v-col>
             </v-row>
-        </v-app-bar>
 
-        <v-main
+        </v-app-bar>
+        <v-content
         style="padding-top: 130px;"
         >
-            <v-container
-                class="fill-height"
-                fluid
+        <v-container
+            class="fill-height"
+            fluid
+        >
+            <v-row
+            align="center"
+            justify="center"
             >
-                <v-row
-                align="center"
-                justify="center"
-                >
-                <v-col
-                    cols="12"
-                    sm="8"
-                    md="4"
-                >
-                        <v-row v-for="chat in chats" :key="chat.id" :id="chat.id" :class="{unviewed: !tweet.is_viewed}"
-                        class="pa-3">
-                            <v-card
-                            class="mx-auto"
-                            color="primary"
-                            width="100%"
-                            dark
+            <v-col
+                cols="12"
+                sm="8"
+                md="4"
+            >
+                    <v-row v-for="tweet in tweets" :key="tweet.id" :id="tweet.id" :class="{unviewed: !tweet.is_viewed}"
+                    class="pa-3">
+                        <v-card
+                        class="mx-auto"
+                        color="primary"
+                        width="100%"
+                        dark
+                        >
+                        <v-card-title>
+                            <v-icon
+                            small
+                            left
                             >
-                            <v-card-title>
-                                <v-icon
-                                small
-                                left
-                                >
-                                mdi-twitter
-                                </v-icon>
-                                <span class="subtitle-2 font-weight-light">Twitter</span>
-                            </v-card-title>
+                            mdi-twitter
+                            </v-icon>
+                            <span class="subtitle-2 font-weight-light">Twitter</span>
+                        </v-card-title>
 
-                            <v-card-text class="body-1 font-weight-bold">
-                                "{{ chat.content }}"
+                        <v-card-text class="body-1 font-weight-bold">
+                            "{{ tweet.tweet }}"
+                        </v-card-text>
+
+                        <v-card-actions>
+                            <v-list-item class="grow">
+                            <v-list-item-avatar color="grey darken-3">
+                                <v-img
+                                class="elevation-6"
+                                src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                                ></v-img>
+                            </v-list-item-avatar>
+
+                            <v-list-item-content>
+                                <v-list-item-title>{{ tweet.nickname }}</v-list-item-title>
+                            </v-list-item-content>
+
+                            <v-row
+                                align="center"
+                                justify="end"
+                            >
+                                <v-icon v-if="tweet.is_liked" @click="pushLike(tweet)" class="mr-1" color="red" dark>mdi-heart</v-icon>
+                                <v-icon v-else @click="pushLike(tweet)" class="mr-1">mdi-heart</v-icon>
+                                <span class="subheading mr-2">{{ tweet.like_count }}</span>
+                                <span class="mr-1"></span>
+                                <v-icon v-if="tweet.is_reported" @click="openModal(tweet)" class="mr-1" color="blue" dark>mdi-flag</v-icon>
+                                <v-icon v-else @click="openModal(tweet)" class="mr-1">mdi-flag</v-icon>
+                                <span class="subheading"></span>
+                            </v-row>
+                            </v-list-item>
+                        </v-card-actions>
+                        </v-card>
+
+                        <v-dialog
+                        v-model="tweet.isDisplayed"
+                        max-width="290"
+                        >
+                        <v-card>
+                            <v-card-title class="headline" v-if="tweet.is_reported">通報を取り消しますか？</v-card-title>
+                            <v-card-title class="headline" v-else>通報しますか？</v-card-title>
+
+                            <v-card-text>
+                                ※意味不明なツイート、不快なツイート、誹謗中傷を含むツイートは通報できます
                             </v-card-text>
 
                             <v-card-actions>
-                                <v-list-item class="grow">
-                                <v-list-item-avatar color="grey darken-3">
-                                    <v-img
-                                    class="elevation-6"
-                                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                                    ></v-img>
-                                </v-list-item-avatar>
+                            <v-spacer></v-spacer>
 
-                                <v-list-item-content>
-                                    <v-list-item-title>{{ chat.name }}</v-list-item-title>
-                                </v-list-item-content>
-
-                                <v-row
-                                    align="center"
-                                    justify="end"
-                                >
-                                    <v-icon v-if="chat.is_liked" @click="pushLike(chat)" class="mr-1" color="red" dark>mdi-heart</v-icon>
-                                    <v-icon v-else @click="pushLike(chat)" class="mr-1">mdi-heart</v-icon>
-                                    <span class="subheading mr-2">{{ chat.like_count }}</span>
-                                    <span class="mr-1"></span>
-                                    <v-icon v-if="chat.is_reported" @click="openModal(chat)" class="mr-1" color="blue" dark>mdi-flag</v-icon>
-                                    <v-icon v-else @click="openModal(chat)" class="mr-1">mdi-flag</v-icon>
-                                    <span class="subheading"></span>
-                                </v-row>
-                                </v-list-item>
-                            </v-card-actions>
-                            </v-card>
-
-                            <v-dialog
-                            v-model="chat.isDisplayed"
-                            max-width="290"
+                            <v-btn
+                                color="green darken-1"
+                                text
+                                @click="closeModal(tweet)"
                             >
-                            <v-card>
-                                <v-card-title class="headline" v-if="chat.is_reported">通報を取り消しますか？</v-card-title>
-                                <v-card-title class="headline" v-else>通報しますか？</v-card-title>
+                                閉じる
+                            </v-btn>
+                            <v-btn
+                                v-if="tweet.is_reported" class="btn"
+                                color="green darken-1"
+                                text
+                                @click="pushReport(tweet)"
+                            >
+                                通報取消
+                            </v-btn>
+                            <v-btn
+                                v-else
+                                color="green darken-1"
+                                text
+                                @click="pushReport(tweet)"
+                            >
+                                通報する
+                            </v-btn>
 
-                                <v-card-text>
-                                    ※意味不明なツイート、不快なツイート、誹謗中傷を含むツイートは通報できます
-                                </v-card-text>
-
-                                <v-card-actions>
-                                <v-spacer></v-spacer>
-
-                                <v-btn
-                                    color="green darken-1"
-                                    text
-                                    @click="closeModal(chat)"
-                                >
-                                    閉じる
-                                </v-btn>
-                                <v-btn
-                                    v-if="chat.is_reported" class="btn"
-                                    color="green darken-1"
-                                    text
-                                    @click="pushReport(chat)"
-                                >
-                                    通報取消
-                                </v-btn>
-                                <v-btn
-                                    v-else
-                                    color="green darken-1"
-                                    text
-                                    @click="pushReport(chat)"
-                                >
-                                    通報する
-                                </v-btn>
-
-                                </v-card-actions>
-                            </v-card>
-                            </v-dialog>
-                        </v-row>
-                        <infinite-loading @infinite="fetchTweets"></infinite-loading>
-                </v-col>
-                </v-row>
-            </v-container>
-        </v-main>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </v-row>
+                    <infinite-loading @infinite="fetchTweets"></infinite-loading>
+            </v-col>
+            </v-row>
+        </v-container>
+        </v-content>
         <v-bottom-navigation
         :value="activeBtn"
         color="primary lighten-1"
         fixed
         >
-            <v-btn href="/index/new">
-                <span>Home</span>
-                <v-icon>mdi-home</v-icon>
-            </v-btn>
+        <v-btn href="/">
+            <span>Home</span>
+            <v-icon>mdi-home</v-icon>
+        </v-btn>
 
-            <v-btn href="/tweet/index">
-                <span>Timeline</span>
-                <v-icon>mdi-timeline</v-icon>
-            </v-btn>
+        <v-btn href="/tweet/index">
+            <span>Timeline</span>
+            <v-icon>mdi-timeline</v-icon>
+        </v-btn>
         </v-bottom-navigation>
     </v-app>
 </template>
 
 <script>
-export default {
+    export default {
     props: {
         source: String,
     },
@@ -182,8 +182,8 @@ export default {
             tweet: '',
             valid: true,
             tweetRules: [
-                v => !!v || 'Tweet is required',
-                v => (v && v.length <= 255) || 'Tweet must be less than 255 characters',
+            v => !!v || 'Tweet is required',
+            v => (v && v.length <= 255) || 'Tweet must be less than 255 characters',
             ],
             userAction: {
                 like: {
@@ -207,17 +207,15 @@ export default {
             },
             canSubmit: false,
             activeBtn: 1,
-    }
+        }
     },
     created: function() {
         this.updateTweetImpressionCountTimer = setInterval(this.pushImpressionCount, 3000)
         window.addEventListener('scroll', this.countImpression);
     },
-
     methods: {
         fetchTweets($state) {
             let fetchedTweetIdList = this.fetchedTweetIdList();
-
             axios.get('/tweet', {
                 params: {
                     fetchedTweetIdList: JSON.stringify(fetchedTweetIdList),
@@ -239,16 +237,13 @@ export default {
             .catch(error => {
                 console.log(error);
             })
-
         },
-
         storeTweet() {
             this.preventDoubleClick();
             this.postTweet();
             this.$refs.form.reset();
             this.tweet = '';
         },
-
         pushLike(tweet) {
             if (this.userAction.like.list.indexOf(tweet.id) == -1) {
                 this.userAction.like.list.push(tweet.id);
@@ -262,30 +257,24 @@ export default {
                 tweet.like_count--;
             }
         },
-
         newPostLike(tweetId) {
             this.userAction.like.debouncedList[tweetId] = _.debounce(this.postLike, 1000);
         },
-
         postLike(tweetId, likePushed) {
             axios.post(window.location.origin + `/tweet/like`, {
                 tweetId: tweetId,
                 likePushed: likePushed
             })
             .then(response => {
-
             })
             .catch(error => {
             });
-
         },
-
         pushReport(tweet) {
             this.postReport(tweet.id, !tweet.is_reported);
             tweet.is_reported = !tweet.is_reported;
             tweet.isDisplayed = false;
         },
-
         postReport(tweetId, reportPushed) {
             axios.post(window.location.origin + `/tweet/report`, {
                 tweetId: tweetId,
@@ -296,7 +285,6 @@ export default {
             .catch(error => {
             });
         },
-
         countImpression() {
             let windowTop = pageYOffset;
             let windowHeight = window.outerHeight;
@@ -311,7 +299,6 @@ export default {
                 }
             }
         },
-
         pushImpressionCount() {
             let postTweetIdList = this.userAction.impression.tweetIdList.filter(id =>
                 !this.userAction.impression.postedTweetIdList.includes(id)
@@ -323,7 +310,6 @@ export default {
                 this.postImpressionCount(postTweetIdList);
             }
         },
-
         postImpressionCount(tweetIdList) {
             axios.post(window.location.origin + `/tweet/impression`, {
                 impressionTweetIdList: JSON.stringify(tweetIdList)
@@ -333,14 +319,12 @@ export default {
             .catch(error => {
             });
         },
-
         preventDoubleClick() {
             if (!this.canSubmit) {
                 return;
             }
             this.canSubmit = false;
         },
-
         postTweet() {
             axios.post('/tweet', {
                 tweet: this.tweet
@@ -352,7 +336,6 @@ export default {
                 console.log(error);
             });
         },
-
         fetchedTweetIdList() {
             let fetchedTweetIdList = [];
             for (let i = 0; i < this.tweets.length; i++) {
@@ -360,21 +343,16 @@ export default {
             }
             return fetchedTweetIdList;
         },
-
         openModal(tweet) {
             tweet.isDisplayed = true;
         },
-
         closeModal(tweet) {
             tweet.isDisplayed = false;
         },
-
         validate () {
-          this.$refs.form.validate()
+            this.$refs.form.validate()
         },
-
         toHome() {
-
         }
     },
     watch: {
@@ -383,10 +361,9 @@ export default {
                 this.canSubmit = false;
                 return;
             }
-
             this.canSubmit = true;
             return;
         }
     }
-  }
+    }
 </script>

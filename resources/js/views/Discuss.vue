@@ -3,6 +3,7 @@
         <!-- <headerindex-component id="header"></headerindex-component> -->
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
         <DiscussSidebar-component v-bind:id="id"></DiscussSidebar-component>
+        <!-- <DiscussChat-component v-bind:id="id"></DiscussChat-component> -->
         <!-- PostModalComponent.vue -->
         <!-- <DiscussModal-component v-bind:id="id"></DiscussModal-component> -->
 
