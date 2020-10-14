@@ -5,26 +5,67 @@
             app
             clipped
             right
-        >
+            width = 350px
+            class="ChatForm"
+          >
 
         <!-- チャット欄 -->
         <div class="section">
-            <div id="chat-frame" v-for="chat in chatFiltered" :key="chat.id">
+            <!-- <div id="chat-frame" v-for="chat in chatFiltered" :key="chat.id"> -->
               <!-- 誰かのトーク -->
-              <p class="chat-talk">
+              <!-- <p class="chat-talk">
                   <span class="talk-icon">
                       <img src="/images/tanu.png?2251be57d715825a2661ec6174760145" alt="tartgeticon" width="50" height="50"/>
                   </span>
                   <span class="talk-content">{{ chat.content }}</span>
               </p>
-              <!-- 自分のトーク -->
-              <!-- <p class="chat-talk mytalk">
-                  <span class="talk-icon">
-                      <img src="/images/tanu.png?2251be57d715825a2661ec6174760145" alt="myicon" width="50" height="50"/>
-                  </span>
-                  <span class="talk-content">[トーク内容を記載]</span>
-              </p> -->
-            </div>
+            </div> -->
+
+            <!-- チャットカード -->
+            <v-card
+              class="mx-auto"
+              color="#26c6da"
+              dark
+              max-width="400"
+              v-for="chat in chatFiltered" :key="chat.id"
+            >
+
+              <v-card-text class="headline font-weight-bold">
+                {{ chat.content }}
+              </v-card-text>
+
+              <v-card-actions>
+                <v-list-item class="grow">
+                  <v-list-item-avatar color="grey darken-3">
+                    <v-img
+                      class="elevation-6"
+                      alt=""
+                      src="/images/tanu.png?2251be57d715825a2661ec6174760145"
+                    ></v-img>
+                  </v-list-item-avatar>
+
+                  <v-list-item-content>
+                    <v-list-item-title v-if="chat.user">{{ chat.user.name }}</v-list-item-title>
+                  </v-list-item-content>
+
+                  <v-row
+                    align="center"
+                    justify="end"
+                  >
+                    <v-icon class="mr-1">
+                      mdi-heart
+                    </v-icon>
+                    <span class="subheading mr-2">256</span>
+                    <span class="mr-1">·</span>
+                    <v-icon class="mr-1">
+                      mdi-share-variant
+                    </v-icon>
+                    <span class="subheading">45</span>
+                  </v-row>
+                </v-list-item>
+              </v-card-actions>
+            </v-card>
+
 
             <!-- チャット入力欄 -->
             <div class="message-area">
@@ -76,6 +117,7 @@
                 .then((response) => {
                     this.chats = response.data;
                     console.log(this.chats);
+
                 });
           },
           send() {
@@ -105,6 +147,10 @@
 </script>
 
 <style scoped>
+.ChatForm {
+  width: 100%;
+}
+
 .oneArea {
   display: flex;
   flex-wrap: wrap;

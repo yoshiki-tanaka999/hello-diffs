@@ -1,8 +1,8 @@
 <template>
-    <v-app id="body">
+    <v-app class="discussBody">
         <!-- <headerindex-component id="header"></headerindex-component> -->
         <HeaderDiscuss-component id="header"></HeaderDiscuss-component>
-        <DiscussSidebar-component v-bind:id="id"></DiscussSidebar-component>
+        <DiscussSidebar-component class="sidebar" v-bind:id="id"></DiscussSidebar-component>
         <!-- <DiscussChat-component v-bind:id="id"></DiscussChat-component> -->
         <!-- PostModalComponent.vue -->
         <!-- <DiscussModal-component v-bind:id="id"></DiscussModal-component> -->
@@ -31,10 +31,11 @@ export default {
 
 
 <style scoped>
-#body{
+.discussBody{
     font-family: 'Noto Sans JP', sans-serif;
-    background-image: url(../testPhoto/whitecray.jpeg);
-    background-size: cover;
+    /* background-image: url(../testPhoto/whitecray.jpeg); */
+    /* background-color:dimgrey; */
+    /* background-size: cover; */
     padding-top: 50px;
 }
 #main{
@@ -47,5 +48,9 @@ export default {
 #header{
     position: fixed;
     top: 0;
+}
+
+.sidebar {
+    width: 350px;
 }
 </style>

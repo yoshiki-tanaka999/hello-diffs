@@ -223,7 +223,6 @@
                         
                 <!-- カード②その他・補足 -->
 
-          
         </v-container>
     </v-app>
 </template>
@@ -319,6 +318,7 @@ export default {
 .whole {
     width: 1100px;
     margin: 0 auto;
+    background-color: transparent;
 }
 
 .title-card {

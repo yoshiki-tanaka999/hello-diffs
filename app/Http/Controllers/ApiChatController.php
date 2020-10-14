@@ -17,7 +17,10 @@ class ApiChatController extends Controller
     public function index() 
     {   
         // 新着順にメッセージ一覧を取得
-        return \App\Model\Post\System\Chat::orderBy('id');
+        // return Chat::with('user')->orderBy('id')->get();
+
+        $chat = Chat::with('user')->orderBy('id')->get(); 
+        return $chat;
     }
 
     // public function create(Request $request) 

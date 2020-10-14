@@ -25,4 +25,11 @@ class Chat extends Model
     {
         return $this->hasMany('App\Model\Post\System\Chat');
     }
+
+    public function get()
+    {
+        // $results = Employee::all();
+        $results = Chat::with('user')->all(); 
+        return $results;
+    }
 }
