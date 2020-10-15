@@ -27,7 +27,7 @@
               color="#385F73"
               dark
               max-width="400"
-              
+              max-height="600"
               v-for="chat in chatFiltered" :key="chat.id"
             >
 
@@ -69,8 +69,15 @@
                 </v-list-item>
               </v-card-actions>
             </v-card>
-
-
+              <!-- 自動読み込みのブロック 一定の部分までスクロールされると@infinite=で指定したmethodが実行される -->
+              <infinite-loading ref="infiniteLoading" spinner="spiral" @infinite="infiniteLoad">
+                <!-- ステータスがcompleteに更新されると下記が表示される -->
+                <!-- <span slot="no-more">-----検索結果は以上です-----</span> -->
+                <!-- 結果が存在しない場合下記が表示される -->
+                <!-- <span slot="no-results">-----検索結果はありません-----</span> -->
+              </infinite-loading>
+        </div>
+        
             <!-- チャット入力欄 -->
             <div class="message-area">
                 <div class="message-area-text">
@@ -80,9 +87,8 @@
                 <button id="send" class="disabled-button"  type="button" @click="send()">送信</button>
                 </div>
             </div>
-        </div>
 
-        </v-navigation-drawer>
+          </v-navigation-drawer>
     </v-container>
 
 </template>
@@ -90,8 +96,12 @@
 <script>
 // Pusher導入
     import Pusher from 'pusher-js';
+    import InfiniteLoading from 'vue-infinite-loading';
     
     export default {
+        components: {
+          InfiniteLoading
+        },
         props: {
           source: String,
           id: Number
@@ -137,6 +147,16 @@
                     let post_id = "";
                 })
           },
+          infiniteLoad() {
+            // itemの生成
+            for(let i=0;i<20;i++){
+              this.chats.push("ニュース");
+            }
+            this.$refs.infiniteLoading.stateChanger.loaded();
+            if (this.chats.length == 100) {
+              this.$refs.infiniteLoading.stateChanger.complete();
+            }
+          },
         },
         mounted() {
           this.getMessages();
@@ -153,6 +173,7 @@
 <style scoped>
 .ChatForm {
   width: 100%;
+  /* position: relative;←相対位置 */
 }
 
 .basil {
@@ -160,113 +181,14 @@
         color: #356859 !important;
 }
 
-.oneArea {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  max-width: 1024px;
-  margin: 70px auto 20px auto;
-  padding: 0 10px;
-}
-.oneArea .onebox {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-    /* padding: 0 10px; */
-}
-.oneArea .onebox:nth-child(even) {
-  flex-direction: row-reverse;
-  margin-top: 20px;
-}
-.oneArea .onebox .imgArea {
-  width: 16%;
-  position: relative;
-}
-.oneArea .onebox .imgArea img {
-  width: 100%;
-  max-width: 130px;
-  position: absolute;
-  top: 0;
-}
-.oneArea .onebox:nth-child(odd) .imgArea img {
-  left: 0;
-  padding-right: 30px;
-}
-.oneArea .onebox:nth-child(even) .imgArea img {
-  right: 0;
-  padding-left: 30px;
-}
-.oneArea .onebox .fukiArea {
-  width: 63%;
-    padding: 10px ０;
-}
-.oneArea .onebox .fukidasi {
-  width: 100%;
-  position: relative;
-  padding: 25px;
-  background-color: #f2f3f7;
-  font-size: 12px;
-  color: #231815;
-  border-radius: 12px;
-  box-sizing: border-box;
-}
-.oneArea .onebox .fukidasi::before {
-  content: '';
-  position: absolute;
-  display: block;
-  top: 22px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 15px 30px 15px 0;
-  border-color: transparent #f2f3f7 transparent transparent;
-}
-.oneArea .onebox:nth-child(odd) .fukidasi::before {
-  left: -20px;
-}
-.oneArea .onebox:nth-child(even) .fukidasi {
-  background-color: #fde5e5;
-}
-.oneArea .onebox:nth-child(even) .fukidasi::before {
-  right: -20px;
-  border-color: transparent #fde5e5 transparent transparent;
-  transform: rotate(180deg);
-}
-@media screen and (max-width: 1024px) {
-  .oneArea .onebox .imgArea img {
-    max-width: 70%;
-  }
-  .oneArea .onebox .fukidasi {
-    padding: 15px;
-    font-size: 14px;
-  }
-  .oneArea .onebox .fukidasi::before {
-    top: 8px;
-  }
-}
-@media screen and (max-width: 420px) {
-  .oneArea {
-    margin: 30px auto;
-  }
-  .oneArea .onebox:nth-child(even) {
-    margin-top: 15px;
-  }
-  .oneArea .onebox .imgArea {
-    width: 20%;
-  }
-  .oneArea .onebox .fukidasi {
-    padding: 10px 15px;
-    font-size: 12px;
-  }
-}
-
 /* チャット欄 */
 /* 参考サイト：https://note.com/skipla/n/n4f93a621c5d4 */
 .section {
     position: relative;
     height: 100%;
+    min-height: 100vh;
     width: 100%;
+    padding-top: 50px;
 
 }
 
@@ -281,7 +203,7 @@
 
 /* テキストエリアは80%で表示 */
 .message-area-text {
- width: 80%;
+  width: 80%;
 }
 
 /* テキストエリアは20%で表示 */
@@ -290,17 +212,19 @@
 }
 /* テキストエリアはリサイズをできなくして、横幅いっぱいに表示 */
 .message-area-text textarea {
- width: 100%;
- height: 70%;
- resize: none; /* これでユーザーのリサイズをできなくする */
- border: 1px solid #ddd; /* 枠線をつけて領域を分かりやすく */
- box-sizing: border-box; /* borderを付けてるので、border込の大きさにする */
+  width: 100%;
+  height: 100%;
+  resize: none; /* これでユーザーのリサイズをできなくする */
+  border: 1px solid #ddd; /* 枠線をつけて領域を分かりやすく */
+  box-sizing: border-box; /* borderを付けてるので、border込の大きさにする */
+  background-color: white;
 }
 /* ボタンはグリーンのボタンにして、上下左右を全体に広げる */
 .message-area-button button {
  width: 100%;
- height: 70%;
- background: #61E739;
+ height: 100%;
+ background: #555;
+ border: 1px solid #ffffff;
  color: #fff;
  font-size: 0.7rem;
  font-weight: bold;
