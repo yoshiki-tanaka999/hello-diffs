@@ -1,6 +1,7 @@
 <template>
-    <header class="header d-flex align-items-center">
+    <header class="header d-flex justify-space-between">
     <!-- <header class="header d-flex justify-content-center align-items-center"> -->
+
             <div class="d-flex">
                 <ul class="nav text-left p-0 m-0">
                     <!-- <li>
@@ -19,18 +20,18 @@
                     </li>
                 </ul>
             </div>
-            
 
+            <div class="d-flex">
+                <button class="loginBtn"><router-link :to="{ name: 'login', params: {} }"><p>Login</p></router-link></button>
+                <button class="logoutBtn" @click="logout"><p>Logout</p></button>
+            </div>
             <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
-            <v-tooltip left>            
+            <!-- <v-tooltip left>            
                 <template v-slot:activator="{ on, attrs }">
                     <div class= "open-modal p-5"
                         v-bind="attrs"
                         v-on="on"
                         >
-                        <!-- お気に入り＝ハート -->
-                        <!-- <i class="fas fa-heart mr-2 ml-3"></i> -->
-                        <!-- ★★お気に入り＝クリップにしたい★★ -->
                         <v-icon color="white">{{ svgPath }}</v-icon>
                     </div>
                 </template>
@@ -43,12 +44,12 @@
                         v-bind="attrs"
                         v-on="on"
                         >
-                        <!-- <i class="fas fa-edit fa-2x ml-2"></i> -->
+                        
                         <a href="https://twitter.com/"><i id="iconTW" class="fab fa-twitter-square fa-2x ml-4"></i></a>
                     </div>
                 </template>
                 <span>Twitterでシェアする</span>
-            </v-tooltip>
+            </v-tooltip> -->
     </header>
 </template>
 
@@ -59,6 +60,15 @@ export default {
     data: () => ({
         svgPath: mdiPaperclip
     }),
+    methods: {
+    logout() {
+        axios.post('/api/auth/logout').then(res => {
+            axios.defaults.headers.common['Authorization'] = '';
+            state.isLogin = false;
+            this.$router.push({path: '/index/new'});
+        });
+    }
+}
 }
 
 </script>
@@ -77,7 +87,7 @@ export default {
     color: white;
     font-size: 1rem;
     margin: 10px;
-    padding: 8px 16px;
+    padding: 4px 16px;
 }
 .nav-link:hover{
     font-weight: bold;
@@ -94,5 +104,38 @@ export default {
 .open-modal:hover{
     cursor: pointer;
     font-weight: bold;
+}
+
+/* .header button {
+    float: right ;
+} */
+.logoutBtn {
+    width: 100px;
+    height: 40px;
+    background-color: darkred;
+    border-radius: 5px;
+    /* margin: 3px; */
+    margin: auto 5px;
+}
+
+.logoutBtn p {
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+.loginBtn {
+    width: 100px;
+    height: 40px;
+    background-color: darkcyan;
+    border-radius: 5px;
+    /* margin: 3px; */
+    margin: auto 5px;
+}
+
+.loginBtn p {
+    color: white;
+    text-align: center;
+    margin: auto ;
 }
 </style>
