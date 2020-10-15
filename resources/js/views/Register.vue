@@ -255,7 +255,7 @@ form {
   height: 50px;
   background-color: darkkhaki;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 
 .registerBtn p {
@@ -269,7 +269,7 @@ form {
   height: 50px;
   background-color: darkcyan;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 
 .loginBtn p {
