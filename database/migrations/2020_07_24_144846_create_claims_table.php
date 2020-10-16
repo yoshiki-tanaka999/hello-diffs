@@ -14,8 +14,8 @@ class CreateClaimsTable extends Migration
     public function up()
     {
         Schema::create('claims', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('participant_id');
+            $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->integer('post_id');
             $table->integer('claim_parent_id');
             $table->text('content');

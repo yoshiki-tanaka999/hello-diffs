@@ -12,12 +12,12 @@ class ChatsTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1 ; $i <= 10 ; $i++) {
+        // for($i = 1 ; $i <= 10 ; $i++) {
 
-            \App\Chat::create([
-                'content' => $i .'番目のテキスト'
-            ]);
+        //     \App\Model\Post\System\Chat::create([
+        //         'content' => $i .'番目のテキスト'
+        //     ]);
     
-        }
+        // }
     }
 }
