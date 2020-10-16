@@ -163,11 +163,11 @@ export default {
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
-                    console.log(this.message);
-                    console.log(data);
-                    console.log(this.message);
-                    console.log(this.title);
-                    console.log(this.desctiption); 
+                    console.log(this.message);  // undefined
+                    console.log(this.file); // formData
+                    console.log(this.message); // undefined
+                    console.log(this.title); // ああ
+                    console.log(this.description); // undefined
                 })
                 // .finally(function(){
                 //     location.reload(true);
