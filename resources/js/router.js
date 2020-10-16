@@ -7,8 +7,9 @@ import MyPage from './components/MyPage'
 // import HeaderComponent from './components/HeaderComponent'
 import UserImageName from './components/UserImageName'
 import MyPageSelecter from './components/MyPageSelecter'
+
 import Respond from './components/RespondMyPage'
-import Following from './components/FollowingMyPage'
+// import Following from './components/FollowingMyPage'
 import Own from './components/OwnMyPage'
 import Recent from './components/RecentMyPage'
 import Recommended from './components/RecommendedMyPage'
@@ -112,10 +113,10 @@ const router = new Router({
           path: 'respond',
           component: Respond,
         },
-        {
-          path: 'following',
-          component: Following,
-        },
+        // {
+        //   path: 'following',
+        //   component: Following,
+        // },
         {
           path: 'own',
           component: Own,
