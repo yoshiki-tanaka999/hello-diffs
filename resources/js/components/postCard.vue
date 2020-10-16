@@ -115,7 +115,7 @@ export default {
         ]),
         getImage() {
             axios
-                .get("/api/images/")
+                .get("/api/images")
                 .then(response => {
                     this.posts = response.data;
                 })

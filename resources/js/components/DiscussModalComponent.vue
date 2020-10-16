@@ -1,3 +1,4 @@
+// 使っていない
 <template>
     <!-- モーダルウィンドウ -->
     <div id="modal-discuss">
