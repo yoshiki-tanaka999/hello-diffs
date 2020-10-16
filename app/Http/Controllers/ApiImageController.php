@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Post\post;
+use App\Model\User\User;
+use Auth;
 
 use Validator;
 
@@ -19,7 +21,7 @@ class ApiImageController extends Controller
         return Post::orderBy('created_at', 'desc')->get();
     }
 
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         // 画像アップロードver
         $this->validate($request, [
@@ -39,10 +41,14 @@ class ApiImageController extends Controller
             $file_name = time() . '.' . request()->file->getClientOriginalName();
             request()->file->storeAs('public', $file_name);
 
+            $user = Auth::user();
+
             $image = new Post();
+            $image->user_id = $user->id;
             $image->img_url = 'http://127.0.0.1:8000/storage/' . $file_name;
             $image->title = $request->title;
             $image->description = $request->description;
+            
             $image->save();
             
             return ['success' => '登録しました!'];
