@@ -165,9 +165,9 @@ export default {
                     this.message = err.response.data.errors;
                     console.log(this.message);
                 })
-                .finally(function(){
-                    location.reload(true);
-                });
+                // .finally(function(){
+                //     location.reload(true);
+                // });
         }
     }
 };
