@@ -160,6 +160,10 @@ export default {
                     this.$nextTick(function() {
                         this.view = true;
                     });
+                    console.log(data);
+                    console.log(this.message);
+                    console.log(this.title);
+                    console.log(this.desctiption);                    
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
