@@ -115,7 +115,7 @@
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
                         賛成
-                    <v-tab>
+                    </v-tab>
 
                     <v-tab href="#cons">反対
                         <!-- モーダルウィンドウ(claim_output) -->
