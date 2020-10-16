@@ -45,7 +45,7 @@ class ApiImageController extends Controller
 
             $image = new Post();
             $image->user_id = $user->id;
-            $image->img_url = 'https://hello-diffs2.herokuapp.com/storage/' . $file_name;
+            $image->img_url = 'https://hello-diffs2.herokuapp.com/storage/app/public/' . $file_name;
             $image->title = $request->title;
             $image->description = $request->description;
             
