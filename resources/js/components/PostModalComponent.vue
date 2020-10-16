@@ -1,4 +1,5 @@
 <template>
+    <!-- 【現在使っていない】ImageComponent.vueに統合済み -->
     <!-- モーダルウィンドウ -->
     <div id="modal">
         <div
@@ -6,22 +7,21 @@
             style="background-color:rgba(0,0,0,0.5)"
             >
         <!-- モーダルウィンドウの中身 -->
-            <div class="modal-content" v-on:click.stop>
+            <div class="modal-content">
                 <div class="modal-content-whole">
                     <div class="modal-content-title">
-                        <h2 class="modal-content-title-name">スレッドを作成する</h2>
+                        <h2 class="modal-content-title-name">議題を作成する</h2>
                         <span 
-
-                        style="font-size: 2.25rem;"
-                        onclick="document.getElementById('modal').style.display = 'none';"
+                            style="font-size: 2.25rem;"
+                            onclick="document.getElementById('modal').style.display = 'none';"
                         >×</span>
                     </div>
 
-                    <p>チャンネルはチームがコニュニケーションを取る場所です。<br>
-                    特定のトピックに基づいてチャンネルを作ると良いでしょう。(例: #マーケティング)</p>
+                    <p>身近で気になる疑問や問題提起を投稿してみましょう。<br>
+                    議論を深める中で、思わぬ発見につながるかもしれません。</p>
                     <!-- <form method="post"> -->
                         <!-- テーマタイトル -->
-                        <div class="modal-content-subheading">question</div>
+                        <div class="modal-content-subheading">議題(40文字以内)</div>
                         <div class="modal-content-margin">
                             <input
                                 type="text"
@@ -39,7 +39,7 @@
                             />
                         </div> -->
                         <!-- テーマ概要 -->
-                        <div class="modal-content-subheading">description</div>
+                        <div class="modal-content-subheading">議題の背景・説明</div>
                         <div class="modal-content-margin">
                             <textarea
                                 v-model="description" 
@@ -66,7 +66,7 @@
                             <button
                                 class="modal-form-btn"
                                 @click="uploadImage"
-                            >問いを投げかける
+                            >議題を投げかける
                             </button>
                         </div>
                     <!-- </form> -->
@@ -79,24 +79,40 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
+    name: "post",
     data() {
         return {
             message: "",
-            file: "",
+            // newTask: {},
+            view: true,
             title: "",
             description: "",
-            view: true,
+            // DBへの登録は、img_url。storeの呼び出しはfile。
+            file: "",
             posts: {},
             confirmedImage: "",
             //カードの開封 
             show: false,
         };
     },
+    computed: {
+        post() { return this.$store.getters.posts },
+    },
     created: function() {
         this.getImage();
     },
+    // 追加
+    mounted() {
+        this.fetch();
+    },
     methods: {
+        // 追加
+        ...mapActions('post', [
+            'fetch', 'store'
+        ]),
         getImage() {
             axios
                 .get("/api/images/")
@@ -129,7 +145,6 @@ export default {
             data.append("file", this.file);
             data.append("title", this.title);
             data.append("description", this.description);
- 
             axios
                 .post("/api/images/", data)
                 .then(response => {
@@ -139,7 +154,7 @@ export default {
                     this.title = "";
                     this.description = "";
                     this.file = "";
- 
+
                     //ファイルを選択のクリア
                     this.view = false;
                     this.$nextTick(function() {
@@ -148,6 +163,10 @@ export default {
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
+                    console.log(this.message);
+                })
+                .finally(function(){
+                    location.reload(true);
                 });
         }
     }

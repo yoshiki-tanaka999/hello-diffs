@@ -1,3 +1,5 @@
 <template>
-    <div>your Respond</div>
+    <v-app>
+        <postcard-component />
+    </v-app>
 </template>

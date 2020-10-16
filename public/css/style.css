@@ -14,14 +14,15 @@
 /* container */
 .wrapper{
     width:100%;
-    background-image:url(../storage/sunset_flower.jpg);
+    /* background-image:url(../storage/sunset_flower.jpg); */
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center center;
     max-height: 344px;
 }
 .wrapper .container{
-    max-width:1000px;
+    /* width:1000px以上にするためにコメントアウト */
+    /* max-width:1000px; */
     margin:0px auto;
     padding:80px 0px;
 }
@@ -84,7 +85,7 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: indigo;
     max-width: 1000px;
     height: 100px;
 }
@@ -106,31 +107,19 @@
     /* max-width:1000px; */
 }
 .pros_btn {
-    background-color: salmon;
-    width:500px;
+    /* background-color: salmon; */
+    width:400px;
     height:50px;
     display: flex;
     justify-content: space-between;
 }
 
 .cons_btn {
-    background-color: skyblue;
-    width:500px;
+    /* background-color: skyblue; */
+    width:400px;
     height:50px;
     display: flex;
     justify-content: space-between;
-}
-
-.pros {
-    /* background-color: royalblue; */
-    width:500px;
-    height:100px;
-}
-
-.cons {
-    /* background-color: gold; */
-    width:500px;
-    height:100px;
 }
 
 .plus-btn {
@@ -144,13 +133,31 @@
   margin-right: 10px;
 }
 
-.agree-text {
+.agree-text_pros {
   margin-top: 1rem;
-  font-size: 20px;
+  font-size: 16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-left: 10px;
+  margin-left: 15px;
+}
+.agree-text_cons {
+  margin-top: 1rem;
+  font-size: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left: 15px;
+}
+
+.agree-text_pros p {
+  color: blue;
+  font-weight: bold;
+}
+
+.agree-text_cons p {
+  color: red;
+  font-weight: bold;
 }
 
 .open-modal {
@@ -193,7 +200,7 @@
   z-index: 20;
   background-color: white;
   color: #1a202c;
-  width: 40%;
+  /* width: 40%; */
   border-radius: 0.375rem;
 }
 
@@ -249,7 +256,9 @@
   color: #fff;
 }
 
-
+/* // ============================================
+// モーダルウィンドウ(ディスカッション) 
+// ============================================ */
 
 
 

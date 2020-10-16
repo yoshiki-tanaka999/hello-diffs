@@ -1,8 +1,8 @@
 <template>
     <div id="userInfo">
-        <img id="uimage" :src="uimage" alt="" height="60px" width="60px">
+        <h1 id="mypageTitle">My Page</h1>
+        <img id="uimage" :src="uimage" alt="" height="100px" width="100px">
         <!-- <img src="" alt="">{{ uimage }} -->
-        <h2>My Diff.s</h2>
     </div>
 </template>
 
@@ -17,16 +17,31 @@ export default {
         }
     },
 
-}
-      
+}     
 </script>
 
 <style scoped>
 #userInfo{
+    width: 1161px;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(235, 235, 235, 0.7); */
+    border-radius: 3px;
     display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
 }
-
+#mypageTitle{
+    height: 40px;
+    font-family: 'EB Garamond', serif;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 #uimage{
+    border: 3px outset #e6e6e6;
     margin-right:30px;
+    margin-left:30px;
 }
 </style>
