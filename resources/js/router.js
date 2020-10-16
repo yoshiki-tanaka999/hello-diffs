@@ -8,12 +8,12 @@ import MyPage from './components/MyPage'
 import UserImageName from './components/UserImageName'
 import MyPageSelecter from './components/MyPageSelecter'
 
-import Respond from './components/RespondMyPage'
+// import Respond from './components/RespondMyPage'
 // import Following from './components/FollowingMyPage'
-import Own from './components/OwnMyPage'
-import Recent from './components/RecentMyPage'
-import Recommended from './components/RecommendedMyPage'
-import Teams from './components/TeamsMyPage'
+// import Own from './components/OwnMyPage'
+// import Recent from './components/RecentMyPage'
+// import Recommended from './components/RecommendedMyPage'
+// import Teams from './components/TeamsMyPage'
 // import Footer from './components/Footer'
 
 // ImageComponentのコンポーネント
@@ -107,33 +107,33 @@ const router = new Router({
     //     mypageSelecter: MyPageSelecter,
     //     // footer: Footer,
     //   },
-    component: MyPage,
-      children: [
-        {
-          path: 'respond',
-          component: Respond,
-        },
+    // component: MyPage,
+    //   children: [
+        // {
+        //   path: 'respond',
+        //   component: Respond,
+        // },
         // {
         //   path: 'following',
         //   component: Following,
         // },
-        {
-          path: 'own',
-          component: Own,
-        },
-        {
-          path: 'recent',
-          component: Recent,
-        },
-        {
-          path: 'recommended',
-          component: Recommended,
-        },
-        {
-          path: 'teams',
-          component: Teams,
-        },
-      ],
+        // {
+        //   path: 'own',
+        //   component: Own,
+        // },
+        // {
+        //   path: 'recent',
+        //   component: Recent,
+        // },
+        // {
+        //   path: 'recommended',
+        //   component: Recommended,
+        // },
+        // {
+        //   path: 'teams',
+        //   component: Teams,
+        // },
+      // ],
     },
     {
       path: '/tags',
