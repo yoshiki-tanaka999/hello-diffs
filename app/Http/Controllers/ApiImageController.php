@@ -65,7 +65,7 @@ class ApiImageController extends Controller
 
             $image = new Image();
             $image->user_id = $user->id;            
-            $image->img_url = Storage::disk('s3')->url($path);;
+            $image->img_url = $path;
             $image->title = $request->title;
             $image->description = $request->description;
             $image->save();
