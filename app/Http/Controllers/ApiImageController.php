@@ -37,20 +37,38 @@ class ApiImageController extends Controller
             'file.image' => '画像ファイルではありません',
         ]);
 
+        // S3導入前のコード
+        // if (request()->file) {
+        //     $file_name = time() . '.' . request()->file->getClientOriginalName();
+        //     request()->file->storeAs('public', $file_name);
+
+        //     $user = Auth::user();
+
+        //     $image = new Post();
+        //     $image->user_id = $user->id;
+        //     $image->img_url = 'https://hello-diffs2.herokuapp.com/public/storage/' . $file_name;
+        //     $image->title = $request->title;
+        //     $image->description = $request->description;
+            
+        //     $image->save();
+            
+        //     return ['success' => '登録しました!'];
+        // }
+
+        // S3導入後のコード
         if (request()->file) {
-            $file_name = time() . '.' . request()->file->getClientOriginalName();
-            request()->file->storeAs('public', $file_name);
+            $image = $request->file('file');
+            $path = Storage::disk('s3')->put('/', $image, 'public');
 
             $user = Auth::user();
 
-            $image = new Post();
+            $image = new Image();
+            $image->path = Storage::disk('s3')->url($path);;
             $image->user_id = $user->id;
-            $image->img_url = 'https://hello-diffs2.herokuapp.com/public/storage/' . $file_name;
             $image->title = $request->title;
             $image->description = $request->description;
-            
             $image->save();
-            
+
             return ['success' => '登録しました!'];
         }
     }
