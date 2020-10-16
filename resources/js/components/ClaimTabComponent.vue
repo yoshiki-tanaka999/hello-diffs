@@ -137,86 +137,94 @@
             
             <v-tabs-items v-model="tab1">
                 <v-tab-item
-                    v-for="(claim_output, index) in claim_outputs"
+                    v-for="(claim_output, index) in claim_outputTestFiltered"
                     :key="claim_output.id"
                     :class="{ active: currentTab === index }"
                     @click="currentTab = index"
                 >
 
                 <!-- カード①賛成用 -->
-                    <div v-show="currentTab === 0">
-                        <v-card
-                            color="#385F73"
-                            dark
-                        >
-                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                        <!-- アイコンを追加 -->
-                        <div>
-                            <div class="postStatusList d-flex">
-                                <!-- 「コメント数」 -->
-                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                <!-- 「参加者数」 -->
-                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                <!-- 「ブックマークされた数」 -->
-                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                    <template v-if=" claim_output.claim_flag === '賛成' ">
+                        <div v-show="currentTab === 0">
+                            <v-card
+                                color="#385F73"
+                                dark
+                            >
+                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                            <!-- アイコンを追加 -->
+                            <div>
+                                <div class="postStatusList d-flex">
+                                    <!-- 「コメント数」 -->
+                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                    <!-- 「参加者数」 -->
+                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                    <!-- 「ブックマークされた数」 -->
+                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- データベースからテキストを描画 -->
-                            <v-card-text>{{claim_output.content}}</v-card-text>
-                            <v-card-text>賛成です。</v-card-text>
-                        </v-card>
-                    </div>
+                            <!-- データベースからテキストを描画 -->
+                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <v-card-text>賛成です。</v-card-text>
+                            </v-card>
+                        </div>
+                    </template>
 
                 <!-- カード②反対用 -->
-                    <div v-show="currentTab === 1 ">
-                        <v-card
-                            color="#385F73"
-                            dark
-                        >
-                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                        <!-- アイコンを追加 -->
-                        <div>
-                            <div class="postStatusList d-flex">
-                                <!-- 「コメント数」 -->
-                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                <!-- 「参加者数」 -->
-                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                <!-- 「ブックマークされた数」 -->
-                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                    <template v-if=" claim_output.claim_flag === '反対' ">                        
+                        <div v-show="currentTab === 1 ">                            
+                            <v-card
+                                color="#385F73"
+                                dark
+                            >
+                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                            <!-- アイコンを追加 -->
+                            <div>
+                                <div class="postStatusList d-flex">
+                                    <!-- 「コメント数」 -->
+                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                    <!-- 「参加者数」 -->
+                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                    <!-- 「ブックマークされた数」 -->
+                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- データベースからテキストを描画 -->
-                            <v-card-text>{{claim_output.content}}</v-card-text>
-                            <v-card-text>反対です。</v-card-text>
-                        </v-card>
-                    </div>
+                            <!-- データベースからテキストを描画 -->
+                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <v-card-text>反対です。</v-card-text>
+                            </v-card>
+                        </div>
+                    </template>
+
 
                 <!-- カード③その他用 -->
-                    <div v-show="currentTab === 2">
-                        <v-card
-                            color="#385F73"
-                            dark
-                        >
-                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                        <!-- アイコンを追加 -->
-                        <div>
-                            <div class="postStatusList d-flex">
-                                <!-- 「コメント数」 -->
-                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                <!-- 「参加者数」 -->
-                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                <!-- 「ブックマークされた数」 -->
-                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                    <template v-if=" claim_output.claim_flag === 'その他・補足' ">   
+                        <!-- <div v-show="currentTab === 2"> -->
+                            <v-card
+                                color="#385F73"
+                                dark
+                                v-show="currentTab === 2"
+                            >
+                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                            <!-- アイコンを追加 -->
+                            <div>
+                                <div class="postStatusList d-flex">
+                                    <!-- 「コメント数」 -->
+                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                    <!-- 「参加者数」 -->
+                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                    <!-- 「ブックマークされた数」 -->
+                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- データベースからテキストを描画 -->
-                            <v-card-text>{{claim_output.content}}</v-card-text>
-                            <v-card-text>その他です。</v-card-text>
-                        </v-card>
-                    </div>
+                            <!-- データベースからテキストを描画 -->
+                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <v-card-text>その他です。</v-card-text>
+                            </v-card>
+                        <!-- </div>     -->
+                    </template>                            
                 </v-tab-item>
             </v-tabs-items> 
                 <!-- カード②反対用 -->
@@ -256,6 +264,7 @@ export default {
             claim_outputs: [],
             currentTab: 0,
             activeCard: "",
+            result: [],
             }
     },
     methods: {
@@ -282,6 +291,7 @@ export default {
                     this.claim_outputs = res.data;
                     // this.claimId = this.claims[index].id
                     console.log(this.claim_outputs);  
+                    // その他・補足のデータ
                 })
             },
     },
@@ -308,7 +318,60 @@ export default {
         return this.claim_outputs.filter(claim_output => {
                 return claim_output.claim_flag === "その他・反対意見"
             })
-        },    
+        },
+        // 論点と、意見の紐付け
+        claim_outputFiltered() {
+            const claimOutputData = this.claim_outputs
+            const result = claimOutputData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+            return result;
+        },
+        claim_outputTestFiltered() {
+            const claimOutputTestData = this.claim_outputs
+            const result = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+            return result;
+        },
+        },
+        watch: {
+            currentTab: function() {
+                if (this.currentTab === 0) {
+                    const claimOutputTestData = this.claim_outputs
+                    const result_pros = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "反対")
+                    return result_pros
+                } else if (this.currentTab === 1) {
+                    const claimOutputTestData = this.claim_outputs
+                    const result_cons = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "反対")
+                    return result_cons                    
+                } else {
+                    const claimOutputTestData = this.claim_outputs
+                    const result_others = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "その他・補足")
+                    return result_others    
+                }
+            }
+            // メソッドチェーン
+            // claim_outputTestFiltered()  {
+            //     const claimOutputTestData = this.claim_outputs
+            //     if(this.currentTab === 0) {
+            //         // claim_flagが”賛成”のとき
+            //         const result_pros = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "反対")
+            //         console.log(result_pros);
+            //         return result_pros
+            //     } else if (this.currentTab === 1) {
+            //         // claim_flagが”反対”のとき
+            //         const result_cons = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "反対")
+            //         console.log(result_cons);
+            //         return result_cons
+            //     } else if (this.currentTab === 2) {
+            //         // claim_flagが”その他・補足”のとき
+            //         const result_others = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "その他・補足")
+            //         console.log(result_cons);
+            //         return result_others
+            //     } else {
+            //         console.log("データを取得できませんでした");
+            //     }
+            // }
     }
 }
 

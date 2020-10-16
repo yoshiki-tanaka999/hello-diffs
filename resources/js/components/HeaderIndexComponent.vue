@@ -20,8 +20,8 @@
                     <li class="nav-item">
                         <router-link to="/login" class="nav-link">ログイン</router-link>
                     </li>
-
-                    <li class="nav-link" @click="logout">ログアウト</li>
+<!-- 
+                    <li class="nav-link" @click="logout">ログアウト</li> -->
                 </ul>
             </div>
             
