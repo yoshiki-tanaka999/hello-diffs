@@ -25,8 +25,8 @@ class AddOrderNumberToClaimsTable extends Migration
      */
     public function down()
     {
-        Schema::table('claims', function (Blueprint $table) {
-            $table->integer('participant_id');
-        });
+        // Schema::table('claims', function (Blueprint $table) {
+        //     $table->integer('participant_id');
+        // });
     }
 }
