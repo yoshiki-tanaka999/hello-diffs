@@ -164,9 +164,7 @@ export default {
                 .catch(err => {
                     this.message = err.response.data.errors;
                     console.log(this.message);  // undefined
-                    console.log(this.message.err);
-                    console.log(this.message.err.data);
-                    console.log(this.message.err.data.errors);
+
                     console.log(this.file); // 取れてる
 
                     console.log(this.title); // 取れてる
