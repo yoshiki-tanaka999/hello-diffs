@@ -159,15 +159,15 @@ export default {
                     this.view = false;
                     this.$nextTick(function() {
                         this.view = true;
-                    });
-                    console.log(data);
-                    console.log(this.message);
-                    console.log(this.title);
-                    console.log(this.desctiption);                
+                    });               
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
                     console.log(this.message);
+                    console.log(data);
+                    console.log(this.message);
+                    console.log(this.title);
+                    console.log(this.desctiption); 
                 })
                 // .finally(function(){
                 //     location.reload(true);
