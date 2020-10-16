@@ -95,7 +95,7 @@ export default {
             posts: {},
             confirmedImage: "",
             //カードの開封 
-            show: false,
+            show: false, 
         };
     },
     computed: {
