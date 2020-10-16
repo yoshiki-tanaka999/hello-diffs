@@ -146,7 +146,7 @@ export default {
             data.append("title", this.title);
             data.append("description", this.description);
             axios
-                .post("/api/images/", data)
+                .post("/api/images", data)
                 .then(response => {
                     this.getImage();
                     this.message = response.data.success;
