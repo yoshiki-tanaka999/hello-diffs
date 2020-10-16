@@ -160,7 +160,7 @@ export default {
         }
     },
     // created () {
-    //     this.$http.get('http://127.0.0.1:8000/discuss/' + this.id).then(function(data){
+    //     this.$https.get('http://127.0.0.1:8000/discuss/' + this.id).then(function(data){
     //         console.log(data);
     //         this.posts = data.body
     //     })

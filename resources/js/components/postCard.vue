@@ -125,7 +125,7 @@ export default {
                 console.log(this.posts);
         },
         fetchPosts() {
-            this.$http
+            this.$https
                 .get('/api/posts')
                 .then(response =>  {
                     this.posts = response.data;
