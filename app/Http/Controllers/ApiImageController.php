@@ -57,21 +57,22 @@ class ApiImageController extends Controller
 
         // S3導入後のコード
         if (request()->file) {
-            $image = $request->file('file');
-            $path = Storage::disk('s3')->put('/', $image, 'public');
+            $file_name = time() . '.' . request()->file->getClientOriginalName();
+            request()->file('file');
+            $path = Storage::disk('s3')->put('/img_url', $file_name, 'public');
 
             $user = Auth::user();
 
             $image = new Image();
-            $image->path = Storage::disk('s3')->url($path);;
-            $image->user_id = $user->id;
+            $image->user_id = $user->id;            
+            $image->img_url = Storage::disk('s3')->url($path);;
             $image->title = $request->title;
             $image->description = $request->description;
             $image->save();
 
             dd($path);
             dd($image);
-
+            dd($file_name);
             return ['success' => '登録しました!'];
         }
     }

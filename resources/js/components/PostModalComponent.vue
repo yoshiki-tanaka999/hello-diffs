@@ -163,7 +163,7 @@ export default {
                     console.log(data);
                     console.log(this.message);
                     console.log(this.title);
-                    console.log(this.desctiption);                    
+                    console.log(this.desctiption);                
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
