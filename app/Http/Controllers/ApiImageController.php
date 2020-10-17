@@ -68,17 +68,17 @@ class ApiImageController extends Controller
 
             $user = Auth::user();
 
-            $image = new Post();
-            $image->user_id = $user->id;            
-            $image->img_url = $file_name;
+            $post = new Post();
+            $post->user_id = $user->id;            
+            $post->img_url = $file_name;
             // $image->img_url = $path;
-            $image->title = $request->title;
-            $image->description = $request->description;
-            $image->save();
+            $post->title = $request->title;
+            $post->description = $request->description;
+            $post->save();
 
             dd($file_name);
             dd($path);
-            dd($image);
+            dd($post);
 
             return ['success' => '登録しました!'];
         }
