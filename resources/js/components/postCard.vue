@@ -25,17 +25,18 @@
                         <v-img
                             class="white--text align-end"
                             height="200px"
-                            :src="'https://hello-diffs03.s3-ap-northeast-1.amazonaws.com/img_url/' + `${post.img_url}`"
+
                         >
-                        <span width="100px" height="100px">
-                            <img class="rounded" src="{{ Storage::disk('s3')->url(post()->img_url) }}">
-                        </span>
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
                         <v-card-title class="v-card-title">{{ post.img_url }}</v-card-title>
                         <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
                         </v-img>
                     </router-link>
+
+                        <span width="100px" height="100px">
+                            <img class="rounded" src="{{ Storage::disk('s3')->url(post()->img_url) }}">
+                        </span>
 
                     <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
 
