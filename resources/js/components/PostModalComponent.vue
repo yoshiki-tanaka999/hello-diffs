@@ -54,7 +54,7 @@
                         <div class="modal-content-margin">
                             <input 
                                 type="file" 
-                                name="photo"
+                                name="datafile"
                                 @change="confirmImage"
                                 v-if="view"
                             />
