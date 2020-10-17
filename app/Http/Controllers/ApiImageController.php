@@ -68,7 +68,7 @@ class ApiImageController extends Controller
 
             $user = Auth::user();
 
-            $image = new Image();
+            $image = new Post();
             $image->user_id = $user->id;            
             $image->img_url = $path;
             $image->title = $request->title;
