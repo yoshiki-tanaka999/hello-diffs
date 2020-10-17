@@ -25,7 +25,7 @@
                         <v-img
                             class="white--text align-end"
                             height="200px"
-                            :src="`${post.img_url}`"
+                            :src="'https://hello-diffs03.s3-ap-northeast-1.amazonaws.com/img_url/' + `${post.img_url}`"
                         >
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
