@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\AwsS3v3\AwsS3Adapter as S3Adapter;
 use App\Model\Post\Post;
 use App\Model\User\User;
 use Auth;
