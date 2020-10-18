@@ -182,7 +182,7 @@ const router = new Router({
     { path: '/404', name: 'Not_found', component: Not_found },
     { path: '*', redirect: '/404' },
     { path: '/tweet', name: 'Tweet', component: Tweet },    
-    { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
+    // { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
     { path: '/chattest', name: 'Chat', component: Chat },
 
   ]
