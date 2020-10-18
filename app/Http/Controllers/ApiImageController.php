@@ -20,8 +20,8 @@ class ApiImageController extends Controller
         // return Post::all();
 
         // S3バージョン
-        $post = Post::all();
-        $image = Storage::disk('s3')->url($post->img_url);
+        // $post = Post::all();
+        // $image = Storage::disk('s3')->url($post->img_url);
 
         // 変更後
         return Post::orderBy('created_at', 'desc')->get();
