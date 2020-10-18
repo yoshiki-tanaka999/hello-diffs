@@ -59,7 +59,7 @@ import Account from './views/Account'
 import Not_found from './views/Not_found'
 
 import Tweet from './components/TweetTestComponent' 
-import ClaimTab from './components/ClaimTabComponent' 
+// import ClaimTab from './components/ClaimTabComponent' 
 import Chat from './components/DiscussChatComponent'
 
 const router = new Router({
