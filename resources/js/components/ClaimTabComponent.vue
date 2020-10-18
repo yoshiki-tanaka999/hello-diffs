@@ -79,7 +79,7 @@
                     show-arrows
                     color="white"
                     dark
-                    class="d-none"                  
+                    class="d-none"                
                     >
                         <v-tab
                             v-for="claim in claims"
