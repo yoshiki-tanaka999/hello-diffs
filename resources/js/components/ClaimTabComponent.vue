@@ -105,7 +105,7 @@
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
-                                    onclick="document.getElementById('modal-claim').style.display = 'block';"
+                                    onclick="document.getElementById('modal-claim-output').style.display = 'block';"
                                     v-bind="attrs2"
                                     v-on="on2"
                                     >
