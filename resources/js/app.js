@@ -83,14 +83,20 @@ Vue.component('DiscussPost-component', require('./components/DiscussPostComponen
 // Modal情報を記載
 Vue.component('DiscussModal-component', require('./components/DiscussModalComponent.vue').default);
 // サイドバー
-Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
+
 Vue.component('DiscussChat-component', require('./components/DiscussChatComponent.vue').default);
 
 Vue.component('TweetTest-component', require('./components/TweetTestComponent.vue').default);
 
+// Discussのメイン部分全体
 Vue.component('Claim-component', require('./components/ClaimComponent.vue').default);
-Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
+// チャット部分
+Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
+// Discussのメイン部分Claim部分を描画
 Vue.component('ClaimTabModal-component', require('./components/ClaimTabModalComponent.vue').default);
+// ↓でClaimTabが使われる
+Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
+// 
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
 Vue.component('ClaimOutputCard-component', require('./components/ClaimOutputCardComponent.vue').default);
 
