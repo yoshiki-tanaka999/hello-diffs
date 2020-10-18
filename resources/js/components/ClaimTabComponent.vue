@@ -33,7 +33,7 @@
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
                             <div class= "open-modal-claim"
-                                v-on:click="show = !show"
+                                onclick="document.getElementById('modal-claim').style.display = 'block';"
                                 v-bind="attrs"
                                 v-on="on"
                                 >
@@ -60,8 +60,7 @@
                     </v-tab-item>
                 </v-tabs-items>  
 
-
-            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
+                
 
             <!-- 論点に対する主張(消えている) -->
             <v-sheet elevation="3">
