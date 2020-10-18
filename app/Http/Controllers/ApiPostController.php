@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Post\post;
+use App\Model\Post\Post;
 
 // 画像アップロードできないver
 use App\Http\Requests\StorePost;
