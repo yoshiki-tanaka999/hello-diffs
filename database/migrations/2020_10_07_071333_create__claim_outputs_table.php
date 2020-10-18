@@ -11,6 +11,8 @@ class CreateClaimOutputTable extends Migration
      *
      * @return void
      */
+    protected $table = 'claim_output';
+
     public function up()
     {
         Schema::create('claim_output', function (Blueprint $table) {
