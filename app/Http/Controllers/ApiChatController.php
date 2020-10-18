@@ -35,7 +35,7 @@ class ApiChatController extends Controller
     public function store(Request $request, User $user)
     {
         // ユーザーID
-        $user = Auth::user();
+        $user = Auth::user();  
 
         $chat=new Chat();
         // $chat->content=$request->input('content');

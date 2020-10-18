@@ -283,7 +283,7 @@ export default {
             claim: [],
             issues:[],
             // ClaimOutputCardのv-if部分
-            show: true,
+            show: false,
             tab: null,
             tab1: null,
             items: [

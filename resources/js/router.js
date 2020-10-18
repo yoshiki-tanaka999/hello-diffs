@@ -42,6 +42,11 @@ import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
 import DiscussModal from './components/DiscussModalComponent' 
 
+import ClaimTab from './components/ClaimTabComponent'
+import ClaimsPros from './components/ClaimsProsComponent'
+import ClaimsCons from './components/ClaimsConsComponent'
+import ClaimsOthers from './components/ClaimsOthersComponent'
+
 // Register
 import Register from './views/Register'
 // Login
@@ -78,7 +83,6 @@ const router = new Router({
             component: ImageFeatured ,
           },
         ],
-      
     },
     {
       // ★★ディスカッションページ★★
@@ -90,6 +94,26 @@ const router = new Router({
       props: (route) => ({
         id: Number(route.params.id)
       }),
+        children:[
+          {
+            path: 'claim/:claimId(\\d+)',
+            conponent: ClaimTab,
+            props: true
+          }],
+            children:[
+              {
+                path: 'pros',
+                conponent: ClaimsPros,
+              },
+              {
+                path: 'cons',
+                conponent: ClaimsCons,
+              },
+              {
+                path: 'others',
+                conponent: ClaimsOthers,
+              },
+            ]
     },
     {
       path: '/home',
@@ -159,7 +183,8 @@ const router = new Router({
     { path: '*', redirect: '/404' },
     { path: '/tweet', name: 'Tweet', component: Tweet },    
     { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
-    { path: '/chattest', name: 'Chat', component: Chat },  
+    { path: '/chattest', name: 'Chat', component: Chat },
+
   ]
 })
 
