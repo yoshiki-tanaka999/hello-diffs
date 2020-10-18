@@ -25,7 +25,7 @@
                         <v-img
                             class="white--text align-end"
                             height="200px"
-
+                            :src="`${post.img_url}`"
                         >
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
@@ -34,9 +34,6 @@
                         </v-img>
                     </router-link>
 
-                        <span width="100px" height="100px">
-                            <img class="rounded" src="{{ Storage::disk('s3')->url(post()->img_url) }}">
-                        </span>
 
                     <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
 

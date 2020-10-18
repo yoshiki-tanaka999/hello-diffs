@@ -55,6 +55,7 @@
                             <input 
                                 type="file" 
                                 name="datafile"
+                                
                                 @change="confirmImage"
                                 v-if="view"
                             />
