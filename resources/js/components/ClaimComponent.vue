@@ -14,7 +14,6 @@
             <ClaimTab-component :id="id" :claimId="claimId"></ClaimTab-component>
         </v-container>
 
-        <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
 
 
                 <!-- カード②反対用 -->

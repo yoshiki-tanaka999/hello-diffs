@@ -45,6 +45,7 @@
                 </v-card>                
             </v-sheet>
 
+
                 <v-tabs-items v-model="tab" class="py-3">
                     <v-tab-item
                         v-for="claim in claims"
@@ -58,6 +59,9 @@
                         </v-card>
                     </v-tab-item>
                 </v-tabs-items>  
+
+
+            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
 
             <!-- 論点に対する主張(消えている) -->
             <v-sheet elevation="3">
