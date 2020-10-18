@@ -118,7 +118,7 @@ export default {
         //         });
         // },        
         getPost() {
-            axios.get('/api/posts' + this.id)
+            axios.get('/api/posts/' + this.id)
             .then((res) => {
                 this.post = res.data;
                 this.claims = this.post.claims
