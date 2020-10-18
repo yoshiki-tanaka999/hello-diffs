@@ -87,56 +87,56 @@ export default {
     },
     mounted() {
         this.getPost();
-        this.getClaimOutput();
+        // this.getClaimOutput();
         // this.getIssue();
     },
     computed: {
-        // 賛成意見の紐付け
-        getAgreeClaim() {
-        return this.claim_outputs.filter(claim_output => {
-                return claim_output.claim_flag === "賛成"
-            })
-        },
-        // 反対意見の紐付け
-        getDisAgreeClaim() {
-        return this.claim_outputs.filter(claim_output => {
-                return claim_output.claim_flag === "反対"
-            })
-        },
-        // その他・補足意見の紐付け
-        getAnotherClaim() {
-        return this.claim_outputs.filter(claim_output => {
-                return claim_output.claim_flag === "その他・反対意見"
-            })
-        },
-        // 論点と、意見の紐付け
-        claim_outputFiltered() {
-            const claimOutputData = this.claim_outputs
-            const result = claimOutputData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-            return result;
-        },
-        claim_outputTestFiltered() {
-            const claimOutputTestData = this.claim_outputs
-            const result = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-            return result;
-            console.log(result);
-        },
-        // v-forの2つ目
-        claim_outputTestFiltered_pros(claim_output) {
-            const claimOutputTestData_pros = this.result
-            const result_pros = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "成功")
-            return result_pros;
-        },
-        claim_outputTestFiltered_cons(claim_output) {
-            const claimOutputTestData_cons = this.result
-            const result_cons = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "反対")
-            return result_cons;
-        }, 
-        claim_outputTestFiltered_others(claim_output) {
-            const claimOutputTestData_cons = this.result
-            const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
-            return result_others;
-        },                        
+        // // 賛成意見の紐付け
+        // getAgreeClaim() {
+        // return this.claim_outputs.filter(claim_output => {
+        //         return claim_output.claim_flag === "賛成"
+        //     })
+        // },
+        // // 反対意見の紐付け
+        // getDisAgreeClaim() {
+        // return this.claim_outputs.filter(claim_output => {
+        //         return claim_output.claim_flag === "反対"
+        //     })
+        // },
+        // // その他・補足意見の紐付け
+        // getAnotherClaim() {
+        // return this.claim_outputs.filter(claim_output => {
+        //         return claim_output.claim_flag === "その他・反対意見"
+        //     })
+        // },
+        // // 論点と、意見の紐付け
+        // claim_outputFiltered() {
+        //     const claimOutputData = this.claim_outputs
+        //     const result = claimOutputData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+        //     return result;
+        // },
+        // claim_outputTestFiltered() {
+        //     const claimOutputTestData = this.claim_outputs
+        //     const result = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
+        //     return result;
+        //     console.log(result);
+        // },
+        // // v-forの2つ目
+        // claim_outputTestFiltered_pros(claim_output) {
+        //     const claimOutputTestData_pros = this.result
+        //     const result_pros = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "成功")
+        //     return result_pros;
+        // },
+        // claim_outputTestFiltered_cons(claim_output) {
+        //     const claimOutputTestData_cons = this.result
+        //     const result_cons = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "反対")
+        //     return result_cons;
+        // }, 
+        // claim_outputTestFiltered_others(claim_output) {
+        //     const claimOutputTestData_cons = this.result
+        //     const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
+        //     return result_others;
+        // },                        
 
         },
         // watch: {
