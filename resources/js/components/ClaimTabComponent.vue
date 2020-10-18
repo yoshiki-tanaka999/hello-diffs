@@ -105,7 +105,7 @@
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
-                                    v-on:click="show = !show"
+                                    onclick="document.getElementById('modal-claim').style.display = 'block';"
                                     v-bind="attrs2"
                                     v-on="on2"
                                     >
@@ -131,8 +131,8 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-
-                    </v-tab>        
+                    </v-tab>  
+                    
                     <v-tab href="#others">その他・補足
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
@@ -257,12 +257,6 @@
     </v-tab-item>
 
             </v-tabs-items> 
-
-
-
-
-
-
 
                 <!-- カード②反対用 -->
                         
