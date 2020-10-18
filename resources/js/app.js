@@ -87,6 +87,8 @@ Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarCo
 Vue.component('DiscussChat-component', require('./components/DiscussChatComponent.vue').default);
 
 Vue.component('TweetTest-component', require('./components/TweetTestComponent.vue').default);
+
+Vue.component('Claim-component', require('./components/ClaimComponent.vue').default);
 Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
 Vue.component('ClaimTabModal-component', require('./components/ClaimTabModalComponent.vue').default);
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
