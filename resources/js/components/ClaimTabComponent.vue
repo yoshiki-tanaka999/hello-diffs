@@ -1,15 +1,5 @@
 <template>
-    <v-app class="whole" color="basil">
-        <!-- 投稿のタイトル(Postデータだけで完結) -->
-        <v-card class="title-card pt-3">
-            <v-card-title class="text-center justify-center py-6">
-                <h1 class="font-weight-bold display-5">
-                    {{ post.title }}
-                </h1>
-            </v-card-title>
-        </v-card>
-
-        <v-container class="text-center justify-center py-6" justify="center">
+    <v-app>
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet elevation="3">
                 <v-card  class="d-flex">
@@ -164,11 +154,11 @@
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
                     <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
-    <v-tab-item 
-        value="pros"                 
-        v-for="claim_output in claim_outputTestFiltered_pros"
-        :key="claim_output.id"
-    >
+                <v-tab-item 
+                    value="pros"                 
+                    v-for="claim_output in claim_outputTestFiltered_pros"
+                    :key="claim_output.id"
+                >
                 <!-- カード①賛成用 -->
                     <template v-show=" claim_output.claim_flag === '賛成' ">
                         <!-- <div> -->
@@ -195,9 +185,9 @@
                             </v-card>
                         <!-- </div> -->
                     </template>  
-    </v-tab-item>
+                </v-tab-item>
 
-    <v-tab-item value="cons">
+                <v-tab-item value="cons">
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
                     <template v-show=" claim_output.claim_flag === '反対' ">                        
@@ -226,43 +216,38 @@
                         <!-- </div> -->
                     </template>  
                 <!-- </div>                      -->
-    </v-tab-item>
-    <v-tab-item value="others">
-                <!-- カード③その他用 -->
-                    <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
-                        <!-- <div v-show="currentTab === 2"> -->
-                            <v-card
-                                color="#385F73"
-                                dark
-                            >
-                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                            <!-- アイコンを追加 -->
-                            <div>
-                                <div class="postStatusList d-flex">
-                                    <!-- 「コメント数」 -->
-                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                    <!-- 「参加者数」 -->
-                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                    <!-- 「ブックマークされた数」 -->
-                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                </div>
-                            </div>
+                </v-tab-item>
+                
+                <v-tab-item value="others">
+                            <!-- カード③その他用 -->
+                                <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
+                                    <!-- <div v-show="currentTab === 2"> -->
+                                        <v-card
+                                            color="#385F73"
+                                            dark
+                                        >
+                                        <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                                        <!-- アイコンを追加 -->
+                                        <div>
+                                            <div class="postStatusList d-flex">
+                                                <!-- 「コメント数」 -->
+                                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                                <!-- 「参加者数」 -->
+                                                <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                                <!-- 「ブックマークされた数」 -->
+                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                            </div>
+                                        </div>
 
-                            <!-- データベースからテキストを描画 -->
-                                <v-card-text>{{claim_output.content}}</v-card-text>
-                                <v-card-text>その他です。</v-card-text>
-                            </v-card>
-                        <!-- </div>     -->
-                    </template>  
-    </v-tab-item>
+                                        <!-- データベースからテキストを描画 -->
+                                            <v-card-text>{{claim_output.content}}</v-card-text>
+                                            <v-card-text>その他です。</v-card-text>
+                                        </v-card>
+                                    <!-- </div>     -->
+                                </template>  
+                </v-tab-item>
 
             </v-tabs-items> 
-
-                <!-- カード②反対用 -->
-                        
-                <!-- カード②その他・補足 -->
-
-        </v-container>
     </v-app>
 </template>
 
