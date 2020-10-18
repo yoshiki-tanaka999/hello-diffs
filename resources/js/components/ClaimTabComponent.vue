@@ -43,7 +43,7 @@
                     <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
                             <div class= "open-modal-claim"
-                                onclick="document.getElementById('modal-claim').style.display = 'block';"
+                                v-on:click="show = !show"
                                 v-bind="attrs"
                                 v-on="on"
                                 >
@@ -147,18 +147,10 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-                    </v-tab>  
+                    </v-tab> 
                 </v-tabs>
             </v-card>
-                                                <template v-slot:activator="{ on2, attrs2 }">
-                                <div class= "open-modal-claim-outoput"
-                                    v-on:click="show = !show"
-                                    v-bind="attrs2"
-                                    v-on="on2"
-                                    >
-                                    <i class="fas fa-edit fa-2x ml-2"></i>
-                                </div>
-                            </template>  
+
 
             <v-tabs-items 
                 v-model="tab1"
