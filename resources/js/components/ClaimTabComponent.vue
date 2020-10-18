@@ -307,7 +307,7 @@ export default {
     },
     methods: {
             getPost() {
-                axios.get('/api/posts/' + this.id)
+                axios.get('/api/posts' + this.id)
                 .then((res) => {
                     this.post = res.data;
                     this.claims = this.post.claims
@@ -324,7 +324,7 @@ export default {
                 console.log(this.claimId);
             },
             getClaimOutput() {
-                axios.get('/api/claim_output/')
+                axios.get('/api/claim_output')
                 .then((res) => {
                     this.claim_outputs = res.data;
                     // this.claimId = this.claims[index].id

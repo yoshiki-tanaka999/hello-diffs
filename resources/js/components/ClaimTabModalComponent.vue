@@ -118,7 +118,7 @@ export default {
         //         });
         // },        
         getPost() {
-            axios.get('/api/posts/' + this.id)
+            axios.get('/api/posts' + this.id)
             .then((res) => {
                 this.post = res.data;
                 this.claims = this.post.claims
@@ -134,7 +134,7 @@ export default {
             data.append("issue", this.issue);
             data.append("content", this.content);
             axios
-                .post("/api/claim/", data)
+                .post("/api/claim", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;
