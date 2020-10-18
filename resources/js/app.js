@@ -99,6 +99,10 @@ Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue'
 // 
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
 Vue.component('ClaimOutputCard-component', require('./components/ClaimOutputCardComponent.vue').default);
+// ClaimOutput系列
+Vue.component('ClaimsPros-component', require('./components/ClaimsProsComponent.vue').default);
+Vue.component('ClaimsCons-component', require('./components/ClaimsConsComponent.vue').default);
+Vue.component('ClaimsOthers-component', require('./components/ClaimsOthersComponent.vue').default);
 
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);
