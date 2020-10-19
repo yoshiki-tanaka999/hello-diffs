@@ -112,7 +112,7 @@ export default {
         },
         tabSelect(index) {
             this.current = index;
-            this.claimId = this.claims[index].id
+            this.claimId = this.claims[index].id;
             console.log(this.current);
             // claim_idの取得完了
             console.log(this.claimId);
@@ -130,8 +130,9 @@ export default {
             this.getPost();
             this.getClaimOutput();
             // this.getIssue();
-    },
-}}
+        },
+    }
+}
 
 </script>
 
