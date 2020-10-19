@@ -94,7 +94,8 @@ export default {
             id: Number(this.$route.params.id),
             tab: null,   
             default: 0,
-            current: 0,  
+            current: 0, 
+            claimId: "", 
             claims: [],       
         }
     // console.log(id);
@@ -117,15 +118,15 @@ export default {
             // claim_idの取得完了
             console.log(this.claimId);
         },
-        getClaimOutput() {
-            axios.get('/api/claim_output')
-            .then((res) => {
-                this.claim_outputs = res.data;
-                // this.claimId = this.claims[index].id
-                console.log(this.claim_outputs);  
-                // その他・補足のデータ
-            })
-        },
+        // getClaimOutput() {
+        //     axios.get('/api/claim_output')
+        //     .then((res) => {
+        //         this.claim_outputs = res.data;
+        //         // this.claimId = this.claims[index].id
+        //         console.log(this.claim_outputs);  
+        //         // その他・補足のデータ
+        //     })
+        // },
         mounted() {
             this.getPost();
             this.getClaimOutput();
