@@ -94,28 +94,33 @@ const router = new Router({
       props: (route) => ({
         id: Number(route.params.id)
       }),
+    },
+      {
+        path: '/discuss/:id(\\d+)/claim/:claimId(\\d+)',
+        name: 'Claim',
+        conponent: ClaimIssueContent,
+        props: (route) => ({
+          id: Number(route.params.id),
+          claimId: Number(claim.id)
+        }),
+      }],
         children:[
           {
-            path: 'claim/:claimId(\\d+)',
-            name: 'Claim',
-            conponent: ClaimIssueContent,
-            props: true
-          }],
-            children:[
-              {
-                path: 'pros',
-                conponent: ClaimsPros,
-              },
-              {
-                path: 'cons',
-                conponent: ClaimsCons,
-              },
-              {
-                path: 'others',
-                conponent: ClaimsOthers,
-              },
-            ]
-    },
+            path: 'pros',
+            name: 'pros',
+            conponent: require("./components/ClaimPros.vue").default,
+          },
+          {
+            path: 'cons',
+            name: 'cons',
+            conponent: ClaimsCons,
+          },
+          {
+            path: 'others',
+            name: 'others',
+            conponent: ClaimsOthers,
+          },
+
     {
       path: '/home',
       name: 'home',
