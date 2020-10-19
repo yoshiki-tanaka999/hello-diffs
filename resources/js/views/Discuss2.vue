@@ -13,7 +13,7 @@
             <ClaimTab2-component v-bind:id="id"></ClaimTab2-component> 
             <!-- id要らないかも -->
             <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
-            <ClaimTab2Modal-component v-bind:id="id"></ClaimTab2Modal-component> 
+            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component> 
             <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
         </v-main>
     </v-app>
