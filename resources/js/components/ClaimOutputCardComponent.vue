@@ -128,6 +128,7 @@ export default {
     border: 1px solid #ffffff;
     border-radius: 10px;
     background-color: transparent;
+    z-index: 20px;
 }
 
 #OutputCard v-card {
