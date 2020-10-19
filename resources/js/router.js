@@ -43,6 +43,7 @@ import DiscussPost from './components/DiscussPostComponent'
 import DiscussModal from './components/DiscussModalComponent' 
 
 import ClaimIssueContent from './components/ClaimIssueContentComponent'
+import Claim from './components/ClaimComponent'
 import ClaimsPros from './components/ClaimsProsComponent'
 import ClaimsCons from './components/ClaimsConsComponent'
 import ClaimsOthers from './components/ClaimsOthersComponent'
@@ -95,10 +96,21 @@ const router = new Router({
         id: Number(route.params.id)
       }),
     },
+    {
+      // // ★★ディスカッションページ★★
+      // //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
+      // path: '/discuss/:id(\\d+)', 
+      // name: 'Claim',
+      // component: require("./views/Discuss.vue").default,
+      // // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
+      // props: (route) => ({
+      //   id: Number(route.params.id)
+      // }),
+    },    
       {
-        path: '/claim/:claimId(\\d+)',
+        path: '/discuss/:id(\\d+)/claim/:claimId(\\d+)',
         name: 'Claim',
-        conponent: ClaimIssueContent,
+        conponent: Claim,
         props: (route) => ({
           id: Number(route.params.id),
           claimId: Number(claim.id)

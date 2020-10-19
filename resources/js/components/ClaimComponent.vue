@@ -1,4 +1,4 @@
-// 結果使わない？
+
 <template>
     <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
@@ -12,8 +12,55 @@
 
         <v-container class="text-center justify-center py-6" justify="center">
         <!-- 以下、ClaimTabComponentに収納する -->
-            <ClaimTab-component :id="id" :claimId="claimId"></ClaimTab-component>
+            <!-- <ClaimTab-component :id="id" :claimId="claimId"></ClaimTab-component> -->
+            <!-- 投稿の疑問に対する論点 -->
+            <v-sheet elevation="3">
+                <v-card  class="d-flex">
+                    <!-- v-forを入れる -->
+                    <v-tabs
+                        v-model="tab"
+                        background-color="indigo darken-4"
+                        center-active
+                        show-arrows
+                        color="white"
+                        dark
+                    >
+                    <!-- コンポーネント化 -->
+                    <!-- 問題は、post_idごとでfor文を回す -->
+                        <v-tab
+                            v-for="(claim, index) in claims"
+                            :key="index"
+                            :class="current === index ? 'current' : ''" @click="tabSelect(index)"
+                            :to="{ name: 'Claim', params: { claimId: claim.id }}"
+                            >
+                                <div >
+                                    {{ claim.issue }}
+                                </div>
+                        </v-tab>
+
+                        <!-- <v-tab>
+                            <v-icon>mdi-folder-plus</v-icon>
+                        </v-tab> -->
+                    </v-tabs>
+
+                    <!-- モーダルウィンドウのボタン -->
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                            <div class= "open-modal-claim"
+                                onclick="document.getElementById('modal-claim').style.display = 'block';"
+                                v-bind="attrs"
+                                v-on="on"
+                                >
+                                <i class="fas fa-edit fa-2x ml-2"></i>
+                            </div>
+                        </template>
+                        <span>新しい論点を追加する</span>
+                    </v-tooltip>                    
+                </v-card>                
+            </v-sheet>
         </v-container>
+
+        <router-view />
 
         <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
         <!-- v-ifでカードを描画。そこで、dataをinsertする -->

@@ -1,15 +1,6 @@
+// 使っていない？
 <template>
-    <v-app class="whole" color="basil">
-        <!-- 投稿のタイトル(Postデータだけで完結) -->
-        <v-card class="title-card pt-3">
-            <v-card-title class="text-center justify-center py-6">
-                <h1 class="font-weight-bold display-5">
-                    {{ post.title }}
-                </h1>
-            </v-card-title>
-        </v-card>
-
-        <v-container class="text-center justify-center py-6" justify="center">
+    <v-app>
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet elevation="3">
                 <v-card  class="d-flex">
@@ -57,8 +48,6 @@
             </v-sheet>
             <!-- ClaimIssueContentComponent -->
             <router-view />
-
-        </v-container>
     </v-app>
 </template>
 
