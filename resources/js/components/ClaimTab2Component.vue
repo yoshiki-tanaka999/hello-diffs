@@ -100,7 +100,7 @@
                 grow
                 class="py-3"
                 >
-                    <v-tab href="#pros">賛成
+                    <v-tab href="#pros">
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -130,7 +130,7 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-                        {{ item }}
+
                     </v-tab>        
                     <v-tab href="#others">その他・補足
                         <!-- モーダルウィンドウ(claim_output) -->
@@ -146,7 +146,7 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-                        {{ item }}
+
                     </v-tab>             
                 </v-tabs>
             </v-card>
