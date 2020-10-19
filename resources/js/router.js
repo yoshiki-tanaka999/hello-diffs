@@ -108,7 +108,7 @@ const router = new Router({
           {
             path: 'pros',
             name: 'pros',
-            conponent: require("./components/ClaimsPros.vue").default,
+            conponent: require("./components/ClaimsProsComponent.vue").default,
           },
           {
             path: 'cons',
