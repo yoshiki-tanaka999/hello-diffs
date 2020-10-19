@@ -98,7 +98,7 @@ export default {
             data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
             axios
-                .post("/api/claim_output/", data)
+                .post("/api/claim_output", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;
