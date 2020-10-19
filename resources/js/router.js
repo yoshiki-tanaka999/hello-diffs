@@ -37,6 +37,8 @@ import ImageFeatured from './components/ImageFeaturedComponent'
 
 // Discss.vue
 import Discuss from './views/Discuss'
+import Discuss2 from './views/Discuss2'
+
 // Discss.vueのコンポーネント
 import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
@@ -85,43 +87,54 @@ const router = new Router({
           },
         ],
     },
+    //   // ★★ディスカッションページ★★
+    //   //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
+    //   path: '/discuss/:id(\\d+)', 
+    //   name: 'Discuss',
+    //   component: require("./views/Discuss.vue").default,
+    //   // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
+    //   props: (route) => ({
+    //     id: Number(route.params.id)
+    //   }),
+    //   children:[
+    //     {
+    //       path: '/claim/:claimId(\\d+)',
+    //       name: 'ClaimIssueContent',
+    //       conponent: require("./components/ClaimIssueContentComponent.vue").default,
+    //       props: (route) => ({
+    //         id: Number(route.params.id),
+    //         claimId: Number(claim.id)
+    //       })
+    //     }],
+    //       children:[
+    //         {
+    //           path: 'pros',
+    //           name: 'pros',
+    //           conponent: require("./components/ClaimsProsComponent.vue").default,
+    //         },
+    //         {
+    //           path: 'cons',
+    //           name: 'cons',
+    //           conponent: ClaimsCons,
+    //         },
+    //         {
+    //           path: 'others',
+    //           name: 'others',
+    //           conponent: ClaimsOthers,
+    //         },
+    //       ]
+    // },
     {
+      // ★★デプロイ時点★★
       // ★★ディスカッションページ★★
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
       path: '/discuss/:id(\\d+)', 
-      name: 'Discuss',
-      component: require("./views/Discuss.vue").default,
+      name: 'Discuss2',
+      component: require("./views/Discuss2.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
       props: (route) => ({
         id: Number(route.params.id)
       }),
-      children:[
-        {
-          path: '/claim/:claimId(\\d+)',
-          name: 'ClaimIssueContent',
-          conponent: require("./components/ClaimIssueContentComponent.vue").default,
-          props: (route) => ({
-            id: Number(route.params.id),
-            claimId: Number(claim.id)
-          })
-        }],
-          children:[
-            {
-              path: 'pros',
-              name: 'pros',
-              conponent: require("./components/ClaimsProsComponent.vue").default,
-            },
-            {
-              path: 'cons',
-              name: 'cons',
-              conponent: ClaimsCons,
-            },
-            {
-              path: 'others',
-              name: 'others',
-              conponent: ClaimsOthers,
-            },
-          ]
     },
     {
       path: '/home',

@@ -36,6 +36,7 @@ import MyPage from './components/MyPage'
 import Tags  from './components/Tags'
 
 import Discuss from './views/Discuss'
+import Discuss2 from './views/Discuss2'
 
 // ★★トップページ★★
 // ヘッダー
