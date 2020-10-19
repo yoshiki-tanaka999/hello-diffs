@@ -19,9 +19,7 @@
                             :key="index"
                             :class="current === index ? 'current' : ''" @click="tabSelect(index)"
                             >
-                            <router-link 
-                                to="/claim/:claimId"
-                                params: { claimId: claim.id }
+                            <router-link :to="{ name: 'Discuss', params: { id: this.id }}"
                             >
                                 <div >
                                     {{ claim.issue }}
