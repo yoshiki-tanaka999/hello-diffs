@@ -1,4 +1,4 @@
-// デプロイ時点
+// デプロイ時点(使っていない)
 <template>
     <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
