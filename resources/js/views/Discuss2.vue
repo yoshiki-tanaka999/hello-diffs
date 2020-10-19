@@ -14,7 +14,7 @@
             <!-- id要らないかも -->
             <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
             <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component> 
-            <ClaimOutputCard-component v-bind:id="id"></ClaimOutputCard-component>             
+            <!-- <ClaimOutputCard-component v-bind:id="id"></ClaimOutputCard-component>              -->
             <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
         </v-main>
     </v-app>
