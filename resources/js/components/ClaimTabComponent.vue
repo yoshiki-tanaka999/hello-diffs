@@ -14,17 +14,18 @@
                     >
                     <!-- コンポーネント化 -->
                     <!-- 問題は、post_idごとでfor文を回す -->
+                    <router-link :to="{ name: 'Claim', params: { id: claim.id }}">
                         <v-tab
                             v-for="(claim, index) in claims"
                             :key="index"
                             :class="current === index ? 'current' : ''" @click="tabSelect(index)"
-                            :to="{ name: 'Claim', params: { id: claim.id }}"
                             >
                             <div >
                                 {{ claim.issue }}
                             </div>
-
                         </v-tab>
+                    </router-link>
+
                         <!-- <v-tab>
                             <v-icon>mdi-folder-plus</v-icon>
                         </v-tab> -->
