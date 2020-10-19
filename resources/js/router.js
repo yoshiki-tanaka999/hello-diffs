@@ -97,7 +97,7 @@ const router = new Router({
         children:[
           {
             path: 'claim/:claimId(\\d+)',
-            name: 'Claim',
+            // name: 'Claim',
             conponent: ClaimIssueContent,
             props: true
           }],
