@@ -98,7 +98,7 @@
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
-                                    onclick="document.getElementById('modal-claim-outoput').style.display = 'block';"
+                                    v-on:click="show = !show"
                                     v-bind="attrs2"
                                     v-on="on2"
                                     >
@@ -154,8 +154,8 @@
             >
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
-                <!-- v-ifでカードを描画。そこで、dataをinsertする
-                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component> -->
+                <!-- v-ifでカードを描画。そこで、dataをinsertする -->
+                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
                 <v-tab-item 
                     value="pros"                 
