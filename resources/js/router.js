@@ -96,7 +96,7 @@ const router = new Router({
       }),
     },
       {
-        path: '/discuss/:id(\\d+)/claim/:claimId(\\d+)',
+        path: '/claim/:claimId(\\d+)',
         name: 'Claim',
         conponent: ClaimIssueContent,
         props: (route) => ({
