@@ -21,7 +21,7 @@
                             >
                             <router-link 
                                 to="/discuss/:id/claim/:claimId"
-                                params: { id: post.id }, { claimId: claim.id }
+                                params: { id: post.id, claimId: claim.id }
                             >
                                 <div >
                                     {{ claim.issue }}
