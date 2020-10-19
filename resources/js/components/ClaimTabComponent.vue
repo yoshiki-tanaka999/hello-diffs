@@ -56,6 +56,7 @@
                 </v-card>                
             </v-sheet>
 
+<!-- 論点に対する意見 -->
                 <v-tabs-items v-model="tab" class="py-3">
                     <v-tab-item
                         v-for="claim in claims"
@@ -101,7 +102,11 @@
                 grow
                 class="py-3"
                 >
-                    <v-tab href="#pros">賛成
+                    <v-tab 
+                        href="#pros"
+                        v-for="item in items"
+                        :key="item"
+                    >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -114,7 +119,8 @@
                                 </div>
                             </template>
                             <span>新しい論点を追加する</span>
-                        </v-tooltip>  
+                        </v-tooltip> 
+                        {{ item }}
                     </v-tab>
 
                     <v-tab href="#cons">反対
@@ -275,6 +281,7 @@
 
 <script>
 export default {
+    inheritAttrs: false, // 実験
     props: {
         id: Number,
     },

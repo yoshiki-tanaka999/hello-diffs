@@ -98,6 +98,7 @@ Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarCo
 Vue.component('ClaimTabModal-component', require('./components/ClaimTabModalComponent.vue').default);
 // ↓でClaimTabが使われる
 Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
+Vue.component('ClaimTab2-component', require('./components/ClaimTab2Component.vue').default);
 // 
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
 Vue.component('ClaimOutputCard-component', require('./components/ClaimOutputCardComponent.vue').default);
