@@ -12,14 +12,7 @@
 <!-- この部分は固定 -->
         <v-main id="main">
             <v-app class="whole" color="basil">
-                <!-- 投稿のタイトル(Postデータだけで完結) -->
-                <v-card class="title-card pt-3">
-                    <v-card-title class="text-center justify-center py-6">
-                        <h1 class="font-weight-bold display-5">
-                            {{ post.title }}
-                        </h1>
-                    </v-card-title>
-                </v-card>
+                <DiscussPostTitle-component v-bind:id="id"></DiscussPostTitle-component>
 <!-- この部分は固定 -->
 
         <v-container class="text-center justify-center py-6" justify="center">

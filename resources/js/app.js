@@ -84,7 +84,8 @@ Vue.component('DiscussPost-component', require('./components/DiscussPostComponen
 Vue.component('DiscussModal-component', require('./components/DiscussModalComponent.vue').default);
 // サイドバー
 
-Vue.component('DiscussChat-component', require('./components/DiscussChatComponent.vue').default);
+// ポストのタイトル
+Vue.component('DiscussPostTitle-component', require('./components/DiscussPostTitleComponent.vue').default);
 
 Vue.component('TweetTest-component', require('./components/TweetTestComponent.vue').default);
 
