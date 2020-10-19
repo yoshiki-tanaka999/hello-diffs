@@ -110,7 +110,7 @@ const router = new Router({
       {
         path: '/discuss/:id(\\d+)/claim/:claimId(\\d+)',
         name: 'Claim',
-        conponent: Claim,
+        conponent: require("./components/ClaimComponent.vue").default,
         props: (route) => ({
           id: Number(route.params.id),
           claimId: Number(claim.id)
