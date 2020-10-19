@@ -1,3 +1,4 @@
+// 結果使わない？
 <template>
     <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
