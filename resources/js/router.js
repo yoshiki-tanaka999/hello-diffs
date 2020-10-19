@@ -95,44 +95,34 @@ const router = new Router({
       props: (route) => ({
         id: Number(route.params.id)
       }),
+      children:[
+        {
+          path: '/claim/:claimId(\\d+)',
+          name: 'ClaimIssue',
+          conponent: require("./components/ClaimIssueComponent.vue").default,
+          props: (route) => ({
+            id: Number(route.params.id),
+            claimId: Number(claim.id)
+          })
+        }],
+          children:[
+            {
+              path: 'pros',
+              name: 'pros',
+              conponent: require("./components/ClaimsProsComponent.vue").default,
+            },
+            {
+              path: 'cons',
+              name: 'cons',
+              conponent: ClaimsCons,
+            },
+            {
+              path: 'others',
+              name: 'others',
+              conponent: ClaimsOthers,
+            },
+          ]
     },
-    {
-      // // ★★ディスカッションページ★★
-      //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
-      path: '/discuss/:id(\\d+)', 
-      name: 'Claim',
-      component: require("./views/Discuss.vue").default,
-      // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
-      props: (route) => ({
-        id: Number(route.params.id)
-      }),
-    },    
-      {
-        path: '/discuss/:id(\\d+)/claim/:claimId(\\d+)',
-        name: 'Claim',
-        conponent: require("./components/ClaimComponent.vue").default,
-        props: (route) => ({
-          id: Number(route.params.id),
-          claimId: Number(claim.id)
-        }),
-      }],
-        children:[
-          {
-            path: 'pros',
-            name: 'pros',
-            conponent: require("./components/ClaimsProsComponent.vue").default,
-          },
-          {
-            path: 'cons',
-            name: 'cons',
-            conponent: ClaimsCons,
-          },
-          {
-            path: 'others',
-            name: 'others',
-            conponent: ClaimsOthers,
-          },
-
     {
       path: '/home',
       name: 'home',

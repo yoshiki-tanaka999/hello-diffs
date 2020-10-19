@@ -7,10 +7,85 @@
         <!-- PostModalComponent.vue -->
         <!-- <DiscussModal-component v-bind:id="id"></DiscussModal-component> -->
 
-        <v-main id="main">
-            <Claim-component v-bind:id="id"></Claim-component> 
-            <!-- <ClaimTab-component v-bind:id="id"></ClaimTab-component>  -->
 
+<!-- ClaimComponntの中身 -->
+<!-- この部分は固定 -->
+        <v-main id="main">
+            <v-app class="whole" color="basil">
+                <!-- 投稿のタイトル(Postデータだけで完結) -->
+                <v-card class="title-card pt-3">
+                    <v-card-title class="text-center justify-center py-6">
+                        <h1 class="font-weight-bold display-5">
+                            {{ post.title }}
+                        </h1>
+                    </v-card-title>
+                </v-card>
+<!-- この部分は固定 -->
+
+        <v-container class="text-center justify-center py-6" justify="center">
+        <!-- 以下、ClaimTabComponentに収納する -->
+            <!-- <ClaimTab-component :id="id" :claimId="claimId"></ClaimTab-component> -->
+            <!-- 投稿の疑問に対する論点 -->
+            <v-sheet elevation="3">
+                <v-card  class="d-flex">
+                    <!-- v-forを入れる -->
+                    <v-tabs
+                        v-model="tab"
+                        background-color="indigo darken-4"
+                        center-active
+                        show-arrows
+                        color="white"
+                        dark
+                    >
+                    <!-- コンポーネント化 -->
+                    <!-- 問題は、post_idごとでfor文を回す -->
+                        <v-tab
+                            v-for="(claim, index) in claims"
+                            :key="index"
+                            :class="current === index ? 'current' : ''" @click="tabSelect(index)"
+                            :to="{ name: 'Claim', params: { claimId: claim.id }}"
+                            >
+                                <div >
+                                    {{ claim.issue }}
+                                </div>
+                        </v-tab>
+
+                        <!-- <v-tab>
+                            <v-icon>mdi-folder-plus</v-icon>
+                        </v-tab> -->
+                    </v-tabs>
+
+                    <!-- モーダルウィンドウのボタン -->
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                            <div class= "open-modal-claim"
+                                onclick="document.getElementById('modal-claim').style.display = 'block';"
+                                v-bind="attrs"
+                                v-on="on"
+                                >
+                                <i class="fas fa-edit fa-2x ml-2"></i>
+                            </div>
+                        </template>
+                        <span>新しい論点を追加する</span>
+                    </v-tooltip>                    
+                </v-card>                
+            </v-sheet>
+        </v-container>
+
+<!--  -->
+        <router-view />
+
+        <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
+        <!-- v-ifでカードを描画。そこで、dataをinsertする -->
+        <!-- <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component> -->
+
+
+                <!-- カード②反対用 -->
+                        
+                <!-- カード②その他・補足 -->
+
+
+            </v-app>
             <!-- id要らないかも -->
             <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>   
             <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
