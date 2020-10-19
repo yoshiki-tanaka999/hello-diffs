@@ -15,6 +15,8 @@
         </v-container>
 
         <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>
+        <!-- v-ifでカードを描画。そこで、dataをinsertする -->
+        <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
 
                 <!-- カード②反対用 -->
