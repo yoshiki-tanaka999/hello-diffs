@@ -98,8 +98,8 @@ const router = new Router({
       children:[
         {
           path: '/claim/:claimId(\\d+)',
-          name: 'ClaimIssue',
-          conponent: require("./components/ClaimIssueComponent.vue").default,
+          name: 'ClaimIssueContent',
+          conponent: require("./components/ClaimIssueContentComponent.vue").default,
           props: (route) => ({
             id: Number(route.params.id),
             claimId: Number(claim.id)
