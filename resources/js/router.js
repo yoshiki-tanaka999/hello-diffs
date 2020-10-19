@@ -42,7 +42,7 @@ import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
 import DiscussModal from './components/DiscussModalComponent' 
 
-import ClaimTab from './components/ClaimTabComponent'
+import ClaimIssueContent from './components/ClaimIssueContentComponent'
 import ClaimsPros from './components/ClaimsProsComponent'
 import ClaimsCons from './components/ClaimsConsComponent'
 import ClaimsOthers from './components/ClaimsOthersComponent'
@@ -97,7 +97,8 @@ const router = new Router({
         children:[
           {
             path: 'claim/:claimId(\\d+)',
-            conponent: ClaimTab,
+            name: 'Claim',
+            conponent: ClaimIssueContent,
             props: true
           }],
             children:[
