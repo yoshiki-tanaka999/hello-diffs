@@ -43,6 +43,7 @@ export default {
     },
         mounted() {
         // this.getPost();
+        // コミットのためtest
     },
 }
 </script>
