@@ -154,6 +154,8 @@
                 </v-tabs>
             </v-card>
 
+                <!-- v-ifでカードを描画。そこで、dataをinsertする -->
+            <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -164,8 +166,6 @@
             >
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
-                <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-                <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
     <v-tab-item 
         value="pros"                 
