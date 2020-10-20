@@ -87,7 +87,7 @@ export default {
             // console.log(claim_flag);
         },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
-        uploadClaimOutput(index) {
+        uploadClaimOutput() {
             // let claim_flag = this.options[index].value;
             let post_id = this.id;
             let claim_id = this.claimId;
@@ -109,6 +109,9 @@ export default {
                 .catch(err => {
                     this.message = err.response.data.errors;
                 })
+                .finally(function(){
+                location.reload(true);
+                });
         }
     },
     mounted() {
