@@ -158,8 +158,6 @@
 
             <v-tabs-items 
                 v-model="tab1"
-                v-for="(claim_output, index) in claim_outputs"
-                :key="claim_output.id"
                 :class="{ active: currentTab === index }"
                 @click="currentTab = index"
             >
@@ -231,7 +229,7 @@
                             </v-card>
                         <!-- </div> -->
                     </template>  
-                <!-- </div>                      -->
+                <!-- </div> -->
                 </v-tab-item>
 
                 <v-tab-item value="others"
