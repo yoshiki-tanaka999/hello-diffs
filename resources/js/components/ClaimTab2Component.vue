@@ -289,7 +289,7 @@ export default {
             default: 0,
             current: 0,
             activeTab: "",
-            claimId: "",
+            claimId: Number,
             claims: [],
             claim: [],
             issues:[],
