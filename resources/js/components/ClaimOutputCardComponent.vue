@@ -115,7 +115,7 @@ export default {
         }
     },
     mounted() {
-        // this.getPost();
+        this.getPost();
     }, 
 }
 </script>  
