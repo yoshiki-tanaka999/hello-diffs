@@ -158,7 +158,7 @@
 
             <v-tabs-items 
                 v-model="tab1"
-                v-for="claim_output in claim_outputTestFiltered"
+                v-for="(claim_output, index) in claim_outputTestFiltered"
                 :key="claim_output.id"
                 :class="{ active: currentTab === index }"
                 @click="currentTab = index"
