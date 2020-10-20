@@ -170,7 +170,7 @@
                 <v-tab-item 
                     value="pros"                 
                     v-for="claim_output in claim_outputTestFiltered"
-                    :key="claim_output.id"
+                    :key="claim_output.claim_flag === '賛成'"
                 >
                 <!-- カード①賛成用 -->
                     <template v-show=" claim_output.claim_flag === '賛成' ">
@@ -202,7 +202,7 @@
 
                 <v-tab-item value="cons"
                     v-for="claim_output in claim_outputTestFiltered"
-                    :key="claim_output.id"
+                    :key="claim_output.claim_flag === '反対'"
                 >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
@@ -236,7 +236,7 @@
 
                 <v-tab-item value="others"
                     v-for="claim_output in claim_outputTestFiltered"
-                    :key="claim_output.id"
+                    :key="claim_output.claim_flag === 'その他・補足'"
                 >
                 <!-- カード③その他用 -->
                     <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
