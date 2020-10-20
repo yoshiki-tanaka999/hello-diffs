@@ -168,8 +168,8 @@
 
     <v-tab-item 
         value="pros"                 
-        v-for="claim_output in claim_outputTestFiltered_pros"
-        :key="claim_output.id"
+        v-for="(claim_output, index) in claim_outputTestFiltered"
+        :key="index"
     >
                 <!-- カード①賛成用 -->
                     <template v-show=" claim_output.claim_flag === '賛成' ">
