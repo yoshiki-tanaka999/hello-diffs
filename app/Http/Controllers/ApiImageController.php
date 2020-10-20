@@ -75,7 +75,7 @@ class ApiImageController extends Controller
 
             $post = new Post();
             $post->user_id = $user->id;            
-            $post->img_url = $file_name;
+            $post->img_url = $path;
             // $image->img_url = $path;
             $post->title = $request->title;
             $post->description = $request->description;
