@@ -173,7 +173,7 @@
                     :key="claim_output.claim_flag['賛成']"
                 >
                 <!-- カード①賛成用 -->
-                    <template v-if=" claim_output.claim_flag === '賛成' ">
+                    <template>
                         <!-- <div> -->
                             <v-card
                                 color="#385F73"
