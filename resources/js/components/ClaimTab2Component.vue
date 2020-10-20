@@ -322,7 +322,7 @@ export default {
             tabSelect(index) {
                 this.current = index;
                 this.claimId = this.claims[index].id
-                this.$emit('child-event', this.claimId);
+                // this.$emit('child-event', this.claimId);
                 // console.log(this.current);
                 // claim_idの取得完了
                 console.log(this.claimId);
