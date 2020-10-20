@@ -200,12 +200,11 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-for="claim_output in claim_outputTestFiltered"
-                    :key="claim_output.claim_flag['反対']"
+                    v-show=" claim_output.claim_flag === '反対' "
                 >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
-                    <template v-if=" claim_output.claim_flag === '反対' ">                        
+                    <template>                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
                                 color="#385F73"
@@ -234,11 +233,10 @@
                 </v-tab-item>
 
                 <v-tab-item value="others"
-                    v-for="claim_output in claim_outputTestFiltered"
-                    :key="claim_output.claim_flag['その他・補足']"
+                    v-show=" claim_output.claim_flag === 'その他・補足' "
                 >
                 <!-- カード③その他用 -->
-                    <template v-if=" claim_output.claim_flag === 'その他・補足' ">   
+                    <template>   
                         <!-- <div v-show="currentTab === 2"> -->
                             <v-card
                                 color="#385F73"
