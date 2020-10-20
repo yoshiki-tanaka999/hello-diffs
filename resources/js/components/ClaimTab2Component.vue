@@ -100,7 +100,9 @@
                 grow
                 class="py-3"
                 >
-                    <v-tab href="#pros">
+                    <v-tab 
+                        href="#pros"
+                    >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -320,6 +322,7 @@ export default {
             tabSelect(index) {
                 this.current = index;
                 this.claimId = this.claims[index].id
+                this.$emit('child-event', this.claimId);
                 // console.log(this.current);
                 // claim_idの取得完了
                 console.log(this.claimId);
@@ -334,9 +337,9 @@ export default {
                 })
             },
             // Discuss2にclaimidを送る
-            triggerEvent() {
-                this.$emit('child-event', this.claimId);
-            }  
+            // triggerEvent() {
+            //     this.$emit('child-event', this.claimId);
+            // }  
     },
     mounted() {
         this.getPost();
@@ -344,7 +347,7 @@ export default {
         // this.getIssue();
     },
     created() {
-    this.triggerEvent();
+    // this.triggerEvent();
     },  
     computed: {
         // 賛成意見の紐付け

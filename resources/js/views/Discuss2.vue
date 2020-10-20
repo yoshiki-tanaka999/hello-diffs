@@ -35,17 +35,17 @@ export default {
     // console.log(id);
     },
     methods: {
-        getPost() {
-            axios.get('/api/posts/' + this.id)
-            .then((res) => {
-                this.post = res.data;
-                this.claims = this.post.claims
-                // this.claimId = this.claims[index].id
-                console.log(this.post);  
-                console.log(this.claims);  
-            })
-        },
-        parentMethod(payloda) {
+        // getPost() {
+        //     axios.get('/api/posts/' + this.id)
+        //     .then((res) => {
+        //         this.post = res.data;
+        //         this.claims = this.post.claims
+        //         // this.claimId = this.claims[index].id
+        //         console.log(this.post);  
+        //         console.log(this.claims);  
+        //     })
+        // },
+        parentMethod() {
             this.claimId = payload;
         }
     },
