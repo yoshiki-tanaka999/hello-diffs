@@ -169,11 +169,11 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-for="claim_output in claim_outputTestFiltered"
+                    v-for="claim_output in claim_outputTestFiltered_pros"
                     :key="claim_output.claim_flag['賛成']"
                 >
                 <!-- カード①賛成用 -->
-                    <template>
+                    <template v-show=" claim_output.claim_flag === '賛成' ">
                         <!-- <div> -->
                             <v-card
                                 color="#385F73"
@@ -206,7 +206,7 @@
                 >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
-                    <template>                        
+                    <template v-if=" claim_output.claim_flag === '反対' ">                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
                                 color="#385F73"
@@ -239,7 +239,7 @@
                     :key="claim_output.claim_flag['その他・補足']"
                 >
                 <!-- カード③その他用 -->
-                    <template>   
+                    <template v-if=" claim_output.claim_flag === 'その他・補足' ">   
                         <!-- <div v-show="currentTab === 2"> -->
                             <v-card
                                 color="#385F73"
