@@ -166,12 +166,12 @@
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
 
-<!-- この下が、OutputCard -->
-    <v-tab-item 
-        value="pros"                 
-        v-for="claim_output in claim_outputTestFiltered"
-        :key="claim_output.id"
-    >
+            <!-- この下が、OutputCard -->
+                <v-tab-item 
+                    value="pros"                 
+                    v-for="claim_output in claim_outputTestFiltered"
+                    :key="claim_output.id"
+                >
                 <!-- カード①賛成用 -->
                     <template v-show=" claim_output.claim_flag === '賛成' ">
                         <!-- <div> -->
@@ -198,9 +198,12 @@
                             </v-card>
                         <!-- </div> -->
                     </template>  
-    </v-tab-item>
+                </v-tab-item>
 
-    <v-tab-item value="cons">
+                <v-tab-item value="cons"
+                    v-for="claim_output in claim_outputTestFiltered"
+                    :key="claim_output.id"
+                >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
                     <template v-show=" claim_output.claim_flag === '反対' ">                        
@@ -229,8 +232,12 @@
                         <!-- </div> -->
                     </template>  
                 <!-- </div>                      -->
-    </v-tab-item>
-    <v-tab-item value="others">
+                </v-tab-item>
+
+                <v-tab-item value="others"
+                    v-for="claim_output in claim_outputTestFiltered"
+                    :key="claim_output.id"
+                >
                 <!-- カード③その他用 -->
                     <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
                         <!-- <div v-show="currentTab === 2"> -->
@@ -257,15 +264,9 @@
                             </v-card>
                         <!-- </div>     -->
                     </template>  
-    </v-tab-item>
+                </v-tab-item>
 
             </v-tabs-items> 
-
-
-
-
-
-
 
                 <!-- カード②反対用 -->
                         
