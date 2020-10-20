@@ -169,7 +169,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-for="claim_output in claim_outputTestFiltered"
+                    v-for="claim_output in claim_outputTestFiltered_pros"
                     :key="claim_output.claim_flag['賛成']"
                 >
                 <!-- カード①賛成用 -->
@@ -385,9 +385,12 @@ export default {
             console.log(result);
         },
         // v-forの2つ目
-        claim_outputTestFiltered_pros(claim_output) {
-            const claimOutputTestData_pros = this.result
-            const result_pros = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "成功")
+        claim_outputTestFiltered_pros() {
+            const claimOutputTestData_pros = this.claim_outputs
+            const result_pros = claimOutputTestData_pros.filter(claim_outputs => {
+                claim_outputs.claim_id === this.claimId &&
+                claim_output.claim_flag === "成功" 
+                })
             return result_pros;
         },
         claim_outputTestFiltered_cons(claim_output) {
