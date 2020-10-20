@@ -79,7 +79,7 @@ export default {
                 console.log(this.claims);  
             })
         },
-        getClaimFlag() {
+        getClaimFlag(index) {
             let claim_flag = this.options[index].value;
             console.log(claim_flag);
             // let claim_flag =  Number(this.options[index].value)
