@@ -193,7 +193,7 @@
                             </div>
 
                             <!-- データベースからテキストを描画 -->
-                                <v-card-text>{{claim_output[index].content}}</v-card-text>
+                                <v-card-text>{{claim_output.content}}</v-card-text>
                                 <v-card-text>賛成です。</v-card-text>
                             </v-card>
                         <!-- </div> -->
