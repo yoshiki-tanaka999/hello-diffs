@@ -305,10 +305,7 @@ export default {
             result: [],
 
             }
-    },
-    created() {
-        this.triggerEvent();
-    },    
+    },  
     methods: {
             getPost() {
                 axios.get('/api/posts/' + this.id)
@@ -346,6 +343,9 @@ export default {
         this.getClaimOutput();
         // this.getIssue();
     },
+    created() {
+    this.triggerEvent();
+    },  
     computed: {
         // 賛成意見の紐付け
         getAgreeClaim() {
