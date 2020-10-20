@@ -14,7 +14,7 @@
             <!-- id要らないかも -->
             <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
             <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component> 
-            <ClaimOutputCard-component v-bind:id="id"></ClaimOutputCard-component>             
+            <ClaimOutputCard-component v-bind:id="id" :claimId="claimId"></ClaimOutputCard-component>             
             <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
         </v-main>
     </v-app>
@@ -25,8 +25,24 @@ export default {
     data: function(){
     return{
             id: Number(this.$route.params.id),
+            claimId: ""
         }
     // console.log(id);
-},
+    },
+    methods: {
+        getPost() {
+            axios.get('/api/posts/' + this.id)
+            .then((res) => {
+                this.post = res.data;
+                this.claims = this.post.claims
+                // this.claimId = this.claims[index].id
+                console.log(this.post);  
+                console.log(this.claims);  
+            })
+        }
+    },
+        mounted() {
+        this.getPost();
+    },
 }
 </script>
