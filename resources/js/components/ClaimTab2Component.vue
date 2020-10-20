@@ -169,7 +169,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-for="claim_output in claim_outputTestFiltered_pros"
+                    v-for="claim_output in claim_outputTestFiltered"
                     :key="claim_output.claim_flag['賛成']"
                 >
                 <!-- カード①賛成用 -->
