@@ -158,6 +158,8 @@
 
             <v-tabs-items 
                 v-model="tab1"
+                v-for="(claim_output, index) in claim_outputTestFiltered"
+                :key="claim_output.id"
                 :class="{ active: currentTab === index }"
                 @click="currentTab = index"
             >
@@ -167,11 +169,10 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-for="claim_output in claim_outputTestFiltered_pros"
-                    :key="claim_output.claim_flag['賛成']"
+                    v-show=" claim_output.claim_flag === '賛成' "
                 >
                 <!-- カード①賛成用 -->
-                    <template v-show=" claim_output.claim_flag === '賛成' ">
+                    <template>
                         <!-- <div> -->
                             <v-card
                                 color="#385F73"
