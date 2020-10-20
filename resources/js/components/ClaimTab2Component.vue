@@ -312,14 +312,14 @@ export default {
                     this.post = res.data;
                     this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
-                    console.log(this.post);  
-                    console.log(this.claims);  
+                    // console.log(this.post);  
+                    // console.log(this.claims);  
                 })
             },
             tabSelect(index) {
                 this.current = index;
                 this.claimId = this.claims[index].id
-                console.log(this.current);
+                // console.log(this.current);
                 // claim_idの取得完了
                 console.log(this.claimId);
             },
