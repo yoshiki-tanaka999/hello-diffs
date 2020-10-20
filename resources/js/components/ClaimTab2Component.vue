@@ -206,7 +206,7 @@
                 >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
-                    <template v-show=" claim_output.claim_flag === '反対' ">                        
+                    <template v-if=" claim_output.claim_flag === '反対' ">                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
                                 color="#385F73"
@@ -239,7 +239,7 @@
                     :key="claim_output.claim_flag['その他・補足']"
                 >
                 <!-- カード③その他用 -->
-                    <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
+                    <template v-if=" claim_output.claim_flag === 'その他・補足' ">   
                         <!-- <div v-show="currentTab === 2"> -->
                             <v-card
                                 color="#385F73"
