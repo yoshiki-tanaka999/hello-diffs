@@ -389,7 +389,7 @@ export default {
             const claimOutputTestData_pros = this.claim_outputs
             const result_pros = claimOutputTestData_pros.filter(claim_outputs => {
                 claim_outputs.claim_id === this.claimId &&
-                claim_output.claim_flag === "成功" 
+                claim_outputs.claim_flag === "成功" 
                 })
             return result_pros;
         },
