@@ -10,7 +10,7 @@
         <v-main id="main">
             <!-- <DiscussChart-component></DiscussChart-component>
             <DiscussPost-component v-bind:id="id"></DiscussPost-component>  -->
-            <ClaimTab2-component v-bind:id="id" @child-event="parentMethod"></ClaimTab2-component> 
+            <ClaimTab2-component v-bind:id="id" @child-event="parentMethod(payload)"></ClaimTab2-component> 
             <!-- id要らないかも -->
             <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
             <ClaimTabModal-component v-bind:id="id" ></ClaimTabModal-component> 
