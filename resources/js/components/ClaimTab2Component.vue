@@ -102,6 +102,7 @@
                 >
                     <v-tab 
                         href="#pros"
+                        v-on:click="show = !show"
                     >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
@@ -164,7 +165,7 @@
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-                    <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
+                <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
     <v-tab-item 
         value="pros"                 
@@ -279,6 +280,7 @@ export default {
     name:'ClaimTab2',
     props: {
         id: Number,
+        // claimId: Number,
     },
     data () {
         return {
@@ -336,6 +338,7 @@ export default {
                     // その他・補足のデータ
                 })
             },
+
             // Discuss2にclaimidを送る
             // triggerEvent() {
             //     this.$emit('child-event', this.claimId);
