@@ -169,7 +169,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-show=" claim_output.claim_flag === '賛成' "
+                    v-if=" claim_output.claim_flag === '賛成' "
                 >
                 <!-- カード①賛成用 -->
                     <template>
@@ -200,7 +200,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-show=" claim_output.claim_flag === '反対' "
+                    v-if=" claim_output.claim_flag === '反対' "
                 >
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
@@ -233,7 +233,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="others"
-                    v-show=" claim_output.claim_flag === 'その他・補足' "
+                    v-if=" claim_output.claim_flag === 'その他・補足' "
                 >
                 <!-- カード③その他用 -->
                     <template>   
