@@ -166,10 +166,11 @@
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
 
+<!-- この下が、OutputCard -->
     <v-tab-item 
         value="pros"                 
-        v-for="(claim_output, index) in claim_outputTestFiltered"
-        :key="index"
+        v-for="claim_output in claim_outputTestFiltered"
+        :key="claim_output.id"
     >
                 <!-- カード①賛成用 -->
                     <template v-show=" claim_output.claim_flag === '賛成' ">
