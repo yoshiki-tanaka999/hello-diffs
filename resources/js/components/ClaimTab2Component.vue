@@ -274,6 +274,7 @@
 
 <script>
 export default {
+    name:'ClaimTab2',
     props: {
         id: Number,
     },
@@ -305,6 +306,9 @@ export default {
 
             }
     },
+    created() {
+        this.triggerEvent();
+    },    
     methods: {
             getPost() {
                 axios.get('/api/posts/' + this.id)
@@ -332,6 +336,10 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            // Discuss2にclaimidを送る
+            triggerEvent() {
+                this.$emit('child-event', this.claimId);
+            }  
     },
     mounted() {
         this.getPost();

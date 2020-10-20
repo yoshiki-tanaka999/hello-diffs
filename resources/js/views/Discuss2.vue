@@ -10,18 +10,23 @@
         <v-main id="main">
             <!-- <DiscussChart-component></DiscussChart-component>
             <DiscussPost-component v-bind:id="id"></DiscussPost-component>  -->
-            <ClaimTab2-component v-bind:id="id"></ClaimTab2-component> 
+            <ClaimTab2-component v-bind:id="id" @child-event="parentMethod"></ClaimTab2-component> 
             <!-- id要らないかも -->
             <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
-            <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component> 
-            <ClaimOutputCard-component v-bind:id="id" :claimId="claimId"></ClaimOutputCard-component>             
+            <ClaimTabModal-component v-bind:id="id" ></ClaimTabModal-component> 
+            <ClaimOutputCard-component v-bind:id="id"  :claimId="claimId"></ClaimOutputCard-component>             
             <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
         </v-main>
     </v-app>
 </template>
 
 <script>
+import ClaimTab2 from  '../components/ClaimTab2Component.vue'
 export default {
+    name: 'Discuss2',
+        components: {
+            ClaimTab2
+        },
     data: function(){
     return{
             id: Number(this.$route.params.id),
@@ -39,6 +44,9 @@ export default {
                 console.log(this.post);  
                 console.log(this.claims);  
             })
+        },
+        parentMethod(payloda) {
+            this.claimId = payload;
         }
     },
         mounted() {
