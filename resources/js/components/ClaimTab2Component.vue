@@ -102,7 +102,6 @@
                 >
                     <v-tab 
                         href="#pros"
-                        v-on:click="show = !show"
                     >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
