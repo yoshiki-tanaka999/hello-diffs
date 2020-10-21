@@ -66,7 +66,11 @@ class ApiImageController extends Controller
         if (request()->file) {
             // $file_name = time() . '.' . request()->file->getClientOriginalName();
             // request()->file('file');
-            $file_name = $request->file('file');
+
+            $file_name = time() . '.' . request()->file->getClientOriginalName();
+            request()->file->storeAs('public', $file_name);
+
+            // $file_name = $request->file('file');
             $path = Storage::disk('s3')->putFile('/', $file_name, 'public');
             // $path = Storage::disk('s3')->put('/img_url', $file, 'public');
             // S3にファイルを保存し、保存したファイル名を取得する
