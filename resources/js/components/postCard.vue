@@ -33,7 +33,7 @@
                         >
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
-                        <v-card-title class="v-card-title">{{ post.img_url }}</v-card-title>
+                        <!-- <v-card-title class="v-card-title">{{ post.img_url }}</v-card-title> -->
                         <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
                         </v-img>
                     </router-link>
