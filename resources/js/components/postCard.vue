@@ -22,10 +22,14 @@
                     <!-- <router-link :to="`/discuss/${ post.id }`"
                     > -->
                         <!-- 「画像」 -->
-                        <v-img
+                        <!-- <v-img
                             class="white--text align-end"
                             height="200px"
                             :src="`${post.img_url}`"
+                        > -->
+                        <v-img
+                            class="post_card_img white--text align-end"
+                            height="200px"
                         >
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
@@ -179,6 +183,11 @@ export default {
     color: grey;
     list-style: none;
     margin: auto auto 0;
+}
+
+.post_card_img {
+    background-image: url(../testPhoto/geometric01.jpg);
+    background-size: cover;
 }
 </style>
 
