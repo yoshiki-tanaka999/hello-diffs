@@ -197,7 +197,7 @@ export default {
 }
 
 .img-background {
-    background-image: url(../testPhoto/1602831807.geometric03.jpg);
+    background-image: url(../testPhoto/geometric02.jpg);
     background-size: cover;
 }
 

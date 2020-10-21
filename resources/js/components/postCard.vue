@@ -186,7 +186,7 @@ export default {
 }
 
 .post_card_img {
-    background-image: url(../testPhoto/geometric01.jpg);
+    background-image: url(../testPhoto/geometric02.jpg);
     background-size: cover;
 }
 </style>
