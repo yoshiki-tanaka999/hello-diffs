@@ -10,12 +10,17 @@
                 <div class="modal-content-whole-claim">
                     <!-- アイキャッチ -->
                     <div  class="modal-claim-img-content">
-                        <v-img
+                        <!-- <v-img
                             class="img-background white--text align-end"
                             height="300px" width="700px"
                             :src="`${post.img_url}`"
                             dark
-                        >
+                        > -->
+                        <v-img
+                            class="img-background white--text align-end"
+                            height="300px" width="700px"
+                            dark
+                        >                        
                             <div class="modal-claim-header">
                                 <p>Question.</p>
                                 <span 
@@ -192,7 +197,8 @@ export default {
 }
 
 .img-background {
-    /* background-image: url(../testPhoto/whitecray.jpeg); */
+    background-image: url(../testPhoto/1602831807.geometric03.jpg);
+    background-size: cover;
 }
 
 /* .modal-claim-img-content {
