@@ -84,7 +84,7 @@
                             class=" ma-auto"
                             >
                             <v-card-text
-                                class="font-weight-black"
+                                class="font-weight-black ma-auto"
                                 width="900"
                             >
                                 {{ claim.content }}
