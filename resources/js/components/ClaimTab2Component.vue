@@ -173,7 +173,7 @@
                     <template>
                         <!-- <div> -->
                             <v-card
-                                color="#385F73"
+                                color="#E53935"
                                 dark
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
@@ -479,5 +479,9 @@ export default {
 .open-modal-claim-outoput:hover{
     cursor: pointer;
     font-weight: bold;
+}
+
+.postStatusList {
+    float: right;
 }
 </style>
