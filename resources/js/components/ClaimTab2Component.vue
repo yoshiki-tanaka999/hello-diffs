@@ -90,15 +90,16 @@
                 </v-tabs-items>  
 
         <!-- 論点に対する主張 -->
-            <v-card class="d-flex">
+            <v-card 
+                class="d-flex mx-auto"
+                width="900"
+            >
                 <v-tabs
                 v-model="tab1"
                 background-color="transparent"
                 color="basil"
                 grow
-                class="py-3 mx-auto"
-                width="900"
-
+                class="py-3"
                 >
                     <v-tab href="#pros">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
