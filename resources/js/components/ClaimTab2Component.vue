@@ -1,5 +1,5 @@
 <template>
-    <v-app class="whole" color="basil" width="900">
+    <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
         <v-card 
             class="title-card pt-3 mx-auto"
@@ -69,12 +69,12 @@
                 <v-tabs-items 
                     v-model="tab" 
                     class="py-3"
-                    width="900"
+
                 >
                     <v-tab-item
                         v-for="claim in claims"
                         :key="claim.id"
-                        width="900"
+
                     >
                         <v-card
                             color="basil"
@@ -84,6 +84,7 @@
                             >
                             <v-card-text
                                 class="font-weight-black"
+                                width="900"
                             >
                                 {{ claim.content }}
                             </v-card-text>
