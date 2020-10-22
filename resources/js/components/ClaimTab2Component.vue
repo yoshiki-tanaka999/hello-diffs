@@ -193,7 +193,7 @@
                     <template>                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
-                                color="#F9A825"
+                                color="#1565C0"
                                 dark
                                 width="600"
                                 max-height="200"
