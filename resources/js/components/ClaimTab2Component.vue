@@ -173,7 +173,7 @@
                     <template>
                         <!-- <div> -->
                             <v-card
-                                color="#E53935"
+                                color="#FFCDD2"
                                 dark
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
