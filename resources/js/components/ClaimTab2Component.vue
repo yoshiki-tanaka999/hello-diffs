@@ -69,6 +69,7 @@
                 <v-tabs-items 
                     v-model="tab" 
                     class="py-3"
+                    width="900"
                 >
                     <v-tab-item
                         v-for="claim in claims"
