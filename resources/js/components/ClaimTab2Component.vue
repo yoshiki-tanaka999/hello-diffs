@@ -81,6 +81,7 @@
                             flat
                             width="900"
                             class=" mx-auto"
+                            background-color="#FFF"
                             >
                             <v-card-text
                                 class="font-weight-black"
