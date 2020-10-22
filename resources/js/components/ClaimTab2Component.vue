@@ -163,6 +163,7 @@
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-medium"
+                                    color="white"
                                 >
                                     {{claim_output.content}}
                                 </v-card-text>
