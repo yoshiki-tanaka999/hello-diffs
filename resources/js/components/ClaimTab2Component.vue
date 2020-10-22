@@ -518,6 +518,7 @@ export default {
 .claimOutputValue {
     float: right;
     margin-right: 20px;
+    padding-bottom: 20px;
 }
 
 .theme--light.v-tabs-items {
