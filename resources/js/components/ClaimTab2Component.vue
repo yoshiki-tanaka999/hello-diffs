@@ -100,9 +100,7 @@
                 grow
                 class="py-3"
                 >
-                    <v-tab 
-                        href="#pros"
-                    >賛成
+                    <v-tab href="#pros">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -179,21 +177,22 @@
                                 dark
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                            <!-- アイコンを追加 -->
-                            <div>
-                                <div class="postStatusList d-flex">
-                                    <!-- 「コメント数」 -->
-                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                    <!-- 「参加者数」 -->
-                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                    <!-- 「ブックマークされた数」 -->
-                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                </div>
-                            </div>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text>{{claim_output.content}}</v-card-text>
-                                <v-card-text>賛成です。</v-card-text>
+                                <!-- <v-card-text>賛成です。</v-card-text> -->
+
+                                <!-- アイコンを追加 -->
+                                <div>
+                                    <div class="postStatusList d-flex">
+                                        <!-- 「コメント数」 -->
+                                        <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                        <!-- 「参加者数」 -->
+                                        <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                        <!-- 「ブックマークされた数」 -->
+                                        <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                    </div>
+                                </div>                                
                             </v-card>
                         <!-- </div> -->
                     </template>  
@@ -211,21 +210,21 @@
                                 dark
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                            <!-- アイコンを追加 -->
-                            <div>
-                                <div class="postStatusList d-flex">
-                                    <!-- 「コメント数」 -->
-                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                    <!-- 「参加者数」 -->
-                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                    <!-- 「ブックマークされた数」 -->
-                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                </div>
-                            </div>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text>{{claim_output.content}}</v-card-text>
-                                <v-card-text>反対です。</v-card-text>
+                                <!-- <v-card-text>反対です。</v-card-text> -->
+                                <!-- アイコンを追加 -->
+                                <div>
+                                    <div class="postStatusList d-flex">
+                                        <!-- 「コメント数」 -->
+                                        <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                        <!-- 「参加者数」 -->
+                                        <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                        <!-- 「ブックマークされた数」 -->
+                                        <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                    </div>
+                                </div>                                
                             </v-card>
                         <!-- </div> -->
                     </template>  
@@ -243,21 +242,21 @@
                                 dark
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                            <!-- アイコンを追加 -->
-                            <div>
-                                <div class="postStatusList d-flex">
-                                    <!-- 「コメント数」 -->
-                                    <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                    <!-- 「参加者数」 -->
-                                    <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                    <!-- 「ブックマークされた数」 -->
-                                    <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                </div>
-                            </div>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text>{{claim_output.content}}</v-card-text>
-                                <v-card-text>その他です。</v-card-text>
+                                <!-- <v-card-text>その他です。</v-card-text> -->
+                                <!-- アイコンを追加 -->
+                                <div>
+                                    <div class="postStatusList d-flex">
+                                        <!-- 「コメント数」 -->
+                                        <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                        <!-- 「参加者数」 -->
+                                        <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
+                                        <!-- 「ブックマークされた数」 -->
+                                        <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                    </div>
+                                </div>                                
                             </v-card>
                         <!-- </div>     -->
                     </template>  
