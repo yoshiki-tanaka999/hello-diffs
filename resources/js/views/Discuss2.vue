@@ -55,3 +55,11 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.discussBody {
+    background-image: url(../testPhoto/whitecray.jpeg);
+    background-size: cover;
+}
+
+</style>>
