@@ -69,27 +69,7 @@
                     </v-tab-item>
                 </v-tabs-items>  
 
-            <!-- 論点に対する主張(消えている) -->
-            <v-sheet elevation="3">
-                <v-card>
-                    <v-tabs
-                    v-model="tab"
-                    background-color="indigo"
-                    center-active
-                    show-arrows
-                    color="white"
-                    dark
-                                     
-                    >
-                        <v-tab
-                            v-for="claim in claims"
-                            :key="claim.id"
-                            v-model="tab1"
-                            >
-                        </v-tab>
-                    </v-tabs>
-                </v-card>                
-            </v-sheet>                
+            
 
         <!-- 論点に対する主張 -->
             <v-card class="d-flex">
