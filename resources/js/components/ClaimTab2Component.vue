@@ -101,7 +101,7 @@
                 class="py-3"
                 color="indigo darken-4"
                 >
-                    <v-tab href="#pros">賛成
+                    <v-tab href="#pros" class="font-weight-black">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -117,7 +117,7 @@
                         </v-tooltip>  
                     </v-tab>
 
-                    <v-tab href="#cons">反対
+                    <v-tab href="#cons" class="font-weight-black">反対
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -133,7 +133,7 @@
                         </v-tooltip>  
 
                     </v-tab>        
-                    <v-tab href="#others">その他・補足
+                    <v-tab href="#others" class="font-weight-black">その他・補足
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
