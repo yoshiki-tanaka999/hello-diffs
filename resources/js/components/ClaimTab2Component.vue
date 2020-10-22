@@ -64,7 +64,11 @@
                 </v-card>                
             </v-sheet>
 
-                <v-tabs-items v-model="tab" class="py-3">
+                <v-tabs-items 
+                    v-model="tab" 
+                    class="py-3 mx-auto"
+                    width="900"
+                >
                     <v-tab-item
                         v-for="claim in claims"
                         :key="claim.id"
