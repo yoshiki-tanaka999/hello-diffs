@@ -78,7 +78,11 @@
                             width="900"
                             class=" mx-auto"
                             >
-                            <v-card-text>{{ claim.content }}</v-card-text>
+                            <v-card-text
+                            class="font-weight-black"
+                            >
+                                {{ claim.content }}
+                            </v-card-text>
                         </v-card>
                     </v-tab-item>
                 </v-tabs-items>  
