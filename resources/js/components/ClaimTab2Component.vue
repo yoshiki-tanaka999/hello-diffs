@@ -172,7 +172,7 @@
                 <v-tab-item 
                     value="pros"             
                     v-if=" claim_output.claim_flag === '賛成' "
-                    max-width="900"
+                    max-width="600"
                 >
                 <!-- カード①賛成用 -->
                     <template>
