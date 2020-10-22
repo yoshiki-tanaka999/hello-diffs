@@ -162,7 +162,7 @@
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
-                                    class="font-weight-black"
+                                    class="font-weight-black pa-2"
                                     color="white"
                                 >
                                     {{claim_output.content}}
