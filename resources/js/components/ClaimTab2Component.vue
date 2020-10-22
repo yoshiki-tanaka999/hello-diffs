@@ -519,7 +519,7 @@ export default {
     margin-right: 20px;
 }
 
-v-tabs-items {
+.theme--light.v-tabs-items {
     background-color: transparent!important;
 }
 </style>
