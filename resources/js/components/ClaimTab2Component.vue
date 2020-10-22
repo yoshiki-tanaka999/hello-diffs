@@ -66,8 +66,7 @@
 
                 <v-tabs-items 
                     v-model="tab" 
-                    class="py-3 mx-auto"
-                    width="900"
+                    class="py-3"
                 >
                     <v-tab-item
                         v-for="claim in claims"
@@ -76,6 +75,8 @@
                         <v-card
                             color="basil"
                             flat
+                            width="900"
+                            class=" mx-auto"
                             >
                             <v-card-text>{{ claim.content }}</v-card-text>
                         </v-card>
