@@ -69,8 +69,6 @@
                     </v-tab-item>
                 </v-tabs-items>  
 
-            
-
         <!-- 論点に対する主張 -->
             <v-card class="d-flex">
                 <v-tabs
@@ -153,7 +151,7 @@
                     <template>
                         <!-- <div> -->
                             <v-card
-                                color="#FFCDD2"
+                                color="#C62828"
                                 dark
                                 width="600"
                                 max-height="200"
@@ -163,7 +161,11 @@
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
                             <!-- データベースからテキストを描画 -->
-                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <v-card-text
+                                    class="font-weight-medium"
+                                >
+                                    {{claim_output.content}}
+                                </v-card-text>
                                 <!-- <v-card-text>賛成です。</v-card-text> -->
 
                                 <!-- アイコンを追加 -->
