@@ -99,7 +99,7 @@
                 background-color="transparent"
                 grow
                 class="py-3"
-                 color="#C62828"
+                color="indigo darken-4"
                 >
                     <v-tab href="#pros">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
