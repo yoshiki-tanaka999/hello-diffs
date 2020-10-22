@@ -3,7 +3,7 @@
         <!-- 投稿のタイトル(Postデータだけで完結) -->
         <v-card 
             class="title-card pt-3 mx-auto"
-            width="850"
+            width="900"
         >
             <v-card-title class="text-center justify-center py-6">
                 <h1 class="font-weight-bold display-5">
