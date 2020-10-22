@@ -1,5 +1,5 @@
 <template>
-    <v-app class="whole" color="basil">
+    <v-app class="whole" color="basil" width="900">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
         <v-card 
             class="title-card pt-3 mx-auto"
