@@ -38,7 +38,9 @@
                             :key="index"
                             :class="current === index ? 'current' : ''" @click="tabSelect(index)"
                             >
-                            <div >
+                            <div 
+                                class="font-weight-black"
+                            >
                                 {{ claim.issue }}
                             </div>
 
@@ -79,7 +81,7 @@
                             class=" mx-auto"
                             >
                             <v-card-text
-                            class="font-weight-black"
+                                class="font-weight-black"
                             >
                                 {{ claim.content }}
                             </v-card-text>
