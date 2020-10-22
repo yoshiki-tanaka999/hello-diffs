@@ -18,7 +18,7 @@
                         > -->
                         <v-img
                             class="img-background white--text align-end"
-                            height="300px" width="700px"
+                            height="300px" width="650px"
                             dark
                         >                        
                             <div class="modal-claim-header">
