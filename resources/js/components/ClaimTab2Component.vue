@@ -262,12 +262,7 @@
                     </template>  
                 </v-tab-item>
 
-            </v-tabs-items> 
-
-                <!-- カード②反対用 -->
-                        
-                <!-- カード②その他・補足 -->
-
+            </v-tabs-items>
         </v-container>
     </v-app>
 </template>
