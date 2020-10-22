@@ -97,11 +97,10 @@
                 <v-tabs
                 v-model="tab1"
                 background-color="transparent"
-                color="basil"
                 grow
                 class="py-3"
                 >
-                    <v-tab href="#pros">賛成
+                    <v-tab color="#C62828" href="#pros">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
