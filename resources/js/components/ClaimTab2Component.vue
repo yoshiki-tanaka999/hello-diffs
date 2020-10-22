@@ -80,8 +80,8 @@
                             color="basil"
                             flat
                             width="900"
-                            height="100"
-                            class=" mx-auto"
+                            height="50"
+                            class=" ma-auto"
                             >
                             <v-card-text
                                 class="font-weight-black"
