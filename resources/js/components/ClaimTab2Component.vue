@@ -183,7 +183,7 @@
                                 <!-- <v-card-text>賛成です。</v-card-text> -->
 
                                 <!-- アイコンを追加 -->
-                                <div>
+                                <div class="claimOutputValue">
                                     <div class="postStatusList d-flex">
                                         <!-- 「コメント数」 -->
                                         <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
@@ -215,7 +215,7 @@
                                 <v-card-text>{{claim_output.content}}</v-card-text>
                                 <!-- <v-card-text>反対です。</v-card-text> -->
                                 <!-- アイコンを追加 -->
-                                <div>
+                                <div class="claimOutputValue">
                                     <div class="postStatusList d-flex">
                                         <!-- 「コメント数」 -->
                                         <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
@@ -247,7 +247,7 @@
                                 <v-card-text>{{claim_output.content}}</v-card-text>
                                 <!-- <v-card-text>その他です。</v-card-text> -->
                                 <!-- アイコンを追加 -->
-                                <div>
+                                <div class="claimOutputValue">
                                     <div class="postStatusList d-flex">
                                         <!-- 「コメント数」 -->
                                         <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
@@ -481,7 +481,7 @@ export default {
     font-weight: bold;
 }
 
-.postStatusList {
+.claimOutputValue {
     float: right;
 }
 </style>
