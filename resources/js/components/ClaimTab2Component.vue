@@ -12,7 +12,10 @@
             </v-card-title>
         </v-card>
 
-        <v-container class="text-center justify-center py-6" justify="center">
+        <v-container 
+            class="text-center justify-center py-6" 
+            width="900"
+        >
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet elevation="3">
                 <v-card  class="d-flex">
