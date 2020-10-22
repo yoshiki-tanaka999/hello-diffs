@@ -487,6 +487,6 @@ export default {
 
 .claimOutputValue {
     float: right;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 </style>
