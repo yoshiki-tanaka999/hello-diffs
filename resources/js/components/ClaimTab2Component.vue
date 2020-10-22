@@ -1,7 +1,7 @@
 <template>
     <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
-        <v-card class="title-card pt-3">
+        <v-card class="title-card pt-2">
             <v-card-title class="text-center justify-center py-6">
                 <h1 class="font-weight-bold display-5">
                     {{ post.title }}
