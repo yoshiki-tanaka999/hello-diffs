@@ -164,7 +164,6 @@
                                 <v-card-text
                                     class="font-weight-black"
                                     color="white"
-                                    background-color="#FFCDD2"
                                 >
                                     {{claim_output.content}}
                                 </v-card-text>
