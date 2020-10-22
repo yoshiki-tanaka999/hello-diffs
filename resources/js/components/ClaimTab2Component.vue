@@ -21,7 +21,7 @@
                 width="900"
                 class=" mx-auto"
             >
-                <v-card  class="d-flex" width="900">
+                <v-card  class="d-flex">
                     <!-- v-forを入れる -->
                     <v-tabs
                         v-model="tab"
@@ -69,6 +69,7 @@
                 <v-tabs-items 
                     v-model="tab" 
                     class="py-3"
+                     width="900"
                 >
                     <v-tab-item
                         v-for="claim in claims"
