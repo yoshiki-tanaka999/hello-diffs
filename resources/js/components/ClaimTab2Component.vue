@@ -234,7 +234,7 @@
                     <template>   
                         <!-- <div v-show="currentTab === 2"> -->
                             <v-card
-                                color="#1565C0"
+                                color="#F9A825"
                                 dark
                                 width="600"
                                 max-height="200"
