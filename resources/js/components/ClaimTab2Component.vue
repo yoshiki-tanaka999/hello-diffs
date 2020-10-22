@@ -164,6 +164,7 @@
                 :key="claim_output.id"
                 :class="{ active: currentTab === index }"
                 @click="currentTab = index"
+                
             >
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
@@ -516,5 +517,9 @@ export default {
 .claimOutputValue {
     float: right;
     margin-right: 20px;
+}
+
+v-tabs-items {
+    background-color: transparent!important;
 }
 </style>
