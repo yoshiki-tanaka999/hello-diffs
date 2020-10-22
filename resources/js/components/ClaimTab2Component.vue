@@ -179,7 +179,7 @@
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
                             <!-- データベースからテキストを描画 -->
-                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <div>{{claim_output.content}}</div>
                                 <!-- <v-card-text>賛成です。</v-card-text> -->
 
                                 <!-- アイコンを追加 -->
