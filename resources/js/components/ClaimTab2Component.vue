@@ -96,7 +96,9 @@
                 background-color="transparent"
                 color="basil"
                 grow
-                class="py-3"
+                class="py-3 mx-auto"
+                width="900"
+
                 >
                     <v-tab href="#pros">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
