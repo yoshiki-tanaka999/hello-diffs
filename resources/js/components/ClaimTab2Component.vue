@@ -175,11 +175,14 @@
                             <v-card
                                 color="#FFCDD2"
                                 dark
+                                width="600"
+                                max-height="200"
+                                height="50"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
                             <!-- データベースからテキストを描画 -->
-                                <div>{{claim_output.content}}</div>
+                                <v-card-text>{{claim_output.content}}</v-card-text>
                                 <!-- <v-card-text>賛成です。</v-card-text> -->
 
                                 <!-- アイコンを追加 -->
