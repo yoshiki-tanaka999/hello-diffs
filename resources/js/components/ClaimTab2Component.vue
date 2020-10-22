@@ -21,7 +21,7 @@
                 width="900"
                 class=" mx-auto"
             >
-                <v-card  class="d-flex">
+                <v-card  class="d-flex" width="900">
                     <!-- v-forを入れる -->
                     <v-tabs
                         v-model="tab"
