@@ -193,13 +193,22 @@
                     <template>                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
-                                color="#385F73"
+                                color="#1565C0"
                                 dark
+                                width="600"
+                                max-height="200"
+                                height="85"
+                                class="mx-auto my-4"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
                             <!-- データベースからテキストを描画 -->
-                                <v-card-text>{{claim_output.content}}</v-card-text>
+                                <v-card-text
+                                    class="font-weight-black"
+                                    color="white"
+                                >
+                                    {{claim_output.content}}
+                                </v-card-text>
                                 <!-- <v-card-text>反対です。</v-card-text> -->
                                 <!-- アイコンを追加 -->
                                 <div class="claimOutputValue">
