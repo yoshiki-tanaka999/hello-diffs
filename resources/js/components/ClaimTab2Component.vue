@@ -245,7 +245,8 @@
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
-                                
+                                    class="font-weight-black"
+                                    color="white"                                
                                 >
                                     {{claim_output.content}}
                                 </v-card-text>
