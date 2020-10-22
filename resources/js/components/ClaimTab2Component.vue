@@ -13,12 +13,13 @@
         </v-card>
 
         <v-container 
-            class="text-center justify-center py-6 mx-auto" 
+            class="text-center justify-center py-6" 
         >
         <!-- 投稿の疑問に対する論点 -->
             <v-sheet 
                 elevation="3"
                 width="900"
+                class=" mx-auto"
             >
                 <v-card  class="d-flex">
                     <!-- v-forを入れる -->
