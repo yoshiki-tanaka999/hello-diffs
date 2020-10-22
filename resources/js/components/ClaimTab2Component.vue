@@ -176,8 +176,8 @@
                                 color="#FFCDD2"
                                 dark
                                 width="600"
-                                max-height="250"
-                                height="150"
+                                max-height="200"
+                                height="100"
                                 class="mx-auto my-3"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
