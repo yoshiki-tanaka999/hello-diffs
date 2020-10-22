@@ -79,7 +79,8 @@
                         <v-card
                             color="basil"
                             flat
-                            width="800"
+                            width="900"
+                            height="100"
                             class=" mx-auto"
                             >
                             <v-card-text
