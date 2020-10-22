@@ -177,8 +177,8 @@
                                 dark
                                 width="600"
                                 max-height="200"
-                                height="100"
-                                class="mx-auto my-3"
+                                height="85"
+                                class="mx-auto my-4"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
@@ -487,5 +487,6 @@ export default {
 
 .claimOutputValue {
     float: right;
+    margin-right: 10px;
 }
 </style>
