@@ -16,7 +16,7 @@
         <v-container 
             class="text-center justify-center py-6" 
         >
-        
+
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
@@ -116,38 +116,6 @@
                     </template>  
                 <!-- </div> -->
                 </v-tab-item>
-
-                <!-- <v-tab-item value="others"
-                    v-if=" claim_output.claim_flag === 'その他・補足' "
-                > -->
-
-                    <!-- <template>   
-                            <v-card
-                                color="#F9A825"
-                                dark
-                                width="600"
-                                max-height="200"
-                                height="85"
-                                class="mx-auto my-4"
-                            >
-
-                                <v-card-text
-                                    class="font-weight-black"
-                                    color="white"                                
-                                >
-                                    {{claim_output.content}}
-                                </v-card-text>
-                                <div class="claimOutputValue">
-                                    <div class="postStatusList d-flex">
-                                        <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                        <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                        <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                    </div>
-                                </div>                                
-                            </v-card>
-                    </template>   -->
-                    
-                <!-- </v-tab-item> -->
 
             </v-tabs-items>
         </v-container>
