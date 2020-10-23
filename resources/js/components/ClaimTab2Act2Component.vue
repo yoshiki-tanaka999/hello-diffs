@@ -17,6 +17,53 @@
             class="text-center justify-center py-6" 
         >
 
+                <!-- 論点に対する主張 -->
+            <v-card 
+                class="d-flex mx-auto"
+                width="900"
+            >
+                <v-tabs
+                v-model="tab1"
+                background-color="transparent"
+                grow
+                class="py-3"
+                color="indigo darken-4"
+                >
+                    <v-tab href="#pros" class="font-weight-black">賛成
+                        <!-- モーダルウィンドウ(claim_output) -->
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on2, attrs2 }">
+                                <div class= "open-modal-claim-outoput"
+                                    v-on:click="show = !show"
+                                    v-bind="attrs2"
+                                    v-on="on2"
+                                    >
+                                    <i class="fas fa-edit fa-2x ml-2"></i>
+                                </div>
+                            </template>
+                            <span>新しい論点を追加する</span>
+                        </v-tooltip>  
+                    </v-tab>
+
+                    <v-tab href="#cons" class="font-weight-black">反対
+                        <!-- モーダルウィンドウ(claim_output) -->
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on2, attrs2 }">
+                                <div class= "open-modal-claim-outoput"
+                                    v-on:click="show = !show"
+                                    v-bind="attrs2"
+                                    v-on="on2"
+                                    >
+                                    <i class="fas fa-edit fa-2x ml-2"></i>
+                                </div>
+                            </template>
+                            <span>新しい論点を追加する</span>
+                        </v-tooltip>  
+
+                    </v-tab>  
+                </v-tabs>
+            </v-card>
+
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCard-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCard-component>
 
