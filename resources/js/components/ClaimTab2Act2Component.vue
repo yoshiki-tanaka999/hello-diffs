@@ -138,8 +138,8 @@
                         </v-tooltip>  
 
                     </v-tab>        
-                    <v-tab href="#others" class="font-weight-black">その他・補足
-                        <!-- モーダルウィンドウ(claim_output) -->
+                    <!-- <v-tab href="#others" class="font-weight-black">その他・補足
+
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
@@ -153,7 +153,7 @@
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
 
-                    </v-tab>             
+                    </v-tab>              -->
                 </v-tabs>
             </v-card>
 
@@ -260,9 +260,8 @@
                 <v-tab-item value="others"
                     v-if=" claim_output.claim_flag === 'その他・補足' "
                 >
-                <!-- カード③その他用 -->
-                    <template>   
-                        <!-- <div v-show="currentTab === 2"> -->
+
+                    <!-- <template>   
                             <v-card
                                 color="#F9A825"
                                 dark
@@ -271,30 +270,23 @@
                                 height="85"
                                 class="mx-auto my-4"
                             >
-                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                            <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-black"
                                     color="white"                                
                                 >
                                     {{claim_output.content}}
                                 </v-card-text>
-                                <!-- <v-card-text>その他です。</v-card-text> -->
-                                <!-- アイコンを追加 -->
                                 <div class="claimOutputValue">
                                     <div class="postStatusList d-flex">
-                                        <!-- 「コメント数」 -->
                                         <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                        <!-- 「参加者数」 -->
                                         <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                        <!-- 「ブックマークされた数」 -->
                                         <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
                                     </div>
                                 </div>                                
                             </v-card>
-                        <!-- </div>     -->
-                    </template>  
+                    </template>   -->
+                    
                 </v-tab-item>
 
             </v-tabs-items>
