@@ -257,9 +257,9 @@
                 <!-- </div> -->
                 </v-tab-item>
 
-                <v-tab-item value="others"
+                <!-- <v-tab-item value="others"
                     v-if=" claim_output.claim_flag === 'その他・補足' "
-                >
+                > -->
 
                     <!-- <template>   
                             <v-card
