@@ -20,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\ApiImageController' => $baseDir . '/app/Http/Controllers/ApiImageController.php',
     'App\\Http\\Controllers\\ApiPostController' => $baseDir . '/app/Http/Controllers/ApiPostController.php',
     'App\\Http\\Controllers\\ApiPostSelectController' => $baseDir . '/app/Http/Controllers/ApiPostSelectController.php',
+    'App\\Http\\Controllers\\ApiS3Controller' => $baseDir . '/app/Http/Controllers/ApiS3Controller.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\ClaimController' => $baseDir . '/app/Http/Controllers/ClaimController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',

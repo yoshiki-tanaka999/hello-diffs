@@ -567,6 +567,7 @@ class ComposerStaticInit661d49920cf040240517d2aa10c652d5
         'App\\Http\\Controllers\\ApiImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiImageController.php',
         'App\\Http\\Controllers\\ApiPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiPostController.php',
         'App\\Http\\Controllers\\ApiPostSelectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiPostSelectController.php',
+        'App\\Http\\Controllers\\ApiS3Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiS3Controller.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\ClaimController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClaimController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
