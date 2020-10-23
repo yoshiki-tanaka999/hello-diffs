@@ -287,7 +287,7 @@
                             </v-card>
                     </template>   -->
                     
-                </v-tab-item>
+                <!-- </v-tab-item> -->
 
             </v-tabs-items>
         </v-container>
