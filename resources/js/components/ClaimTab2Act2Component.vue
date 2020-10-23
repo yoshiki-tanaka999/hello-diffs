@@ -251,47 +251,6 @@ export default {
         },                        
 
         },
-        // watch: {
-        //     currentTab: function() {
-        //         if (this.currentTab === 0) {
-        //             const claimOutputTestData = this.claim_outputs
-        //             const result_pros = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "反対")
-        //             return result_pros
-        //         } else if (this.currentTab === 1) {
-        //             const claimOutputTestData = this.claim_outputs
-        //             const result_cons = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "反対")
-        //             return result_cons                    
-        //         } else {
-        //             const claimOutputTestData = this.claim_outputs
-        //             const result_others = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_flag === "その他・補足")
-        //             return result_others    
-        //         }
-        //     }
-            // メソッドチェーン
-            // claim_outputTestFiltered()  {
-            //     const claimOutputTestData = this.claim_outputs
-            //     if(this.currentTab === 0) {
-            //         // claim_flagが”賛成”のとき
-            //         const result_pros = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "反対")
-            //         console.log(result_pros);
-            //         return result_pros
-            //     } else if (this.currentTab === 1) {
-            //         // claim_flagが”反対”のとき
-            //         const result_cons = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "反対")
-            //         console.log(result_cons);
-            //         return result_cons
-            //     } else if (this.currentTab === 2) {
-            //         // claim_flagが”その他・補足”のとき
-            //         const result_others = claimOutputTestData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-            //                                             .filter(claim_outputs => claim_outputs.claim_flag === "その他・補足")
-            //         console.log(result_cons);
-            //         return result_others
-            //     } else {
-            //         console.log("データを取得できませんでした");
-            //     }
-            // }
     }
 
 </script>
