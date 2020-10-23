@@ -9,13 +9,15 @@
 
         <v-main id="main">
 
-            <!-- <ClaimTab2-component v-bind:id="id" @child-event="parentMethod(payload)"></ClaimTab2-component>  -->
-            <ClaimTab2-component v-bind:id="id"></ClaimTab2-component> 
-            <!-- id要らないかも -->
-            <!-- <ClaimTabModal-component v-bind:id="id"></ClaimTabModal-component>    -->
-            <ClaimTabModal-component v-bind:id="id" ></ClaimTabModal-component> 
-            <!-- <ClaimOutputCard-component v-bind:id="id" :claimId="claimId"></ClaimOutputCard-component>              -->
-            <!-- <ClaimOutputTabModal-component v-bind:id="id"></ClaimOutputTabModal-component>    -->
+        <!-- セレクション時点 -->
+            <!-- <ClaimTab2-component v-bind:id="id"></ClaimTab2-component> 
+            <ClaimTabModal-component v-bind:id="id" ></ClaimTabModal-component>  -->
+
+
+        <!-- Hello-diffs act2 -->
+            <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component> 
+            <ClaimTabAct2Modal-component v-bind:id="id" ></ClaimTabAct2Modal-component> 
+
         </v-main>
     </v-app>
 </template>

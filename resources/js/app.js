@@ -107,6 +107,11 @@ Vue.component('ClaimsPros-component', require('./components/ClaimsProsComponent.
 Vue.component('ClaimsCons-component', require('./components/ClaimsConsComponent.vue').default);
 Vue.component('ClaimsOthers-component', require('./components/ClaimsOthersComponent.vue').default);
 
+// Act2
+Vue.component('ClaimTabAct2Modal-component', require('./components/ClaimTabAct2ModalComponent.vue').default);
+Vue.component('ClaimTab2Act2-component', require('./components/ClaimTab2Act2Component.vue').default);
+
+
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);
 

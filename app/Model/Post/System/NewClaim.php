@@ -3,8 +3,9 @@
 namespace App\Model\Post\system;
 
 use Illuminate\Database\Eloquent\Model;
+use SoftDeletes;
 
-class Claim extends Model
+class NewClaim extends Model
 {
     protected $fillable = ['post_id', 'content', 'participant_id'];
 

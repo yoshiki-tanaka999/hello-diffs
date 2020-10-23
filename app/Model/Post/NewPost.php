@@ -3,8 +3,9 @@
 namespace App\Model\Post;
 
 use Illuminate\Database\Eloquent\Model;
+use SoftDeletes;
 
-class Post extends Model
+class NewPost extends Model
 {
     protected $guarded = ['id'];
 
