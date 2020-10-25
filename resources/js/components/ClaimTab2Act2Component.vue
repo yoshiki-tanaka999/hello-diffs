@@ -233,19 +233,19 @@ export default {
             // },
 
             // Outputでなく、Claimテーブルにする
-            // getClaim() {
-            //     axios.get('/api/claim')
-            //     .then((res) => {
-            //         this.claim = res.data;
-            //         // this.claimId = this.claims[index].id
-            //         console.log(this.claim);  
-            //         // その他・補足のデータ
-            //     })
-            // },
+            getClaim() {
+                axios.get('/api/claim')
+                .then((res) => {
+                    this.claim = res.data;
+                    // this.claimId = this.claims[index].id
+                    console.log(this.claim);  
+                    // その他・補足のデータ
+                })
+            },
     },
     mounted() {
         this.getPost();
-        this.getClaimOutput();
+        this.getClaim();
         // this.getIssue();
     },
     created() {
