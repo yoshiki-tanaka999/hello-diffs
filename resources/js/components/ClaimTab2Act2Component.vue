@@ -65,7 +65,7 @@
             </v-card>
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardAct2-component :id="id" :claimId="claimId" v-if="show"></ClaimOutputCardAct2-component>
+            <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
 
             <v-tabs-items 
                 v-model="tab1"
