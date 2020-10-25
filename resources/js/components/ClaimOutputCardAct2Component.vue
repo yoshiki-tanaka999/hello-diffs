@@ -139,9 +139,9 @@ export default {
                 .catch(err => {
                     this.message = err.response.data.errors;
                 })
-                .finally(function(){
-                location.reload(true);
-                });
+                // .finally(function(){
+                // location.reload(true);
+                // });
         },
     },
     mounted() {
