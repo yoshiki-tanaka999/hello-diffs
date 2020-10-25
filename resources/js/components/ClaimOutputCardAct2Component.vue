@@ -32,7 +32,7 @@
                             text
                             class="claim-output-btn"
                             v-bind:disabled="isPush"
-                            @click="uploadClaimOutput(index)"
+                            @click="uploadClaim(index)"
                         >
                             意見を投稿！
                         </v-btn>
@@ -87,14 +87,44 @@ export default {
             // console.log(claim_flag);
         },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
-        uploadClaimOutput() {
+        // uploadClaimOutput() {
+        //     // let claim_flag = this.options[index].value;
+        //     let post_id = this.id;
+        //     let claim_id = this.claimId;
+        //     let data = new FormData();
+        //     // postデータ(id)を取得する
+        //     data.append("post_id", post_id);
+        //     data.append("claim_id", claim_id);
+        //     data.append("claim_flag", this.claim_flag);
+        //     data.append("content", this.content);
+        //     axios
+        //         .post("/api/claim_output", data)
+        //         .then(response => {
+        //             // this.getImage();
+        //             this.message = response.data.success;
+        //             // this.confirmedImage = "";
+        //             this.claim_flag = "";
+        //             this.content = "";
+        //         })
+        //         .catch(err => {
+        //             this.message = err.response.data.errors;
+        //         })
+        //         .finally(function(){
+        //         location.reload(true);
+        //         });
+        // },
+            uploadClaim() {
             // let claim_flag = this.options[index].value;
             let post_id = this.id;
-            let claim_id = this.claimId;
+            // Claim_levelは条件分岐
+            // 今の階層のClaim_levelの情報を取得して、+1する
+            // 最初は、Postデータが、0階層となっているので、その次の階層
+            // それ以降は、個々のClaimに対して、＋1する処理を加える
+            let claim_level = this.post.claim_level;
             let data = new FormData();
             // postデータ(id)を取得する
             data.append("post_id", post_id);
-            data.append("claim_id", claim_id);
+            data.append("claim_level", claim_level +1);
             data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
             axios
@@ -112,7 +142,7 @@ export default {
                 .finally(function(){
                 location.reload(true);
                 });
-        }
+        },
     },
     mounted() {
         this.getPost();
