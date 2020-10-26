@@ -33,7 +33,7 @@ export default {
                     // this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
                     // console.log(this.post);  
-                    // console.log(this.claims);  
+                    // console.log(this.claims);
                 })
             },
     },
