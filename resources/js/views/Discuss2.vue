@@ -15,6 +15,7 @@
 
 
         <!-- Hello-diffs act2 -->
+            <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
             <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component> 
             <ClaimTabAct2Modal-component v-bind:id="id" ></ClaimTabAct2Modal-component> 
 

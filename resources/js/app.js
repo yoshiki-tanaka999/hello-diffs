@@ -108,6 +108,7 @@ Vue.component('ClaimsCons-component', require('./components/ClaimsConsComponent.
 Vue.component('ClaimsOthers-component', require('./components/ClaimsOthersComponent.vue').default);
 
 // Act2
+Vue.component('ClaimPostTitle-component', require('./components/ClaimPostTitleComponent.vue').default);
 Vue.component('ClaimTabAct2Modal-component', require('./components/ClaimTabAct2ModalComponent.vue').default);
 Vue.component('ClaimTab2Act2-component', require('./components/ClaimTab2Act2Component.vue').default);
 Vue.component('ClaimOutputCardAct2-component', require('./components/ClaimOutputCardAct2Component.vue').default);
