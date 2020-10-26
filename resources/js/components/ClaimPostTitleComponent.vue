@@ -36,7 +36,10 @@ export default {
                     // console.log(this.claims);  
                 })
             },
-    }
+    },
+    mounted() {
+        this.getPost();
+    },
 }
 </script>
 
