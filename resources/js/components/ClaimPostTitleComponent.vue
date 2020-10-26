@@ -30,7 +30,7 @@ export default {
                 axios.get('/api/posts/' + this.id)
                 .then((res) => {
                     this.post = res.data;
-                    this.claims = this.post.claims
+                    // this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
                     // console.log(this.post);  
                     // console.log(this.claims);  
