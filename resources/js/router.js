@@ -145,7 +145,7 @@ const router = new Router({
           component: ClaimTab2Act2 ,
         },
         {
-          path: '/claim/:id(\\d+)',
+          path: '/:claimId(\\d+)',
           component: ClaimLayerviewAct2 ,
           props: true,
           // props: (route) => ({
