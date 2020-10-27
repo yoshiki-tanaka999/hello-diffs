@@ -53,7 +53,6 @@
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
-            <router-view/>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -157,6 +156,8 @@
                 </v-tab-item>
 
             </v-tabs-items>
+
+                        <router-view/>
         </v-container>
     </v-app>
 </template>
