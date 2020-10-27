@@ -1,4 +1,4 @@
-// Act２
+// LayerView
 <template>
     <v-app class="whole" color="basil">
         <v-container 
