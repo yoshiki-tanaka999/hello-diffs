@@ -136,25 +136,25 @@ const router = new Router({
       name: 'Discuss2',
       component: require("./views/Discuss2.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
-      props: (route) => ({
-        id: Number(route.params.id)
-      }),
-      children: [
-        {
-          path: '',
-          component: ClaimTab2Act2 ,
-          props: true,
-        },
-        {
-          path: ':claimContent',
-          name: 'ClaimLayerViewAct2',
-          component: ClaimLayerViewAct2 ,
-          props: true,
-          // props: (route) => ({
-          //   claimId: Number(route.params.id)
-          // }),
-        },          
-      ],
+        props: (route) => ({
+          id: Number(route.params.id)
+        }),
+        children: [
+          {
+            path: '',
+            component: ClaimTab2Act2 ,
+            props: true,
+          },
+          {
+            path: ':claimContent',
+            name: 'ClaimLayerViewAct2',
+            component: ClaimLayerViewAct2 ,
+            props: true,
+            // props: (route) => ({
+            //   claimId: Number(route.params.id)
+            // }),
+          },          
+        ],
     },
     {
       path: '/home',
