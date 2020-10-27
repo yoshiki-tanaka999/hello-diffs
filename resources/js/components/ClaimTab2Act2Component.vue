@@ -157,7 +157,6 @@
 
             </v-tabs-items>
 
-                        <router-view/>
         </v-container>
     </v-app>
 </template>
