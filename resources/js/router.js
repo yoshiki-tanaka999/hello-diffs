@@ -51,7 +51,7 @@ import ClaimsCons from './components/ClaimsConsComponent'
 import ClaimsOthers from './components/ClaimsOthersComponent'
 
 import ClaimTab2Act2 from './components/ClaimTab2Act2Component'
-import ClaimLayerviewAct2 from './components/ClaimLayerviewAct2Component'
+import ClaimLayerViewAct2 from './components/ClaimLayerviewAct2Component'
 
 
 // Register
@@ -146,7 +146,8 @@ const router = new Router({
         },
         {
           path: '/:claimId(\\d+)',
-          component: ClaimLayerviewAct2 ,
+          name: 'ClaimLayerViewAct2',
+          component: ClaimLayerViewAct2 ,
           props: true,
           // props: (route) => ({
           //   claimId: Number(route.params.id)
