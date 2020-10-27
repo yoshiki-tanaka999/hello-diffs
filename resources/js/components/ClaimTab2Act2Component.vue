@@ -82,7 +82,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimId : claim.content }}" >
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content }}" >
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
