@@ -53,6 +53,7 @@
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
+            <router-view/>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -83,7 +84,7 @@
                             class="mx-auto my-4"
                         >
                             <router-link :to="{ name: 'ClaimLayerviewAct2', params: { id: post.id }}">
-                                
+
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-black"
