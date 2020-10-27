@@ -50,6 +50,10 @@ import ClaimsPros from './components/ClaimsProsComponent'
 import ClaimsCons from './components/ClaimsConsComponent'
 import ClaimsOthers from './components/ClaimsOthersComponent'
 
+import ClaimTab2Act2 from './components/ClaimTab2Act2Component'
+import ClaimLayerviewAct2 from './components/ClaimLayerviewAct2Component'
+
+
 // Register
 import Register from './views/Register'
 // Login
@@ -135,6 +139,19 @@ const router = new Router({
       props: (route) => ({
         id: Number(route.params.id)
       }),
+      children: [
+        {
+          path: '',
+          component: ClaimTab2Act2 ,
+        },
+        {
+          path: '/claim/:id(\\d+)',
+          component: ClaimLayerviewAct2 ,
+          // props: (route) => ({
+          //   claimId: Number(route.params.id)
+          // }),
+        },          
+      ],
     },
     {
       path: '/home',
