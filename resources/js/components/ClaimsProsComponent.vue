@@ -38,7 +38,7 @@
 export default {
     props: {
         id: Number,
-        // claimId: Number,
+        claimId: Number,
     },
     data () {
         return {
