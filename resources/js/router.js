@@ -143,6 +143,7 @@ const router = new Router({
         {
           path: '',
           component: ClaimTab2Act2 ,
+          props: true,
         },
         {
           path: ':claimContent',
