@@ -144,7 +144,9 @@ const router = new Router({
             path: '/discuss/:id(\\d+)',
 
             component: ClaimTab2Act2 ,
-            props: true,
+            props: (route) => ({
+              id: Number(route.params.id)
+            }),
           },
           {
             path: ':claimContent',
