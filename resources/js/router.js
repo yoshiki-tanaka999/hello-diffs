@@ -141,7 +141,8 @@ const router = new Router({
         }),
         children: [
           {
-            path: '',
+            path: '/discuss/:id(\\d+)',
+
             component: ClaimTab2Act2 ,
             props: true,
           },
