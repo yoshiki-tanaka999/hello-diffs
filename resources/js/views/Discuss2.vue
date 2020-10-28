@@ -27,10 +27,10 @@
 <script>
 import ClaimTab2 from  '../components/ClaimTab2Component.vue'
 export default {
-    name: 'Discuss2',
-        components: {
-            ClaimTab2
-        },
+    // name: 'Discuss2',
+    //     components: {
+    //         ClaimTab2
+    //     },
     data: function(){
     return{
             id: Number(this.$route.params.id),
