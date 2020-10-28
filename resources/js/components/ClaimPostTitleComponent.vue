@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 a.router-link-exact-active h1 {
-  color: #f00;
+  color: black;
 }
 
 </style>
