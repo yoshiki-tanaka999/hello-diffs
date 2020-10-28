@@ -82,7 +82,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" >
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -130,7 +130,7 @@
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" >
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
                                 <!-- データベースからテキストを描画 -->
                                     <v-card-text
                                         class="font-weight-black"
@@ -306,5 +306,13 @@ export default {
 
 .theme--light.v-tabs-items {
     background-color: transparent!important;
+}
+
+a.router-link-exact-active v-card-text {
+    color: white;
+}
+
+a.router-link-exact-active i {
+    color: white;
 }
 </style>
