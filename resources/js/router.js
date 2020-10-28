@@ -142,11 +142,11 @@ const router = new Router({
         children: [
           {
             path: '',
-
             component: ClaimTab2Act2 ,
-            props: (route) => ({
-              id: Number(route.params.id)
-            }),
+            props: true,
+            // props: (route) => ({
+            //   id: Number(route.params.id)
+            // }),
           },
           {
             path: ':claimContent',
