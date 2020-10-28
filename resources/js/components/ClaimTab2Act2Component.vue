@@ -172,7 +172,6 @@ export default {
     },
     data () {
         return {
-            id: Number(this.$route.params.id),
             post: [],
             // 論点の整理関連
             default: 0,
