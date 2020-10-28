@@ -185,7 +185,7 @@ export default {
     props: {
         id: Number,
         // claimId: Number,
-        claimContent : claim.content,
+        claimContent : this.claim.content,
     },
     data () {
         return {
