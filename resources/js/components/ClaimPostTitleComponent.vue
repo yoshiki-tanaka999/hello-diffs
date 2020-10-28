@@ -5,7 +5,7 @@
             class="title-card pt-3 mx-auto"
             width="900"
         >
-            <router-link :to="{name: 'ClaimTab2Act2', params: { id : id}}" >
+            <router-link :to="{name: 'ClaimTab2Act2', params: { id : id}}" exact>
                 <v-card-title class="text-center justify-center py-6">
                     <h1 class="font-weight-bold display-5">
                         {{ post.title }}
@@ -45,6 +45,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+a.router-link-exact-active h1 {
+  color: #f00;
+}
 
 </style>
