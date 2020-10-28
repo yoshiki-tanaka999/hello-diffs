@@ -204,35 +204,23 @@ export default {
                 .then((res) => {
                     this.post = res.data;
                     this.claims = this.post.claims
-                    // this.claimId = this.claims[index].id
-                    // console.log(this.post);  
-                    // console.log(this.claims);  
+
                 })
             },
             tabSelect(index) {
                 this.current = index;
                 this.claimId = this.claims[index].id
-                // this.$emit('child-event', this.claimId);
-                // console.log(this.current);
+
                 // claim_idの取得完了
                 console.log(this.claimId);
             },
-            // getClaimOutput() {
-            //     axios.get('/api/claim_output')
-            //     .then((res) => {
-            //         this.claim_outputs = res.data;
-            //         // this.claimId = this.claims[index].id
-            //         console.log(this.claim_outputs);  
-            //         // その他・補足のデータ
-            //     })
-            // },
+
 
             // Outputでなく、Claimテーブルにする
             getClaim() {
                 axios.get('/api/claim')
                 .then((res) => {
                     this.claim = res.data;
-                    // this.claimId = this.claims[index].id
                     console.log(this.claim);  
                     // その他・補足のデータ
                 })
@@ -259,46 +247,14 @@ export default {
                 return claim_output.claim_flag === "反対"
             })
         },
-        // // その他・補足意見の紐付け
-        // getAnotherClaim() {
-        // return this.claim_outputs.filter(claim_output => {
-        //         return claim_output.claim_flag === "その他・反対意見"
-        //     })
-        // },
-        // // 論点と、意見の紐付け
-        // claim_outputFiltered() {
-        //     const claimOutputData = this.claim_outputs
-        //     const result = claimOutputData.filter(claim_outputs => claim_outputs.claim_id === this.claimId)
-        //     return result;
-        // },
         claimTestFiltered() {
             const claimOutputTestData = this.claims
             const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
             return result;
             console.log(result);
-        },
-        // v-forの2つ目
-        // claim_outputTestFiltered_pros() {
-        //     const claimOutputTestData_pros = this.claim_outputs
-        //     const result_pros = claimOutputTestData_pros.filter(claim_outputs => {
-        //         claim_outputs.claim_id === this.claimId &&
-        //         claim_outputs.claim_flag === "成功" 
-        //         })
-        //     return result_pros;
-        // },
-        // claim_outputTestFiltered_cons(claim_output) {
-        //     const claimOutputTestData_cons = this.result
-        //     const result_cons = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "反対")
-        //     return result_cons;
-        // }, 
-        // claim_outputTestFiltered_others(claim_output) {
-        //     const claimOutputTestData_cons = this.result
-        //     const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
-        //     return result_others;
-        // },                        
-
-        },
-    }
+        },                     
+    },
+}
 
 </script>
 
