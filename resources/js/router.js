@@ -51,7 +51,7 @@ import ClaimsCons from './components/ClaimsConsComponent'
 import ClaimsOthers from './components/ClaimsOthersComponent'
 
 import ClaimTab2Act2 from './components/ClaimTab2Act2Component'
-import ClaimLayerViewAct2 from './components/ClaimLayerviewAct2Component'
+import ClaimLayerViewAct2 from './components/ClaimLayerViewAct2Component'
 
 
 // Register
