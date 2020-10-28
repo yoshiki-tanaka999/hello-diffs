@@ -2,25 +2,26 @@
 <template>
     <v-app class="whole" color="basil">
 
-    <!-- クリックしたclaim.contentが表示される -->
-    <v-card
-        color="basil"
-        flat
-        width="900"
-        height="50"
-        class=" ma-auto"
-        >
-        <v-card-text
-            class="font-weight-black ma-auto"
-            width="900"
-        >
-            {{ claim.content }}
-        </v-card-text>
-    </v-card>
-
         <v-container 
             class="text-center justify-center py-6" 
         >
+
+            <!-- クリックしたclaim.contentが表示される -->
+            <v-card
+                color="basil"
+                flat
+                width="900"
+                height="50"
+                class=" ma-auto"
+                >
+                <v-card-text
+                    class="font-weight-black ma-auto"
+                    width="900"
+                >
+                    {{ claim.content }}
+                </v-card-text>
+            </v-card>
+
                 <!-- 論点に対する主張 -->
             <v-card 
                 class="d-flex mx-auto"

@@ -20,6 +20,7 @@
 export default {
     props: {
         id: Number,
+        claimContent : claim.content,
         // claimId: Number,
     },
     data () {
