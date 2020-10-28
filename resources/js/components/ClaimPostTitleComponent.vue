@@ -5,11 +5,13 @@
             class="title-card pt-3 mx-auto"
             width="900"
         >
-            <v-card-title class="text-center justify-center py-6">
-                <h1 class="font-weight-bold display-5">
-                    {{ post.title }}
-                </h1>
-            </v-card-title>
+            <router-link :to="{name: 'ClaimTab2Act2', params: { id : id}}" >
+                <v-card-title class="text-center justify-center py-6">
+                    <h1 class="font-weight-bold display-5">
+                        {{ post.title }}
+                    </h1>
+                </v-card-title>
+            </router-link> 
         </v-card>
         <!-- ↑↑までをコンポーネント化 →Discuss2に描画↑↑ -->
 </template>
