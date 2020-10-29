@@ -181,7 +181,7 @@
 
 <script>
 export default {
-    name:'ClaimTab2',
+    // name:'ClaimTab2',
     props: {
         id: Number,
         // claimId: Number,
