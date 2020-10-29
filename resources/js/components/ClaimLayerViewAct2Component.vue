@@ -183,7 +183,8 @@
 export default {
     // name:'ClaimTab2',
     props: {
-        id: Number,
+        // id: Number,
+        id: String,        
         // claimId: Number,
         claimContent : String,
     },
