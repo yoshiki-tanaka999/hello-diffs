@@ -4,6 +4,8 @@
         <v-container 
             class="text-center justify-center py-6" 
         >
+        <router-view/>
+
                 <!-- 論点に対する主張 -->
             <v-card 
                 class="d-flex mx-auto"
