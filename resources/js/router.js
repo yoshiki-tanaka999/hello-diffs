@@ -145,10 +145,10 @@ const router = new Router({
             path: '',
             name: 'ClaimTab2Act2',
             component: ClaimTab2Act2 ,
-            props: true,
-            // props: (route) => ({
-            //   id: Number(route.params.id)
-            // }),
+            // props: true,
+            props: (route) => ({
+              id: Number(route.params.id)
+            }),
           },
           {
             path: ':claimContent',
