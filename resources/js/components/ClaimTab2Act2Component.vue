@@ -169,8 +169,9 @@
 export default {
     name:'ClaimTab2',
     props: {
-        id: Number,
+        // id: Number,
         // claimId: Number,
+        id: Number(this.$route.params.id),
     },
     data () {
         return {
