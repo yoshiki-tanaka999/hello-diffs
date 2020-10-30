@@ -154,10 +154,10 @@ const router = new Router({
             path: ':claimContent',
             name: 'ClaimLayerViewAct2',
             component: ClaimLayerViewAct2 ,
-            props: true,
-            // props: (route) => ({
-            //   claimId: Number(route.params.id)
-            // }),
+            // props: true,
+            props: (route) => ({
+              id: Number(route.params.id)
+            }),
           },          
         ],
     },
