@@ -4,7 +4,6 @@
         <v-container 
             class="text-center justify-center py-6" 
         >
-        <router-view :id="id" />
 
                 <!-- 論点に対する主張 -->
             <v-card 
