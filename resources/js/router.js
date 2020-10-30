@@ -132,7 +132,7 @@ const router = new Router({
       // ★★デプロイ時点★★
       // ★★ディスカッションページ★★
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
-      path: '/discuss/:id(\\d+)', 
+      path: '/discuss/:id(\\d+)/post', 
       // Warningのonnsyお洋
       name: 'Discuss2',
       component: require("./views/Discuss2.vue").default,
