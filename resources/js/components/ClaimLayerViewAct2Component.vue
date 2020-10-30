@@ -17,6 +17,7 @@
                 <v-card-text
                     class="font-weight-black ma-auto"
                     width="900"
+                    color="black"
                 >
                     {{ claim.content }}
                 </v-card-text>
