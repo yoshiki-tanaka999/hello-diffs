@@ -142,7 +142,7 @@ const router = new Router({
         }),
         children: [
           {
-            path: '',
+            path: 'post',
             name: 'ClaimTab2Act2',
             component: ClaimTab2Act2 ,
             // props: true,
