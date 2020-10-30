@@ -156,7 +156,8 @@ const router = new Router({
             component: ClaimLayerViewAct2 ,
             // props: true,
             props: (route) => ({
-              id: Number(route.params.id)
+              id: Number(route.params.id),
+              claimContent : claim.content
             }),
           },          
         ],
