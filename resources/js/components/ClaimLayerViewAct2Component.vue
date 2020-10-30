@@ -19,7 +19,8 @@
                     width="900"
                     color="black"
                 >
-                    {{ claim.content }}
+                あああ
+                    <!-- {{ claim.content }} -->
                 </v-card-text>
             </v-card>
 
