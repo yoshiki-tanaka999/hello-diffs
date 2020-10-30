@@ -17,7 +17,7 @@
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
-                    <router-link to="/discuss/:id(\\d+)/post" params: { id: Number(post.id) }
+                    <router-link to="/discuss/:id(\\d+)/post" params: id: Number(post.id) 
                     >
                     <!-- <router-link :to="`/discuss/${ post.id }`"
                     > -->
