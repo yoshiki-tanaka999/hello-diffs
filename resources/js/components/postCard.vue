@@ -90,6 +90,7 @@ export default {
     },
     data() {
         return {
+            id: Number(this.$route.params.id),
             paramsId:"",
             message: "",
             view: true,
