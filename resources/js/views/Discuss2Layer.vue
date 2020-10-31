@@ -35,6 +35,7 @@ export default {
     data: function(){
     return{
             id: Number(this.$route.params.id),
+            claimContent : route.params.claimContent,
             claimId: ""
         }
     // console.log(id);
