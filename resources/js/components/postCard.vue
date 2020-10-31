@@ -90,7 +90,6 @@ export default {
     },
     data() {
         return {
-            id: Number(this.$route.params.id),
             paramsId:"",
             message: "",
             view: true,
@@ -102,6 +101,7 @@ export default {
             //カードの開封 
             show: false,
             // アイコン
+            id: Number(this.post.id),
         };
     },
     // computed: {
