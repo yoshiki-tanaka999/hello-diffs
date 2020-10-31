@@ -186,10 +186,10 @@ export default {
             show: false,
             tab: null,
             tab1: null,
-            items: [
-                '賛成', '反対', '補足・その他',
-            ],
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            // items: [
+            //     '賛成', '反対', '補足・その他',
+            // ],
+            // text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             // どのTabが選択されているか
             // activeTab: 'tab1'
             claim_outputs: [],
