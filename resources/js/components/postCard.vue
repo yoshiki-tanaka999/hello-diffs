@@ -142,13 +142,15 @@ export default {
                 location.reload(true);
                 });
         },
-        getId() {
-            const id = this.post.id;
-            console.log(id);
-        }       
+        // getId() {
+        //     const id = this.post.id;
+        //     console.log(id);
+        // }       
     },
-    computed() {
-        getId()
+    computed: {
+        getId: function () {
+            const id = this.post.id;
+        }
     }
 }
 
