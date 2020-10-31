@@ -19,8 +19,8 @@
                     width="900"
                     color="black"
                 >
-                    {{ claimContent }}
-                    <!-- {{ claim.content }} -->
+                    <!-- {{ claimContent }} -->
+                    {{ claim.content }}
                 </v-card-text>
             </v-card>
 
