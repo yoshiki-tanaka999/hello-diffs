@@ -101,7 +101,7 @@ export default {
             //カードの開封 
             show: false,
             // アイコン
-            id: Number(this.post.id),
+            id: "",
         };
     },
     // computed: {
@@ -141,8 +141,15 @@ export default {
                 .finally(function(){
                 location.reload(true);
                 });
-        },       
+        },
+        getId() {
+            const id = this.post.id;
+            console.log(id);
+        }       
     },
+    computed() {
+        getId()
+    }
 }
 
 </script>
