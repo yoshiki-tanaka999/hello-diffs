@@ -17,8 +17,8 @@
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
-                    <!-- <router-link :to="{ name: 'Discuss2' , params: { id: Number(post.id) }}"> -->
-                    <router-link to="/discuss/:id">
+                    <router-link :to="{ name: 'Discuss2' , params: { id: Number(post.id) }}">
+                    <!-- <router-link to="/discuss/:id"> -->
                     <!-- Not found -->
                     <!-- <router-link :to="`/discuss/${ post.id }`"
                     > -->
@@ -147,11 +147,11 @@ export default {
         //     console.log(id);
         // }       
     },
-    computed: {
-        getId: function () {
-            const id = this.post.id;
-        }
-    }
+    // computed: {
+    //     getId: function () {
+    //         const id = this.post.id;
+    //     }
+    // }
 }
 
 </script>
