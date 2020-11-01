@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Post\post;
+use App\Model\Post\Post;
+use App\Model\Post\System\Claim;
 
 
 class ApiPostSelectController extends Controller
@@ -19,7 +20,11 @@ class ApiPostSelectController extends Controller
     }
     public function show($id)
     {
-        $post = Post::find($id);
+        // $post = Post::find($id);
+        // return $post;
+
+        // claimsにpost_idを紐付ける
+        $post = Post::with('claims')->find($id);
         return $post;
     }
 

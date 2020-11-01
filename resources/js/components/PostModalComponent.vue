@@ -7,7 +7,7 @@
             style="background-color:rgba(0,0,0,0.5)"
             >
         <!-- モーダルウィンドウの中身 -->
-            <div class="modal-content" v-on:click.stop>
+            <div class="modal-content">
                 <div class="modal-content-whole">
                     <div class="modal-content-title">
                         <h2 class="modal-content-title-name">議題を作成する</h2>
@@ -19,7 +19,7 @@
 
                     <p>身近で気になる疑問や問題提起を投稿してみましょう。<br>
                     議論を深める中で、思わぬ発見につながるかもしれません。</p>
-                    <!-- <form method="post"> -->
+                    <!-- <form method="post" enctype="multipart/form-data"> -->
                         <!-- テーマタイトル -->
                         <div class="modal-content-subheading">議題(40文字以内)</div>
                         <div class="modal-content-margin">
@@ -54,6 +54,8 @@
                         <div class="modal-content-margin">
                             <input 
                                 type="file" 
+                                name="datafile"
+                                
                                 @change="confirmImage"
                                 v-if="view"
                             />
@@ -95,7 +97,7 @@ export default {
             posts: {},
             confirmedImage: "",
             //カードの開封 
-            show: false,
+            show: false, 
         };
     },
     computed: {
@@ -115,7 +117,7 @@ export default {
         ]),
         getImage() {
             axios
-                .get("/api/images/")
+                .get("/api/images")
                 .then(response => {
                     this.posts = response.data;
                 })
@@ -145,9 +147,8 @@ export default {
             data.append("file", this.file);
             data.append("title", this.title);
             data.append("description", this.description);
- 
             axios
-                .post("/api/images/", data)
+                .post("/api/images", data)
                 .then(response => {
                     this.getImage();
                     this.message = response.data.success;
@@ -155,19 +156,25 @@ export default {
                     this.title = "";
                     this.description = "";
                     this.file = "";
- 
+
                     //ファイルを選択のクリア
                     this.view = false;
                     this.$nextTick(function() {
                         this.view = true;
-                    });
+                    });               
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
+                    console.log(this.message);  // undefined
+
+                    console.log(this.file); // 取れてる
+
+                    console.log(this.title); // 取れてる
+                    console.log(this.description); // 取れてる
                 })
-                .finally(function(){
-                    location.reload(true);
-                });
+                // .finally(function(){
+                //     location.reload(true);
+                // });
         }
     }
 };

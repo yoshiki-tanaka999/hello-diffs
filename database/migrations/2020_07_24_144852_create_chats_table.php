@@ -14,9 +14,9 @@ class CreateChatsTable extends Migration
     public function up()
     {
         Schema::create('chats', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('participant_id');
-            $table->integer('post_id');
+            $table->bigIncrements('id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->constrained();
             $table->text('content');
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +30,8 @@ class CreateChatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chats');
+        Schema::table('claims', function (Blueprint $table) {
+            //
+        });
     }
 }

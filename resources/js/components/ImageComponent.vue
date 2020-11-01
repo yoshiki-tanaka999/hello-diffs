@@ -23,15 +23,6 @@ import { mapActions } from 'vuex'
 export default {
     // Postのページ出し分け
     name: "post",
-    created() {
-        this.fetchPosts()
-    },
-    // data: function(){
-    // return{
-    //         id: this.$route.params.id,
-    //     }
-    // console.log(id);
-    // },
     data() {
         return {
             message: "",
@@ -58,35 +49,17 @@ export default {
     created: function() {
         this.getImage();
     },
-    // 追加
-    // mounted() {
-    //     this.fetch();
-    // },
-        // 追加
-    ...mapActions('post', [
-        'fetch', 
-    ]),
     methods: {
         getImage() {
             axios
-                .get("/api/images/")
+                .get("/api/images")
                 .then(response => {
                     this.posts = response.data;
                 })
                 .catch(err => {
                     this.message = err;
                 });
-        },
-        fetchPosts() {
-            this.$http
-                .get('/api/posts')
-                .then(response =>  {
-                    this.posts = response.data;
-                })
-                .finally(function(){
-                location.reload(true);
-                });
-        },    
+        },   
     },
 
 }

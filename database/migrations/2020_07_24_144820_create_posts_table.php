@@ -14,12 +14,11 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('participant_id');
+            $table->bigIncrements('id');
+            $table->foreignId('user_id')->constrained();
             $table->string('title',255);
             $table->string('description',255);
             $table->string('img_url',255);
-            $table->datetime('published');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,5 +32,8 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
+        // Schema::table('posts',function(Blueprint $table){
+        //     $table->interger('participant_id');
+        // });
     }
 }

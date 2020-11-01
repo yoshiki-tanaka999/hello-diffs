@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// ログイン認証関連
 Route::prefix('auth')->group(function () {
     Route::post('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
@@ -25,7 +26,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/tests', 'ApiPostController');
 
+// 投稿データ
 Route::apiResource('/images', 'ApiImageController');
+// チャットデータ
+Route::apiResource('/chat', 'ApiChatController');
+// 主張データ
+Route::apiResource('/claim', 'ApiClaimController');
+// 主張データ(賛成反対) 
+Route::apiResource('/claim_output', 'ApiClaimOutputController');
+
+// Route::post('/posts/{post}/chat', 'ApiChatController@create');
 
 // Route::apiResource('/posts', 'ApiPostSelectController');
 
