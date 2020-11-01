@@ -16,9 +16,15 @@
 
         <!-- Hello-diffs act2 -->
             <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
-            <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component> 
+
+            <router-view name="ClaimTab2Act2" v-bind:id="id" >
+            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content">
+
+            <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
+
             <!-- <router-view  name="ClaimTab2Act2" v-bind:id="id" /> -->
-            <ClaimTabAct2Modal-component v-bind:id="id" ></ClaimTabAct2Modal-component> 
+            <!-- Act1時の論点の追加のためのコンポーネント -->
+            <!-- <ClaimTabAct2Modal-component v-bind:id="id" ></ClaimTabAct2Modal-component>  -->
 
         </v-main>
     </v-app>
@@ -34,6 +40,7 @@ export default {
     data: function(){
     return{
             id: Number(this.$route.params.id),
+
             claimId: ""
         }
     // console.log(id);

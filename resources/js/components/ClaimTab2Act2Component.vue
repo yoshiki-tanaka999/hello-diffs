@@ -196,7 +196,7 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-
+            // claimContent : ""
             }
     },  
     methods: {
@@ -253,7 +253,11 @@ export default {
             const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
             return result;
             console.log(result);
-        },                     
+        },   
+        claimContent() {
+            console.log(this.$route.params.claim.content);
+            return this.$route.params.claim.content
+        }                  
     },
 }
 
