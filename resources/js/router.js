@@ -150,18 +150,30 @@ const router = new Router({
             id: Number(route.params.id)
           }),
         },
+        // {
+        //   path: ':claimContent',
+        //   // name: 'ClaimLayerViewAct2',
+        //   // component: ClaimLayerViewAct2 ,
+        //   name: 'Discuss2Layer',
+        //   component: Discuss2Layer ,
+        //   // props: true,
+        //   props: (route) => ({
+        //     id: Number(route.params.id),
+        //     claimContent : route.params.claimContent
+        //   }),
+        // },
         {
           path: ':claimContent',
           // name: 'ClaimLayerViewAct2',
           // component: ClaimLayerViewAct2 ,
-          name: 'Discuss2Layer',
-          component: Discuss2Layer ,
+          name: 'ClaimLayerViewAct2',
+          component: ClaimLayerViewAct2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id),
             claimContent : route.params.claimContent
           }),
-        },          
+        },             
       ],
     },
     {
