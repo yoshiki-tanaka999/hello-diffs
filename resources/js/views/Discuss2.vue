@@ -17,8 +17,8 @@
         <!-- Hello-diffs act2 -->
             <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
 
-            <router-view name="ClaimTab2Act2" v-bind:id="id" >
-            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content">
+            <router-view name="ClaimTab2Act2" v-bind:id="id" />
+            <router-view name="ClaimLayerViewAct2" v-bind:id="id"/>
 
             <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
 

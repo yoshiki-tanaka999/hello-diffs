@@ -27,7 +27,7 @@ class ApiClaimController extends Controller
         
         $claim->post_id= $request->post_id;
         $claim->claim_level = $request->claim_level;
-        $claim->claim_flag = $request->claim_flag;        
+        $claim->claim_flag = $request->claim_flag;
         $claim->content= $request->content;
         $claim->save();
     }

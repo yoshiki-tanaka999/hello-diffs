@@ -87,7 +87,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-if=" claim.claim_flag === '賛成' "
+                    v-if=" claim.claim_flag === 0 "
                     max-width="600"
                 >
                 <!-- カード①賛成用 -->
@@ -133,7 +133,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-if=" claim.claim_flag === '反対' "
+                    v-if=" claim.claim_flag === 1 "
                 >
                 <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
                 <!-- カード②反対用 -->

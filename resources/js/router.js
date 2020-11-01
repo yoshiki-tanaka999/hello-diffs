@@ -134,7 +134,7 @@ const router = new Router({
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
       path: '/discuss/:id(\\d+)', 
       // Warningのonnsyお洋
-      name: 'Discuss2',
+      // name: 'Discuss2',
       component: require("./views/Discuss2.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
       props: (route) => ({

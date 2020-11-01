@@ -16,7 +16,8 @@
                         <option disabled value="" class="select-validatot">賛否を選択してください。</option>
                         <option
                             v-for="(option, index) in options" 
-                            :key="index"  
+                            :key="index"
+                            v-bind:value="option.value"  
                             class="select-validator"
                             @click="getClaimFlag(index)"
                             >
@@ -57,9 +58,9 @@ export default {
             claim:[],
             claim_flag: "",
             options: [
-                { text: '賛成', value: '０' },
-                { text: '反対', value: '1' },
-                { text: 'その他・補足', value: '2' }
+                { text: '賛成', value: 0 },
+                { text: '反対', value: 1 },
+                { text: 'その他・補足', value: 2 }
             ],
             content: '',           
             message: '',
@@ -75,13 +76,14 @@ export default {
                 this.claims = this.post.claims
                 // dataが取得できていることを確認済み
                 console.log(this.id);                  
-                console.log(this.post);  
+                console.log(this.post);
                 console.log(this.claims);  
             })
         },
         getClaimFlag(index) {
-            let claim_flag = this.options[index].value;
-            console.log(claim_flag);
+            this.claim_flag = this.options[index].value;
+            console.log(this.claim_flag);
+            console.log('claim_flag');           
             // let claim_flag =  Number(this.options[index].value)
             // console.log(Number(this.options[index].value));
             // console.log(claim_flag);
