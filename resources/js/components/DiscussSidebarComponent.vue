@@ -127,7 +127,7 @@
         methods: {
           getMessages() {
             axios
-                .get("/api/chat/")
+                .get("/api/chat")
                 .then((response) => {
                     this.chats = response.data;
                     console.log(this.chats);
@@ -141,7 +141,7 @@
             data.append("content", this.content);
             data.append("post_id", Number(post_id));
               axios
-                .post("/api/chat/", data)
+                .post("/api/chat", data)
                 .then(response => {
                     this.content = "";
                     let post_id = "";

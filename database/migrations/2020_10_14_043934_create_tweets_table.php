@@ -23,8 +23,8 @@ class CreateTweetsTable extends Migration
             $table->unsignedInteger('report_count')->default(0);
             $table->unsignedInteger('impression_count')->default(0);
             $table->unsignedTinyInteger('status')->default(1);
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            // $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            // $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             // 無いものとして扱うか
             // $table->index('vote_count', 'vote_count_index');
         });

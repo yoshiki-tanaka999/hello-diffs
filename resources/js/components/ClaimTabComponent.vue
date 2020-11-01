@@ -1,3 +1,4 @@
+// デプロイ時点(使っていない)
 <template>
     <v-app class="whole" color="basil">
         <!-- 投稿のタイトル(Postデータだけで完結) -->
@@ -55,6 +56,7 @@
                 </v-card>                
             </v-sheet>
 
+<!-- 論点に対する意見 -->
                 <v-tabs-items v-model="tab" class="py-3">
                     <v-tab-item
                         v-for="claim in claims"
@@ -100,7 +102,11 @@
                 grow
                 class="py-3"
                 >
-                    <v-tab href="#pros">
+                    <v-tab 
+                        href="#pros"
+                        v-for="item in items"
+                        :key="item"
+                    >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
@@ -113,9 +119,9 @@
                                 </div>
                             </template>
                             <span>新しい論点を追加する</span>
-                        </v-tooltip>  
-                        賛成
-                    <v-tab>
+                        </v-tooltip> 
+                        {{ item }}
+                    </v-tab>
 
                     <v-tab href="#cons">反対
                         <!-- モーダルウィンドウ(claim_output) -->
@@ -131,8 +137,8 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-                        {{ item }}
-                    </v-tab>        
+                    </v-tab>
+
                     <v-tab href="#others">その他・補足
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
@@ -147,7 +153,6 @@
                             </template>
                             <span>新しい論点を追加する</span>
                         </v-tooltip>  
-                        {{ item }}
                     </v-tab>             
                 </v-tabs>
             </v-card>
@@ -228,6 +233,7 @@
                     </template>  
                 <!-- </div>                      -->
     </v-tab-item>
+
     <v-tab-item value="others">
                 <!-- カード③その他用 -->
                     <template v-show=" claim_output.claim_flag === 'その他・補足' ">   
@@ -275,6 +281,7 @@
 
 <script>
 export default {
+    inheritAttrs: false, // 実験
     props: {
         id: Number,
     },
@@ -303,7 +310,6 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-
             }
     },
     methods: {
@@ -325,7 +331,7 @@ export default {
                 console.log(this.claimId);
             },
             getClaimOutput() {
-                axios.get('/api/claim_output/')
+                axios.get('/api/claim_output')
                 .then((res) => {
                     this.claim_outputs = res.data;
                     // this.claimId = this.claims[index].id
@@ -386,7 +392,6 @@ export default {
             const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
             return result_others;
         },                        
-
         },
         // watch: {
         //     currentTab: function() {
@@ -430,7 +435,6 @@ export default {
             //     }
             // }
     }
-
 </script>
 
 <style>
@@ -439,7 +443,6 @@ export default {
     margin: 0 auto;
     background-color: transparent;
 }
-
 .title-card {
     margin-top: 30px;
 }
@@ -450,7 +453,6 @@ export default {
 .basil--text {
     color: #356859 !important;
 }
-
 .open-modal-claim{
     color: white;
     position: absolute;
@@ -461,7 +463,6 @@ export default {
     cursor: pointer;
     font-weight: bold;
 }
-
 .open-modal-claim-outoput{
     /* color: white; */
     position: absolute;

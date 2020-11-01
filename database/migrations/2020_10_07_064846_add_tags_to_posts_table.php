@@ -25,8 +25,8 @@ class AddTagsToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('participant_id');
-        });
+        // Schema::table('posts', function (Blueprint $table) {
+        //     $table->integer('participant_id');
+        // });
     }
 }

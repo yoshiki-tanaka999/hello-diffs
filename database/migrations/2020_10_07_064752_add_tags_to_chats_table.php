@@ -26,8 +26,8 @@ class AddTagsToChatsTable extends Migration
      */
     public function down()
     {
-        Schema::table('chats', function (Blueprint $table) {
-            $table->integer('participant_id');
-        });
+        // Schema::table('chats', function (Blueprint $table) {
+        //     $table->integer('participant_id');
+        // });
     }
 }

@@ -7,7 +7,6 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
-use App\Model\User;
 
 class EloquentUserProvider implements UserProvider
 {

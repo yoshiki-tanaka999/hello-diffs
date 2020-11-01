@@ -32,8 +32,8 @@ class CreatePostsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('posts');
-        Schema::table('posts',function(Blueprint $table){
-            $table->interger('participant_id');
-        });
+        // Schema::table('posts',function(Blueprint $table){
+        //     $table->interger('participant_id');
+        // });
     }
 }

@@ -12,7 +12,7 @@
             <!-- ユーザの写真と名前 -->
             <UserImageName-component></UserImageName-component>
             <!-- 各カテゴリを選ぶ＆表示するエリア -->
-            <MyPageSelecter-component></MyPageSelecter-component>
+            <!-- <MyPageSelecter-component></MyPageSelecter-component> -->
         </div>
 
         <!-- web.phpの問題に伴い、↑を修正しました(田中) -->

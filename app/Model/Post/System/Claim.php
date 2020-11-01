@@ -20,5 +20,10 @@ class Claim extends Model
         return $this->belongsTo('App\Model\Post\System\Claim');
     }    
 
+    public function claim_output()
+    {
+        // リレーション
+        return $this->hasMany('App\Model\Post\System\Claim_Output');
+    }   
 
 }

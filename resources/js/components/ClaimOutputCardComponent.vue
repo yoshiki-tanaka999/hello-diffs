@@ -79,7 +79,7 @@ export default {
                 console.log(this.claims);  
             })
         },
-        getClaimFlag() {
+        getClaimFlag(index) {
             let claim_flag = this.options[index].value;
             console.log(claim_flag);
             // let claim_flag =  Number(this.options[index].value)
@@ -87,7 +87,7 @@ export default {
             // console.log(claim_flag);
         },
         //この間に、特定のclaim_idを取得する関数が必要（get）   
-        uploadClaimOutput(index) {
+        uploadClaimOutput() {
             // let claim_flag = this.options[index].value;
             let post_id = this.id;
             let claim_id = this.claimId;
@@ -98,7 +98,7 @@ export default {
             data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
             axios
-                .post("/api/claim_output/", data)
+                .post("/api/claim_output", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;
@@ -110,12 +110,12 @@ export default {
                     this.message = err.response.data.errors;
                 })
                 .finally(function(){
-                    location.reload(true);
-                });            
+                location.reload(true);
+                });
         }
     },
     mounted() {
-        // this.getPost();
+        this.getPost();
     }, 
 }
 </script>  
@@ -128,6 +128,7 @@ export default {
     border: 1px solid #ffffff;
     border-radius: 10px;
     background-color: transparent;
+    z-index: 20px;
 }
 
 #OutputCard v-card {

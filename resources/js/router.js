@@ -7,12 +7,13 @@ import MyPage from './components/MyPage'
 // import HeaderComponent from './components/HeaderComponent'
 import UserImageName from './components/UserImageName'
 import MyPageSelecter from './components/MyPageSelecter'
-import Respond from './components/RespondMyPage'
-import Following from './components/FollowingMyPage'
-import Own from './components/OwnMyPage'
-import Recent from './components/RecentMyPage'
-import Recommended from './components/RecommendedMyPage'
-import Teams from './components/TeamsMyPage'
+
+// import Respond from './components/RespondMyPage'
+// import Following from './components/FollowingMyPage'
+// import Own from './components/OwnMyPage'
+// import Recent from './components/RecentMyPage'
+// import Recommended from './components/RecommendedMyPage'
+// import Teams from './components/TeamsMyPage'
 // import Footer from './components/Footer'
 
 // ImageComponentのコンポーネント
@@ -36,10 +37,22 @@ import ImageFeatured from './components/ImageFeaturedComponent'
 
 // Discss.vue
 import Discuss from './views/Discuss'
+import Discuss2 from './views/Discuss2'
+
 // Discss.vueのコンポーネント
 import DiscussChart from './components/DiscussChartComponent'
 import DiscussPost from './components/DiscussPostComponent'
 import DiscussModal from './components/DiscussModalComponent' 
+
+import ClaimIssueContent from './components/ClaimIssueContentComponent'
+import Claim from './components/ClaimComponent'
+import ClaimsPros from './components/ClaimsProsComponent'
+import ClaimsCons from './components/ClaimsConsComponent'
+import ClaimsOthers from './components/ClaimsOthersComponent'
+
+import ClaimTab2Act2 from './components/ClaimTab2Act2Component'
+import ClaimLayerViewAct2 from './components/ClaimLayerViewAct2Component'
+import Discuss2Layer from './views/Discuss2Layer'
 
 // Register
 import Register from './views/Register'
@@ -53,7 +66,7 @@ import Account from './views/Account'
 import Not_found from './views/Not_found'
 
 import Tweet from './components/TweetTestComponent' 
-import ClaimTab from './components/ClaimTabComponent' 
+// import ClaimTab from './components/ClaimTabComponent' 
 import Chat from './components/DiscussChatComponent'
 
 const router = new Router({
@@ -77,18 +90,91 @@ const router = new Router({
             component: ImageFeatured ,
           },
         ],
-      
     },
+    //   // ★★ディスカッションページ★★
+    //   //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
+    //   path: '/discuss/:id(\\d+)', 
+    //   name: 'Discuss',
+    //   component: require("./views/Discuss.vue").default,
+    //   // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
+    //   props: (route) => ({
+    //     id: Number(route.params.id)
+    //   }),
+    //   children:[
+    //     {
+    //       path: '/claim/:claimId(\\d+)',
+    //       name: 'ClaimIssueContent',
+    //       conponent: require("./components/ClaimIssueContentComponent.vue").default,
+    //       props: (route) => ({
+    //         id: Number(route.params.id),
+    //         claimId: Number(claim.id)
+    //       })
+    //     }],
+    //       children:[
+    //         {
+    //           path: 'pros',
+    //           name: 'pros',
+    //           conponent: require("./components/ClaimsProsComponent.vue").default,
+    //         },
+    //         {
+    //           path: 'cons',
+    //           name: 'cons',
+    //           conponent: ClaimsCons,
+    //         },
+    //         {
+    //           path: 'others',
+    //           name: 'others',
+    //           conponent: ClaimsOthers,
+    //         },
+    //       ]
+    // },
     {
+      // ★★デプロイ時点★★
       // ★★ディスカッションページ★★
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
       path: '/discuss/:id(\\d+)', 
-      name: 'Discuss',
-      component: require("./views/Discuss.vue").default,
+      // Warningのonnsyお洋
+      name: 'Discuss2',
+      component: require("./views/Discuss2.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
       props: (route) => ({
         id: Number(route.params.id)
       }),
+      children: [
+        {
+          path: '',
+          name: 'ClaimTab2Act2',
+          component: ClaimTab2Act2 ,
+          // props: true,
+          props: (route) => ({
+            id: Number(route.params.id)
+          }),
+        },
+        // {
+        //   path: ':claimContent',
+        //   // name: 'ClaimLayerViewAct2',
+        //   // component: ClaimLayerViewAct2 ,
+        //   name: 'Discuss2Layer',
+        //   component: Discuss2Layer ,
+        //   // props: true,
+        //   props: (route) => ({
+        //     id: Number(route.params.id),
+        //     claimContent : route.params.claimContent
+        //   }),
+        // },
+        {
+          path: ':claimContent',
+          // name: 'ClaimLayerViewAct2',
+          // component: ClaimLayerViewAct2 ,
+          name: 'ClaimLayerViewAct2',
+          component: ClaimLayerViewAct2 ,
+          // props: true,
+          props: (route) => ({
+            id: Number(route.params.id),
+            claimContent : route.params.claimContent
+          }),
+        },             
+      ],
     },
     {
       path: '/home',
@@ -106,33 +192,33 @@ const router = new Router({
     //     mypageSelecter: MyPageSelecter,
     //     // footer: Footer,
     //   },
-    component: MyPage,
-      children: [
-        {
-          path: 'respond',
-          component: Respond,
-        },
-        {
-          path: 'following',
-          component: Following,
-        },
-        {
-          path: 'own',
-          component: Own,
-        },
-        {
-          path: 'recent',
-          component: Recent,
-        },
-        {
-          path: 'recommended',
-          component: Recommended,
-        },
-        {
-          path: 'teams',
-          component: Teams,
-        },
-      ],
+    // component: MyPage,
+    //   children: [
+        // {
+        //   path: 'respond',
+        //   component: Respond,
+        // },
+        // {
+        //   path: 'following',
+        //   component: Following,
+        // },
+        // {
+        //   path: 'own',
+        //   component: Own,
+        // },
+        // {
+        //   path: 'recent',
+        //   component: Recent,
+        // },
+        // {
+        //   path: 'recommended',
+        //   component: Recommended,
+        // },
+        // {
+        //   path: 'teams',
+        //   component: Teams,
+        // },
+      // ],
     },
     {
       path: '/tags',
@@ -157,8 +243,9 @@ const router = new Router({
     { path: '/404', name: 'Not_found', component: Not_found },
     { path: '*', redirect: '/404' },
     { path: '/tweet', name: 'Tweet', component: Tweet },    
-    { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
-    { path: '/chattest', name: 'Chat', component: Chat },  
+    // { path: '/claimtab', name: 'ClaimTab', component: ClaimTab }, 
+    { path: '/chattest', name: 'Chat', component: Chat },
+
   ]
 })
 

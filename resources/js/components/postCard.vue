@@ -17,21 +17,28 @@
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
-                    <router-link :to="{ name: 'Discuss', params: { id: post.id }}"
-                    >
+                    <router-link :to="{ name: 'Discuss2' , params: { id: Number(post.id) }}">
+                    <!-- <router-link to="/discuss/:id"> -->
+                    <!-- Not found -->
                     <!-- <router-link :to="`/discuss/${ post.id }`"
                     > -->
                         <!-- 「画像」 -->
+                        <!-- <v-img
+                            class="white--text align-end"
+                            height="200px"
+                            :src="`${post.img_url}`"
+                        > -->
                         <v-img
-                        class="white--text align-end"
-                        height="200px"
-                        :src="`${post.img_url}`"
+                            class="post_card_img white--text align-end"
+                            height="200px"
                         >
                         <!-- 「議題」 -->
                         <v-card-title class="v-card-title">{{ post.title }}</v-card-title>
+                        <!-- <v-card-title class="v-card-title">{{ post.img_url }}</v-card-title> -->
                         <!-- <v-card-title class="v-card-title">人間がポジティブな気分になるのは朝か？夕方か？</v-card-title> -->
                         </v-img>
                     </router-link>
+
 
                     <!-- <v-card-subtitle class="pb-0">Number 10</v-card-subtitle> -->
 
@@ -94,6 +101,7 @@ export default {
             //カードの開封 
             show: false,
             // アイコン
+            id: "",
         };
     },
     // computed: {
@@ -115,7 +123,7 @@ export default {
         ]),
         getImage() {
             axios
-                .get("/api/images/")
+                .get("/api/images")
                 .then(response => {
                     this.posts = response.data;
                 })
@@ -125,7 +133,7 @@ export default {
                 console.log(this.posts);
         },
         fetchPosts() {
-            this.$http
+            this.$https
                 .get('/api/posts')
                 .then(response =>  {
                     this.posts = response.data;
@@ -133,8 +141,17 @@ export default {
                 .finally(function(){
                 location.reload(true);
                 });
-        },       
+        },
+        // getId() {
+        //     const id = this.post.id;
+        //     console.log(id);
+        // }       
     },
+    // computed: {
+    //     getId: function () {
+    //         const id = this.post.id;
+    //     }
+    // }
 }
 
 </script>
@@ -177,6 +194,11 @@ export default {
     color: grey;
     list-style: none;
     margin: auto auto 0;
+}
+
+.post_card_img {
+    background-image: url(../testPhoto/geometric02.jpg);
+    background-size: cover;
 }
 </style>
 

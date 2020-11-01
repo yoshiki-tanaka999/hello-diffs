@@ -15,11 +15,11 @@ const getters = {
     find(id) {
         return state.posts.find((el) => el.id === id);
     },
-    asyncFind(id, callback) {
-        setTimeout(() => {
-        callback(state.posts.find((el) => el.id === id));
-        }, 1000);
-    }  
+    // asyncFind(id, callback) {
+    //     setTimeout(() => {
+    //     callback(state.posts.find((el) => el.id === id));
+    //     }, 1000);
+    // }  
 };
 
   // インポート先で使用できる関数をオブジェクトとしてまとめたもの

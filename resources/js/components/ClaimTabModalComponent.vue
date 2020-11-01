@@ -10,12 +10,17 @@
                 <div class="modal-content-whole-claim">
                     <!-- アイキャッチ -->
                     <div  class="modal-claim-img-content">
-                        <v-img
+                        <!-- <v-img
                             class="img-background white--text align-end"
                             height="300px" width="700px"
                             :src="`${post.img_url}`"
                             dark
-                        >
+                        > -->
+                        <v-img
+                            class="img-background white--text align-end"
+                            height="300px" width="650px"
+                            dark
+                        >                        
                             <div class="modal-claim-header">
                                 <p>Question.</p>
                                 <span 
@@ -108,7 +113,7 @@ export default {
         //     });
         // },
         // fetchPosts() {
-        //     this.$http
+        //     this.$https
         //         .get('/api/posts')
         //         .then(response =>  {
         //             this.posts = response.data;
@@ -134,7 +139,7 @@ export default {
             data.append("issue", this.issue);
             data.append("content", this.content);
             axios
-                .post("/api/claim/", data)
+                .post("/api/claim", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;
@@ -192,7 +197,8 @@ export default {
 }
 
 .img-background {
-    /* background-image: url(../testPhoto/whitecray.jpeg); */
+    background-image: url(../testPhoto/geometric02.jpg);
+    background-size: cover;
 }
 
 /* .modal-claim-img-content {

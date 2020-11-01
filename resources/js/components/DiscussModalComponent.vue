@@ -1,3 +1,4 @@
+// 使っていない
 <template>
     <!-- モーダルウィンドウ -->
     <div id="modal-discuss">
@@ -94,7 +95,7 @@ export default {
             });
         },
         fetchPosts() {
-            this.$http
+            this.$https
                 .get('/api/posts')
                 .then(response =>  {
                     this.posts = response.data;

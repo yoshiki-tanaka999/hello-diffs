@@ -36,6 +36,7 @@ import MyPage from './components/MyPage'
 import Tags  from './components/Tags'
 
 import Discuss from './views/Discuss'
+import Discuss2 from './views/Discuss2'
 
 // ★★トップページ★★
 // ヘッダー
@@ -83,14 +84,34 @@ Vue.component('DiscussPost-component', require('./components/DiscussPostComponen
 // Modal情報を記載
 Vue.component('DiscussModal-component', require('./components/DiscussModalComponent.vue').default);
 // サイドバー
-Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
-Vue.component('DiscussChat-component', require('./components/DiscussChatComponent.vue').default);
+
+// ポストのタイトル
+Vue.component('DiscussPostTitle-component', require('./components/DiscussPostTitleComponent.vue').default);
 
 Vue.component('TweetTest-component', require('./components/TweetTestComponent.vue').default);
-Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
+
+// Discussのメイン部分全体
+Vue.component('Claim-component', require('./components/ClaimComponent.vue').default);
+// チャット部分
+Vue.component('DiscussSidebar-component', require('./components/DiscussSidebarComponent.vue').default);
+// Discussのメイン部分Claim部分を描画
 Vue.component('ClaimTabModal-component', require('./components/ClaimTabModalComponent.vue').default);
+// ↓でClaimTabが使われる
+Vue.component('ClaimTab-component', require('./components/ClaimTabComponent.vue').default);
+Vue.component('ClaimTab2-component', require('./components/ClaimTab2Component.vue').default);
+// 
 Vue.component('ClaimOutputTabModal-component', require('./components/ClaimOutputTabModalComponent.vue').default);
 Vue.component('ClaimOutputCard-component', require('./components/ClaimOutputCardComponent.vue').default);
+// ClaimOutput系列
+Vue.component('ClaimsPros-component', require('./components/ClaimsProsComponent.vue').default);
+Vue.component('ClaimsCons-component', require('./components/ClaimsConsComponent.vue').default);
+Vue.component('ClaimsOthers-component', require('./components/ClaimsOthersComponent.vue').default);
+
+// Act2
+Vue.component('ClaimPostTitle-component', require('./components/ClaimPostTitleComponent.vue').default);
+Vue.component('ClaimTabAct2Modal-component', require('./components/ClaimTabAct2ModalComponent.vue').default);
+Vue.component('ClaimTab2Act2-component', require('./components/ClaimTab2Act2Component.vue').default);
+Vue.component('ClaimOutputCardAct2-component', require('./components/ClaimOutputCardAct2Component.vue').default);
 
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);

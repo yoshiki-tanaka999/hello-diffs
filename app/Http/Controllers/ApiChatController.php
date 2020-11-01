@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Post\System\chat;
-use App\Model\Post\post;
+use App\Model\Post\System\Chat;
+use App\Model\Post\Post;
 use App\Model\User\User;
 use Auth;
 use App\Events\MessageCreated;
@@ -35,7 +35,7 @@ class ApiChatController extends Controller
     public function store(Request $request, User $user)
     {
         // ユーザーID
-        $user = Auth::user();
+        $user = Auth::user();  
 
         $chat=new Chat();
         // $chat->content=$request->input('content');
