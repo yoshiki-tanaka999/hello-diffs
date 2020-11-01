@@ -83,7 +83,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'Discuss2Layer', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -131,7 +131,7 @@
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link :to="{name: 'Discuss2Layer', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
                                 <!-- データベースからテキストを描画 -->
                                     <v-card-text
                                         class="font-weight-black"
