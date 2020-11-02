@@ -191,6 +191,7 @@ export default {
         // id: String,        
         // claimId: Number,
         claimContent : String,
+        claimLevel: Number
     },
     data () {
         return {
@@ -294,9 +295,9 @@ export default {
         // },
         claimTestFiltered() {
             const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+            // const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
 
-            // const result = claimOutputTestData.filter(claims => claims.post_id === this.id && )
+            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === this.claim_level + 1)
             return result;
             console.log(result);
         },

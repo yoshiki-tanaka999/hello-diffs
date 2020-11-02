@@ -60,7 +60,7 @@ export default {
             options: [
                 { text: '賛成', value: 0 },
                 { text: '反対', value: 1 },
-                { text: 'その他・補足', value: 2 }
+                // { text: 'その他・補足', value: 2 }
             ],
             content: '',           
             message: '',
