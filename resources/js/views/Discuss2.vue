@@ -18,7 +18,7 @@
             <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
 
             <router-view name="ClaimTab2Act2" v-bind:id="id" />
-            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content"/>
+            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content" v-bind:claimLevel="claim.claim_level"/>
 
             <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
 
@@ -73,7 +73,11 @@ export default {
         claimContent() {
             console.log(this.$route.params.claim.content);
             return this.$route.params.claim.content;
-        }   
+        },
+        claimLevel() {
+            console.log(this.$route.params.claim.claim_level);
+            return this.$route.params.claim.claim_level;            
+        }
     },
     mounted() {
         this.getClaim();

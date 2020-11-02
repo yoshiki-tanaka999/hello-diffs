@@ -4,7 +4,7 @@
         <v-container 
             class="text-center justify-center py-6" 
         >
-        
+
         <!-- <router-view :id="id" /> -->
                 <!-- 論点に対する主張 -->
             <v-card 
@@ -84,7 +84,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -132,7 +132,7 @@
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
                                 <!-- データベースからテキストを描画 -->
                                     <v-card-text
                                         class="font-weight-black"
@@ -258,7 +258,11 @@ export default {
         claimContent() {
             console.log(this.$route.params.claim.content);
             return this.$route.params.claim.content
-        }                  
+        },
+        claimLevel() {
+            console.log(this.$route.params.claim.claim_level);
+            return this.$route.params.claim.claim_level;            
+        }              
     },
 }
 
