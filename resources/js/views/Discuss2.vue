@@ -18,7 +18,7 @@
             <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
 
             <router-view name="ClaimTab2Act2" v-bind:id="id" />
-            <router-view name="ClaimLayerViewAct2" v-bind:id="id"/>
+            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content"/>
 
             <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
 
@@ -40,7 +40,8 @@ export default {
     data: function(){
     return{
             id: Number(this.$route.params.id),
-
+            claim:"",
+            // claimContent: "",
             claimId: ""
         }
     // console.log(id);
@@ -58,11 +59,24 @@ export default {
         // },
         parentMethod() {
             this.claimId = payload;
-        }
+        },
+        getClaim() {
+            axios.get('/api/claim')
+            .then((res) => {
+                this.claim = res.data;
+                console.log(this.claim);  
+                // その他・補足のデータ
+            })
+        },        
     },
-        mounted() {
-        // this.getPost();
-        // コミットのためtest
+    computed: {
+        claimContent() {
+            console.log(this.$route.params.claim.content);
+            return this.$route.params.claim.content;
+        }   
+    },
+    mounted() {
+        this.getClaim();
     },
 }
 </script>

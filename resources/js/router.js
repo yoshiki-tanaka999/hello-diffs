@@ -143,8 +143,12 @@ const router = new Router({
       children: [
         {
           path: '',
-          name: 'ClaimTab2Act2',
-          component: ClaimTab2Act2 ,
+          components: {
+            ClaimTab2Act2: ClaimTab2Act2,
+            // ClaimLayerViewAct2: ClaimLayerViewAct2
+          },
+          // name1: 'ClaimTab2Act2',
+          // component: ClaimTab2Act2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id)
@@ -164,10 +168,12 @@ const router = new Router({
         // },
         {
           path: ':claimContent',
-          // name: 'ClaimLayerViewAct2',
+          name: "ClaimLayerViewAct2",
+          components: {
+            ClaimLayerViewAct2: ClaimLayerViewAct2
+          },
+          // name2: 'ClaimLayerViewAct2',
           // component: ClaimLayerViewAct2 ,
-          name: 'ClaimLayerViewAct2',
-          component: ClaimLayerViewAct2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id),
