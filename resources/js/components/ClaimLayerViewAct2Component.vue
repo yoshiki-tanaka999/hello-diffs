@@ -19,7 +19,7 @@
                     width="900"
                     color="black"
                 >
-                    {{ claimContent }}
+                    {{ $route.params.claimContent }}
                     <!-- {{ claim.content }} -->
                 </v-card-text>
             </v-card>
@@ -217,7 +217,6 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-
             }
     },  
     methods: {
@@ -317,8 +316,7 @@ export default {
         //     const claimOutputTestData_cons = this.result
         //     const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
         //     return result_others;
-        // },                        
-
+        // },                         
         },
     }
 
