@@ -178,7 +178,7 @@ const router = new Router({
           props: (route) => ({
             id: Number(route.params.id),
             claimContent : route.params.claimContent,
-            claimLevel : route.params.claimLevel
+            claimLevel : Number(route.params.claimLevel)
           }),
         },             
       ],

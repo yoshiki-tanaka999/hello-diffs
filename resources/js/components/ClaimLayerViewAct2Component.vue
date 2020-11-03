@@ -102,7 +102,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -149,7 +149,7 @@
                                 class="mx-auto my-4"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
-                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -297,7 +297,8 @@ export default {
             const claimOutputTestData = this.claims
             // const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
 
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === this.claim_level + 1)
+            const result = claimOutputTestData.filter(
+                claims => claims.post_id === this.id && claims.claim_level === this.$route.params.claimLevel + 1 && claims.claim_upper_id === this.$route.params.upperId)
             return result;
             console.log(result);
         },

@@ -83,9 +83,9 @@
                             max-height="200"
                             height="85"
                             class="mx-auto my-4"
+                            @click= "getClaimParams(index)"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
-
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-black"
@@ -129,6 +129,7 @@
                                 max-height="200"
                                 height="85"
                                 class="mx-auto my-4"
+                                @click= "getClaimParams(index)"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
@@ -197,7 +198,9 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-            // claimContent : ""
+            claimContent : "",
+            claimLevel: "",
+            upperId: ""
             }
     },  
     methods: {
@@ -227,6 +230,12 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            getClaimParams(index) {
+                this.claimContent = this.claims[index].content;
+                // あんまり良くないが、3つの値を取得する
+                this.claimLevel = this.claims[index].claim_level;
+                this.upperId = this.claims[index].claim_upper_id;
+            }
     },
     mounted() {
         this.getPost();
@@ -255,14 +264,14 @@ export default {
             return result;
             console.log(result);
         },   
-        claimContent() {
-            console.log(this.$route.params.claim.content);
-            return this.$route.params.claim.content
-        },
-        claimLevel() {
-            console.log(this.$route.params.claim.claim_level);
-            return this.$route.params.claim.claim_level;            
-        }              
+        // claimContent() {
+        //     console.log(this.claim.content);
+        //     return this.claim.content;
+        // },
+        // claimLevel() {
+        //     console.log(this.$route.params.claim.claim_level);
+        //     return this.$route.params.claim.claim_level;            
+        // }              
     },
 }
 
