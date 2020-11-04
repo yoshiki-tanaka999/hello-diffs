@@ -88,33 +88,6 @@ export default {
             // console.log(Number(this.options[index].value));
             // console.log(claim_flag);
         },
-        //この間に、特定のclaim_idを取得する関数が必要（get）   
-        // uploadClaimOutput() {
-        //     // let claim_flag = this.options[index].value;
-        //     let post_id = this.id;
-        //     let claim_id = this.claimId;
-        //     let data = new FormData();
-        //     // postデータ(id)を取得する
-        //     data.append("post_id", post_id);
-        //     data.append("claim_id", claim_id);
-        //     data.append("claim_flag", this.claim_flag);
-        //     data.append("content", this.content);
-        //     axios
-        //         .post("/api/claim_output", data)
-        //         .then(response => {
-        //             // this.getImage();
-        //             this.message = response.data.success;
-        //             // this.confirmedImage = "";
-        //             this.claim_flag = "";
-        //             this.content = "";
-        //         })
-        //         .catch(err => {
-        //             this.message = err.response.data.errors;
-        //         })
-        //         .finally(function(){
-        //         location.reload(true);
-        //         });
-        // },
             uploadClaim() {
             // let claim_flag = this.options[index].value;
             let post_id = this.id;
@@ -126,6 +99,8 @@ export default {
             let data = new FormData();
             // postデータ(id)を取得する
             data.append("post_id", post_id);
+            // postデータ(id)を取得する
+            data.append("claim_upper_id", claim_upper_id);
             data.append("claim_level", claim_level +1);
             data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
