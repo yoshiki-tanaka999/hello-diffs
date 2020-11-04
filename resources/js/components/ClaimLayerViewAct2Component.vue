@@ -19,8 +19,8 @@
                     width="900"
                     color="black"
                 >
-                    <!-- {{ claimContent }} -->
-                    {{ claim.content }}
+                    {{ $route.params.claimContent }}
+                    <!-- {{ claim.content }} -->
                 </v-card-text>
             </v-card>
 
@@ -87,7 +87,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-if=" claim.claim_flag === '賛成' "
+                    v-if=" claim.claim_flag === 0 "
                     max-width="600"
                 >
                 <!-- カード①賛成用 -->
@@ -102,7 +102,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content }}" >
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -133,7 +133,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-if=" claim.claim_flag === '反対' "
+                    v-if=" claim.claim_flag === 1 "
                 >
                 <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
                 <!-- カード②反対用 -->
@@ -149,6 +149,7 @@
                                 class="mx-auto my-4"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -168,7 +169,8 @@
                                         <!-- 「ブックマークされた数」 -->
                                         <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
                                     </div>
-                                </div>                                
+                                </div>     
+                                </router-link>                              
                             </v-card>
                         <!-- </div> -->
                     </template>  
@@ -189,6 +191,7 @@ export default {
         // id: String,        
         // claimId: Number,
         claimContent : String,
+        claimLevel: Number
     },
     data () {
         return {
@@ -215,7 +218,6 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-
             }
     },  
     methods: {
@@ -293,7 +295,10 @@ export default {
         // },
         claimTestFiltered() {
             const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+            // const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+
+            const result = claimOutputTestData.filter(
+                claims => claims.post_id === this.id && claims.claim_level === this.$route.params.claimLevel + 1 && claims.claim_upper_id === this.$route.params.upperId)
             return result;
             console.log(result);
         },
@@ -315,8 +320,7 @@ export default {
         //     const claimOutputTestData_cons = this.result
         //     const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
         //     return result_others;
-        // },                        
-
+        // },                         
         },
     }
 

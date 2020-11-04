@@ -134,7 +134,7 @@ const router = new Router({
       //(\\d+)を付ければパラメータには数字しか入らない正規表現となる 
       path: '/discuss/:id(\\d+)', 
       // Warningのonnsyお洋
-      name: 'Discuss2',
+      // name: 'Discuss2',
       component: require("./views/Discuss2.vue").default,
       // props設定を有効にすることで、$route.paramsの内容がそのままpropsとして渡る
       props: (route) => ({
@@ -143,8 +143,12 @@ const router = new Router({
       children: [
         {
           path: '',
-          name: 'ClaimTab2Act2',
-          component: ClaimTab2Act2 ,
+          components: {
+            ClaimTab2Act2: ClaimTab2Act2,
+            // ClaimLayerViewAct2: ClaimLayerViewAct2
+          },
+          // name1: 'ClaimTab2Act2',
+          // component: ClaimTab2Act2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id)
@@ -164,14 +168,17 @@ const router = new Router({
         // },
         {
           path: ':claimContent',
-          // name: 'ClaimLayerViewAct2',
+          name: "ClaimLayerViewAct2",
+          components: {
+            ClaimLayerViewAct2: ClaimLayerViewAct2
+          },
+          // name2: 'ClaimLayerViewAct2',
           // component: ClaimLayerViewAct2 ,
-          name: 'ClaimLayerViewAct2',
-          component: ClaimLayerViewAct2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id),
-            claimContent : route.params.claimContent
+            claimContent : route.params.claimContent,
+            claimLevel : Number(route.params.claimLevel)
           }),
         },             
       ],

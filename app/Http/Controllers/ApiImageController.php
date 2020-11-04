@@ -45,53 +45,53 @@ class ApiImageController extends Controller
         ]);
 
         // S3導入前のコード
-        // if (request()->file) {
-        //     $file_name = time() . '.' . request()->file->getClientOriginalName();
-        //     request()->file->storeAs('public', $file_name);
-
-        //     $user = Auth::user();
-
-        //     $image = new Post();
-        //     $image->user_id = $user->id;
-        //     $image->img_url = 'https://hello-diffs2.herokuapp.com/public/storage/' . $file_name;
-        //     $image->title = $request->title;
-        //     $image->description = $request->description;
-            
-        //     $image->save();
-            
-        //     return ['success' => '登録しました!'];
-        // }
-
-        // S3導入後のコード
         if (request()->file) {
             $file_name = time() . '.' . request()->file->getClientOriginalName();
-            request()->file('file');
-
-            // $file_name = time() . '.' . request()->file->getClientOriginalName();
-            // request()->file->storeAs('public', $file_name);
-
-            // $file_name = $request->file('file');
-            $path = Storage::disk('s3')->put('/img_url', $file_name, 'public');
-            // $path = Storage::disk('s3')->put('/img_url', $file, 'public');
-            // S3にファイルを保存し、保存したファイル名を取得する
-            // $fileName = $path->put('', $request->file('datafile'));
+            request()->file->storeAs('public', $file_name);
 
             $user = Auth::user();
 
-            $post = new Post();
-            $post->user_id = $user->id;            
-            $post->img_url = $path;
-            // $image->img_url = $path;
-            $post->title = $request->title;
-            $post->description = $request->description;
-            $post->save();
-
-            dd($file_name);
-            dd($path);
-            dd($post);
-
+            $image = new Post();
+            $image->user_id = $user->id;
+            $image->img_url = 'https://hello-diffs2.herokuapp.com/public/storage/' . $file_name;
+            $image->title = $request->title;
+            $image->description = $request->description;
+            
+            $image->save();
+            
             return ['success' => '登録しました!'];
         }
+
+        // S3導入後のコード
+        // if (request()->file) {
+        //     $file_name = time() . '.' . request()->file->getClientOriginalName();
+        //     request()->file('file');
+
+        //     // $file_name = time() . '.' . request()->file->getClientOriginalName();
+        //     // request()->file->storeAs('public', $file_name);
+
+        //     // $file_name = $request->file('file');
+        //     $path = Storage::disk('s3')->put('/img_url', $file_name, 'public');
+        //     // $path = Storage::disk('s3')->put('/img_url', $file, 'public');
+        //     // S3にファイルを保存し、保存したファイル名を取得する
+        //     // $fileName = $path->put('', $request->file('datafile'));
+
+        //     $user = Auth::user();
+
+        //     $post = new Post();
+        //     $post->user_id = $user->id;            
+        //     $post->img_url = $path;
+        //     // $image->img_url = $path;
+        //     $post->title = $request->title;
+        //     $post->description = $request->description;
+        //     $post->save();
+
+        //     dd($file_name);
+        //     dd($path);
+        //     dd($post);
+
+        //     return ['success' => '登録しました!'];
+        // }
     }
 
     public function show($id)
