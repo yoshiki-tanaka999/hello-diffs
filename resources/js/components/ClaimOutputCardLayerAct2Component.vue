@@ -1,3 +1,4 @@
+// LayerViewのときのアウトプットカード
 <template>
         <!-- カード① -->
             <v-card
@@ -50,7 +51,7 @@ export default {
     props: {
         id: Number,
         // claimId: Number
-        
+        upperId: Number
     },
     data() {
         return {
@@ -101,12 +102,12 @@ export default {
             // postデータ(id)を取得する
             data.append("post_id", post_id);
             // postデータ(id)を取得する
-            // data.append("claim_upper_id", claim_upper_id);
+            data.append("claim_upper_id", claim_upper_id);
             data.append("claim_level", claim_level +1);
             data.append("claim_flag", this.claim_flag);
             data.append("content", this.content);
             axios
-                .post("/api/claim", data)
+                .post("/api/claimLayer", data)
                 .then(response => {
                     // this.getImage();
                     this.message = response.data.success;

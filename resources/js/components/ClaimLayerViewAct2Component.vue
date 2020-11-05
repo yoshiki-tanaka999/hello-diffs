@@ -72,7 +72,7 @@
             </v-card>
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
+            <ClaimOutputCardLayerAct2-component :id="id" :upperId: claim.id v-if="show"></ClaimOutputCardLayerAct2-component>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -191,7 +191,8 @@ export default {
         // id: String,        
         // claimId: Number,
         claimContent : String,
-        claimLevel: Number
+        claimLevel: Number,
+        upperId: Number
     },
     data () {
         return {
@@ -251,7 +252,7 @@ export default {
 
             // Outputでなく、Claimテーブルにする
             getClaim() {
-                axios.get('/api/claim')
+                axios.get('/api/claimLayer')
                 .then((res) => {
                     this.claim = res.data;
                     // this.claimId = this.claims[index].id
