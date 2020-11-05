@@ -235,6 +235,7 @@ export default {
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].claim_upper_id;
+
             }
     },
     mounted() {

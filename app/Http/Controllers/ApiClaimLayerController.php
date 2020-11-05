@@ -10,7 +10,7 @@ use Auth;
 
 use Validator;
 
-class ApiClaimController extends Controller
+class ApiClaimLayerController extends Controller
 {
     public function index()
     {
@@ -26,7 +26,7 @@ class ApiClaimController extends Controller
         $claim->user_id = $user->id;
         
         $claim->post_id= $request->post_id;
-        // $claim->claim_upper_id= $request->claim_upper_id;        
+        $claim->claim_upper_id= $request->claim_upper_id;        
         $claim->claim_level = $request->claim_level;
         $claim->claim_flag = $request->claim_flag;
         $claim->content= $request->content;
