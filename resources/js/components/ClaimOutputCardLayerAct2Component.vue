@@ -48,6 +48,7 @@
 <script>
 
 export default {
+    name:'ClaimOutputCardLayerAct2',
     props: {
         id: Number,
         // claimId: Number
@@ -97,7 +98,9 @@ export default {
             // 今の階層のClaim_levelの情報を取得して、+1する
             // 最初は、Postデータが、0階層となっているので、その次の階層
             // それ以降は、個々のClaimに対して、＋1する処理を加える
-            let claim_level = this.post.claim_level;
+            let claim_level = this.$route.params.claimLevel;
+            let claim_upper_id = this.$route.params.upperId;
+
             let data = new FormData();
             // postデータ(id)を取得する
             data.append("post_id", post_id);

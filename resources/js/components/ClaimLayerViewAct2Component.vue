@@ -13,6 +13,7 @@
                 width="900"
                 height="50"
                 class=" ma-auto"
+                @click="$router.go(-1)"
                 >
                 <v-card-text
                     class="font-weight-black ma-auto"
@@ -72,7 +73,7 @@
             </v-card>
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardLayerAct2-component :id="id" :upperId: claim.id v-if="show"></ClaimOutputCardLayerAct2-component>
+            <ClaimOutputCardLayerAct2-component :id="id" :claimContent="claimContent" v-if="show"></ClaimOutputCardLayerAct2-component>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -102,7 +103,7 @@
                             height="85"
                             class="mx-auto my-4"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -184,12 +185,12 @@
 </template>
 
 <script>
+// import ClaimOutputCardLayerAct2 from './components/ClaimOutputCardLayerAct2Component';
 export default {
-    // name:'ClaimTab2',
+    // name:'ClaimOutputCardLayerAct2',
     props: {
-        id: Number,
-        // id: String,        
-        // claimId: Number,
+        id: Number,     
+        claimId: Number,
         claimContent : String,
         claimLevel: Number,
         upperId: Number
@@ -201,7 +202,7 @@ export default {
             default: 0,
             current: 0,
             activeTab: "",
-            claimId: Number,
+            // claimId: Number,
             claims: [],
             claim: [],
             issues:[],
@@ -219,6 +220,10 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
+
+            // claimContent : "",
+            // claimLevel: "",
+            // upperId: ""
             }
     },  
     methods: {
@@ -260,6 +265,12 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            getClaimParams(index) {
+                this.claimContent = this.claims[index].content;
+                // あんまり良くないが、3つの値を取得する
+                this.claimLevel = Number(this.claims[index].claim_level);
+                this.upperId = this.claims[index].claim_upper_id;
+            }            
     },
     mounted() {
         this.getPost();

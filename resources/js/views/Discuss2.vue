@@ -18,7 +18,10 @@
             <ClaimPostTitle-component v-bind:id="id"></ClaimPostTitle-component> 
 
             <router-view name="ClaimTab2Act2" v-bind:id="id" />
-            <router-view name="ClaimLayerViewAct2" v-bind:id="id" v-bind:claimContent="claim.content" v-bind:claimLevel="claim.claim_level"/>
+            <router-view name="ClaimLayerViewAct2" 
+                v-bind:id="id" v-bind:claimContent="claim.content" v-bind:claimLevel="claim.claim_level"
+                @catchParent="displayMessage"
+            />
 
             <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
 
@@ -31,20 +34,20 @@
 </template>
 
 <script>
-// import ClaimTab2 from  '../components/ClaimTab2Component.vue'
+import ClaimTab2Act2 from  '../components/ClaimTab2Act2Component.vue'
 export default {
     // name: 'Discuss2',
     //     components: {
     //         ClaimTab2
     //     },
     data: function(){
-    return{
-            id: Number(this.$route.params.id),
-            claim:"",
-            // claimContent: "",
-            claimId: ""
-        }
-    // console.log(id);
+        return{
+                id: Number(this.$route.params.id),
+                claim:"",
+                // claimContent: "",
+                claimId: "",
+            }
+        // console.log(id);
     },
     methods: {
         // getPost() {
@@ -67,7 +70,10 @@ export default {
                 console.log(this.claim);  
                 // その他・補足のデータ
             })
-        },        
+        },
+        displayMessage(claimContent, claimLevel, upperId){
+            alert(claimContent, claimLevel, upperId);
+        }     
     },
     computed: {
         claimContent() {
