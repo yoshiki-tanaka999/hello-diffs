@@ -102,6 +102,7 @@
                             max-height="200"
                             height="85"
                             class="mx-auto my-4"
+                            @click= "postClaimParams(index)"
                         >
                             <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
 
@@ -148,6 +149,7 @@
                                 max-height="200"
                                 height="85"
                                 class="mx-auto my-4"
+                                @click= "postClaimParams(index)"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
                                 <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
@@ -190,7 +192,7 @@ export default {
     // name:'ClaimOutputCardLayerAct2',
     props: {
         id: Number,     
-        claimId: Number,
+        // claimId: Number,
         claimContent : String,
         claimLevel: Number,
         upperId: Number
@@ -202,7 +204,7 @@ export default {
             default: 0,
             current: 0,
             activeTab: "",
-            // claimId: Number,
+            claimId: "",
             claims: [],
             claim: [],
             issues:[],
@@ -234,7 +236,7 @@ export default {
                     this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
                     // console.log(this.post);  
-                    // console.log(this.claims);  
+                    console.log(this.claims);  
                 })
             },
             tabSelect(index) {
@@ -265,16 +267,25 @@ export default {
                     // その他・補足のデータ
                 })
             },
-            getClaimParams(index) {
+            postClaimParams(index) {
                 this.claimContent = this.claims[index].content;
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = Number(this.claims[index].claim_level);
                 this.upperId = this.claims[index].claim_upper_id;
-            }            
+            },
+            // ２重での上書きはだめと怒られた
+
+            // getClaimParams() {
+            //     this.claimContent = this.$route.params.claimContent
+            //     // あんまり良くないが、3つの値を取得する
+            //     this.claimLevel = Number(this.$route.params.claimLevel);
+            //     this.upperId = this.$route.params.upperId;
+            // },
     },
     mounted() {
         this.getPost();
         this.getClaim();
+        // this.getClaimParams();
         // this.getIssue();
     },
     created() {

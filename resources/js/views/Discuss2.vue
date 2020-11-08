@@ -19,7 +19,9 @@
 
             <router-view name="ClaimTab2Act2" v-bind:id="id" />
             <router-view name="ClaimLayerViewAct2" 
-                v-bind:id="id" v-bind:claimContent="claim.content" v-bind:claimLevel="claim.claim_level"
+                v-bind:id="id" 
+                v-bind:claimContent="claim.content" 
+                v-bind:claimLevel="claim.claim_level"
                 @catchParent="displayMessage"
             />
 
@@ -43,6 +45,7 @@ export default {
     data: function(){
         return{
                 id: Number(this.$route.params.id),
+                // claimLevel: "",
                 claim:"",
                 // claimContent: "",
                 claimId: "",
@@ -72,7 +75,7 @@ export default {
             })
         },
         displayMessage(claimContent, claimLevel, upperId){
-            alert(claimContent, claimLevel, upperId);
+            return claimContent, this.claimLevel, upperId;
         }     
     },
     computed: {
