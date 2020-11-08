@@ -85,7 +85,11 @@
                             class="mx-auto my-4"
                             @click= "getClaimParams(index)"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link 
+                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                style="text-decoration: none; color: inherit;" 
+                                exact 
+                                @click="sendParent">
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-black"
@@ -133,7 +137,11 @@
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link 
+                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                style="text-decoration: none; color: inherit;" 
+                                exact 
+                                @click="sendParent">
                                 <!-- データベースからテキストを描画 -->
                                     <v-card-text
                                         class="font-weight-black"
@@ -234,9 +242,11 @@ export default {
                 this.claimContent = this.claims[index].content;
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = this.claims[index].claim_level;
-                this.upperId = this.claims[index].claim_upper_id;
-
-            }
+                this.upperId = this.claims[index].id;
+            },
+            sendParent(){
+                this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
+        }
     },
     mounted() {
         this.getPost();

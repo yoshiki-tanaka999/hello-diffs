@@ -52,6 +52,7 @@ import ClaimsOthers from './components/ClaimsOthersComponent'
 
 import ClaimTab2Act2 from './components/ClaimTab2Act2Component'
 import ClaimLayerViewAct2 from './components/ClaimLayerViewAct2Component'
+import ClaimOutputCardLayerAct2 from './components/ClaimOutputCardLayerAct2Component'
 import Discuss2Layer from './views/Discuss2Layer'
 
 // Register
@@ -170,15 +171,21 @@ const router = new Router({
           path: ':claimContent',
           name: "ClaimLayerViewAct2",
           components: {
-            ClaimLayerViewAct2: ClaimLayerViewAct2
+            ClaimLayerViewAct2: ClaimLayerViewAct2,
+            // ClaimOutputCardLayerAct2: ClaimOutputCardLayerAct2
           },
           // name2: 'ClaimLayerViewAct2',
           // component: ClaimLayerViewAct2 ,
           // props: true,
           props: (route) => ({
             id: Number(route.params.id),
-            claimContent : route.params.claimContent,
-            claimLevel : Number(route.params.claimLevel)
+            // claimContent : route.params.claimContent,
+            // claimLevel : Number(route.params.claimLevel),
+            // upperId : Number(route.params.upperId) 
+
+            claimContent : route.params.claim.content,
+            claimLevel : Number(route.params.claim.claim_level),
+            upperId : Number(route.params.claim.claim_upper_id)          
           }),
         },             
       ],

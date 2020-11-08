@@ -11,8 +11,9 @@
                 color="basil"
                 flat
                 width="900"
-                height="50"
-                class=" ma-auto"
+                max-height="100"
+                class="ma-auto mb-6"
+                @click="$router.go(-1)"
                 >
                 <v-card-text
                     class="font-weight-black ma-auto"
@@ -22,6 +23,7 @@
                     {{ $route.params.claimContent }}
                     <!-- {{ claim.content }} -->
                 </v-card-text>
+              
             </v-card>
 
                 <!-- 論点に対する主張 -->
@@ -72,7 +74,7 @@
             </v-card>
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardLayerAct2-component :id="id" :upperId: claim.id v-if="show"></ClaimOutputCardLayerAct2-component>
+            <ClaimOutputCardLayerAct2-component :id="id" :claimContent="claimContent" v-if="show"></ClaimOutputCardLayerAct2-component>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -101,8 +103,9 @@
                             max-height="200"
                             height="85"
                             class="mx-auto my-4"
+                            @click= "postClaimParams(index)"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -147,6 +150,7 @@
                                 max-height="200"
                                 height="85"
                                 class="mx-auto my-4"
+                                @click= "postClaimParams(index)"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
                                 <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
@@ -184,11 +188,11 @@
 </template>
 
 <script>
+// import ClaimOutputCardLayerAct2 from './components/ClaimOutputCardLayerAct2Component';
 export default {
-    // name:'ClaimTab2',
+    // name:'ClaimOutputCardLayerAct2',
     props: {
-        id: Number,
-        // id: String,        
+        id: Number,     
         // claimId: Number,
         claimContent : String,
         claimLevel: Number,
@@ -201,7 +205,7 @@ export default {
             default: 0,
             current: 0,
             activeTab: "",
-            claimId: Number,
+            claimId: "",
             claims: [],
             claim: [],
             issues:[],
@@ -219,6 +223,10 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
+
+            // claimContent : "",
+            // claimLevel: "",
+            // upperId: ""
             }
     },  
     methods: {
@@ -229,7 +237,7 @@ export default {
                     this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
                     // console.log(this.post);  
-                    // console.log(this.claims);  
+                    console.log(this.claims);  
                 })
             },
             tabSelect(index) {
@@ -260,10 +268,25 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            postClaimParams(index) {
+                this.claimContent = this.claims[index].content;
+                // あんまり良くないが、3つの値を取得する
+                this.claimLevel = Number(this.claims[index].claim_level);
+                this.upperId = this.claims[index].claim_upper_id;
+            },
+            // ２重での上書きはだめと怒られた
+
+            // getClaimParams() {
+            //     this.claimContent = this.$route.params.claimContent
+            //     // あんまり良くないが、3つの値を取得する
+            //     this.claimLevel = Number(this.$route.params.claimLevel);
+            //     this.upperId = this.$route.params.upperId;
+            // },
     },
     mounted() {
         this.getPost();
         this.getClaim();
+        // this.getClaimParams();
         // this.getIssue();
     },
     created() {
