@@ -11,8 +11,8 @@
                 color="basil"
                 flat
                 width="900"
-                height="50"
-                class=" ma-auto"
+                max-height="100"
+                class="ma-auto mb-6"
                 @click="$router.go(-1)"
                 >
                 <v-card-text
@@ -23,6 +23,7 @@
                     {{ $route.params.claimContent }}
                     <!-- {{ claim.content }} -->
                 </v-card-text>
+              
             </v-card>
 
                 <!-- 論点に対する主張 -->
