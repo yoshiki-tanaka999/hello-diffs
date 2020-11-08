@@ -4,6 +4,7 @@
         <v-container 
             class="text-center justify-center py-6" 
         >
+
         <!-- <router-view :id="id" /> -->
                 <!-- 論点に対する主張 -->
             <v-card 
@@ -68,7 +69,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-if=" claim.claim_flag === '賛成' "
+                    v-if=" claim.claim_flag === 0"
                     max-width="600"
                 >
                 <!-- カード①賛成用 -->
@@ -82,9 +83,13 @@
                             max-height="200"
                             height="85"
                             class="mx-auto my-4"
+                            @click= "getClaimParams(index)"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
-
+                            <router-link 
+                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                style="text-decoration: none; color: inherit;" 
+                                exact 
+                                @click="sendParent">
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
                                     class="font-weight-black"
@@ -114,7 +119,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-if=" claim.claim_flag === '反対' "
+                    v-if=" claim.claim_flag === 1"
                 >
                 <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
                 <!-- カード②反対用 -->
@@ -128,10 +133,15 @@
                                 max-height="200"
                                 height="85"
                                 class="mx-auto my-4"
+                                @click= "getClaimParams(index)"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id}}" style="text-decoration: none; color: inherit;" exact>
+                            <router-link 
+                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                style="text-decoration: none; color: inherit;" 
+                                exact 
+                                @click="sendParent">
                                 <!-- データベースからテキストを描画 -->
                                     <v-card-text
                                         class="font-weight-black"
@@ -196,7 +206,9 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
-            // claimContent : ""
+            claimContent : "",
+            claimLevel: "",
+            upperId: ""
             }
     },  
     methods: {
@@ -226,6 +238,15 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            getClaimParams(index) {
+                this.claimContent = this.claims[index].content;
+                // あんまり良くないが、3つの値を取得する
+                this.claimLevel = this.claims[index].claim_level;
+                this.upperId = this.claims[index].id;
+            },
+            sendParent(){
+                this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
+        }
     },
     mounted() {
         this.getPost();
@@ -250,14 +271,18 @@ export default {
         },
         claimTestFiltered() {
             const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === 1)
             return result;
             console.log(result);
         },   
-        claimContent() {
-            console.log(this.$route.params.claim.content);
-            return this.$route.params.claim.content
-        }                  
+        // claimContent() {
+        //     console.log(this.claim.content);
+        //     return this.claim.content;
+        // },
+        // claimLevel() {
+        //     console.log(this.$route.params.claim.claim_level);
+        //     return this.$route.params.claim.claim_level;            
+        // }              
     },
 }
 

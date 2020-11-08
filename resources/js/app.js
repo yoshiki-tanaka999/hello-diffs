@@ -112,6 +112,7 @@ Vue.component('ClaimPostTitle-component', require('./components/ClaimPostTitleCo
 Vue.component('ClaimTabAct2Modal-component', require('./components/ClaimTabAct2ModalComponent.vue').default);
 Vue.component('ClaimTab2Act2-component', require('./components/ClaimTab2Act2Component.vue').default);
 Vue.component('ClaimOutputCardAct2-component', require('./components/ClaimOutputCardAct2Component.vue').default);
+Vue.component('ClaimOutputCardLayerAct2-component', require('./components/ClaimOutputCardLayerAct2Component.vue').default);
 
 // router(ルーティング)とstore(状態)を結びつける
 sync(store, router);

@@ -17,8 +17,8 @@
                 >
                 
                 <!-- ディスカッションページへの遷移 -->
-                    <router-link :to="{ name: 'Discuss2' , params: { id: Number(post.id) }}">
-                    <!-- <router-link to="/discuss/:id"> -->
+                    <!-- <router-link :to="{ name: 'Discuss2' , params: { id: Number(post.id) }}"> -->
+                    <router-link v-bind:to="`/discuss/${post.id}`">
                     <!-- Not found -->
                     <!-- <router-link :to="`/discuss/${ post.id }`"
                     > -->
@@ -101,7 +101,7 @@ export default {
             //カードの開封 
             show: false,
             // アイコン
-            id: "",
+            id: Number(this.$route.params.id),
         };
     },
     // computed: {

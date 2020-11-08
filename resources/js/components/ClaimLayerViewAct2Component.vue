@@ -11,17 +11,19 @@
                 color="basil"
                 flat
                 width="900"
-                height="50"
-                class=" ma-auto"
+                max-height="100"
+                class="ma-auto mb-6"
+                @click="$router.go(-1)"
                 >
                 <v-card-text
                     class="font-weight-black ma-auto"
                     width="900"
                     color="black"
                 >
-                    <!-- {{ claimContent }} -->
-                    {{ claim.content }}
+                    {{ $route.params.claimContent }}
+                    <!-- {{ claim.content }} -->
                 </v-card-text>
+              
             </v-card>
 
                 <!-- 論点に対する主張 -->
@@ -72,7 +74,7 @@
             </v-card>
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
+            <ClaimOutputCardLayerAct2-component :id="id" :claimContent="claimContent" v-if="show"></ClaimOutputCardLayerAct2-component>
 
             <v-tabs-items 
                 v-model="tab1"
@@ -87,7 +89,7 @@
             <!-- この下が、OutputCard -->
                 <v-tab-item 
                     value="pros"             
-                    v-if=" claim.claim_flag === '賛成' "
+                    v-if=" claim.claim_flag === 0 "
                     max-width="600"
                 >
                 <!-- カード①賛成用 -->
@@ -101,8 +103,9 @@
                             max-height="200"
                             height="85"
                             class="mx-auto my-4"
+                            @click= "postClaimParams(index)"
                         >
-                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content }}" >
+                            <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -133,7 +136,7 @@
                 </v-tab-item>
 
                 <v-tab-item value="cons"
-                    v-if=" claim.claim_flag === '反対' "
+                    v-if=" claim.claim_flag === 1 "
                 >
                 <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
                 <!-- カード②反対用 -->
@@ -147,8 +150,10 @@
                                 max-height="200"
                                 height="85"
                                 class="mx-auto my-4"
+                                @click= "postClaimParams(index)"
                             >
                             <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                                <router-link :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level}}" style="text-decoration: none; color: inherit;" exact>
 
                             <!-- データベースからテキストを描画 -->
                                 <v-card-text
@@ -168,7 +173,8 @@
                                         <!-- 「ブックマークされた数」 -->
                                         <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
                                     </div>
-                                </div>                                
+                                </div>     
+                                </router-link>                              
                             </v-card>
                         <!-- </div> -->
                     </template>  
@@ -182,13 +188,15 @@
 </template>
 
 <script>
+// import ClaimOutputCardLayerAct2 from './components/ClaimOutputCardLayerAct2Component';
 export default {
-    // name:'ClaimTab2',
+    // name:'ClaimOutputCardLayerAct2',
     props: {
-        id: Number,
-        // id: String,        
+        id: Number,     
         // claimId: Number,
         claimContent : String,
+        claimLevel: Number,
+        upperId: Number
     },
     data () {
         return {
@@ -197,7 +205,7 @@ export default {
             default: 0,
             current: 0,
             activeTab: "",
-            claimId: Number,
+            claimId: "",
             claims: [],
             claim: [],
             issues:[],
@@ -216,6 +224,9 @@ export default {
             activeCard: "",
             result: [],
 
+            // claimContent : "",
+            // claimLevel: "",
+            // upperId: ""
             }
     },  
     methods: {
@@ -226,7 +237,7 @@ export default {
                     this.claims = this.post.claims
                     // this.claimId = this.claims[index].id
                     // console.log(this.post);  
-                    // console.log(this.claims);  
+                    console.log(this.claims);  
                 })
             },
             tabSelect(index) {
@@ -249,7 +260,7 @@ export default {
 
             // Outputでなく、Claimテーブルにする
             getClaim() {
-                axios.get('/api/claim')
+                axios.get('/api/claimLayer')
                 .then((res) => {
                     this.claim = res.data;
                     // this.claimId = this.claims[index].id
@@ -257,10 +268,25 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            postClaimParams(index) {
+                this.claimContent = this.claims[index].content;
+                // あんまり良くないが、3つの値を取得する
+                this.claimLevel = Number(this.claims[index].claim_level);
+                this.upperId = this.claims[index].claim_upper_id;
+            },
+            // ２重での上書きはだめと怒られた
+
+            // getClaimParams() {
+            //     this.claimContent = this.$route.params.claimContent
+            //     // あんまり良くないが、3つの値を取得する
+            //     this.claimLevel = Number(this.$route.params.claimLevel);
+            //     this.upperId = this.$route.params.upperId;
+            // },
     },
     mounted() {
         this.getPost();
         this.getClaim();
+        // this.getClaimParams();
         // this.getIssue();
     },
     created() {
@@ -293,7 +319,10 @@ export default {
         // },
         claimTestFiltered() {
             const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+            // const result = claimOutputTestData.filter(claims => claims.post_id === this.id)
+
+            const result = claimOutputTestData.filter(
+                claims => claims.post_id === this.id && claims.claim_level === this.$route.params.claimLevel + 1 && claims.claim_upper_id === this.$route.params.upperId)
             return result;
             console.log(result);
         },
@@ -315,8 +344,7 @@ export default {
         //     const claimOutputTestData_cons = this.result
         //     const result_others = claimOutputTestData_pros.filter(claim_output => claim_output.claim_flag === "その他・補足")
         //     return result_others;
-        // },                        
-
+        // },                         
         },
     }
 
