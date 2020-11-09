@@ -5,7 +5,7 @@
             app
             clipped
             right
-            width = 350px
+            width = 30%
             class="ChatForm"
           >
 
@@ -24,7 +24,7 @@
             <!-- チャットカード -->
             <v-card
               class="ma-3"
-              color="#385F73"
+              color="#2f3640"
               dark
               max-width="400"
               max-height="600"
@@ -223,7 +223,7 @@
 .message-area-button button {
  width: 100%;
  height: 100%;
- background: #555;
+ background: #2f3640;
  border: 1px solid #ffffff;
  color: #fff;
  font-size: 0.7rem;

@@ -16,7 +16,7 @@
                 background-color="transparent"
                 grow
                 class="py-3"
-                color="indigo darken-4"
+                color="black"
                 >
                     <v-tab href="#pros" class="font-weight-black">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
@@ -77,7 +77,7 @@
                 <template>
                     <!-- <div> -->
                         <v-card
-                            color="#C62828"
+                            color="#1565C0"
                             dark
                             width="600"
                             max-height="200"
@@ -127,7 +127,7 @@
                     <template>                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
-                                color="#1565C0"
+                                color="#C62828"
                                 dark
                                 width="600"
                                 max-height="200"
@@ -290,7 +290,8 @@ export default {
 
 <style scoped>
 .whole {
-    width: 1100px;
+    /* width: 1100px; */
+    width: 100%;
     margin: 0 auto;
     background-color: transparent;
 }
