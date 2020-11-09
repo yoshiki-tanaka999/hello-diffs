@@ -1,176 +1,172 @@
 // Act２
 <template>
-    <v-app class="whole" color="basil">
-        <v-container 
-            class="text-center justify-center py-6" 
+    <v-app class="whole">
+        <div 
+            class="text-center justify-center py-6 d-flex"
         >
 
-        <!-- <router-view :id="id" /> -->
-                <!-- 論点に対する主張 -->
             <v-card 
-                class="d-flex mx-auto"
-                width="900"
-            >
-                <v-tabs
-                v-model="tab1"
-                background-color="transparent"
-                grow
-                class="py-3"
-                color="black"
+                class="d-flex"
+                width= 100%
                 >
-                    <v-tab href="#pros" class="font-weight-black">賛成
-                        <!-- モーダルウィンドウ(claim_output) -->
-                        <v-tooltip bottom>
-                            <template v-slot:activator="{ on2, attrs2 }">
-                                <div class= "open-modal-claim-outoput"
-                                    v-on:click="show = !show"
-                                    v-bind="attrs2"
-                                    v-on="on2"
-                                    >
-                                    <i class="fas fa-edit fa-2x ml-2"></i>
-                                </div>
-                            </template>
-                            <span>新しい論点を追加する</span>
-                        </v-tooltip>  
-                    </v-tab>
+                
+                <div class="font-weight-black claimAddText"> 賛成 </div>
 
-                    <v-tab href="#cons" class="font-weight-black">反対
-                        <!-- モーダルウィンドウ(claim_output) -->
-                        <v-tooltip bottom>
-                            <template v-slot:activator="{ on2, attrs2 }">
-                                <div class= "open-modal-claim-outoput"
-                                    v-on:click="show = !show"
-                                    v-bind="attrs2"
-                                    v-on="on2"
-                                    >
-                                    <i class="fas fa-edit fa-2x ml-2"></i>
-                                </div>
-                            </template>
-                            <span>新しい論点を追加する</span>
-                        </v-tooltip>  
-
-                    </v-tab>  
-                </v-tabs>
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on2, attrs2 }">
+                        <div class= "open-modal-claim-outoput"
+                            v-on:click="show = !show"
+                            v-bind="attrs2"
+                            v-on="on2"
+                            >
+                            <i class="fas fa-edit fa-2x ml-2 my-1"></i>
+                        </div>
+                    </template>
+                    <span>新しい論点を追加する</span>
+                </v-tooltip>  
             </v-card>
+
+            <v-card 
+                class="d-flex"
+                width= 100%                    
+            >
+
+                <div class="font-weight-black claimAddText">反対</div>
+
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on2, attrs2 }">
+                        <div class= "open-modal-claim-outoput"
+                            v-on:click="show = !show"
+                            v-bind="attrs2"
+                            v-on="on2"
+                            >
+                            <i class="fas fa-edit fa-2x ml-2 my-1"></i>
+                        </div>
+                    </template>
+                    <span>新しい論点を追加する</span>
+                </v-tooltip>  
+
+            </v-card>  
+        </div>
+            <!-- </div> -->
+
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
 
-            <v-tabs-items 
-                v-model="tab1"
-                v-for="(claim, index) in claimTestFiltered"
-                :key="claim.id"
-                :class="{ active: currentTab === index }"
-                @click="currentTab = index"
-            >
+            <div class="d-flex justify-space-between">            
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
 
             <!-- この下が、OutputCard -->
-                <v-tab-item 
-                    value="pros"             
-                    v-if=" claim.claim_flag === 0"
-                    max-width="600"
-                >
-                <!-- カード①賛成用 -->
-                <!-- <ClaimsPros-component :id="id" :claimId="claimId"></ClaimsPros-component> -->
-                <template>
-                    <!-- <div> -->
-                        <v-card
-                            color="#1565C0"
-                            dark
-                            width="600"
-                            max-height="200"
-                            height="85"
-                            class="mx-auto my-4"
-                            @click= "getClaimParams(index)"
-                        >
-                            <router-link 
-                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                style="text-decoration: none; color: inherit;" 
-                                exact 
-                                @click="sendParent">
-                            <!-- データベースからテキストを描画 -->
-                                <v-card-text
-                                    class="font-weight-black"
-                                    color="white"
+
+                    <!-- カード①賛成用 -->
+                    <!-- <ClaimsPros-component :id="id" :claimId="claimId"></ClaimsPros-component> -->
+                <div>
+                    <div 
+                        v-for="(claim, index) in claimProsFiltered"
+                        :key="index"
+                    >
+                        <template>
+                            <!-- <div> -->
+                                <v-card
+                                    color="#1565C0"
+                                    dark
+                                    width="450px"
+                                    height="100"
+                                    max-height="200"
+                                    class="mx-auto my-4"
+                                    @click= "getClaimParams(index)"
                                 >
-                                    {{claim.content}}
-                                </v-card-text>
-                                <!-- <v-card-text>賛成です。</v-card-text> -->
+                                    <router-link 
+                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                        style="text-decoration: none; color: inherit;" 
+                                        exact 
+                                        >
 
-                                <!-- アイコンを追加 -->
-                                <div class="claimOutputValue">
-                                    <div class="postStatusList d-flex">
-                                        <!-- 「コメント数」 -->
-                                        <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                        <!-- 「参加者数」 -->
-                                        <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                        <!-- 「ブックマークされた数」 -->
-                                        <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                    </div>
-                                </div>   
-                            </router-link>                             
-                        </v-card>
-                    <!-- </div> -->
-                </template> 
+                                        <!-- アイコンを追加 -->
+                                        <div class="claimOutputValue">
+                                            <div class="postStatusList d-flex">
+                                                <!-- 「コメント数」 -->
+                                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                                <!-- 「ブックマークされた数」 -->
+                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                            </div>
+                                        </div>   
+
+                                    <!-- データベースからテキストを描画 -->
+
+                                            <div
+                                                class="font-weight-black claimText"
+                                                color="white"
+                                            >
+                                                {{claim.content}}
+                                            </div>
 
 
-                </v-tab-item>
 
-                <v-tab-item value="cons"
-                    v-if=" claim.claim_flag === 1"
-                >
-                <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
-                <!-- カード②反対用 -->
-                <!-- <div v-for=" in claim_output"> -->
-                    <template>                        
-                        <!-- <div v-show="currentTab === 1 ">                             -->
-                            <v-card
-                                color="#C62828"
-                                dark
-                                width="600"
-                                max-height="200"
-                                height="85"
-                                class="mx-auto my-4"
-                                @click= "getClaimParams(index)"
-                            >
-                            <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+                                    </router-link>                             
+                                </v-card>
+                            <!-- </div> -->
+                        </template> 
+                    </div>
+                </div>
 
-                            <router-link 
-                                :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                style="text-decoration: none; color: inherit;" 
-                                exact 
-                                @click="sendParent">
-                                <!-- データベースからテキストを描画 -->
-                                    <v-card-text
-                                        class="font-weight-black"
-                                        color="white"
+                <div>
+                    <div
+                        v-for="(claim, index) in claimConsFiltered"
+                        :key="index"
+                    >
+                    <!-- カード②反対用 -->
+                    <!-- <div v-for=" in claim_output"> -->
+                        <template>                        
+                            <!-- <div v-show="currentTab === 1 ">                             -->
+                                <v-card
+                                    color="#C62828"
+                                    dark
+                                    width="450px"
+                                    height="100px"
+                                    max-height="200px"
+                                    class="mx-auto my-4"
+                                    @click= "getClaimParams(index)"
+                                >
+                                <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
+
+                                <router-link 
+                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                    style="text-decoration: none; color: inherit;" 
+                                    exact 
                                     >
-                                        {{claim.content}}
-                                    </v-card-text>
-                                    <!-- <v-card-text>反対です。</v-card-text> -->
+
                                     <!-- アイコンを追加 -->
-                                    <div class="claimOutputValue">
-                                        <div class="postStatusList d-flex">
-                                            <!-- 「コメント数」 -->
-                                            <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                            <!-- 「参加者数」 -->
-                                            <div><i class="fas fa-users mr-2 ml-3"></i>2</div>
-                                            <!-- 「ブックマークされた数」 -->
-                                            <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
-                                        </div>
-                                    </div>     
-                                </router-link>                               
-                            </v-card>
-                        <!-- </div> -->
-                    </template>  
+                                        <div class="claimOutputValue">
+                                            <div class="postStatusList d-flex">
+                                                <!-- 「コメント数」 -->
+                                                <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
+                                                <!-- 「ブックマークされた数」 -->
+                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                            </div>
+                                        </div>   
+
+                                    <!-- データベースからテキストを描画 -->
+                                            <div
+                                                class="font-weight-black claimText"
+                                                color="white"
+                                            >
+                                                {{claim.content}}
+                                            </div>
+                                    </router-link>                               
+                                </v-card>
+                            <!-- </div> -->
+                        </template> 
+                    </div>
+                </div>
                 <!-- </div> -->
-                </v-tab-item>
+                <!-- </v-tab-item> -->
 
-            </v-tabs-items>
+            </div>
 
-        </v-container>
+
     </v-app>
 </template>
 
@@ -244,9 +240,9 @@ export default {
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].id;
             },
-            sendParent(){
-                this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
-        }
+        //     sendParent(){
+        //         this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
+        // }
     },
     mounted() {
         this.getPost();
@@ -275,14 +271,18 @@ export default {
             return result;
             console.log(result);
         },   
-        // claimContent() {
-        //     console.log(this.claim.content);
-        //     return this.claim.content;
-        // },
-        // claimLevel() {
-        //     console.log(this.$route.params.claim.claim_level);
-        //     return this.$route.params.claim.claim_level;            
-        // }              
+        claimProsFiltered() {
+            const claimOutputTestData = this.claims
+            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_flag === 0 && claims.claim_level === 1)
+            return result;
+            console.log(result);
+        }, 
+        claimConsFiltered() {
+            const claimOutputTestData = this.claims
+            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_flag === 1 && claims.claim_level === 1)
+            return result;
+            console.log(result);
+        },         
     },
 }
 
@@ -291,7 +291,7 @@ export default {
 <style scoped>
 .whole {
     /* width: 1100px; */
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     background-color: transparent;
 }
@@ -332,6 +332,7 @@ export default {
 .claimOutputValue {
     float: right;
     margin-right: 20px;
+    padding-top: 10px;
     /* padding-bottom: 20px; */
 }
 
@@ -346,4 +347,24 @@ a.router-link-exact-active v-card-text {
 a.router-link-exact-active i {
     color: white;
 }
+
+.claimAddText {
+    color: black;
+    font-size: 24px;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+.prosBox {
+    width : calc(100% / 2) ;
+}
+
+.cosnBox {
+    width : calc(100% / 2) ;
+}
+
+.claimText {
+    padding: 32px 12px 8px 12px;
+}
+
 </style>
