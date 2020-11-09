@@ -11,7 +11,7 @@
                 color="#2f3640"
                 dark
                 flat
-                width="900"
+                width= 90%
                 max-height="100"
                 class="ma-auto mb-6"
                 @click="$router.go(-1)"
@@ -31,7 +31,7 @@
                 <!-- 論点に対する主張 -->
             <v-card 
                 class="d-flex mx-auto"
-                width="900"
+                width= 90%
             >
                 <v-tabs
                 v-model="tab1"

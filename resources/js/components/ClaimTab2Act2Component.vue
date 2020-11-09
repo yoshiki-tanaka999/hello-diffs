@@ -9,7 +9,7 @@
                 <!-- 論点に対する主張 -->
             <v-card 
                 class="d-flex mx-auto"
-                width="900"
+                width= 90%
             >
                 <v-tabs
                 v-model="tab1"
@@ -18,7 +18,7 @@
                 class="py-3"
                 color="black"
                 >
-                    <v-tab href="#pros" class="font-weight-black">賛成
+                    <v-tab href="#pros" class="font-weight-black" >賛成
                         <!-- モーダルウィンドウ(claim_output) -->
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">

@@ -3,7 +3,7 @@
         <!-- 投稿のタイトル(Postデータだけで完結) -->
         <v-card 
             class="title-card pt-3 mx-auto"
-            width="900"
+            width= 90%
         >
             <!-- <router-link :to="{name: 'ClaimTab2Act2', params: { id : id}}" style="text-decoration: none; color: inherit;" exact> -->
                 <v-card-title class="text-center justify-center py-6">
