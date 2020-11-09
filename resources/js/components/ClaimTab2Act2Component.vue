@@ -1,13 +1,13 @@
 // Act２
 <template>
     <v-app class="whole" color="basil">
-        <v-container 
-            class="text-center justify-center py-6" 
+        <div 
+            class="text-center justify-center py-6 d-flex"
         >
 
         <!-- <router-view :id="id" /> -->
                 <!-- 論点に対する主張 -->
-            <v-card 
+            <!-- <v-card 
                 class="d-flex mx-auto"
                 width= 90%
             >
@@ -19,7 +19,7 @@
                 color="black"
                 >
                     <v-tab href="#pros" class="font-weight-black" >賛成
-                        <!-- モーダルウィンドウ(claim_output) -->
+
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
@@ -35,7 +35,7 @@
                     </v-tab>
 
                     <v-tab href="#cons" class="font-weight-black">反対
-                        <!-- モーダルウィンドウ(claim_output) -->
+
                         <v-tooltip bottom>
                             <template v-slot:activator="{ on2, attrs2 }">
                                 <div class= "open-modal-claim-outoput"
@@ -51,30 +51,88 @@
 
                     </v-tab>  
                 </v-tabs>
-            </v-card>
+            </v-card> -->
+
+            <!-- <div 
+                class="d-flex mx-auto"
+                width= 80%
+                background-color="transparent"
+                grow
+                style="white-space: normal;"
+            > -->
+
+                    <v-card 
+                        class="d-flex"
+                        width= 100%
+                        >
+                        
+                        <v-card-text class="font-weight-black">賛成</v-card-text>
+
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on2, attrs2 }">
+                                <div class= "open-modal-claim-outoput"
+                                    v-on:click="show = !show"
+                                    v-bind="attrs2"
+                                    v-on="on2"
+                                    >
+                                    <i class="fas fa-edit fa-2x ml-2"></i>
+                                </div>
+                            </template>
+                            <span>新しい論点を追加する</span>
+                        </v-tooltip>  
+                    </v-card>
+
+                    <v-card 
+                        class="d-flex"
+                        width= 100%                    
+                    >
+
+                        <v-card-text class="font-weight-black">反対</v-card-text>
+
+                        <v-tooltip bottom>
+                            <template v-slot:activator="{ on2, attrs2 }">
+                                <div class= "open-modal-claim-outoput"
+                                    v-on:click="show = !show"
+                                    v-bind="attrs2"
+                                    v-on="on2"
+                                    >
+                                    <i class="fas fa-edit fa-2x ml-2"></i>
+                                </div>
+                            </template>
+                            <span>新しい論点を追加する</span>
+                        </v-tooltip>  
+
+                    </v-card>  
+        </div>
+            <!-- </div> -->
+
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
             <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
 
-            <v-tabs-items 
+            <!-- <v-tabs-items 
                 v-model="tab1"
                 v-for="(claim, index) in claimTestFiltered"
                 :key="claim.id"
                 :class="{ active: currentTab === index }"
                 @click="currentTab = index"
-            >
+            > -->
+            <div 
+                v-for="(claim, index) in claimTestFiltered"
+                :key="index"
+            >            
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->
 
 
             <!-- この下が、OutputCard -->
-                <v-tab-item 
+                <!-- <v-tab-item 
                     value="pros"             
                     v-if=" claim.claim_flag === 0"
                     max-width="600"
-                >
+                > -->
                 <!-- カード①賛成用 -->
                 <!-- <ClaimsPros-component :id="id" :claimId="claimId"></ClaimsPros-component> -->
-                <template>
+                <template v-if=" claim.claim_flag === 0">
                     <!-- <div> -->
                         <v-card
                             color="#1565C0"
@@ -115,16 +173,16 @@
                     <!-- </div> -->
                 </template> 
 
+<!-- 
+                </v-tab-item> -->
 
-                </v-tab-item>
-
-                <v-tab-item value="cons"
+                <!-- <v-tab-item value="cons"
                     v-if=" claim.claim_flag === 1"
-                >
+                > -->
                 <!-- <ClaimsCons-component :id="id"></ClaimsCons-component> -->
                 <!-- カード②反対用 -->
                 <!-- <div v-for=" in claim_output"> -->
-                    <template>                        
+                    <template v-if=" claim.claim_flag === 1">                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
                                 color="#C62828"
@@ -166,11 +224,11 @@
                         <!-- </div> -->
                     </template>  
                 <!-- </div> -->
-                </v-tab-item>
+                <!-- </v-tab-item> -->
 
-            </v-tabs-items>
+            </div>
 
-        </v-container>
+
     </v-app>
 </template>
 
@@ -291,7 +349,7 @@ export default {
 <style scoped>
 .whole {
     /* width: 1100px; */
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     background-color: transparent;
 }
@@ -346,4 +404,28 @@ a.router-link-exact-active v-card-text {
 a.router-link-exact-active i {
     color: white;
 }
+
+/* .v-tab-model {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    font-size: .875rem;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: .0892857143em;
+    line-height: normal;
+    min-width: 90px;
+    max-width: 360px;
+    outline: none;
+    padding: 0 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} */
 </style>
