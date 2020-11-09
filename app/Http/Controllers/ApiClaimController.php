@@ -14,7 +14,7 @@ class ApiClaimController extends Controller
 {
     public function index()
     {
-
+        return Claim::orderBy('created_at', 'desc')->get();
     }
 
     public function store(Request $request, User $user)

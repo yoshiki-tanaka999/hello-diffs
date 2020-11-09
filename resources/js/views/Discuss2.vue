@@ -22,7 +22,6 @@
                 v-bind:id="id" 
                 v-bind:claimContent="claim.content" 
                 v-bind:claimLevel="claim.claim_level"
-                @catchParent="displayMessage"
             />
 
             <!-- <ClaimTab2Act2-component v-bind:id="id"></ClaimTab2Act2-component>  -->
