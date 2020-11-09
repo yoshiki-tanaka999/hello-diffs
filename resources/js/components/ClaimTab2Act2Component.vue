@@ -265,12 +265,12 @@ export default {
                 return claim_output.claim_flag === "反対"
             })
         },
-        claimTestFiltered() {
-            const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === 1)
-            return result;
-            console.log(result);
-        },   
+        // claimTestFiltered() {
+        //     const claimOutputTestData = this.claims
+        //     const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === 1)
+        //     return result;
+        //     console.log(result);
+        // },   
         claimProsFiltered() {
             const claimOutputTestData = this.claims
             const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_flag === 0 && claims.claim_level === 1)
