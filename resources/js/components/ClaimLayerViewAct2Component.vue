@@ -8,7 +8,8 @@
 
             <!-- クリックしたclaim.contentが表示される -->
             <v-card
-                color="basil"
+                color="#2f3640"
+                dark
                 flat
                 width="900"
                 max-height="100"
@@ -17,13 +18,14 @@
                 >
                 <v-card-text
                     class="font-weight-black ma-auto"
-                    width="900"
-                    color="black"
+                    width= 100％
+                    color="white"
+                    font-weight="bold"
                 >
                     {{ $route.params.claimContent }}
                     <!-- {{ claim.content }} -->
                 </v-card-text>
-              
+
             </v-card>
 
                 <!-- 論点に対する主張 -->
@@ -36,7 +38,7 @@
                 background-color="transparent"
                 grow
                 class="py-3"
-                color="indigo darken-4"
+                color="black"
                 >
                     <v-tab href="#pros" class="font-weight-black">賛成
                         <!-- モーダルウィンドウ(claim_output) -->
@@ -97,7 +99,7 @@
                 <template>
                     <!-- <div> -->
                         <v-card
-                            color="#C62828"
+                            color="#1565C0"
                             dark
                             width="600"
                             max-height="200"
@@ -144,7 +146,7 @@
                     <template>                        
                         <!-- <div v-show="currentTab === 1 ">                             -->
                             <v-card
-                                color="#1565C0"
+                                color="#C62828"
                                 dark
                                 width="600"
                                 max-height="200"
@@ -352,7 +354,8 @@ export default {
 
 <style scoped>
 .whole {
-    width: 1100px;
+    /* width: 1100px; */
+    width: 100%;
     margin: 0 auto;
     background-color: transparent;
 }
