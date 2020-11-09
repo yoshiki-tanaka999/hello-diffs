@@ -1,6 +1,6 @@
 // Act２
 <template>
-    <v-app class="whole" color="basil">
+    <v-app class="whole">
         <div 
             class="text-center justify-center py-6 d-flex"
         >
@@ -82,7 +82,7 @@
                                         :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
                                         style="text-decoration: none; color: inherit;" 
                                         exact 
-                                        @click="sendParent">
+                                        >
 
                                         <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
@@ -136,7 +136,7 @@
                                     :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
                                     style="text-decoration: none; color: inherit;" 
                                     exact 
-                                    @click="sendParent">
+                                    >
 
                                     <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
@@ -240,9 +240,9 @@ export default {
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].id;
             },
-            sendParent(){
-                this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
-        }
+        //     sendParent(){
+        //         this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
+        // }
     },
     mounted() {
         this.getPost();
