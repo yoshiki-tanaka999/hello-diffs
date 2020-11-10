@@ -78,12 +78,6 @@
                                     class="mx-auto my-4"
                                     @click= "getClaimParams(index)"
                                 >
-                                    <router-link 
-                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                        style="text-decoration: none; color: inherit;" 
-                                        exact 
-                                        >
-
                                         <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
                                             <div class="postStatusList d-flex">
@@ -96,15 +90,17 @@
 
                                     <!-- データベースからテキストを描画 -->
 
+                                    <router-link 
+                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                        style="text-decoration: none; color: inherit;" 
+                                        exact 
+                                        >
                                             <div
                                                 class="font-weight-black claimText"
                                                 color="white"
                                             >
                                                 {{claim.content}}
                                             </div>
-
-
-
                                     </router-link>                             
                                 </v-card>
                             <!-- </div> -->
@@ -132,11 +128,7 @@
                                 >
                                 <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link 
-                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                    style="text-decoration: none; color: inherit;" 
-                                    exact 
-                                    >
+
 
                                     <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
@@ -146,8 +138,13 @@
                                                 <!-- 「ブックマークされた数」 -->
                                                 <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
                                             </div>
-                                        </div>   
+                                        </div>  
 
+                                <router-link 
+                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                    style="text-decoration: none; color: inherit;" 
+                                    exact 
+                                    >
                                     <!-- データベースからテキストを描画 -->
                                             <div
                                                 class="font-weight-black claimText"
