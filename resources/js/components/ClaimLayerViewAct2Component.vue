@@ -80,7 +80,7 @@
 
 
                 <!-- v-ifでカードを描画。そこで、dataをinsertする -->
-            <ClaimOutputCardAct2-component :id="id" v-if="show"></ClaimOutputCardAct2-component>
+            <ClaimOutputCardLayerAct2-component :id="id" v-if="show"></ClaimOutputCardLayerAct2-component>
 
             <div class="d-flex justify-space-between">            
                 <!-- 【枠固定】 賛成・反対・その他タブ ⇔ 意見のカードで表示させる -->

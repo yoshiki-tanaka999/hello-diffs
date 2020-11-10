@@ -172,9 +172,9 @@ export default {
                     console.log(this.title); // 取れてる
                     console.log(this.description); // 取れてる
                 })
-                // .finally(function(){
-                //     location.reload(true);
-                // });
+                .finally(function(){
+                    location.reload(true);
+                });
         }
     }
 };
