@@ -86,8 +86,8 @@
                                                 <!-- 「Like数」 -->
                                                 <div>
                                                     <!-- <i class="fas fa-heart mr-2 ml-3"></i>1 -->
-                                                    <i v-if="!liked" class="fas fa-heart" @click="like(postId)">{{ likeCount }}</i>
-                                                    <i v-else class="far fa-heart" @click="unlike(postId)">{{ likeCount }}</i>
+                                                    <i v-if="!liked" class="fas fa-heart" @click="like(claimId)">{{ likeCount }}</i>
+                                                    <i v-else class="far fa-heart" @click="unlike(claimId)">{{ likeCount }}</i>
                                                 </div>
                                             </div>
                                         </div>   
@@ -214,7 +214,11 @@ export default {
             liked: false,
             likeCount: 0,
             }
-    },  
+    }, 
+    created () {
+        this.liked = this.defaultLiked
+        this.likeCount = this.defaultCount
+    },     
     methods: {
             getPost() {
                 axios.get('/api/posts/' + this.id)
@@ -249,6 +253,33 @@ export default {
                 this.upperId = this.claims[index].id;
                 this.claimFlag = this.claim[index].claim_flag;
             },
+            // 
+            like(claimId) {
+                let url = `/api/posts/${postId}/like`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = true
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            },
+            unlike(postId) {
+                let url = `/api/posts/${postId}/unlike`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = false
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            }            
     },
     mounted() {
         this.getPost();
