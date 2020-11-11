@@ -61,10 +61,10 @@
                     </v-icon>
                     <span class="subheading mr-2">0</span>
                     <span class="mr-1"></span>
-                    <v-icon class="mr-1">
+                    <!-- <v-icon class="mr-1">
                       mdi-share-variant
                     </v-icon>
-                    <span class="subheading">0</span>
+                    <span class="subheading">0</span> -->
                   </v-row>
                 </v-list-item>
               </v-card-actions>
