@@ -10,6 +10,7 @@ use App\Model\User\User;
 use Auth;
 
 use Validator;
+use App\Events\ClaimCreated;
 
 class ApiClaimController extends Controller
 {
@@ -32,6 +33,9 @@ class ApiClaimController extends Controller
         $claim->claim_flag = $request->claim_flag;
         $claim->content= $request->content;
         $claim->save();
+
+        // Pusher接続
+        event(new ClaimCreated($claim));
     }
 
     public function claimLike(Request $request)
