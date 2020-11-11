@@ -85,9 +85,9 @@
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
                                                 <!-- 「Like数」 -->
                                                 <div>
-                                                    <!-- <i class="fas fa-heart mr-2 ml-3"></i>1 -->
-                                                    <i v-if="!liked" class="fas fa-heart" @click="like(claimId)">{{ likeCount }}</i>
-                                                    <i v-else class="far fa-heart" @click="unlike(claimId)">{{ likeCount }}</i>
+                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                    <!-- <i v-if="!liked" class="fas fa-heart" @click="like(claimId)">{{ likeCount }}</i>
+                                                    <i v-else class="far fa-heart" @click="unlike(claimId)">{{ likeCount }}</i> -->
                                                 </div>
                                             </div>
                                         </div>   
@@ -246,6 +246,14 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            // getMessages() {
+            //     axios
+            //         .get("/api/claim")
+            //         .then((response) => {
+            //             this.claims = response.data;
+            //             console.log(this.claims);
+            //         });
+            // },
             getClaimParams(index) {
                 this.claimContent = this.claims[index].content;
                 // あんまり良くないが、3つの値を取得する
@@ -284,8 +292,14 @@ export default {
     mounted() {
         this.getPost();
         this.getClaim();
-        // this.getIssue();
-    },
+        
+        // Pusherからの通知待機
+        Echo.channel('claim')
+            .listen('ClaimCreated', (e) => {
+            this.getPost(); // 全メッセージを再読込
+        });
+        console.log(Echo.channel('claim'));
+        },    
     created() {
     // this.triggerEvent();
     },  

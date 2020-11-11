@@ -126,7 +126,7 @@ export default {
 
 .loginBtn {
     width: 100px;
-    height: 32px;
+    height: 40px;
     background-color: darkcyan;
     border-radius: 5px;
     /* margin: 3px; */

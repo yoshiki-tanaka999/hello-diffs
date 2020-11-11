@@ -162,7 +162,7 @@
           this.getMessages();
           // Pusherからの通知待機
           Echo.channel('chat')
-              .listen('MessageCreated', (e) => {
+              .listen('ChatCreated', (e) => {
                 this.getMessages(); // 全メッセージを再読込
           });
           console.log(Echo.channel('chat'));
