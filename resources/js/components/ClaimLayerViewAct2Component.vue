@@ -310,8 +310,13 @@ export default {
     mounted() {
         this.getPost();
         this.getClaim();
-        // this.getClaimParams();
-        // this.getIssue();
+
+        // Pusherからの通知待機
+        Echo.channel('claim')
+            .listen('ClaimCreated', (e) => {
+            this.getPost(); // 全メッセージを再読込
+        });
+        console.log(Echo.channel('claim'));
     },
     created() {
     // this.triggerEvent();

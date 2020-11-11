@@ -86,6 +86,8 @@
                                                 <!-- 「Like数」 -->
                                                 <div>
                                                     <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                    <!-- <i v-if="!liked" class="fas fa-heart" @click="like(claimId)">{{ likeCount }}</i>
+                                                    <i v-else class="far fa-heart" @click="unlike(claimId)">{{ likeCount }}</i> -->
                                                 </div>
                                             </div>
                                         </div>   
@@ -209,21 +211,14 @@ export default {
             claimLevel: "",
             upperId: "",
             claimFlag: "",
-            // userAction: {
-            //         like: {
-            //             list: [],
-            //             debouncedList: []
-            //         },
-            //         report: {
-            //         },
-            //         impression: {
-            //             tweetIdList: [],
-            //             postedTweetIdList: [],
-            //             updateTweetImpressionCountTimer: null
-            //         }
-            //     },
+            liked: false,
+            likeCount: 0,
             }
-    },  
+    }, 
+    created () {
+        this.liked = this.defaultLiked
+        this.likeCount = this.defaultCount
+    },     
     methods: {
             getPost() {
                 axios.get('/api/posts/' + this.id)
@@ -251,6 +246,14 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            // getMessages() {
+            //     axios
+            //         .get("/api/claim")
+            //         .then((response) => {
+            //             this.claims = response.data;
+            //             console.log(this.claims);
+            //         });
+            // },
             getClaimParams(index) {
                 this.claimContent = this.claims[index].content;
                 // あんまり良くないが、3つの値を取得する
@@ -258,12 +261,45 @@ export default {
                 this.upperId = this.claims[index].id;
                 this.claimFlag = this.claim[index].claim_flag;
             },
+            // 
+            like(claimId) {
+                let url = `/api/posts/${postId}/like`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = true
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            },
+            unlike(postId) {
+                let url = `/api/posts/${postId}/unlike`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = false
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            }            
     },
     mounted() {
         this.getPost();
         this.getClaim();
-        // this.getIssue();
-    },
+        
+        // Pusherからの通知待機
+        Echo.channel('claim')
+            .listen('ClaimCreated', (e) => {
+            this.getPost(); // 全メッセージを再読込
+        });
+        console.log(Echo.channel('claim'));
+        },    
     created() {
     // this.triggerEvent();
     },  
