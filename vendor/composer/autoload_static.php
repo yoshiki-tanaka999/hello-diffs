@@ -578,7 +578,7 @@ class ComposerStaticInit661d49920cf040240517d2aa10c652d5
         'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
         'App\\Http\\Controllers\\TagsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagsController.php',
         'App\\Http\\Controllers\\TestApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestApiController.php',
-        'App\\Http\\Controllers\\TweetController' => __DIR__ . '/../..' . '/app/Http/Controllers/TweetController.php',
+        // 'App\\Http\\Controllers\\TweetController' => __DIR__ . '/../..' . '/app/Http/Controllers/TweetController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
