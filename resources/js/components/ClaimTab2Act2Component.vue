@@ -93,7 +93,7 @@
                                     <!-- データベースからテキストを描画 -->
 
                                     <router-link 
-                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
                                         style="text-decoration: none; color: inherit;" 
                                         exact 
                                         >
@@ -145,7 +145,7 @@
                                         </div>  
 
                                 <router-link 
-                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
                                     style="text-decoration: none; color: inherit;" 
                                     exact 
                                     >
@@ -208,19 +208,20 @@ export default {
             claimContent : "",
             claimLevel: "",
             upperId: "",
-            userAction: {
-                    like: {
-                        list: [],
-                        debouncedList: []
-                    },
-                    report: {
-                    },
-                    impression: {
-                        tweetIdList: [],
-                        postedTweetIdList: [],
-                        updateTweetImpressionCountTimer: null
-                    }
-                },
+            claimFlag: "",
+            // userAction: {
+            //         like: {
+            //             list: [],
+            //             debouncedList: []
+            //         },
+            //         report: {
+            //         },
+            //         impression: {
+            //             tweetIdList: [],
+            //             postedTweetIdList: [],
+            //             updateTweetImpressionCountTimer: null
+            //         }
+            //     },
             }
     },  
     methods: {
@@ -255,6 +256,7 @@ export default {
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].id;
+                this.claimFlag = this.claim[index].claim_flag;
             },
     },
     mounted() {
