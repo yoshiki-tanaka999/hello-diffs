@@ -83,8 +83,10 @@
                                             <div class="postStatusList d-flex">
                                                 <!-- 「コメント数」 -->
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                                <!-- 「ブックマークされた数」 -->
-                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                                <!-- 「Like数」 -->
+                                                <div>
+                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                </div>
                                             </div>
                                         </div>   
 
@@ -135,8 +137,10 @@
                                             <div class="postStatusList d-flex">
                                                 <!-- 「コメント数」 -->
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                                <!-- 「ブックマークされた数」 -->
-                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                                <!-- 「Like数」 -->
+                                                <div>
+                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                </div>
                                             </div>
                                         </div>  
 
@@ -168,6 +172,8 @@
 </template>
 
 <script>
+window._ = require('lodash');
+
 export default {
     name:'ClaimTab2Act2',
     props: {
@@ -201,7 +207,20 @@ export default {
             result: [],
             claimContent : "",
             claimLevel: "",
-            upperId: ""
+            upperId: "",
+            userAction: {
+                    like: {
+                        list: [],
+                        debouncedList: []
+                    },
+                    report: {
+                    },
+                    impression: {
+                        tweetIdList: [],
+                        postedTweetIdList: [],
+                        updateTweetImpressionCountTimer: null
+                    }
+                },
             }
     },  
     methods: {
@@ -237,9 +256,6 @@ export default {
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].id;
             },
-        //     sendParent(){
-        //         this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
-        // }
     },
     mounted() {
         this.getPost();

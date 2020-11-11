@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ClaimService;
 use Illuminate\Http\Request;
 use App\Model\Post\System\Claim;
 use App\Model\Post\Post;
@@ -32,6 +33,13 @@ class ApiClaimController extends Controller
         $claim->content= $request->content;
         $claim->save();
     }
+
+    public function claimLike(Request $request)
+    {
+        $this->claimService->updateLikeCount($request->claimId, $request->likePushed);
+        return $request->claimId;
+    }
+
 
 
     public function show($id)
