@@ -15,7 +15,7 @@ class CreateClaimLikesTable extends Migration
     {
         Schema::create('claim_likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('participant_id');
+            $table->integer('user_id');
             $table->integer('claim_id');
             $table->timestamps();
             $table->softDeletes();

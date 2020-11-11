@@ -7,7 +7,7 @@ use App\Model\Post\System\Chat;
 use App\Model\Post\Post;
 use App\Model\User\User;
 use Auth;
-use App\Events\MessageCreated;
+use App\Events\ChatCreated;
 
 use Validator;
 
@@ -46,7 +46,7 @@ class ApiChatController extends Controller
         $chat->save();
 
         // Pusher接続
-        event(new MessageCreated($chat));
+        event(new ChatCreated($chat));
 
         // Postモデルと紐付けができていないので、以下、createで試す
         // Chat::create($request->all());

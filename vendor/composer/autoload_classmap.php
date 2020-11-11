@@ -31,7 +31,7 @@ return array(
     'App\\Http\\Controllers\\PostController' => $baseDir . '/app/Http/Controllers/PostController.php',
     'App\\Http\\Controllers\\TagsController' => $baseDir . '/app/Http/Controllers/TagsController.php',
     'App\\Http\\Controllers\\TestApiController' => $baseDir . '/app/Http/Controllers/TestApiController.php',
-    'App\\Http\\Controllers\\TweetController' => $baseDir . '/app/Http/Controllers/TweetController.php',
+    // 'App\\Http\\Controllers\\TweetController' => $baseDir . '/app/Http/Controllers/TweetController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

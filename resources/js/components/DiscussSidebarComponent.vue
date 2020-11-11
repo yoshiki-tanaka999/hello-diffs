@@ -59,12 +59,12 @@
                     <v-icon class="mr-1">
                       mdi-heart
                     </v-icon>
-                    <span class="subheading mr-2">256</span>
+                    <span class="subheading mr-2">0</span>
                     <span class="mr-1"></span>
-                    <v-icon class="mr-1">
+                    <!-- <v-icon class="mr-1">
                       mdi-share-variant
                     </v-icon>
-                    <span class="subheading">45</span>
+                    <span class="subheading">0</span> -->
                   </v-row>
                 </v-list-item>
               </v-card-actions>
@@ -162,7 +162,7 @@
           this.getMessages();
           // Pusherからの通知待機
           Echo.channel('chat')
-              .listen('MessageCreated', (e) => {
+              .listen('ChatCreated', (e) => {
                 this.getMessages(); // 全メッセージを再読込
           });
           console.log(Echo.channel('chat'));

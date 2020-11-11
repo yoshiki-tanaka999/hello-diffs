@@ -78,33 +78,33 @@
                                     class="mx-auto my-4"
                                     @click= "getClaimParams(index)"
                                 >
-                                    <router-link 
-                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                        style="text-decoration: none; color: inherit;" 
-                                        exact 
-                                        >
-
                                         <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
                                             <div class="postStatusList d-flex">
                                                 <!-- 「コメント数」 -->
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                                <!-- 「ブックマークされた数」 -->
-                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                                <!-- 「Like数」 -->
+                                                <div>
+                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                    <!-- <i v-if="!liked" class="fas fa-heart" @click="like(claimId)">{{ likeCount }}</i>
+                                                    <i v-else class="far fa-heart" @click="unlike(claimId)">{{ likeCount }}</i> -->
+                                                </div>
                                             </div>
                                         </div>   
 
                                     <!-- データベースからテキストを描画 -->
 
+                                    <router-link 
+                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
+                                        style="text-decoration: none; color: inherit;" 
+                                        exact 
+                                        >
                                             <div
                                                 class="font-weight-black claimText"
                                                 color="white"
                                             >
                                                 {{claim.content}}
                                             </div>
-
-
-
                                     </router-link>                             
                                 </v-card>
                             <!-- </div> -->
@@ -132,22 +132,25 @@
                                 >
                                 <!-- v-ifで賛成、反対、その他ごとに紐付ける（それぞれ色を変えたい） -->
 
-                                <router-link 
-                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
-                                    style="text-decoration: none; color: inherit;" 
-                                    exact 
-                                    >
+
 
                                     <!-- アイコンを追加 -->
                                         <div class="claimOutputValue">
                                             <div class="postStatusList d-flex">
                                                 <!-- 「コメント数」 -->
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
-                                                <!-- 「ブックマークされた数」 -->
-                                                <div><i class="fas fa-heart mr-2 ml-3"></i>1</div>
+                                                <!-- 「Like数」 -->
+                                                <div>
+                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                </div>
                                             </div>
-                                        </div>   
+                                        </div>  
 
+                                <router-link 
+                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
+                                    style="text-decoration: none; color: inherit;" 
+                                    exact 
+                                    >
                                     <!-- データベースからテキストを描画 -->
                                             <div
                                                 class="font-weight-black claimText"
@@ -171,6 +174,8 @@
 </template>
 
 <script>
+window._ = require('lodash');
+
 export default {
     name:'ClaimTab2Act2',
     props: {
@@ -204,9 +209,16 @@ export default {
             result: [],
             claimContent : "",
             claimLevel: "",
-            upperId: ""
+            upperId: "",
+            claimFlag: "",
+            liked: false,
+            likeCount: 0,
             }
-    },  
+    }, 
+    created () {
+        this.liked = this.defaultLiked
+        this.likeCount = this.defaultCount
+    },     
     methods: {
             getPost() {
                 axios.get('/api/posts/' + this.id)
@@ -234,21 +246,60 @@ export default {
                     // その他・補足のデータ
                 })
             },
+            // getMessages() {
+            //     axios
+            //         .get("/api/claim")
+            //         .then((response) => {
+            //             this.claims = response.data;
+            //             console.log(this.claims);
+            //         });
+            // },
             getClaimParams(index) {
                 this.claimContent = this.claims[index].content;
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = this.claims[index].claim_level;
                 this.upperId = this.claims[index].id;
+                this.claimFlag = this.claim[index].claim_flag;
             },
-        //     sendParent(){
-        //         this.$emit('catchParent', this.claimContent, this.claimLevel, this.upperId);              
-        // }
+            // 
+            like(claimId) {
+                let url = `/api/posts/${postId}/like`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = true
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            },
+            unlike(postId) {
+                let url = `/api/posts/${postId}/unlike`
+                axios.post(url, {
+                    user_id: this.userId
+                })
+                .then(response => {
+                    this.liked = false
+                    this.likeCount = response.data.likeCount
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            }            
     },
     mounted() {
         this.getPost();
         this.getClaim();
-        // this.getIssue();
-    },
+        
+        // Pusherからの通知待機
+        Echo.channel('claim')
+            .listen('ClaimCreated', (e) => {
+            this.getPost(); // 全メッセージを再読込
+        });
+        console.log(Echo.channel('claim'));
+        },    
     created() {
     // this.triggerEvent();
     },  
@@ -265,12 +316,12 @@ export default {
                 return claim_output.claim_flag === "反対"
             })
         },
-        claimTestFiltered() {
-            const claimOutputTestData = this.claims
-            const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === 1)
-            return result;
-            console.log(result);
-        },   
+        // claimTestFiltered() {
+        //     const claimOutputTestData = this.claims
+        //     const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_level === 1)
+        //     return result;
+        //     console.log(result);
+        // },   
         claimProsFiltered() {
             const claimOutputTestData = this.claims
             const result = claimOutputTestData.filter(claims => claims.post_id === this.id && claims.claim_flag === 0 && claims.claim_level === 1)

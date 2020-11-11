@@ -78,14 +78,19 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Model\Post\System\Claim');
     }
 
-    public function newposts()
+    public function claim_likes()
     {
-        return $this->hasMany('App\Model\NewPost');
+        return $this->hasMany('App\Model\Post\System\Claim_like', 'user_id', 'id');
     }
 
-    public function newclaims()
-    {
-        return $this->hasMany('App\Model\Post\System\NewClaim');
-    }
+    // public function newposts()
+    // {
+    //     return $this->hasMany('App\Model\NewPost');
+    // }
+
+    // public function newclaims()
+    // {
+    //     return $this->hasMany('App\Model\Post\System\NewClaim');
+    // }
     
 }
