@@ -23,7 +23,7 @@
 
             <div class="d-flex">
                 <button class="loginBtn"><router-link :to="{ name: 'login', params: {} }"><p>Login</p></router-link></button>
-                <button class="logoutBtn" @click="logout"><p>Logout</p></button>
+                <!-- <button class="logoutBtn" @click="logout"><p>Logout</p></button> -->
             </div>
             <!-- モーダルが開かない。Bootstrap の影響？。放置。 -->
             <!-- <v-tooltip left>            
@@ -126,11 +126,11 @@ export default {
 
 .loginBtn {
     width: 100px;
-    height: 40px;
+    height: 32px;
     background-color: darkcyan;
     border-radius: 5px;
     /* margin: 3px; */
-    margin: auto 5px;
+    margin: auto 16px;
 }
 
 .loginBtn p {

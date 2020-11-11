@@ -29,6 +29,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&display=swap" rel="stylesheet">
+
+        <!-- ファビコン -->
+        <!-- <link rel="shortcut icon" type="image/png" href="/public/favicon.ico"/> -->
     </head>
 
     <body>

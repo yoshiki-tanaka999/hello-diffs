@@ -85,7 +85,9 @@
                                                 <div><i class="far fa-comments mr-2 ml-3"></i>3</div>
                                                 <!-- 「Like数」 -->
                                                 <div>
-                                                    <i class="fas fa-heart mr-2 ml-3"></i>1
+                                                    <!-- <i class="fas fa-heart mr-2 ml-3"></i>1 -->
+                                                    <i v-if="!liked" class="fas fa-heart" @click="like(postId)">{{ likeCount }}</i>
+                                                    <i v-else class="far fa-heart" @click="unlike(postId)">{{ likeCount }}</i>
                                                 </div>
                                             </div>
                                         </div>   
@@ -209,19 +211,8 @@ export default {
             claimLevel: "",
             upperId: "",
             claimFlag: "",
-            // userAction: {
-            //         like: {
-            //             list: [],
-            //             debouncedList: []
-            //         },
-            //         report: {
-            //         },
-            //         impression: {
-            //             tweetIdList: [],
-            //             postedTweetIdList: [],
-            //             updateTweetImpressionCountTimer: null
-            //         }
-            //     },
+            liked: false,
+            likeCount: 0,
             }
     },  
     methods: {
