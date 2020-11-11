@@ -7,26 +7,50 @@
         >
 
             <!-- クリックしたclaim.contentが表示される -->
-            <v-card
-                color="#2f3640"
+            <!-- 賛成バージョン -->
+            <v-card   
+                v-if="$route.params.claimFlag === 0"
+                color="#1565C0"
                 dark
                 flat
                 width= 100%
                 height="60"
-                class="ma-auto"
+                class="d-flex justify-center align-center"
                 @click="$router.go(-1)"
                 >
-                <v-card-text
-                    class="font-weight-black ma-auto"
-                    width= 100％
-                    color="white"
-                    font-weight="bold"
-                >
-                    {{ $route.params.claimContent }}
-                    <!-- {{ claim.content }} -->
-                </v-card-text>
+                    <div
+                        class="font-weight-black"
+                        color="white"
+                    >
+                        {{ $route.params.claimContent }}
+                        <!-- {{ claim.content }} -->
+                    </div>
 
             </v-card>
+
+            <!-- 反対バージョン -->
+            <v-card
+                v-if="$route.params.claimFlag === 1"
+                color="#C62828"
+                dark
+                flat
+                width= 100%
+                height="60"
+                class="d-flex justify-center align-center"
+                @click="$router.go(-1)"
+                >
+                    <div
+                        class="font-weight-black ma-auto"
+                        width= 100％
+                        color="white"
+                    >
+                        {{ $route.params.claimContent }}
+                        <!-- {{ claim.content }} -->
+                    </div>
+
+            </v-card>            
+
+
         </div>    
 
         <div 
@@ -118,7 +142,7 @@
 
                                     <!-- データベースからテキストを描画 -->
                                     <router-link 
-                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                        :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
                                         style="text-decoration: none; color: inherit;" 
                                         exact 
                                         >
@@ -168,7 +192,7 @@
                                         </div>
                                 
                                 <router-link 
-                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id}}" 
+                                    :to="{name: 'ClaimLayerViewAct2', params: {claimContent : claim.content, id : id, claimLevel : claim.claim_level, upperId: claim.id, claimFlag: claim.claim_flag}}" 
                                     style="text-decoration: none; color: inherit;" 
                                     exact 
                                     >
@@ -229,6 +253,7 @@ export default {
             currentTab: 0,
             activeCard: "",
             result: [],
+            claimFlag: "",
 
             // claimContent : "",
             // claimLevel: "",
@@ -279,6 +304,7 @@ export default {
                 // あんまり良くないが、3つの値を取得する
                 this.claimLevel = Number(this.claims[index].claim_level);
                 this.upperId = this.claims[index].claim_upper_id;
+                this.claimFlag = this.claim[index].claim_flag;
             },
     },
     mounted() {
@@ -385,6 +411,7 @@ export default {
 .claimOutputValue {
     float: right;
     margin-right: 20px;
+    padding-top: 10px;
     /* padding-bottom: 20px; */
 }
 
@@ -409,5 +436,10 @@ export default {
 
 .claimText {
     padding: 32px 12px 8px 12px;
+}
+
+.markClaim {
+    margin: 0 auto;
+    text-align:center;
 }
 </style>
