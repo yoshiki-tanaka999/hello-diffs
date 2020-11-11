@@ -26,4 +26,10 @@ class Claim extends Model
         return $this->hasMany('App\Model\Post\System\Claim_Output');
     }   
 
+    // Like機能
+    // protected $appends = ['is_liked'];
+
+    // public function getIsLikedAttribute() {
+    //     return $this->attributes['is_liked'];
+    // }
 }
